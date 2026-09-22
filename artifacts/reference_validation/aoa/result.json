@@ -1,0 +1,93 @@
+{
+  "status": "FAILED",
+  "diagram_type": "AOA",
+  "diagram_confidence": 1.0,
+  "shape_count": 14,
+  "arrow_count": 0,
+  "ocr_region_count": 0,
+  "reconstructed_activities": 0,
+  "reconstructed_events": 9,
+  "dependencies": 0,
+  "validation_passed": false,
+  "validation_errors": 0,
+  "validation_warnings": 0,
+  "cpm_project_duration": null,
+  "cpm_critical_path": [],
+  "cpm_critical_activity_count": 0,
+  "review_required": true,
+  "review_issues": [
+    {
+      "type": "NOT_SUPPORTED_FOR_CPM",
+      "description": "AOA reconstruction succeeded but CPM transformation is not yet supported for AOA representation"
+    }
+  ],
+  "total_warnings": 1,
+  "total_errors": 0,
+  "total_time_seconds": 1.706,
+  "stage_timings": {
+    "load_image": {
+      "status": "SUCCESS",
+      "duration_seconds": 0.016,
+      "error": null,
+      "warning": null
+    },
+    "preprocess": {
+      "status": "SUCCESS",
+      "duration_seconds": 1.5881,
+      "error": null,
+      "warning": null
+    },
+    "shape_detection": {
+      "status": "SUCCESS",
+      "duration_seconds": 0.101,
+      "error": null,
+      "warning": null
+    },
+    "classification": {
+      "status": "SUCCESS",
+      "duration_seconds": 0.001,
+      "error": null,
+      "warning": null
+    },
+    "arrow_detection": {
+      "status": "WARNING",
+      "duration_seconds": 0.0,
+      "error": null,
+      "warning": "'ShapeDetectionResult' object is not iterable"
+    },
+    "ocr": {
+      "status": "SUCCESS",
+      "duration_seconds": 0.0,
+      "error": null,
+      "warning": null
+    },
+    "association": {
+      "status": "SKIPPED",
+      "duration_seconds": 0.0,
+      "error": null,
+      "warning": "No OCR results"
+    },
+    "reconstruction": {
+      "status": "SUCCESS",
+      "duration_seconds": 0.0,
+      "error": null,
+      "warning": null
+    },
+    "graph_build": {
+      "status": "SUCCESS",
+      "duration_seconds": 0.0,
+      "error": null,
+      "warning": null
+    },
+    "validation_cpm": {
+      "status": "REVIEW_REQUIRED",
+      "duration_seconds": 0.0,
+      "error": null,
+      "warning": null
+    }
+  },
+  "warnings": [
+    "Arrow detection failed: 'ShapeDetectionResult' object is not iterable"
+  ],
+  "errors": []
+}

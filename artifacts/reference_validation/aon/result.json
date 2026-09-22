@@ -1,0 +1,691 @@
+{
+  "status": "FAILED",
+  "diagram_type": "AON",
+  "diagram_confidence": 1.0,
+  "shape_count": 34,
+  "arrow_count": 0,
+  "ocr_region_count": 0,
+  "reconstructed_activities": 25,
+  "reconstructed_events": 1,
+  "dependencies": 0,
+  "validation_passed": false,
+  "validation_errors": 0,
+  "validation_warnings": 0,
+  "cpm_project_duration": null,
+  "cpm_critical_path": [],
+  "cpm_critical_activity_count": 0,
+  "review_required": true,
+  "review_issues": [
+    {
+      "type": "LOW_SHAPE_CONFIDENCE",
+      "description": "Activity 'A1' has low confidence (0.392)",
+      "element_id": "A1",
+      "element_type": "activity"
+    },
+    {
+      "type": "UNCERTAIN_ACTIVITY_ID",
+      "description": "Activity 'A1' has no OCR text evidence",
+      "element_id": "A1",
+      "element_type": "activity"
+    },
+    {
+      "type": "LOW_SHAPE_CONFIDENCE",
+      "description": "Activity 'A2' has low confidence (0.392)",
+      "element_id": "A2",
+      "element_type": "activity"
+    },
+    {
+      "type": "UNCERTAIN_ACTIVITY_ID",
+      "description": "Activity 'A2' has no OCR text evidence",
+      "element_id": "A2",
+      "element_type": "activity"
+    },
+    {
+      "type": "LOW_SHAPE_CONFIDENCE",
+      "description": "Activity 'A3' has low confidence (0.392)",
+      "element_id": "A3",
+      "element_type": "activity"
+    },
+    {
+      "type": "UNCERTAIN_ACTIVITY_ID",
+      "description": "Activity 'A3' has no OCR text evidence",
+      "element_id": "A3",
+      "element_type": "activity"
+    },
+    {
+      "type": "LOW_SHAPE_CONFIDENCE",
+      "description": "Activity 'A4' has low confidence (0.392)",
+      "element_id": "A4",
+      "element_type": "activity"
+    },
+    {
+      "type": "UNCERTAIN_ACTIVITY_ID",
+      "description": "Activity 'A4' has no OCR text evidence",
+      "element_id": "A4",
+      "element_type": "activity"
+    },
+    {
+      "type": "LOW_SHAPE_CONFIDENCE",
+      "description": "Activity 'A5' has low confidence (0.391)",
+      "element_id": "A5",
+      "element_type": "activity"
+    },
+    {
+      "type": "UNCERTAIN_ACTIVITY_ID",
+      "description": "Activity 'A5' has no OCR text evidence",
+      "element_id": "A5",
+      "element_type": "activity"
+    },
+    {
+      "type": "LOW_SHAPE_CONFIDENCE",
+      "description": "Activity 'A6' has low confidence (0.391)",
+      "element_id": "A6",
+      "element_type": "activity"
+    },
+    {
+      "type": "UNCERTAIN_ACTIVITY_ID",
+      "description": "Activity 'A6' has no OCR text evidence",
+      "element_id": "A6",
+      "element_type": "activity"
+    },
+    {
+      "type": "LOW_SHAPE_CONFIDENCE",
+      "description": "Activity 'A7' has low confidence (0.391)",
+      "element_id": "A7",
+      "element_type": "activity"
+    },
+    {
+      "type": "UNCERTAIN_ACTIVITY_ID",
+      "description": "Activity 'A7' has no OCR text evidence",
+      "element_id": "A7",
+      "element_type": "activity"
+    },
+    {
+      "type": "LOW_SHAPE_CONFIDENCE",
+      "description": "Activity 'A8' has low confidence (0.391)",
+      "element_id": "A8",
+      "element_type": "activity"
+    },
+    {
+      "type": "UNCERTAIN_ACTIVITY_ID",
+      "description": "Activity 'A8' has no OCR text evidence",
+      "element_id": "A8",
+      "element_type": "activity"
+    },
+    {
+      "type": "LOW_SHAPE_CONFIDENCE",
+      "description": "Activity 'A9' has low confidence (0.390)",
+      "element_id": "A9",
+      "element_type": "activity"
+    },
+    {
+      "type": "UNCERTAIN_ACTIVITY_ID",
+      "description": "Activity 'A9' has no OCR text evidence",
+      "element_id": "A9",
+      "element_type": "activity"
+    },
+    {
+      "type": "LOW_SHAPE_CONFIDENCE",
+      "description": "Activity 'A10' has low confidence (0.390)",
+      "element_id": "A10",
+      "element_type": "activity"
+    },
+    {
+      "type": "UNCERTAIN_ACTIVITY_ID",
+      "description": "Activity 'A10' has no OCR text evidence",
+      "element_id": "A10",
+      "element_type": "activity"
+    },
+    {
+      "type": "LOW_SHAPE_CONFIDENCE",
+      "description": "Activity 'A11' has low confidence (0.390)",
+      "element_id": "A11",
+      "element_type": "activity"
+    },
+    {
+      "type": "UNCERTAIN_ACTIVITY_ID",
+      "description": "Activity 'A11' has no OCR text evidence",
+      "element_id": "A11",
+      "element_type": "activity"
+    },
+    {
+      "type": "LOW_SHAPE_CONFIDENCE",
+      "description": "Activity 'A12' has low confidence (0.390)",
+      "element_id": "A12",
+      "element_type": "activity"
+    },
+    {
+      "type": "UNCERTAIN_ACTIVITY_ID",
+      "description": "Activity 'A12' has no OCR text evidence",
+      "element_id": "A12",
+      "element_type": "activity"
+    },
+    {
+      "type": "LOW_SHAPE_CONFIDENCE",
+      "description": "Activity 'A13' has low confidence (0.390)",
+      "element_id": "A13",
+      "element_type": "activity"
+    },
+    {
+      "type": "UNCERTAIN_ACTIVITY_ID",
+      "description": "Activity 'A13' has no OCR text evidence",
+      "element_id": "A13",
+      "element_type": "activity"
+    },
+    {
+      "type": "LOW_SHAPE_CONFIDENCE",
+      "description": "Activity 'A14' has low confidence (0.390)",
+      "element_id": "A14",
+      "element_type": "activity"
+    },
+    {
+      "type": "UNCERTAIN_ACTIVITY_ID",
+      "description": "Activity 'A14' has no OCR text evidence",
+      "element_id": "A14",
+      "element_type": "activity"
+    },
+    {
+      "type": "LOW_SHAPE_CONFIDENCE",
+      "description": "Activity 'A15' has low confidence (0.390)",
+      "element_id": "A15",
+      "element_type": "activity"
+    },
+    {
+      "type": "UNCERTAIN_ACTIVITY_ID",
+      "description": "Activity 'A15' has no OCR text evidence",
+      "element_id": "A15",
+      "element_type": "activity"
+    },
+    {
+      "type": "LOW_SHAPE_CONFIDENCE",
+      "description": "Activity 'A16' has low confidence (0.389)",
+      "element_id": "A16",
+      "element_type": "activity"
+    },
+    {
+      "type": "UNCERTAIN_ACTIVITY_ID",
+      "description": "Activity 'A16' has no OCR text evidence",
+      "element_id": "A16",
+      "element_type": "activity"
+    },
+    {
+      "type": "LOW_SHAPE_CONFIDENCE",
+      "description": "Activity 'A17' has low confidence (0.389)",
+      "element_id": "A17",
+      "element_type": "activity"
+    },
+    {
+      "type": "UNCERTAIN_ACTIVITY_ID",
+      "description": "Activity 'A17' has no OCR text evidence",
+      "element_id": "A17",
+      "element_type": "activity"
+    },
+    {
+      "type": "LOW_SHAPE_CONFIDENCE",
+      "description": "Activity 'A18' has low confidence (0.389)",
+      "element_id": "A18",
+      "element_type": "activity"
+    },
+    {
+      "type": "UNCERTAIN_ACTIVITY_ID",
+      "description": "Activity 'A18' has no OCR text evidence",
+      "element_id": "A18",
+      "element_type": "activity"
+    },
+    {
+      "type": "LOW_SHAPE_CONFIDENCE",
+      "description": "Activity 'A19' has low confidence (0.389)",
+      "element_id": "A19",
+      "element_type": "activity"
+    },
+    {
+      "type": "UNCERTAIN_ACTIVITY_ID",
+      "description": "Activity 'A19' has no OCR text evidence",
+      "element_id": "A19",
+      "element_type": "activity"
+    },
+    {
+      "type": "LOW_SHAPE_CONFIDENCE",
+      "description": "Activity 'A20' has low confidence (0.389)",
+      "element_id": "A20",
+      "element_type": "activity"
+    },
+    {
+      "type": "UNCERTAIN_ACTIVITY_ID",
+      "description": "Activity 'A20' has no OCR text evidence",
+      "element_id": "A20",
+      "element_type": "activity"
+    },
+    {
+      "type": "LOW_SHAPE_CONFIDENCE",
+      "description": "Activity 'A21' has low confidence (0.387)",
+      "element_id": "A21",
+      "element_type": "activity"
+    },
+    {
+      "type": "UNCERTAIN_ACTIVITY_ID",
+      "description": "Activity 'A21' has no OCR text evidence",
+      "element_id": "A21",
+      "element_type": "activity"
+    },
+    {
+      "type": "LOW_SHAPE_CONFIDENCE",
+      "description": "Activity 'A22' has low confidence (0.386)",
+      "element_id": "A22",
+      "element_type": "activity"
+    },
+    {
+      "type": "UNCERTAIN_ACTIVITY_ID",
+      "description": "Activity 'A22' has no OCR text evidence",
+      "element_id": "A22",
+      "element_type": "activity"
+    },
+    {
+      "type": "LOW_SHAPE_CONFIDENCE",
+      "description": "Activity 'A23' has low confidence (0.313)",
+      "element_id": "A23",
+      "element_type": "activity"
+    },
+    {
+      "type": "UNCERTAIN_ACTIVITY_ID",
+      "description": "Activity 'A23' has no OCR text evidence",
+      "element_id": "A23",
+      "element_type": "activity"
+    },
+    {
+      "type": "LOW_SHAPE_CONFIDENCE",
+      "description": "Activity 'A24' has low confidence (0.283)",
+      "element_id": "A24",
+      "element_type": "activity"
+    },
+    {
+      "type": "UNCERTAIN_ACTIVITY_ID",
+      "description": "Activity 'A24' has no OCR text evidence",
+      "element_id": "A24",
+      "element_type": "activity"
+    },
+    {
+      "type": "LOW_SHAPE_CONFIDENCE",
+      "description": "Activity 'A25' has low confidence (0.274)",
+      "element_id": "A25",
+      "element_type": "activity"
+    },
+    {
+      "type": "UNCERTAIN_ACTIVITY_ID",
+      "description": "Activity 'A25' has no OCR text evidence",
+      "element_id": "A25",
+      "element_type": "activity"
+    },
+    {
+      "type": "MISSING_DURATION",
+      "description": "Activity 'A1' has no duration",
+      "element_id": "A1",
+      "element_type": "activity"
+    },
+    {
+      "type": "MISSING_DURATION",
+      "description": "Activity 'A2' has no duration",
+      "element_id": "A2",
+      "element_type": "activity"
+    },
+    {
+      "type": "MISSING_DURATION",
+      "description": "Activity 'A3' has no duration",
+      "element_id": "A3",
+      "element_type": "activity"
+    },
+    {
+      "type": "MISSING_DURATION",
+      "description": "Activity 'A4' has no duration",
+      "element_id": "A4",
+      "element_type": "activity"
+    },
+    {
+      "type": "MISSING_DURATION",
+      "description": "Activity 'A5' has no duration",
+      "element_id": "A5",
+      "element_type": "activity"
+    },
+    {
+      "type": "MISSING_DURATION",
+      "description": "Activity 'A6' has no duration",
+      "element_id": "A6",
+      "element_type": "activity"
+    },
+    {
+      "type": "MISSING_DURATION",
+      "description": "Activity 'A7' has no duration",
+      "element_id": "A7",
+      "element_type": "activity"
+    },
+    {
+      "type": "MISSING_DURATION",
+      "description": "Activity 'A8' has no duration",
+      "element_id": "A8",
+      "element_type": "activity"
+    },
+    {
+      "type": "MISSING_DURATION",
+      "description": "Activity 'A9' has no duration",
+      "element_id": "A9",
+      "element_type": "activity"
+    },
+    {
+      "type": "MISSING_DURATION",
+      "description": "Activity 'A10' has no duration",
+      "element_id": "A10",
+      "element_type": "activity"
+    },
+    {
+      "type": "MISSING_DURATION",
+      "description": "Activity 'A11' has no duration",
+      "element_id": "A11",
+      "element_type": "activity"
+    },
+    {
+      "type": "MISSING_DURATION",
+      "description": "Activity 'A12' has no duration",
+      "element_id": "A12",
+      "element_type": "activity"
+    },
+    {
+      "type": "MISSING_DURATION",
+      "description": "Activity 'A13' has no duration",
+      "element_id": "A13",
+      "element_type": "activity"
+    },
+    {
+      "type": "MISSING_DURATION",
+      "description": "Activity 'A14' has no duration",
+      "element_id": "A14",
+      "element_type": "activity"
+    },
+    {
+      "type": "MISSING_DURATION",
+      "description": "Activity 'A15' has no duration",
+      "element_id": "A15",
+      "element_type": "activity"
+    },
+    {
+      "type": "MISSING_DURATION",
+      "description": "Activity 'A16' has no duration",
+      "element_id": "A16",
+      "element_type": "activity"
+    },
+    {
+      "type": "MISSING_DURATION",
+      "description": "Activity 'A17' has no duration",
+      "element_id": "A17",
+      "element_type": "activity"
+    },
+    {
+      "type": "MISSING_DURATION",
+      "description": "Activity 'A18' has no duration",
+      "element_id": "A18",
+      "element_type": "activity"
+    },
+    {
+      "type": "MISSING_DURATION",
+      "description": "Activity 'A19' has no duration",
+      "element_id": "A19",
+      "element_type": "activity"
+    },
+    {
+      "type": "MISSING_DURATION",
+      "description": "Activity 'A20' has no duration",
+      "element_id": "A20",
+      "element_type": "activity"
+    },
+    {
+      "type": "MISSING_DURATION",
+      "description": "Activity 'A21' has no duration",
+      "element_id": "A21",
+      "element_type": "activity"
+    },
+    {
+      "type": "MISSING_DURATION",
+      "description": "Activity 'A22' has no duration",
+      "element_id": "A22",
+      "element_type": "activity"
+    },
+    {
+      "type": "MISSING_DURATION",
+      "description": "Activity 'A23' has no duration",
+      "element_id": "A23",
+      "element_type": "activity"
+    },
+    {
+      "type": "MISSING_DURATION",
+      "description": "Activity 'A24' has no duration",
+      "element_id": "A24",
+      "element_type": "activity"
+    },
+    {
+      "type": "MISSING_DURATION",
+      "description": "Activity 'A25' has no duration",
+      "element_id": "A25",
+      "element_type": "activity"
+    },
+    {
+      "type": "shape_no_text",
+      "description": "Activity 'A1' has no associated text",
+      "element_id": "A1",
+      "element_type": "ambiguous"
+    },
+    {
+      "type": "shape_no_text",
+      "description": "Activity 'A2' has no associated text",
+      "element_id": "A2",
+      "element_type": "ambiguous"
+    },
+    {
+      "type": "shape_no_text",
+      "description": "Activity 'A3' has no associated text",
+      "element_id": "A3",
+      "element_type": "ambiguous"
+    },
+    {
+      "type": "shape_no_text",
+      "description": "Activity 'A4' has no associated text",
+      "element_id": "A4",
+      "element_type": "ambiguous"
+    },
+    {
+      "type": "shape_no_text",
+      "description": "Activity 'A5' has no associated text",
+      "element_id": "A5",
+      "element_type": "ambiguous"
+    },
+    {
+      "type": "shape_no_text",
+      "description": "Activity 'A6' has no associated text",
+      "element_id": "A6",
+      "element_type": "ambiguous"
+    },
+    {
+      "type": "shape_no_text",
+      "description": "Activity 'A7' has no associated text",
+      "element_id": "A7",
+      "element_type": "ambiguous"
+    },
+    {
+      "type": "shape_no_text",
+      "description": "Activity 'A8' has no associated text",
+      "element_id": "A8",
+      "element_type": "ambiguous"
+    },
+    {
+      "type": "shape_no_text",
+      "description": "Activity 'A9' has no associated text",
+      "element_id": "A9",
+      "element_type": "ambiguous"
+    },
+    {
+      "type": "shape_no_text",
+      "description": "Activity 'A10' has no associated text",
+      "element_id": "A10",
+      "element_type": "ambiguous"
+    },
+    {
+      "type": "shape_no_text",
+      "description": "Activity 'A11' has no associated text",
+      "element_id": "A11",
+      "element_type": "ambiguous"
+    },
+    {
+      "type": "shape_no_text",
+      "description": "Activity 'A12' has no associated text",
+      "element_id": "A12",
+      "element_type": "ambiguous"
+    },
+    {
+      "type": "shape_no_text",
+      "description": "Activity 'A13' has no associated text",
+      "element_id": "A13",
+      "element_type": "ambiguous"
+    },
+    {
+      "type": "shape_no_text",
+      "description": "Activity 'A14' has no associated text",
+      "element_id": "A14",
+      "element_type": "ambiguous"
+    },
+    {
+      "type": "shape_no_text",
+      "description": "Activity 'A15' has no associated text",
+      "element_id": "A15",
+      "element_type": "ambiguous"
+    },
+    {
+      "type": "shape_no_text",
+      "description": "Activity 'A16' has no associated text",
+      "element_id": "A16",
+      "element_type": "ambiguous"
+    },
+    {
+      "type": "shape_no_text",
+      "description": "Activity 'A17' has no associated text",
+      "element_id": "A17",
+      "element_type": "ambiguous"
+    },
+    {
+      "type": "shape_no_text",
+      "description": "Activity 'A18' has no associated text",
+      "element_id": "A18",
+      "element_type": "ambiguous"
+    },
+    {
+      "type": "shape_no_text",
+      "description": "Activity 'A19' has no associated text",
+      "element_id": "A19",
+      "element_type": "ambiguous"
+    },
+    {
+      "type": "shape_no_text",
+      "description": "Activity 'A20' has no associated text",
+      "element_id": "A20",
+      "element_type": "ambiguous"
+    },
+    {
+      "type": "shape_no_text",
+      "description": "Activity 'A21' has no associated text",
+      "element_id": "A21",
+      "element_type": "ambiguous"
+    },
+    {
+      "type": "shape_no_text",
+      "description": "Activity 'A22' has no associated text",
+      "element_id": "A22",
+      "element_type": "ambiguous"
+    },
+    {
+      "type": "shape_no_text",
+      "description": "Activity 'A23' has no associated text",
+      "element_id": "A23",
+      "element_type": "ambiguous"
+    },
+    {
+      "type": "shape_no_text",
+      "description": "Activity 'A24' has no associated text",
+      "element_id": "A24",
+      "element_type": "ambiguous"
+    },
+    {
+      "type": "shape_no_text",
+      "description": "Activity 'A25' has no associated text",
+      "element_id": "A25",
+      "element_type": "ambiguous"
+    }
+  ],
+  "total_warnings": 1,
+  "total_errors": 1,
+  "total_time_seconds": 0.841,
+  "stage_timings": {
+    "load_image": {
+      "status": "SUCCESS",
+      "duration_seconds": 0.009,
+      "error": null,
+      "warning": null
+    },
+    "preprocess": {
+      "status": "SUCCESS",
+      "duration_seconds": 0.774,
+      "error": null,
+      "warning": null
+    },
+    "shape_detection": {
+      "status": "SUCCESS",
+      "duration_seconds": 0.057,
+      "error": null,
+      "warning": null
+    },
+    "classification": {
+      "status": "SUCCESS",
+      "duration_seconds": 0.001,
+      "error": null,
+      "warning": null
+    },
+    "arrow_detection": {
+      "status": "WARNING",
+      "duration_seconds": 0.0,
+      "error": null,
+      "warning": "'ShapeDetectionResult' object is not iterable"
+    },
+    "ocr": {
+      "status": "SUCCESS",
+      "duration_seconds": 0.0,
+      "error": null,
+      "warning": null
+    },
+    "association": {
+      "status": "SKIPPED",
+      "duration_seconds": 0.0,
+      "error": null,
+      "warning": "No OCR results"
+    },
+    "reconstruction": {
+      "status": "SUCCESS",
+      "duration_seconds": 0.0,
+      "error": null,
+      "warning": null
+    },
+    "graph_build": {
+      "status": "FAILED",
+      "duration_seconds": 0.0,
+      "error": "Activity 'A1' has invalid duration: 0.0 (zero duration for non-dummy activity) [activity_id=A1, duration=0.0, reason=zero duration for non-dummy activity]",
+      "warning": null
+    },
+    "validation_cpm": {
+      "status": "SKIPPED",
+      "duration_seconds": 0.0,
+      "error": null,
+      "warning": "No graph"
+    }
+  },
+  "warnings": [
+    "Arrow detection failed: 'ShapeDetectionResult' object is not iterable"
+  ],
+  "errors": [
+    "Graph build failed: Activity 'A1' has invalid duration: 0.0 (zero duration for non-dummy activity) [activity_id=A1, duration=0.0, reason=zero duration for non-dummy activity]"
+  ]
+}
