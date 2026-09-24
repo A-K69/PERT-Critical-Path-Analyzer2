@@ -15,6 +15,7 @@ from typing import Any, Optional
 from PySide6.QtCore import Qt, Signal
 from PySide6.QtGui import QFont
 from PySide6.QtWidgets import (
+    QComboBox,
     QHBoxLayout,
     QLabel,
     QProgressBar,
@@ -73,6 +74,12 @@ _CATEGORY_LABELS = {
     ReviewCategory.ACTIVITIES: "Activity reviews",
     ReviewCategory.DEPENDENCIES: "Dependency reviews",
     ReviewCategory.DURATIONS: "Duration reviews",
+}
+
+_PROGRESS_LABELS = {
+    ReviewCategory.ACTIVITIES: "Activities",
+    ReviewCategory.DEPENDENCIES: "Dependencies",
+    ReviewCategory.DURATIONS: "Durations",
 }
 
 
@@ -298,6 +305,25 @@ class ReviewPage(QWidget):
             f" border-radius: {RADIUS_SM}px; }}"
         )
 
+        filter_bar = QHBoxLayout()
+        filter_label = QLabel("Confidence filter")
+        filter_label.setFont(QFont(*MUTED_FONT))
+        filter_label.setStyleSheet(f"color: {TEXT_MUTED};")
+        filter_bar.addWidget(filter_label)
+        self._confidence_filter = QComboBox()
+        self._confidence_filter.addItem("All items", None)
+        self._confidence_filter.addItem("Low confidence", "LOW")
+        self._confidence_filter.addItem("Medium confidence", "MEDIUM")
+        self._confidence_filter.addItem("High confidence", "HIGH")
+        self._confidence_filter.currentIndexChanged.connect(
+            lambda _index: self._item_list.set_confidence_filter(
+                self._confidence_filter.currentData()
+            )
+        )
+        filter_bar.addWidget(self._confidence_filter)
+        filter_bar.addStretch()
+        outer.addLayout(filter_bar)
+
         self._categories = ReviewCategoriesPanel()
         self._categories.category_selected.connect(self._on_category_selected)
         row.addWidget(self._categories)
@@ -473,7 +499,7 @@ class ReviewPage(QWidget):
             cat_total = len(items)
             cat_pending = pending_count(rs, cat) if rs is not None else 0
             cat_resolved = cat_total - cat_pending
-            parts.append(f"{_CATEGORY_LABELS[cat]}: {cat_resolved}/{cat_total}")
+            parts.append(f"{_PROGRESS_LABELS[cat]}: {cat_resolved}/{cat_total}")
         self._breakdown_label.setText(" \u00b7 ".join(parts))
         self._breakdown_label.setToolTip(
             "Resolved / total review items per category"

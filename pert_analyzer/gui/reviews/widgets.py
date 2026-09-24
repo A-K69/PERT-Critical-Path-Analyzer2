@@ -34,6 +34,7 @@ from pert_analyzer.gui.reviews.categories import (
     item_display_summary,
     item_key,
 )
+from pert_analyzer.gui.reviews.confidence import confidence_band, confidence_reason
 from pert_analyzer.gui.reviews.context import (
     HighlightLine,
     HighlightRect,
@@ -208,6 +209,7 @@ class ReviewItemList(QListWidget):
         )
         self._category: Optional[ReviewCategory] = None
         self._items: list[Any] = []
+        self._confidence_filter: str | None = None
 
     def _on_current_row_changed(self, row: int) -> None:
         if 0 <= row < len(self._items):
@@ -216,17 +218,32 @@ class ReviewItemList(QListWidget):
     def populate(self, items: list[Any], category: ReviewCategory) -> None:
         self._category = category
         self._items = list(items)
+        self._render_items()
+
+    def set_confidence_filter(self, band: str | None) -> None:
+        """Show all items or only items in a selected confidence band."""
+        self._confidence_filter = band or None
+        self._render_items()
+
+    def _render_items(self) -> None:
         self.clear()
-        for item in self._items:
-            summary = item_display_summary(item, category)
+        visible_items = [
+            item for item in self._items
+            if self._confidence_filter is None
+            or confidence_band(getattr(item, "confidence", 0.0)).value == self._confidence_filter
+        ]
+        for item in visible_items:
+            summary = item_display_summary(item, self._category)
+            band = confidence_band(getattr(item, "confidence", 0.0)).value
             text = (
                 f"{summary['id']}\n"
-                f"{summary['label']}  \u00b7  {summary['confidence']}"
+                f"{summary['label']}  ·  {summary['confidence']}  ·  {band}"
             )
             li = QListWidgetItem(text)
-            li.setData(Qt.ItemDataRole.UserRole, item_key(item, category))
+            li.setToolTip(confidence_reason(item))
+            li.setData(Qt.ItemDataRole.UserRole, item_key(item, self._category))
             self.addItem(li)
-        if self._items:
+        if visible_items:
             self.setCurrentRow(0)
 
     def connect_selection(self) -> None:
@@ -304,8 +321,7 @@ class EvidencePanel(QWidget):
             lines.append(f"{_evidence_marker(conf)} {desc}")
         self._compact.setText("\n".join(lines))
         self._confidence.setText(f"Confidence:  {confidence:.0%}")
-        if reason:
-            self._reason.setText(reason)
+        self._reason.setText(reason or "Review the highlighted evidence before deciding.")
 
         if not technical_text:
             parts = []
