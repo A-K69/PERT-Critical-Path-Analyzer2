@@ -209,11 +209,12 @@ class ReviewItemList(QListWidget):
         )
         self._category: Optional[ReviewCategory] = None
         self._items: list[Any] = []
+        self._visible_items: list[Any] = []
         self._confidence_filter: str | None = None
 
     def _on_current_row_changed(self, row: int) -> None:
-        if 0 <= row < len(self._items):
-            self.item_picked.emit(self._items[row])
+        if 0 <= row < len(self._visible_items):
+            self.item_picked.emit(self._visible_items[row])
 
     def populate(self, items: list[Any], category: ReviewCategory) -> None:
         self._category = category
@@ -232,6 +233,7 @@ class ReviewItemList(QListWidget):
             if self._confidence_filter is None
             or confidence_band(getattr(item, "confidence", 0.0)).value == self._confidence_filter
         ]
+        self._visible_items = visible_items
         for item in visible_items:
             summary = item_display_summary(item, self._category)
             band = confidence_band(getattr(item, "confidence", 0.0)).value

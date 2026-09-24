@@ -10,6 +10,7 @@ state and delegates application to the MainWindow worker.
 from __future__ import annotations
 
 import logging
+from copy import deepcopy
 from typing import Any, Optional
 
 from PySide6.QtCore import Qt, Signal
@@ -252,6 +253,7 @@ class ReviewPage(QWidget):
         self._items: list[Any] = []
         self._index: int = 0
         self._busy: bool = False
+        self._last_undo: tuple[Any, dict[str, Any], int, bool] | None = None
 
         layout = QVBoxLayout(self)
         layout.setContentsMargins(24, 24, 24, 24)
@@ -321,6 +323,10 @@ class ReviewPage(QWidget):
             )
         )
         filter_bar.addWidget(self._confidence_filter)
+        self._confidence_summary = QLabel("")
+        self._confidence_summary.setFont(QFont(*MUTED_FONT))
+        self._confidence_summary.setStyleSheet(f"color: {TEXT_MUTED};")
+        filter_bar.addWidget(self._confidence_summary)
         filter_bar.addStretch()
         outer.addLayout(filter_bar)
 
@@ -403,6 +409,11 @@ class ReviewPage(QWidget):
         self._leave_btn = QPushButton("Leave Unresolved")
         self._leave_btn.clicked.connect(self._on_leave_unresolved)
         bar.addWidget(self._leave_btn)
+
+        self._undo_btn = QPushButton("Undo last decision")
+        self._undo_btn.setToolTip("Restore the previous review item state")
+        self._undo_btn.clicked.connect(self._undo_last_decision)
+        bar.addWidget(self._undo_btn)
 
         self._apply_btn = QPushButton("Apply & Validate")
         self._apply_btn.setObjectName("primary")
@@ -503,6 +514,23 @@ class ReviewPage(QWidget):
         self._breakdown_label.setText(" \u00b7 ".join(parts))
         self._breakdown_label.setToolTip(
             "Resolved / total review items per category"
+        )
+        self._confidence_summary.setText(self._confidence_summary_text(rs))
+
+    @staticmethod
+    def _confidence_summary_text(review_session: Any) -> str:
+        from pert_analyzer.gui.reviews.confidence import confidence_band
+
+        counts = {"HIGH": 0, "MEDIUM": 0, "LOW": 0}
+        for category in review_categories.CATEGORIES:
+            for item in _category_items(review_session, category):
+                status = getattr(getattr(item, "status", None), "value", "PENDING")
+                if status == "PENDING":
+                    band = confidence_band(getattr(item, "confidence", 0.0)).value
+                    counts[band] += 1
+        return (
+            f"Confidence: high {counts['HIGH']} · medium {counts['MEDIUM']} "
+            f"· low {counts['LOW']}"
         )
 
     def _present(self) -> None:
@@ -679,19 +707,48 @@ class ReviewPage(QWidget):
         if session is None or request.item is None:
             return
         action = request.action
+        review_session = getattr(session, "review_session", None)
+        decisions_before = len(getattr(review_session, "decisions", []) or [])
+        undo_snapshot = (
+            request.item,
+            deepcopy(vars(request.item)),
+            decisions_before,
+            bool(getattr(session, "reviews_dirty", False)),
+        )
         try:
             ok = self._apply_decision(session, request)
         except Exception as exc:  # noqa: BLE001
             logger.warning("Decision rejected: %s", exc)
+            self._last_undo = None
             self._show_feedback(str(exc), error=True)
             return
         if not ok:
+            self._last_undo = None
             self._show_feedback("That item has already been reviewed.", error=True)
             return
 
         if action != "LEAVE_UNRESOLVED":
+            self._last_undo = undo_snapshot
             session.record_review_decision()
+        else:
+            self._last_undo = None
         self._advance_to_next(unresolved=(action == "LEAVE_UNRESOLVED"))
+
+    def _undo_last_decision(self) -> None:
+        """Restore the last decision and its audit entry before apply."""
+        if self._last_undo is None or self._session is None:
+            return
+        item, state, decision_count, dirty_before = self._last_undo
+        item.__dict__.clear()
+        item.__dict__.update(deepcopy(state))
+        review_session = getattr(self._session, "review_session", None)
+        decisions = getattr(review_session, "decisions", None)
+        if isinstance(decisions, list):
+            del decisions[decision_count:]
+        self._session.reviews_dirty = dirty_before
+        self._last_undo = None
+        self._show_feedback("Last decision undone.")
+        self._rebuild()
 
     def _apply_decision(self, session: Any, request: ReviewActionRequest) -> bool:
         action = request.action
@@ -783,3 +840,4 @@ class ReviewPage(QWidget):
         self._apply_btn.setEnabled(allowed and not self._busy)
         self._complete_state._apply_btn.setEnabled(allowed and not self._busy)
         self._leave_btn.setEnabled(not self._busy and bool(self._items))
+        self._undo_btn.setEnabled(not self._busy and self._last_undo is not None)
