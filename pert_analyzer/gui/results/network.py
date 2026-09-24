@@ -305,9 +305,12 @@ class NetworkTab(QWidget):
         self._clear_path_btn = QPushButton("Clear highlight")
         self._clear_path_btn.setToolTip("Clear the highlighted critical path")
         self._clear_path_btn.clicked.connect(self.clear_highlight)
+        self._focus_btn = QPushButton("Focus critical path")
+        self._focus_btn.setToolTip("Highlight and zoom to the first critical path")
+        self._focus_btn.clicked.connect(self.focus_critical_path)
         for btn in (self._fit_btn, self._reset_btn,
                     self._zoom_in_btn, self._zoom_out_btn,
-                    self._clear_path_btn):
+                    self._clear_path_btn, self._focus_btn):
             toolbar.addWidget(btn)
         toolbar.addStretch()
         root.addLayout(toolbar)
@@ -527,6 +530,29 @@ class NetworkTab(QWidget):
         for item in self._edge_items.values():
             item.set_path_highlight(False)
         self._selected_id = None
+
+    def focus_critical_path(self) -> None:
+        """Highlight and zoom to the first backend-provided critical path."""
+        paths = list(getattr(self._data, "critical_paths", None) or [])
+        if self._metric_mode == "PERT" and self._pert_paths:
+            paths = list(self._pert_paths)
+        if not paths:
+            return
+        path = [activity_id for activity_id in paths[0] if activity_id in self._node_items]
+        if not path:
+            return
+        self.highlight_path(path)
+        bounds = QRectF()
+        for activity_id in path:
+            node = self._node_items[activity_id]
+            bounds = node.sceneBoundingRect() if bounds.isNull() else bounds.united(
+                node.sceneBoundingRect()
+            )
+        if not bounds.isNull():
+            self._view.fitInView(
+                bounds.adjusted(-50, -50, 50, 50),
+                Qt.AspectRatioMode.KeepAspectRatio,
+            )
 
     def _in_current_path(self, activity_id: str) -> bool:
         return activity_id in set(self._current_path)

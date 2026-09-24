@@ -191,6 +191,14 @@ def test_network_highlight_path(tab: NetworkTab) -> None:
     assert tab.edge_items()[("A3", "A1")]._path_highlight is False
 
 
+def test_network_focus_critical_path_uses_backend_path(tab: NetworkTab) -> None:
+    sized(tab).set_data(sample_data())
+    tab.focus_critical_path()
+    assert tab.current_path() == ["A0", "A1", "A2"]
+    assert all(tab.node_items()[aid]._path_highlight for aid in ("A0", "A1", "A2"))
+    assert not tab.node_items()["A3"]._path_highlight
+
+
 def test_network_clear_highlight(tab: NetworkTab) -> None:
     sized(tab).set_data(sample_data())
     tab.highlight_path(["A0", "A1", "A2"])
