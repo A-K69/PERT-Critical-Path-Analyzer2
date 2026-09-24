@@ -14,16 +14,15 @@ os.environ.setdefault("QT_QPA_PLATFORM", "offscreen")
 _ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(_ROOT))
 
-from PySide6.QtCore import Qt
 from PySide6.QtWidgets import QApplication
 
 from pert_analyzer.gui.main_window import MainWindow
 from pert_analyzer.gui.navigation import NavDestination
+from pert_analyzer.gui.session import AppState
 from pert_analyzer.gui.themes.style import apply_theme
 from tests.helpers.reference_gold import (
     REFERENCE_AON,
     build_corrected_session,
-    load_gold,
     run_reference_analysis,
 )
 
@@ -43,7 +42,6 @@ def _set_session_data(window: MainWindow) -> None:
     global _workflow
     print("Running reference analysis...")
     pipeline_result = run_reference_analysis()
-    gold = load_gold()
     session = build_corrected_session(pipeline_result, source_image_id=REFERENCE_AON.name)
 
     from pert_analyzer.pipeline.review_api import ReviewWorkflow
@@ -56,7 +54,13 @@ def _set_session_data(window: MainWindow) -> None:
     gui_session.reviews_dirty = False
 
     candidate = _workflow.apply()
-    gui_session.candidate = candidate
+    gui_session.complete_apply(candidate)
+    cpm_result = _workflow.run_cpm()
+    candidate.cpm = cpm_result
+    candidate.pure_critical_paths = [
+        list(path) for path in (getattr(cpm_result, "critical_paths", None) or [])
+    ]
+    gui_session.state = AppState.RESULTS_AVAILABLE
 
     window._refresh_pages()
     window._update_workflow_indicator()
@@ -73,6 +77,10 @@ def main() -> None:
     apply_theme(app)
     window = MainWindow()
     window.resize(1500, 900)
+    # Load the preview before injecting the completed session.  AnalysisPage
+    # emits image_selected_signal from load_image, which intentionally resets
+    # a live user session; doing it first keeps these screenshots truthful.
+    window._analysis_page.load_image(str(REFERENCE_AON))
 
     print("Setting up reference AON session...")
     _set_session_data(window)
@@ -84,7 +92,6 @@ def main() -> None:
     window._on_nav(NavDestination.ANALYZE)
     app.processEvents()
     analyze_page = window._analysis_page
-    analyze_page.load_image(str(REFERENCE_AON))
     app.processEvents()
     gui_sess = window._session
     summary = getattr(gui_sess, "review_summary", None) or {}

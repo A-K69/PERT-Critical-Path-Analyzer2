@@ -46,9 +46,12 @@ class KpiCard(QFrame):
     def __init__(self, title: str, parent: QWidget | None = None):
         super().__init__(parent)
         self.setFrameShape(QFrame.Shape.NoFrame)
+        self.setObjectName("kpiCard")
         self.setStyleSheet(
-            f"background-color: {SURFACE};"
-            f" border: 1px solid {BORDER}; border-radius: {RADIUS_LG}px;"
+            f"QFrame#kpiCard {{ background-color: {SURFACE};"
+            f" border: 1px solid {BORDER}; border-radius: {RADIUS_LG}px; }}"
+            f"QFrame#kpiCard:hover {{ background-color: {SURFACE};"
+            f" border-color: {ACCENT}; }}"
         )
         layout = QVBoxLayout(self)
         layout.setContentsMargins(12, 10, 12, 10)

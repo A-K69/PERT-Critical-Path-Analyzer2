@@ -286,6 +286,13 @@ class ResultsPage(QWidget):
         )
         layout.addWidget(self._status_banner)
 
+        self._provenance_label = QLabel("")
+        self._provenance_label.setFont(QFont(*MUTED_FONT))
+        self._provenance_label.setStyleSheet(
+            f"color: {TEXT_MUTED}; padding: 2px 4px;"
+        )
+        layout.addWidget(self._provenance_label)
+
         top = QHBoxLayout()
         top.setSpacing(10)
         header_stack = QVBoxLayout()
@@ -388,6 +395,7 @@ class ResultsPage(QWidget):
         }[reason]
         self._empty_label.setText(message)
         self._empty_label.show()
+        self._provenance_label.hide()
         self._set_calculate_visible(reason == RESULT_UNAVAILABLE)
         self._calculate_btn.setEnabled(reason == RESULT_UNAVAILABLE and not self._busy)
         self._set_readiness(reason)
@@ -518,6 +526,10 @@ class ResultsPage(QWidget):
 
         # Update status banner
         self._status_banner.show()
+        self._provenance_label.setText(
+            "Authoritative result  ·  reviewed graph  ·  CPM values are not recomputed in the UI"
+        )
+        self._provenance_label.show()
         self._status_icon.setText("\u2713")
         self._status_icon.setStyleSheet(f"color: {SUCCESS};")
         self._status_label.setText("FINAL RESULTS")

@@ -177,7 +177,8 @@ class ImageView(QLabel):
         self.update()
 
     def set_zoom(self, factor: float) -> None:
-        self._zoom_around(self.width() / 2, self.height() / 2, 1.0)
+        """Set an absolute zoom factor, clamped to the supported range."""
+        self._set_zoom_at(factor)
 
     def _set_zoom_at(self, factor: float) -> None:
         self._zoom = min(_MAX_ZOOM, max(1.0, float(factor)))

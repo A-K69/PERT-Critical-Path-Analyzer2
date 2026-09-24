@@ -199,6 +199,9 @@ def test_image_view_zoom_in_out_and_reset(qapp: QApplication, tmp_path) -> None:
     assert view.is_zoomed
     assert view.zoom_factor > 1.0
 
+    view.set_zoom(3.0)
+    assert view.zoom_factor == 3.0
+
     before = view.zoom_factor
     view.zoom_out()
     assert view.zoom_factor < before

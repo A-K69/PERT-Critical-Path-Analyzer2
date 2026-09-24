@@ -70,9 +70,9 @@ from pert_analyzer.gui.themes.typography import (
 logger = logging.getLogger(__name__)
 
 _CATEGORY_LABELS = {
-    ReviewCategory.ACTIVITIES: "Activities",
-    ReviewCategory.DEPENDENCIES: "Dependencies",
-    ReviewCategory.DURATIONS: "Durations",
+    ReviewCategory.ACTIVITIES: "Activity reviews",
+    ReviewCategory.DEPENDENCIES: "Dependency reviews",
+    ReviewCategory.DURATIONS: "Duration reviews",
 }
 
 

@@ -55,10 +55,10 @@ def _register_fonts(pdf: Any, font_path: Optional[str]) -> bool:
     if font_path is None:
         return False
     try:
-        pdf.add_font("DejaVuSans", "", font_path, uni=True)
+        pdf.add_font("DejaVuSans", "", font_path)
         bold_path = _sibling_font(font_path, "Bold")
         if bold_path:
-            pdf.add_font("DejaVuSans", "B", bold_path, uni=True)
+            pdf.add_font("DejaVuSans", "B", bold_path)
         return True
     except Exception:
         return False

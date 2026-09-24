@@ -180,6 +180,7 @@ class MainWindow(QMainWindow):
             btn.setCheckable(True)
             btn.setObjectName(f"nav_{item.key}")
             btn.setFont(QFont(*BUTTON_FONT))
+            btn.setToolTip(item.label)
             btn.setCursor(Qt.CursorShape.PointingHandCursor)
             btn.setStyleSheet(
                 f"QPushButton {{ text-align: left; padding: 8px {MD}px;"

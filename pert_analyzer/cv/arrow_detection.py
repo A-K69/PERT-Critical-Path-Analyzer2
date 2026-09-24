@@ -390,7 +390,14 @@ class ArrowDetector(ArrowDetectorABC):
             return segments
 
         for line in lines:
-            x1, y1, x2, y2 = line[0]
+            # OpenCV has returned both ``(N, 1, 4)`` and ``(N, 4)``
+            # layouts across versions. Flatten each result so the
+            # detector remains compatible with both forms.
+            coordinates = np.asarray(line).reshape(-1)
+            if coordinates.size < 4:
+                logger.debug("Ignoring malformed Hough line: %r", line)
+                continue
+            x1, y1, x2, y2 = coordinates[:4]
 
             start = Point(float(x1), float(y1))
             end = Point(float(x2), float(y2))

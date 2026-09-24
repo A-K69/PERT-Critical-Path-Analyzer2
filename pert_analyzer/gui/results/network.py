@@ -36,6 +36,7 @@ from PySide6.QtWidgets import (
 
 from pert_analyzer.gui.results import layout as network_layout
 from pert_analyzer.gui.themes.style import NETWORK_COLORS
+from pert_analyzer.gui.themes.typography import FONT_FAMILY
 
 MIN_ZOOM = 0.2
 MAX_ZOOM = 5.0
@@ -133,7 +134,7 @@ class ActivityNodeItem(QGraphicsObject):
         text_y = self._rect.y() + 14
 
         painter.setPen(QPen(_color("node_text")))
-        title_font = QFont("Segoe UI", 10, QFont.Weight.Bold)
+        title_font = QFont(FONT_FAMILY, 10, QFont.Weight.Bold)
         painter.setFont(title_font)
         painter.drawText(
             QRectF(x + 6, text_y - 10, width - 12, 16),
@@ -141,7 +142,7 @@ class ActivityNodeItem(QGraphicsObject):
             self.activity_id,
         )
 
-        body_font = QFont("Segoe UI", 8)
+        body_font = QFont(FONT_FAMILY, 8)
         painter.setFont(body_font)
         painter.setPen(QPen(_color("node_text_muted")))
         line_y = self._rect.y() + 26
