@@ -337,6 +337,18 @@ def test_review_image_context_zoomable(qapp: QApplication, tmp_path) -> None:
     view.deleteLater()
 
 
+def test_review_image_context_focus_evidence(qapp: QApplication, tmp_path) -> None:
+    png = _make_png(str(tmp_path / "focus.png"), 400, 300)
+    view = ImageContextView()
+    view.resize(300, 240)
+    highlight = HighlightRect(x=250, y=180, w=60, h=50, color="accent", label="N9")
+    assert view.set_context(png, [highlight]) is True
+    view.focus_highlights()
+    assert view.zoom_factor == 1.8
+    assert view.is_zoomed
+    view.deleteLater()
+
+
 # ---------------------------------------------------------------------------
 # Validation Center readability
 # ---------------------------------------------------------------------------

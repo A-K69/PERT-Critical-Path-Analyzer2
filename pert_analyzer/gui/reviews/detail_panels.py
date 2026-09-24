@@ -246,6 +246,10 @@ class ActivityDetailPanel(_BaseReviewPanel):
         self._context = ImageContextView()
         self._context.setStyleSheet("border: none;")
         self._body.addWidget(self._context)
+        self._focus_context_btn = QPushButton("Focus evidence")
+        self._focus_context_btn.setToolTip("Center the image on the highlighted activity")
+        self._focus_context_btn.clicked.connect(self._context.focus_highlights)
+        self._body.addWidget(self._focus_context_btn)
 
         self._actions = _section_action_row(
             self,
@@ -377,6 +381,14 @@ class DependencyDetailPanel(_BaseReviewPanel):
         self._body.addWidget(self._evidence)
         self._context = ImageContextView()
         self._body.addWidget(self._context)
+        self._focus_context_btn = QPushButton("Focus evidence")
+        self._focus_context_btn.setToolTip("Center the image on the highlighted duration")
+        self._focus_context_btn.clicked.connect(self._context.focus_highlights)
+        self._body.addWidget(self._focus_context_btn)
+        self._focus_context_btn = QPushButton("Focus evidence")
+        self._focus_context_btn.setToolTip("Center the image on the highlighted dependency")
+        self._focus_context_btn.clicked.connect(self._context.focus_highlights)
+        self._body.addWidget(self._focus_context_btn)
 
         self._actions = _section_action_row(
             self,

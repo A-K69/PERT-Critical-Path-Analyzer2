@@ -433,6 +433,40 @@ class ImageContextView(QWidget):
         self._panning = False
         self.update()
 
+    def focus_highlights(self) -> None:
+        """Zoom and center the view on the current evidence geometry."""
+        if self._pixmap is None or self._pixmap.isNull() or not self._highlights:
+            return
+        points: list[tuple[float, float]] = []
+        for highlight in self._highlights:
+            if isinstance(highlight, HighlightRect):
+                points.extend([
+                    (highlight.x, highlight.y),
+                    (highlight.x + highlight.w, highlight.y + highlight.h),
+                ])
+            elif isinstance(highlight, HighlightLine):
+                points.extend([(highlight.x1, highlight.y1), (highlight.x2, highlight.y2)])
+        if not points:
+            return
+        min_x = min(p[0] for p in points)
+        max_x = max(p[0] for p in points)
+        min_y = min(p[1] for p in points)
+        max_y = max(p[1] for p in points)
+        center_x = (min_x + max_x) / 2
+        center_y = (min_y + max_y) / 2
+        self._zoom = 1.8
+        view_w, view_h = max(1, self.width()), max(1, self.height())
+        fit = min(view_w / self._pixmap.width(), view_h / self._pixmap.height())
+        total = fit * self._zoom
+        content_w = total * self._pixmap.width()
+        content_h = total * self._pixmap.height()
+        self._pan = QPoint(
+            int(round(view_w / 2 - (view_w - content_w) / 2 - center_x * total)),
+            int(round(view_h / 2 - (view_h - content_h) / 2 - center_y * total)),
+        )
+        self._clamp_pan()
+        self.update()
+
     def _zoom_around(self, cx: float, cy: float, factor: float) -> None:
         if self._pixmap is None or self._pixmap.isNull():
             return
