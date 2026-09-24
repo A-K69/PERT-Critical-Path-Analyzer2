@@ -11,6 +11,8 @@ from __future__ import annotations
 import os
 from typing import Any, Dict, List, Optional
 
+from pert_analyzer.reporting.export.explainability import interpretation_lines
+
 try:  # pragma: no cover
     import xlsxwriter as _xlsxwriter
 except Exception:  # pragma: no cover
@@ -62,8 +64,12 @@ def _build_workbook(report: Any, output_path: str, sheet_name: str,
         sheets: List[str] = []
         _write_summary_sheet(workbook, report, sheet_name, header_fmt)
         sheets.append(sheet_name)
+        _write_interpretation_sheet(workbook, report, header_fmt)
+        sheets.append("Interpretation")
         for section in report.sections():
             if not getattr(section, "is_available", False):
+                continue
+            if getattr(section, "title", "") in {sheet_name, "Interpretation"}:
                 continue
             _write_section_sheet(workbook, section, header_fmt)
             sheets.append(section.title)
@@ -98,6 +104,15 @@ def _write_section_sheet(workbook: Any, section: Any, header_fmt: Any) -> None:
     for row_i, row in enumerate(section.rows, start=1):
         for col_i, value in enumerate(_row_values(row)):
             sheet.write_string(row_i, col_i, _cell_text(value))
+
+
+def _write_interpretation_sheet(workbook: Any, report: Any, header_fmt: Any) -> None:
+    """Write provenance and interpretation without introducing formulas."""
+    sheet = workbook.add_worksheet("Interpretation")
+    sheet.write_string(0, 0, "Interpretation and provenance", header_fmt)
+    for row, line in enumerate(interpretation_lines(report), start=1):
+        sheet.write_string(row, 0, line)
+    sheet.set_column(0, 0, 110)
 
 
 def _header(section: Any) -> List[str]:

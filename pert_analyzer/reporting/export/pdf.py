@@ -20,6 +20,7 @@ try:  # pragma: no cover - exercised on supported systems
 except Exception:  # pragma: no cover
     FPDF = None  # type: ignore [assignment, misc]
 
+from pert_analyzer.reporting.export.explainability import interpretation_lines
 from pert_analyzer.reporting.formatting import fmt_number, fmt_percent
 
 
@@ -162,8 +163,6 @@ class _RebuildFpdfRenderer:
         return list(self._report.section_names())
 
     def render(self, output_path: str) -> _Layout:
-        from pert_analyzer.reporting.formatting import fmt_number, fmt_percent
-
         pdf = FPDF()
         pdf.set_auto_page_break(auto=True, margin=14.0)
         registered = _register_fonts(pdf, _font_path())
@@ -185,6 +184,13 @@ class _RebuildFpdfRenderer:
         pdf.cell(0, 6, f"Generated {meta.created_at}  ·  {meta.analysis_type}",
                  new_x="LMARGIN", new_y="NEXT")
         pdf.ln(3)
+
+        pdf.set_font(("DejaVuSans" if registered else "Helvetica"), "B", 12)
+        pdf.cell(0, 8, "Interpretation and provenance", new_x="LMARGIN", new_y="NEXT")
+        pdf.set_font(("DejaVuSans" if registered else "Helvetica"), "", 9)
+        for line in interpretation_lines(self._report):
+            pdf.multi_cell(pdf.w - pdf.l_margin - pdf.r_margin, 5, line)
+        pdf.ln(2)
 
         for section in self._report.sections():
             if getattr(section, "is_available", True) is False:
