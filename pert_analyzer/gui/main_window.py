@@ -22,7 +22,13 @@ from PySide6.QtWidgets import (
 )
 
 from pert_analyzer.gui.navigation import NAV_ITEMS, NavDestination
-from pert_analyzer.gui.locale import UiLanguage, apply_ui_locale, nav_label, normalize_language
+from pert_analyzer.gui.locale import (
+    UiLanguage,
+    apply_ui_locale,
+    nav_label,
+    normalize_language,
+    translate_widget_tree,
+)
 from pert_analyzer.gui.pages import (
     AnalysisPage,
     ResultsPage,
@@ -85,6 +91,8 @@ class MainWindow(QMainWindow):
         apply_reviews_fn: Optional[Callable[[], Any]] = None,
         confirm_discard_fn: Optional[Callable[[], bool]] = None,
         run_cpm_fn: Optional[Callable[[], Any]] = None,
+        language: str | UiLanguage = UiLanguage.ENGLISH,
+        persist_language: bool = False,
         parent: QWidget | None = None,
     ):
         super().__init__(parent)
@@ -93,7 +101,9 @@ class MainWindow(QMainWindow):
         self._confirm_discard_fn = confirm_discard_fn
         self._run_cpm_fn = run_cpm_fn
         self._session = GuiSession()
-        self._language = UiLanguage.ENGLISH
+        self._language = normalize_language(language)
+        self._persist_language = persist_language
+        apply_ui_locale(self, self._language)
         self._worker: Optional[AnalysisWorker] = None
         self._apply_worker: Optional[ApplyReviewsWorker] = None
         self._cpm_worker: Optional[CpmWorker] = None
@@ -104,6 +114,14 @@ class MainWindow(QMainWindow):
         self.setMinimumSize(1280, 768)
 
         self._setup_ui()
+        if self._language == UiLanguage.ARABIC:
+            translate_widget_tree(self, self._language)
+            for item in NAV_ITEMS:
+                self._nav_buttons[item.destination.value].setText(
+                    f"  {item.icon}  {nav_label(item.key, self._language)}"
+                )
+            self._locale_btn.setText("English")
+            self._header_title.setText("محلل PERT وCPM")
         self._connect_signals()
         self._refresh_pages()
         self.statusBar().showMessage("Ready")
@@ -184,7 +202,7 @@ class MainWindow(QMainWindow):
 
         self._nav_buttons: dict[int, QPushButton] = {}
         for item in NAV_ITEMS:
-            btn = QPushButton(f"  {item.icon}  {nav_label(item.key, self._language)}")
+            btn = QPushButton(f"  {item.icon}  {item.label}")
             btn.setCheckable(True)
             btn.setObjectName(f"nav_{item.key}")
             btn.setFont(QFont(*BUTTON_FONT))
@@ -252,6 +270,17 @@ class MainWindow(QMainWindow):
         """Switch UI language/direction; analysis and review data are untouched."""
         self._language = normalize_language(language)
         apply_ui_locale(self, self._language)
+        translate_widget_tree(self, self._language)
+        if self._persist_language:
+            try:
+                from pert_analyzer.config.manager import get_config_manager
+
+                manager = get_config_manager()
+                manager.set("gui.language", self._language.value)
+                manager.set("gui.direction", "rtl" if self._language == UiLanguage.ARABIC else "ltr")
+                manager.save()
+            except Exception as exc:  # pragma: no cover - defensive at app boundary
+                logger.warning("Could not persist UI language: %s", exc)
         for item in NAV_ITEMS:
             button = self._nav_buttons[item.destination.value]
             button.setText(f"  {item.icon}  {nav_label(item.key, self._language)}")

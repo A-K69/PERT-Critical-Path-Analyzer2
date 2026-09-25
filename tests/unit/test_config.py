@@ -78,6 +78,17 @@ class TestConfigManager:
             mgr.reset_to_defaults()
             assert mgr.config.ocr.engine == "tesseract"
 
+    def test_gui_language_and_direction_persist(self):
+        with tempfile.TemporaryDirectory() as tmpdir:
+            config_path = os.path.join(tmpdir, "config.json")
+            mgr = ConfigManager(config_path)
+            mgr.set("gui.language", "ar")
+            mgr.set("gui.direction", "rtl")
+            assert mgr.save(config_path)
+            restored = ConfigManager(config_path)
+            assert restored.config.gui.language == "ar"
+            assert restored.config.gui.direction == "rtl"
+
 
 class TestAppConfig:
     """Tests for AppConfig dataclass."""

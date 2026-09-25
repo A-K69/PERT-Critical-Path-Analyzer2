@@ -6,7 +6,7 @@ from dataclasses import dataclass
 from enum import StrEnum
 
 from PySide6.QtCore import Qt
-from PySide6.QtWidgets import QApplication, QWidget
+from PySide6.QtWidgets import QApplication, QComboBox, QLabel, QPushButton, QWidget
 
 
 class UiLanguage(StrEnum):
@@ -73,6 +73,63 @@ NAV_LABELS = {
         "network_builder": "بناء الشبكة",
     },
 }
+
+UI_TEXT = {
+    "Review Center": "مركز المراجعة",
+    "Validation Center": "مركز التحقق",
+    "Results Dashboard": "لوحة النتائج",
+    "Network Builder": "منشئ الشبكة",
+    "Analyze Diagram": "تحليل المخطط",
+    "Understanding": "فهم النتائج",
+    "Confirm or correct detected activities, dependencies, and durations.": "أكد أو صحح الأنشطة والعلاقات والمدد المكتشفة.",
+    "Critical path analysis of the reviewed graph.": "تحليل المسار الحرج للرسم البياني الذي تمت مراجعته.",
+    "Upload a PERT/CPM network diagram to begin": "ارفع مخطط شبكة PERT/CPM للبدء",
+    "No image selected": "لم يتم اختيار صورة",
+    "Select a review item from the list to begin.": "اختر عنصر مراجعة من القائمة للبدء.",
+    "Confidence filter": "فلتر الثقة",
+    "All items": "كل العناصر",
+    "Low confidence": "ثقة منخفضة",
+    "Medium confidence": "ثقة متوسطة",
+    "High confidence": "ثقة عالية",
+    "Focus evidence": "تركيز الأدلة",
+    "Apply & Validate": "تطبيق والتحقق",
+    "Leave Unresolved": "ترك دون حل",
+    "Undo last decision": "التراجع عن آخر قرار",
+    "Accept": "قبول",
+    "Reject": "رفض",
+    "Correct...": "تصحيح...",
+    "Reverse": "عكس الاتجاه",
+    "Export": "تصدير",
+    "Report": "تقرير",
+    "Calculate Results": "حساب النتائج",
+    "Continue Review": "متابعة المراجعة",
+    "Open Validation": "فتح التحقق",
+    "FINAL RESULTS": "النتائج النهائية",
+    "PRELIMINARY": "أولية",
+    "RESULTS NOT READY": "النتائج غير جاهزة",
+    "Ready": "جاهز",
+    "Apply": "تطبيق",
+    "Cancel": "إلغاء",
+}
+
+
+def translate_widget_tree(root: QWidget, value: str | UiLanguage | None) -> None:
+    """Translate current visible widget text while preserving English for reversal."""
+    language = normalize_language(value)
+    for widget in [root, *root.findChildren(QWidget)]:
+        if isinstance(widget, (QLabel, QPushButton)):
+            source = widget.property("sourceText")
+            if source is None:
+                source = widget.text()
+                widget.setProperty("sourceText", source)
+            widget.setText(UI_TEXT.get(source, source) if language == UiLanguage.ARABIC else source)
+        elif isinstance(widget, QComboBox):
+            for index in range(widget.count()):
+                source = widget.itemData(index, Qt.ItemDataRole.UserRole + 1)
+                if source is None:
+                    source = widget.itemText(index)
+                    widget.setItemData(index, source, Qt.ItemDataRole.UserRole + 1)
+                widget.setItemText(index, UI_TEXT.get(source, source) if language == UiLanguage.ARABIC else source)
 
 
 def nav_label(key: str, value: str | UiLanguage | None) -> str:

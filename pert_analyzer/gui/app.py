@@ -10,6 +10,7 @@ from typing import Optional
 from PySide6.QtWidgets import QApplication
 
 from pert_analyzer.gui.main_window import MainWindow
+from pert_analyzer.config.manager import get_config_manager
 from pert_analyzer.gui.themes.style import apply_theme
 
 _LOCAL_SIZE_W = 1500
@@ -57,7 +58,11 @@ def main() -> int:
     """Launch the GUI application. Returns the exit code."""
     app = QApplication.instance() or QApplication(sys.argv)
     apply_theme(app)
-    window = MainWindow()
+    config = get_config_manager()
+    window = MainWindow(
+        language=config.config.gui.language,
+        persist_language=True,
+    )
     if _screen_large_enough(window):
         window.resize(_LOCAL_SIZE_W, _LOCAL_SIZE_H)
         _center_window(window)
