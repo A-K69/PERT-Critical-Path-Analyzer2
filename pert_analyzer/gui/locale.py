@@ -55,6 +55,16 @@ def apply_ui_locale(widget: QWidget, value: str | UiLanguage | None) -> UiLocale
     return locale
 
 
+def translate_text(source: str, value: str | UiLanguage | None) -> str:
+    """Translate one UI string while keeping backend identifiers untouched."""
+    return UI_TEXT.get(source, source) if normalize_language(value) == UiLanguage.ARABIC else source
+
+
+def widget_language(widget: QWidget) -> UiLanguage:
+    """Return the language currently applied to a widget subtree."""
+    return normalize_language(widget.property("uiLanguage"))
+
+
 NAV_LABELS = {
     UiLanguage.ENGLISH: {
         "analyze": "Analyze",
@@ -75,6 +85,13 @@ NAV_LABELS = {
 }
 
 UI_TEXT = {
+    # Navigation and page chrome
+    "Analyze": "تحليل",
+    "Understand": "فهم النتائج",
+    "Review": "مراجعة",
+    "Validate": "تحقق",
+    "Results": "النتائج",
+    "Build Network": "بناء الشبكة",
     "Review Center": "مركز المراجعة",
     "Validation Center": "مركز التحقق",
     "Results Dashboard": "لوحة النتائج",
@@ -110,6 +127,59 @@ UI_TEXT = {
     "Ready": "جاهز",
     "Apply": "تطبيق",
     "Cancel": "إلغاء",
+    "Go to Validation": "الانتقال إلى التحقق",
+    "Review Complete": "اكتملت المراجعة",
+    "All reviews resolved and decisions applied.": "تم حل جميع عناصر المراجعة وتطبيق القرارات.",
+    "All reviews resolved. Apply decisions to continue.": "تم حل جميع عناصر المراجعة. طبّق القرارات للمتابعة.",
+    "Activity reviews": "مراجعات الأنشطة",
+    "Dependency reviews": "مراجعات العلاقات",
+    "Duration reviews": "مراجعات المدد",
+    "Activities": "الأنشطة",
+    "Dependencies": "العلاقات",
+    "Durations": "المدد",
+    "Select a review item from the list to begin.": "اختر عنصر مراجعة من القائمة للبدء.",
+    "No analysis available. Run an analysis on the Analyze Diagram page first.": "لا يتوفر تحليل. شغّل التحليل أولًا من صفحة تحليل المخطط.",
+    "Leave Unresolved": "ترك دون حل",
+    "Coming in a later phase": "ستتوفر هذه الميزة في مرحلة لاحقة",
+    "Export the current results (PDF, Excel, JSON, CSV)": "تصدير النتائج الحالية (PDF وExcel وJSON وCSV)",
+    "Generate a detailed project report": "إنشاء تقرير مفصل عن المشروع",
+    "Run the existing CPM service for this valid graph": "تشغيل خدمة CPM الحالية لهذا الرسم الصحيح",
+    # Analysis page
+    "Ready": "جاهز",
+    "No image selected": "لم يتم اختيار صورة",
+    "Upload a PERT/CPM network diagram to begin": "ارفع مخطط شبكة PERT/CPM للبدء",
+    "Drop diagram here": "أفلت المخطط هنا",
+    "Release to load this image": "حرّر الزر لتحميل الصورة",
+    "Choose Image": "اختيار صورة",
+    "Analyze Diagram": "تحليل المخطط",
+    "Zoom in": "تكبير",
+    "Zoom out": "تصغير",
+    "Fit image": "ملاءمة الصورة",
+    "Reset zoom": "إعادة التكبير",
+    # Results page and tabs
+    "Overview": "نظرة عامة",
+    "Network": "الشبكة",
+    "Critical Paths": "المسارات الحرجة",
+    "PERT": "PERT",
+    "RESULTS NOT READY": "النتائج غير جاهزة",
+    "PRELIMINARY": "أولية",
+    "Detected from image — may change after review.": "مكتشفة من الصورة — قد تتغير بعد المراجعة.",
+    "Activities detected": "الأنشطة المكتشفة",
+    "Dependencies detected": "العلاقات المكتشفة",
+    "Review items": "عناصر المراجعة",
+    "Graph status": "حالة الرسم البياني",
+    "CPM readiness": "جاهزية CPM",
+    "Continue Review": "متابعة المراجعة",
+    "Open Validation": "فتح التحقق",
+    "Calculate Results": "حساب النتائج",
+    "FINAL RESULTS": "النتائج النهائية",
+    "All review decisions applied. Graph validated. CPM computed.": "تم تطبيق جميع قرارات المراجعة. تم التحقق من الرسم وحساب CPM.",
+    "Authoritative result  ·  reviewed graph  ·  CPM values are not recomputed in the UI": "نتيجة معتمدة · رسم تمت مراجعته · لا يعاد حساب قيم CPM في الواجهة",
+    "Export": "تصدير",
+    "Report": "تقرير",
+    "Copy selected": "نسخ المحدد",
+    "Copy the selected path to the clipboard": "نسخ المسار المحدد إلى الحافظة",
+    "No critical paths found.": "لم يتم العثور على مسارات حرجة.",
 }
 
 
@@ -117,6 +187,7 @@ def translate_widget_tree(root: QWidget, value: str | UiLanguage | None) -> None
     """Translate current visible widget text while preserving English for reversal."""
     language = normalize_language(value)
     for widget in [root, *root.findChildren(QWidget)]:
+        widget.setProperty("uiLanguage", language.value)
         if isinstance(widget, (QLabel, QPushButton)):
             source = widget.property("sourceText")
             if source is None:
@@ -144,4 +215,6 @@ __all__ = [
     "locale_for",
     "nav_label",
     "normalize_language",
+    "translate_text",
+    "widget_language",
 ]

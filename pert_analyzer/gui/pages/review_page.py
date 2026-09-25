@@ -27,6 +27,7 @@ from PySide6.QtWidgets import (
     QWidget,
 )
 
+from pert_analyzer.gui.locale import UiLanguage, widget_language
 from pert_analyzer.gui.navigation import NavDestination
 from pert_analyzer.gui.reviews import categories as review_categories
 from pert_analyzer.gui.reviews.categories import (
@@ -81,6 +82,12 @@ _PROGRESS_LABELS = {
     ReviewCategory.ACTIVITIES: "Activities",
     ReviewCategory.DEPENDENCIES: "Dependencies",
     ReviewCategory.DURATIONS: "Durations",
+}
+
+_CATEGORY_LABELS_AR = {
+    ReviewCategory.ACTIVITIES: "مراجعات الأنشطة",
+    ReviewCategory.DEPENDENCIES: "مراجعات العلاقات",
+    ReviewCategory.DURATIONS: "مراجعات المدد",
 }
 
 
@@ -167,27 +174,39 @@ class ReviewCompleteState(QWidget):
     def populate(self, session: Any) -> None:
         review_session = getattr(session, "review_session", None)
         applied = bool(getattr(session, "has_applied_reviews", False))
+        ar = widget_language(self) == UiLanguage.ARABIC
         if applied:
-            self._sub_heading.setText("All reviews resolved and decisions applied.")
+            self._sub_heading.setText(
+                "تم حل جميع عناصر المراجعة وتطبيق القرارات." if ar
+                else "All reviews resolved and decisions applied."
+            )
             self._apply_btn.hide()
             self._go_btn.show()
         else:
-            self._sub_heading.setText("All reviews resolved. Apply decisions to continue.")
+            self._sub_heading.setText(
+                "تم حل جميع عناصر المراجعة. طبّق القرارات للمتابعة." if ar
+                else "All reviews resolved. Apply decisions to continue."
+            )
             self._apply_btn.show()
             self._go_btn.hide()
 
         for cat in review_categories.CATEGORIES:
             items = _category_items(review_session, cat)
             pending = pending_count(review_session, cat) if review_session is not None else 0
+            label = _CATEGORY_LABELS_AR[cat] if ar else _CATEGORY_LABELS[cat]
             if not items:
-                self._category_rows[cat].setText(f"\u2013 {_CATEGORY_LABELS[cat]}: no items")
+                self._category_rows[cat].setText(
+                    f"\u2013 {label}: لا توجد عناصر" if ar else f"\u2013 {label}: no items"
+                )
             elif pending == 0:
                 self._category_rows[cat].setText(
-                    f"\u2713 {_CATEGORY_LABELS[cat]}: all {len(items)} resolved"
+                    f"\u2713 {label}: تم حل جميع العناصر ({len(items)})" if ar
+                    else f"\u2713 {label}: all {len(items)} resolved"
                 )
             else:
                 self._category_rows[cat].setText(
-                    f"{_CATEGORY_LABELS[cat]}: {pending} still pending"
+                    f"{label}: {pending} ما زال معلقًا" if ar
+                    else f"{label}: {pending} still pending"
                 )
 
     def set_busy(self, busy: bool) -> None:

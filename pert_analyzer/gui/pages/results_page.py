@@ -27,6 +27,7 @@ from PySide6.QtWidgets import (
     QWidget,
 )
 
+from pert_analyzer.gui.locale import UiLanguage, widget_language
 from pert_analyzer.gui.session import ValidationCenterStatus
 from pert_analyzer.gui.results.activities import ActivitiesTab
 from pert_analyzer.gui.results.critical_paths import CriticalPathsTab
@@ -393,6 +394,14 @@ class ResultsPage(QWidget):
                 "exists yet. Click Calculate Results to run the CPM service."
             ),
         }[reason]
+        if widget_language(self) == UiLanguage.ARABIC:
+            message = {
+                NO_ANALYSIS: "النتائج غير جاهزة. لم يتم تحليل أي مشروع. شغّل التحليل من صفحة تحليل المخطط.",
+                REVIEW_REQUIRED: "النتائج غير جاهزة. المراجعة مطلوبة — أكمل المراجعة وطبّق قراراتك قبل تشغيل CPM.",
+                GRAPH_INVALID: "النتائج غير جاهزة. الرسم الذي تمت مراجعته غير صحيح — عالج مشكلات التحقق أولًا.",
+                CPM_BLOCKED: "النتائج غير جاهزة. تم حظر CPM — الرسم ليس في حالة قابلة للتشغيل.",
+                RESULT_UNAVAILABLE: "النتائج غير جاهزة. الرسم صحيح لكن لا توجد نتيجة CPM بعد. اضغط حساب النتائج لتشغيل الخدمة.",
+            }[reason]
         self._empty_label.setText(message)
         self._empty_label.show()
         self._provenance_label.hide()
@@ -444,7 +453,11 @@ class ResultsPage(QWidget):
         pending = session.pending_review_total() if session is not None else 0
         done = max(0, total - pending)
         if session is not None and session.workflow is not None and total > 0:
-            self._progress_label.setText(f"{done} / {total} reviews complete")
+            self._progress_label.setText(
+                f"اكتملت مراجعة {done} من أصل {total}"
+                if widget_language(self) == UiLanguage.ARABIC
+                else f"{done} / {total} reviews complete"
+            )
             self._progress_label.show()
         else:
             self._progress_label.setText("")
@@ -504,9 +517,17 @@ class ResultsPage(QWidget):
         self._data = data
         duration_text = format_duration(data.project_duration)
         self._summary_label.setText(
-            f"Project duration: {duration_text}   \u00b7   "
-            f"Critical paths: {data.critical_path_count or 0}   \u00b7   "
-            f"Critical activities: {data.critical_activity_count}"
+            (
+                f"مدة المشروع: {duration_text}   ·   "
+                f"المسارات الحرجة: {data.critical_path_count or 0}   ·   "
+                f"الأنشطة الحرجة: {data.critical_activity_count}"
+            )
+            if widget_language(self) == UiLanguage.ARABIC
+            else (
+                f"Project duration: {duration_text}   ·   "
+                f"Critical paths: {data.critical_path_count or 0}   ·   "
+                f"Critical activities: {data.critical_activity_count}"
+            )
         )
         self._overview.set_data(data)
         self._activities.set_data(data.activities)
@@ -527,15 +548,21 @@ class ResultsPage(QWidget):
         # Update status banner
         self._status_banner.show()
         self._provenance_label.setText(
-            "Authoritative result  ·  reviewed graph  ·  CPM values are not recomputed in the UI"
+            "نتيجة معتمدة · رسم تمت مراجعته · لا يعاد حساب قيم CPM في الواجهة"
+            if widget_language(self) == UiLanguage.ARABIC
+            else "Authoritative result  ·  reviewed graph  ·  CPM values are not recomputed in the UI"
         )
         self._provenance_label.show()
         self._status_icon.setText("\u2713")
         self._status_icon.setStyleSheet(f"color: {SUCCESS};")
-        self._status_label.setText("FINAL RESULTS")
+        self._status_label.setText(
+            "النتائج النهائية" if widget_language(self) == UiLanguage.ARABIC else "FINAL RESULTS"
+        )
         self._status_label.setStyleSheet(f"color: {SUCCESS}; font-weight: 600;")
         self._status_hint.setText(
-            "All review decisions applied. Graph validated. CPM computed."
+            "تم تطبيق جميع قرارات المراجعة. تم التحقق من الرسم وحساب CPM."
+            if widget_language(self) == UiLanguage.ARABIC
+            else "All review decisions applied. Graph validated. CPM computed."
         )
         self._status_banner.setStyleSheet(
             f"QFrame {{ background-color: {_rgba(SUCCESS, 20)};"
