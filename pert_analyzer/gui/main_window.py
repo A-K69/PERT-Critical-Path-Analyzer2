@@ -22,6 +22,7 @@ from PySide6.QtWidgets import (
 )
 
 from pert_analyzer.gui.navigation import NAV_ITEMS, NavDestination
+from pert_analyzer.gui.locale import UiLanguage, apply_ui_locale, nav_label, normalize_language
 from pert_analyzer.gui.pages import (
     AnalysisPage,
     ResultsPage,
@@ -92,6 +93,7 @@ class MainWindow(QMainWindow):
         self._confirm_discard_fn = confirm_discard_fn
         self._run_cpm_fn = run_cpm_fn
         self._session = GuiSession()
+        self._language = UiLanguage.ENGLISH
         self._worker: Optional[AnalysisWorker] = None
         self._apply_worker: Optional[ApplyReviewsWorker] = None
         self._cpm_worker: Optional[CpmWorker] = None
@@ -137,6 +139,12 @@ class MainWindow(QMainWindow):
 
         hdr_layout.addStretch()
 
+        self._locale_btn = QPushButton("عربي")
+        self._locale_btn.setObjectName("secondary")
+        self._locale_btn.setToolTip("Switch interface language and direction")
+        self._locale_btn.clicked.connect(self._toggle_language)
+        hdr_layout.addWidget(self._locale_btn)
+
         self._workflow_indicator = QLabel()
         self._workflow_indicator.setFont(QFont(*BODY_SMALL_FONT))
         self._workflow_indicator.setStyleSheet(
@@ -176,7 +184,7 @@ class MainWindow(QMainWindow):
 
         self._nav_buttons: dict[int, QPushButton] = {}
         for item in NAV_ITEMS:
-            btn = QPushButton(f"  {item.icon}  {item.label}")
+            btn = QPushButton(f"  {item.icon}  {nav_label(item.key, self._language)}")
             btn.setCheckable(True)
             btn.setObjectName(f"nav_{item.key}")
             btn.setFont(QFont(*BUTTON_FONT))
@@ -235,6 +243,30 @@ class MainWindow(QMainWindow):
         root_layout.addWidget(body, stretch=1)
 
         self._on_nav(NavDestination.ANALYZE)
+
+    @property
+    def language(self) -> UiLanguage:
+        return self._language
+
+    def set_language(self, language: str | UiLanguage) -> None:
+        """Switch UI language/direction; analysis and review data are untouched."""
+        self._language = normalize_language(language)
+        apply_ui_locale(self, self._language)
+        for item in NAV_ITEMS:
+            button = self._nav_buttons[item.destination.value]
+            button.setText(f"  {item.icon}  {nav_label(item.key, self._language)}")
+            button.setToolTip(nav_label(item.key, self._language))
+        self._locale_btn.setText("English" if self._language == UiLanguage.ARABIC else "عربي")
+        self._header_title.setText(
+            "محلل PERT وCPM" if self._language == UiLanguage.ARABIC else "PERT / CPM Analyzer"
+        )
+        self._update_workflow_indicator()
+
+    def _toggle_language(self) -> None:
+        next_language = (
+            UiLanguage.ARABIC if self._language == UiLanguage.ENGLISH else UiLanguage.ENGLISH
+        )
+        self.set_language(next_language)
 
     def _update_workflow_indicator(self) -> None:
         """State-aware workflow step indicator (done/current/blocked/pending)."""

@@ -63,6 +63,8 @@ DEFAULT_CONFIG = {
     },
     "gui": {
         "theme": "light",
+        "language": "en",
+        "direction": "auto",
         "window_width": 1400,
         "window_height": 900,
         "sidebar_width": 280,
@@ -128,6 +130,8 @@ class GUIConfig:
     """GUI configuration."""
 
     theme: str = "light"
+    language: str = "en"
+    direction: str = "auto"
     window_width: int = 1400
     window_height: int = 900
     sidebar_width: int = 280
@@ -237,6 +241,8 @@ class ConfigManager:
             g = config["gui"]
             self._config.gui = GUIConfig(
                 theme=g.get("theme", "light"),
+                language=g.get("language", "en"),
+                direction=g.get("direction", "auto"),
                 window_width=g.get("window_width", 1400),
                 window_height=g.get("window_height", 900),
                 sidebar_width=g.get("sidebar_width", 280),
