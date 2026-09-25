@@ -18,11 +18,17 @@ def default_analyze(
     image_path: str, stage_callback: Optional[Callable[[Any], None]] = None
 ) -> Any:
     """Default backend that calls ReviewWorkflow.analyze."""
+    from pert_analyzer.config.manager import get_config
     from pert_analyzer.pipeline.review_api import ReviewWorkflow
 
+    config = get_config()
+    languages = list(config.ocr.languages or ["eng"])
+    if config.gui.language == "ar" and "ara" not in languages:
+        languages.append("ara")
     return ReviewWorkflow.analyze(
         image_path,
         source_image_id=os.path.basename(image_path),
+        ocr_languages=languages,
         stage_callback=stage_callback,
     )
 

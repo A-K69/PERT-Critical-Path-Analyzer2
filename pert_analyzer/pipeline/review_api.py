@@ -453,6 +453,7 @@ class ReviewWorkflow:
         image_path: str,
         source_image_id: Optional[str] = None,
         tesseract_path: Optional[str] = None,
+        ocr_languages: Optional[list[str]] = None,
         stage_callback: Optional[Callable[[Any], None]] = None,
     ) -> "ReviewWorkflow":
         """
@@ -465,7 +466,10 @@ class ReviewWorkflow:
         from pert_analyzer.pipeline.analyzer import EndToEndAnalyzer
         from pert_analyzer.pipeline.progress import StageProgress
 
-        analyzer = EndToEndAnalyzer(tesseract_path=tesseract_path)
+        analyzer = EndToEndAnalyzer(
+            tesseract_path=tesseract_path,
+            ocr_languages=ocr_languages,
+        )
         if stage_callback is not None:
             try:
                 stage_callback(StageProgress("Review preparation", "RUNNING", 1.0))
