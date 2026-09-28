@@ -47,6 +47,7 @@ class DependencyEvidence:
     distance_from_target_boundary: float = 0.0
     angular_consistency: float = 0.0
     line_continuity: float = 0.0
+    shaft_visual_support: float = 0.0
     node_interior_crossing_penalty: float = 0.0
     duplicate_arrow_penalty: float = 0.0
     raw_evidence: Dict[str, Any] = field(default_factory=dict)
@@ -323,6 +324,7 @@ class ValidatedDependencyBuilder:
             target_boundary_intersection=dir_result.evidence.get("target_boundary_contact", 0),
             direction_consistency=dir_result.evidence.get("direction_alignment", 0),
             angular_consistency=dir_result.evidence.get("angular_consistency", 0),
+            shaft_visual_support=self._shaft_visual_support(arrow),
             raw_evidence={
                 "pairing": {
                     "status": pair_result.status.value,
@@ -341,15 +343,27 @@ class ValidatedDependencyBuilder:
                     "orientation_a_to_b": dir_result.orientation_a_to_b.score if dir_result.orientation_a_to_b else 0,
                     "orientation_b_to_a": dir_result.orientation_b_to_a.score if dir_result.orientation_b_to_a else 0,
                 },
+                "visual": {
+                    "shaft_support": self._shaft_visual_support(arrow),
+                    "detector_evidence": arrow.evidence.get("shaft_continuity", {}),
+                },
             },
         )
 
         # Score: combine pairing confidence + direction confidence
         pair_weight = 0.5
         dir_weight = 0.5
-        dep.confidence_score = (
+        geometry_score = (
             pair_weight * pair_result.confidence +
             dir_weight * dir_result.confidence
+        )
+        # A real detected shaft is useful corroboration, but never substitutes
+        # for node-boundary and direction evidence.  This is deliberately a
+        # bounded bonus rather than a lower threshold or an unconditional
+        # acceptance path: weak/noisy geometry remains review or rejected.
+        dep.confidence_score = min(
+            1.0,
+            geometry_score + 0.08 * dep.evidence.shaft_visual_support,
         )
 
         # REVIEW if either stage says so
@@ -358,6 +372,33 @@ class ValidatedDependencyBuilder:
             dep.review_required = True
 
         return dep
+
+    @staticmethod
+    def _shaft_visual_support(arrow: DetectedArrow) -> float:
+        """Return conservative support from the detector's visual shaft evidence.
+
+        ``line_confidence`` and ``shaft_continuity`` are produced from image
+        pixels by :mod:`arrow_detection`; they are not semantic edge guesses.
+        The value is intentionally capped and used only as a small corroborating
+        bonus in ``_validate_arrow``.
+        """
+        evidence = arrow.evidence or {}
+        breakdown = evidence.get("confidence_breakdown", {})
+        line_conf = float(
+            breakdown.get("line_confidence", evidence.get("line_confidence", 0.0))
+            or 0.0
+        )
+        continuity = evidence.get("shaft_continuity", {}) or {}
+        length = float(continuity.get("length", arrow.length) or arrow.length or 0.0)
+        length_support = min(1.0, max(0.0, length / 120.0))
+        segment_support = min(
+            1.0,
+            max(0.0, float(len(arrow.source_segment_ids or [])) / 3.0),
+        )
+        return max(
+            0.0,
+            min(1.0, 0.60 * line_conf + 0.25 * length_support + 0.15 * segment_support),
+        )
 
     def _get_strict_direction(
         self, arrow: DetectedArrow
@@ -782,6 +823,7 @@ class ValidatedDependencyBuilder:
                     "target_boundary": dep.evidence.target_boundary_intersection,
                     "direction": dep.evidence.direction_consistency,
                     "angular": dep.evidence.angular_consistency,
+                    "shaft_visual_support": dep.evidence.shaft_visual_support,
                 },
             }
             report.debug_entries.append(entry)
