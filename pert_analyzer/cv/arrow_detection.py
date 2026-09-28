@@ -241,6 +241,11 @@ class ArrowDetector(ArrowDetectorABC):
         final_arrows, rejected_arrows, stats = self._finalize_arrow_set(
             assembled_arrows, shape_result
         )
+        if stats["aoa_context"] and shape_result is not None:
+            recovered = self._recover_fragmented_aoa_routes(
+                final_arrows, shape_result, preprocessing_result.grayscale
+            )
+            final_arrows.extend(recovered)
 
         # Build result
         result = ArrowDetectionResult(
@@ -283,6 +288,103 @@ class ArrowDetector(ArrowDetectorABC):
         )
 
         return result
+
+    def _recover_fragmented_aoa_routes(
+        self,
+        arrows: List[DetectedArrow],
+        shape_result: ShapeDetectionResult,
+        grayscale: Optional[np.ndarray],
+    ) -> List[DetectedArrow]:
+        """Recover strongly pixel-supported direct AOA routes only."""
+        if grayscale is None or grayscale.ndim != 2:
+            return []
+        circles: List[Tuple[str, float, float, float]] = []
+        for node in shape_result.candidate_nodes:
+            if node.shape_type != ShapeType.CIRCLE or node.position is None:
+                continue
+            bb = node.bounding_box
+            radius = max(8.0, (float(bb.width) + float(bb.height)) / 4.0)
+            circles.append((node.node_id, node.position.x, node.position.y, radius))
+        if len(circles) < 2:
+            return []
+        existing = set()
+        for arrow in arrows:
+            s = arrow.evidence.get("event_contact_start", {}).get("event_id")
+            e = arrow.evidence.get("event_contact_end", {}).get("event_id")
+            if s and e and s != e:
+                existing.add(frozenset((s, e)))
+        recovered: List[DetectedArrow] = []
+        for i, source in enumerate(circles):
+            for target in circles[i + 1:]:
+                sid, sx, sy, sr = source
+                tid, tx, ty, tr = target
+                if tx <= sx or frozenset((sid, tid)) in existing:
+                    continue
+                distance = math.hypot(tx - sx, ty - sy)
+                if distance <= sr + tr + 18.0:
+                    continue
+                route = DetectedArrow(start=Point(sx, sy), end=Point(tx, ty))
+                if self._intervening_event_ids(route, circles, {sid, tid}):
+                    continue
+                support, coverage = self._sample_aoa_route(
+                    grayscale, sx, sy, tx, ty, sr, tr
+                )
+                if support < 0.45 or coverage < 0.65:
+                    continue
+                ux, uy = (tx - sx) / distance, (ty - sy) / distance
+                start = Point(sx + ux * sr, sy + uy * sr)
+                end = Point(tx - ux * tr, ty - uy * tr)
+                recovered.append(DetectedArrow(
+                    start=start,
+                    end=end,
+                    length=start.distance_to(end),
+                    direction_confidence=0.65,
+                    confidence=min(0.78, 0.45 + 0.25 * support),
+                    evidence={
+                        "has_arrowhead": False,
+                        "line_confidence": support,
+                        "direction_confidence": 0.65,
+                        "event_contact_start": {"event_id": sid, "contact": True, "recovered": True},
+                        "event_contact_end": {"event_id": tid, "contact": True, "recovered": True},
+                        "aoa_validation": {
+                            "event_contact_count": 2,
+                            "recovered_route": True,
+                            "route_support": round(support, 3),
+                            "route_coverage": round(coverage, 3),
+                        },
+                        "validation_status": "recovered::aoa_route_geometry",
+                    },
+                    metadata={
+                        "recovery_reason": "fragmented_shaft_without_observed_arrowhead",
+                        "direction_source": "dominant_left_to_right_event_layout",
+                    },
+                ))
+                existing.add(frozenset((sid, tid)))
+        return recovered
+
+    @staticmethod
+    def _sample_aoa_route(
+        grayscale: np.ndarray,
+        sx: float, sy: float, tx: float, ty: float,
+        sr: float, tr: float,
+    ) -> Tuple[float, float]:
+        distance = math.hypot(tx - sx, ty - sy)
+        ux, uy = (tx - sx) / distance, (ty - sy) / distance
+        inner, outer = max(6.0, sr + 5.0), max(sr + 6.0, distance - tr - 5.0)
+        count = max(5, int((outer - inner) / 3.0))
+        hits = covered = 0
+        for index in range(count):
+            along = inner + (outer - inner) * index / max(1, count - 1)
+            x, y = sx + ux * along, sy + uy * along
+            row_hits = 0
+            for offset in (-2, -1, 0, 1, 2):
+                px = int(round(x - offset * uy))
+                py = int(round(y + offset * ux))
+                if 0 <= py < grayscale.shape[0] and 0 <= px < grayscale.shape[1]:
+                    row_hits += int(int(grayscale[py, px]) < 160)
+            hits += row_hits
+            covered += int(row_hits > 0)
+        return hits / max(1, count * 5), covered / max(1, count)
 
     def detect_from_shapes(
         self,
