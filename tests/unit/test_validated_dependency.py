@@ -276,6 +276,21 @@ class TestEvidencePreservation:
         assert dep.evidence.direction_consistency >= 0
         assert dep.confidence_score > 0
 
+    def test_visual_shaft_support_is_bounded_and_traceable(self):
+        builder = ValidatedDependencyBuilder(high_threshold=0.4)
+        c1 = _make_rect_candidate("c1", 50, 100, 100, 50)
+        c2 = _make_rect_candidate("c2", 300, 100, 100, 50)
+        arrow = _make_arrow("a1", 150, 125, 300, 125, confidence=0.9)
+        arrow.evidence["line_confidence"] = 0.85
+        arrow.evidence["shaft_continuity"] = {"length": arrow.length}
+        report = builder.build_validated_dependencies([arrow], [c1, c2])
+        assert report.accepted_count == 1
+        dep = report.validated_dependencies[0]
+        assert 0.0 <= dep.evidence.shaft_visual_support <= 1.0
+        assert dep.evidence.raw_evidence["visual"]["shaft_support"] == pytest.approx(
+            dep.evidence.shaft_visual_support
+        )
+
 
 class TestDebugOutput:
     """Test 17: debug output generated."""
