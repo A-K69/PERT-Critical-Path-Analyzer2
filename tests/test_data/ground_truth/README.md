@@ -21,7 +21,8 @@ pipeline output would make the benchmark circular and meaningless.
   activities, 28 dependencies, CPM duration 54, 16 critical paths).
 - `5.json` and `11.json` are also **COMPLETE** manually verified AON
   references, with visible node geometry, durations, and dependencies.
-- The other 4 files are **drafts seeded from detector output** — ids,
+- `3.json` and `6.json` are **COMPLETE** manually verified AOA references.
+- The other 3 files are **drafts seeded from detector output** — ids,
   positions and a dependency guess are already filled, but a human must
   verify them against the image before they are trustworthy.
 

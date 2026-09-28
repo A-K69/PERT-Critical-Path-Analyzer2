@@ -1527,10 +1527,18 @@ class ArrowDetector(ArrowDetectorABC):
             e_contact = e_id is not None and (e_inside or e_bd <= e_tol)
             has_head = arrow.arrowhead_confidence >= head_req
             same_event = s_id is not None and s_id == e_id
+            intervening = self._intervening_event_ids(
+                arrow, circles, {s_id, e_id}
+            )
 
             reason: Optional[str] = None
-            if not has_head and same_event and s_contact and e_contact:
-                reason = "circle_boundary_same_event_no_arrowhead"
+            if same_event and s_contact and e_contact:
+                reason = (
+                    "circle_boundary_same_event_no_arrowhead"
+                    if not has_head else "same_event_self_loop"
+                )
+            elif intervening:
+                reason = "intervening_event_crossing"
             elif not has_head and not s_contact and not e_contact:
                 reason = "no_event_contact_no_arrowhead"
 
@@ -1569,6 +1577,33 @@ class ArrowDetector(ArrowDetectorABC):
                 kept.append(arrow)
 
         return kept, rejected
+
+    @staticmethod
+    def _intervening_event_ids(
+        arrow: DetectedArrow,
+        circles: List[Tuple[str, float, float, float]],
+        endpoint_ids: set,
+    ) -> List[str]:
+        """Find event circles crossed by the interior of an AOA shaft."""
+        dx = arrow.end.x - arrow.start.x
+        dy = arrow.end.y - arrow.start.y
+        length_sq = dx * dx + dy * dy
+        if length_sq <= 1e-9:
+            return []
+        crossed: List[str] = []
+        for cid, cx, cy, radius in circles:
+            if cid in endpoint_ids:
+                continue
+            projection = (
+                (cx - arrow.start.x) * dx + (cy - arrow.start.y) * dy
+            ) / length_sq
+            if projection <= 0.08 or projection >= 0.92:
+                continue
+            px = arrow.start.x + projection * dx
+            py = arrow.start.y + projection * dy
+            if math.hypot(cx - px, cy - py) <= radius * 1.05:
+                crossed.append(cid)
+        return crossed
 
     # =========================================================================
     # Node Association
