@@ -2,284 +2,32 @@
   "schema_version": "1.0",
   "image": "3.jpeg",
   "diagram_type": "AOA",
-  "annotation_status": "UNCERTAIN",
+  "annotation_status": "COMPLETE",
   "activities": [],
   "events": [
-    {
-      "id": "1",
-      "position": [
-        633.7488596607767,
-        189.45905850050926
-      ],
-      "bbox": [
-        599.0,
-        155.0,
-        70.0,
-        70.0
-      ]
-    },
-    {
-      "id": "2",
-      "position": [
-        934.1073559533351,
-        245.54060913705584
-      ],
-      "bbox": [
-        900.0,
-        211.0,
-        70.0,
-        70.0
-      ]
-    },
-    {
-      "id": "E",
-      "position": [
-        278.23562467328804,
-        355.0084945112389
-      ],
-      "bbox": [
-        243.0,
-        320.0,
-        71.0,
-        71.0
-      ]
-    },
-    {
-      "id": "FAX",
-      "position": [
-        520.0412289915967,
-        243.75183823529412
-      ],
-      "bbox": [
-        485.0,
-        209.0,
-        71.0,
-        71.0
-      ]
-    },
-    {
-      "id": "FAS",
-      "position": [
-        166.85678590215676,
-        243.78997895844293
-      ],
-      "bbox": [
-        132.0,
-        209.0,
-        71.0,
-        71.0
-      ]
-    },
-    {
-      "id": "PATE",
-      "position": [
-        405.1901000526593,
-        243.73249078462348
-      ],
-      "bbox": [
-        370.0,
-        209.0,
-        71.0,
-        71.0
-      ]
-    },
-    {
-      "id": "7",
-      "position": [
-        282.1551633298209,
-        243.77291886195997
-      ],
-      "bbox": [
-        247.0,
-        209.0,
-        71.0,
-        71.0
-      ]
-    },
-    {
-      "id": "EA",
-      "position": [
-        52.85225532659579,
-        243.71851074069212
-      ],
-      "bbox": [
-        18.0,
-        209.0,
-        71.0,
-        71.0
-      ]
-    },
-    {
-      "id": "9",
-      "position": [
-        1030.2769569041336,
-        245.61895338610375
-      ],
-      "bbox": [
-        995.0,
-        211.0,
-        71.0,
-        71.0
-      ]
-    },
-    {
-      "id": "10",
-      "position": [
-        838.0032099100321,
-        246.1996925719969
-      ],
-      "bbox": [
-        804.0,
-        212.0,
-        69.0,
-        70.0
-      ]
-    },
-    {
-      "id": "11",
-      "position": [
-        275.2002461322081,
-        136.97745253164558
-      ],
-      "bbox": [
-        241.0,
-        102.0,
-        70.0,
-        71.0
-      ]
-    },
-    {
-      "id": "12",
-      "position": [
-        633.8264985622649,
-        326.34833001548327
-      ],
-      "bbox": [
-        599.0,
-        291.0,
-        70.0,
-        71.0
-      ]
-    },
-    {
-      "id": "13",
-      "position": [
-        738.0112716763006,
-        248.8578034682081
-      ],
-      "bbox": [
-        704.0,
-        216.0,
-        69.0,
-        67.0
-      ]
-    }
+    {"id":"A","position":[52.9,243.7],"bbox":[18.0,209.0,71.0,71.0]},
+    {"id":"B","position":[166.9,243.8],"bbox":[132.0,209.0,71.0,71.0]},
+    {"id":"C","position":[275.2,137.0],"bbox":[241.0,102.0,70.0,71.0]},
+    {"id":"D","position":[282.2,243.8],"bbox":[247.0,209.0,71.0,71.0]},
+    {"id":"E","position":[278.2,355.0],"bbox":[243.0,320.0,71.0,71.0]},
+    {"id":"F","position":[405.2,243.7],"bbox":[370.0,209.0,71.0,71.0]},
+    {"id":"G","position":[520.0,243.8],"bbox":[485.0,209.0,71.0,71.0]},
+    {"id":"H","position":[633.7,189.5],"bbox":[599.0,155.0,70.0,70.0]},
+    {"id":"I","position":[633.8,326.3],"bbox":[599.0,291.0,70.0,71.0]},
+    {"id":"J","position":[738.0,248.9],"bbox":[704.0,216.0,69.0,67.0]},
+    {"id":"K","position":[838.0,246.2],"bbox":[804.0,212.0,69.0,70.0]},
+    {"id":"L","position":[934.1,245.5],"bbox":[900.0,211.0,70.0,70.0]},
+    {"id":"M","position":[1030.3,245.6],"bbox":[995.0,211.0,71.0,71.0]}
   ],
   "dependencies": [
-    {
-      "source": "PATE",
-      "target": "FAX"
-    },
-    {
-      "source": "FAX",
-      "target": "FAX"
-    },
-    {
-      "source": "PATE",
-      "target": "PATE"
-    },
-    {
-      "source": "9",
-      "target": "9"
-    },
-    {
-      "source": "EA",
-      "target": "EA"
-    },
-    {
-      "source": "13",
-      "target": "10"
-    },
-    {
-      "source": "10",
-      "target": "2"
-    },
-    {
-      "source": "FAS",
-      "target": "FAS"
-    },
-    {
-      "source": "7",
-      "target": "7"
-    },
-    {
-      "source": "EA",
-      "target": "FAS"
-    },
-    {
-      "source": "2",
-      "target": "9"
-    },
-    {
-      "source": "E",
-      "target": "PATE"
-    },
-    {
-      "source": "11",
-      "target": "PATE"
-    },
-    {
-      "source": "FAS",
-      "target": "11"
-    },
-    {
-      "source": "E",
-      "target": "E"
-    },
-    {
-      "source": "FAS",
-      "target": "E"
-    },
-    {
-      "source": "12",
-      "target": "13"
-    },
-    {
-      "source": "1",
-      "target": "1"
-    },
-    {
-      "source": "12",
-      "target": "12"
-    },
-    {
-      "source": "E",
-      "target": "E"
-    },
-    {
-      "source": "11",
-      "target": "11"
-    },
-    {
-      "source": "E",
-      "target": "E"
-    },
-    {
-      "source": "E",
-      "target": "E"
-    },
-    {
-      "source": "12",
-      "target": "12"
-    },
-    {
-      "source": "E",
-      "target": "E"
-    },
-    {
-      "source": "1",
-      "target": "13"
-    }
+    {"source":"A","target":"B"},{"source":"B","target":"C"},
+    {"source":"B","target":"D"},{"source":"B","target":"E"},
+    {"source":"C","target":"F"},{"source":"D","target":"F"},
+    {"source":"E","target":"F"},{"source":"F","target":"G"},
+    {"source":"G","target":"H"},{"source":"G","target":"I"},
+    {"source":"H","target":"J"},{"source":"I","target":"J"},
+    {"source":"J","target":"K"},{"source":"K","target":"L"},
+    {"source":"L","target":"M"}
   ],
-  "notes": "DRAFT seeded from detector output. Verify every id against the image (correct OCR errors), add durations, add/remove dependencies, then set annotation_status=COMPLETE for benchmark inclusion."
+  "notes": "Manually verified from the readable AOA diagram. Circle centers and bounds are approximate pixel geometry. Dependencies represent visible directed arrows between event circles; durations printed inside circles are not treated as AOA activity durations."
 }

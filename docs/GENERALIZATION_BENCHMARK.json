@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-09-28T21:06:07.215424+00:00",
+  "generated_at": "2026-09-28T21:18:57.632949+00:00",
   "pert_analyzer_version": "0.1.0",
   "dataset_root": "/home/ubuntu/PERT-Critical-Path-Analyzer2/tests/test_data/Imag PERT",
   "images_discovered": 8,
@@ -8,11 +8,7 @@
   "bottleneck_summary": [
     {
       "failure_class": "GRAPH_BUILD",
-      "image_count": 7
-    },
-    {
-      "failure_class": "ARROW_DETECTION",
-      "image_count": 1
+      "image_count": 8
     }
   ],
   "summary": {
@@ -23,11 +19,11 @@
     "fatal_failures": 0,
     "with_ground_truth": 0,
     "without_ground_truth": 8,
-    "with_accuracy_annotation": 3,
+    "with_accuracy_annotation": 5,
     "annotation_statuses": {
-      "COMPLETE": 3
+      "COMPLETE": 5
     },
-    "largest_activity_count_inflation": 41,
+    "largest_activity_count_inflation": 36,
     "largest_activity_count_inflation_image": "4.jpeg"
   },
   "images": [
@@ -37,7 +33,7 @@
       "height": 752,
       "file_format": "PNG",
       "file_size_bytes": 48134,
-      "duration_seconds": 29.118,
+      "duration_seconds": 29.123,
       "diagram_type": "AON",
       "diagram_confidence": 1.0,
       "final_status": "REVIEW_REQUIRED",
@@ -302,7 +298,7 @@
       "height": 843,
       "file_format": "JPEG",
       "file_size_bytes": 145957,
-      "duration_seconds": 18.46,
+      "duration_seconds": 20.394,
       "diagram_type": "AON",
       "diagram_confidence": 0.7946859903381643,
       "final_status": "REVIEW_REQUIRED",
@@ -542,7 +538,7 @@
       "height": 1080,
       "file_format": "JPEG",
       "file_size_bytes": 213745,
-      "duration_seconds": 13.278,
+      "duration_seconds": 13.735,
       "diagram_type": "AOA",
       "diagram_confidence": 1.0,
       "final_status": "REVIEW_REQUIRED",
@@ -557,19 +553,19 @@
         "lines_detected": 405,
         "lines_filtered": 52,
         "segments_merged": 276,
-        "arrows_detected": 30,
+        "arrows_detected": 29,
         "arrow_candidates": 70,
         "arrow_deduplicated": 5,
-        "validated_aoa_arrows": 30,
-        "aoa_rejected_arrows": 35,
+        "validated_aoa_arrows": 29,
+        "aoa_rejected_arrows": 36,
         "aoa_context": true,
         "ocr_regions": 77,
         "ocr_labels": 77,
         "ocr_id_candidates": 1,
         "ocr_numeric_candidates": 5,
-        "reconstructed_activities": 30,
+        "reconstructed_activities": 29,
         "reconstructed_events": 9,
-        "reconstructed_dependencies": 37,
+        "reconstructed_dependencies": 33,
         "raw_arrow_candidates": "UNAVAILABLE",
         "deduplicated_arrows": "UNAVAILABLE",
         "validated_node_pairs": "UNAVAILABLE",
@@ -578,7 +574,7 @@
         "rejected_dependencies": "UNAVAILABLE",
         "self_loops": "UNAVAILABLE",
         "duplicate_edges": "UNAVAILABLE",
-        "review_items": 57,
+        "review_items": 55,
         "graph_status": "INVALID",
         "graph_is_valid": false,
         "cpm_gate": "BLOCKED_REVIEW",
@@ -594,7 +590,7 @@
             "contours_analyzed": 3556,
             "raw_shapes": 14,
             "final_candidate_nodes": 14,
-            "reconstructed_activities": 30
+            "reconstructed_activities": 29
           }
         },
         {
@@ -604,7 +600,7 @@
             "deduplicated_arrows": "UNAVAILABLE",
             "validated_node_pairs": "UNAVAILABLE",
             "validated_dependencies": "UNAVAILABLE",
-            "reconstructed_dependencies": 37
+            "reconstructed_dependencies": 33
           }
         },
         {
@@ -648,7 +644,7 @@
         "evidence": {
           "graph_status": "INVALID",
           "cpm_gate": "BLOCKED_REVIEW",
-          "reconstructed_activities": 30
+          "reconstructed_activities": 29
         }
       },
       "error": null,
@@ -689,9 +685,8 @@
         "A25",
         "A26",
         "A27",
-        "A28",
+        "A29",
         "A3",
-        "A30",
         "A7",
         "A8",
         "AE",
@@ -720,22 +715,6 @@
         [
           "A11",
           "A23"
-        ],
-        [
-          "AE",
-          "A27"
-        ],
-        [
-          "WF",
-          "A27"
-        ],
-        [
-          "I",
-          "A27"
-        ],
-        [
-          "A11",
-          "A27"
         ],
         [
           "A3",
@@ -782,7 +761,7 @@
           "AE"
         ],
         [
-          "A28",
+          "A27",
           "AE"
         ],
         [
@@ -790,7 +769,7 @@
           "AE"
         ],
         [
-          "A30",
+          "A29",
           "AE"
         ],
         [
@@ -819,7 +798,7 @@
         ],
         [
           "É",
-          "A28"
+          "A27"
         ],
         [
           "É",
@@ -827,7 +806,7 @@
         ],
         [
           "É",
-          "A30"
+          "A29"
         ],
         [
           "A10",
@@ -862,7 +841,7 @@
       "height": 540,
       "file_format": "JPEG",
       "file_size_bytes": 39885,
-      "duration_seconds": 13.192,
+      "duration_seconds": 13.4,
       "diagram_type": "AOA",
       "diagram_confidence": 1.0,
       "final_status": "REVIEW_REQUIRED",
@@ -877,19 +856,19 @@
         "lines_detected": 430,
         "lines_filtered": 214,
         "segments_merged": 182,
-        "arrows_detected": 27,
+        "arrows_detected": 13,
         "arrow_candidates": 34,
         "arrow_deduplicated": 5,
-        "validated_aoa_arrows": 27,
-        "aoa_rejected_arrows": 2,
+        "validated_aoa_arrows": 13,
+        "aoa_rejected_arrows": 16,
         "aoa_context": true,
         "ocr_regions": 59,
         "ocr_labels": 59,
         "ocr_id_candidates": 0,
         "ocr_numeric_candidates": 1,
-        "reconstructed_activities": 27,
+        "reconstructed_activities": 13,
         "reconstructed_events": 13,
-        "reconstructed_dependencies": 35,
+        "reconstructed_dependencies": 13,
         "raw_arrow_candidates": "UNAVAILABLE",
         "deduplicated_arrows": "UNAVAILABLE",
         "validated_node_pairs": "UNAVAILABLE",
@@ -898,7 +877,7 @@
         "rejected_dependencies": "UNAVAILABLE",
         "self_loops": "UNAVAILABLE",
         "duplicate_edges": "UNAVAILABLE",
-        "review_items": 53,
+        "review_items": 25,
         "graph_status": "INVALID",
         "graph_is_valid": false,
         "cpm_gate": "BLOCKED_REVIEW",
@@ -914,7 +893,7 @@
             "contours_analyzed": 747,
             "raw_shapes": 16,
             "final_candidate_nodes": 16,
-            "reconstructed_activities": 27
+            "reconstructed_activities": 13
           }
         },
         {
@@ -924,7 +903,7 @@
             "deduplicated_arrows": "UNAVAILABLE",
             "validated_node_pairs": "UNAVAILABLE",
             "validated_dependencies": "UNAVAILABLE",
-            "reconstructed_dependencies": 35
+            "reconstructed_dependencies": 13
           }
         },
         {
@@ -968,7 +947,7 @@
         "evidence": {
           "graph_status": "INVALID",
           "cpm_gate": "BLOCKED_REVIEW",
-          "reconstructed_activities": 27
+          "reconstructed_activities": 13
         }
       },
       "error": null,
@@ -976,9 +955,9 @@
       "ground_truth": null,
       "gt_compare": null,
       "accuracy_metrics": {
-        "annotation_status": "UNCERTAIN",
+        "annotation_status": "COMPLETE",
         "annotation_uncertain": {},
-        "notes": "DRAFT seeded from detector output. Verify every id against the image (correct OCR errors), add durations, add/remove dependencies, then set annotation_status=COMPLETE for benchmark inclusion.",
+        "notes": "Manually verified from the readable AOA diagram. Circle centers and bounds are approximate pixel geometry. Dependencies represent visible directed arrows between event circles; durations printed inside circles are not treated as AOA activity durations.",
         "expected_activities": null,
         "expected_events": null,
         "expected_dependencies": null,
@@ -989,125 +968,118 @@
           "dependencies": 0,
           "note": "Uncertain/excluded reference items are never part of metric math."
         },
-        "available": false,
-        "reason": "annotation_status=UNCERTAIN (not human-verified); excluded from accuracy math"
+        "available": true,
+        "diagram_type": "AOA",
+        "events": {
+          "true_positives": 13,
+          "false_positives": 0,
+          "false_negatives": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "event_counts": {
+          "expected": 13,
+          "detected": 13,
+          "ratio": 1.0
+        },
+        "node_matching": {
+          "matched": 13,
+          "gt_unmatched": [],
+          "det_unmatched": []
+        },
+        "arrows": {
+          "expected_edges": 15,
+          "detected_edges": 12,
+          "incomparable_detected_edges": 0,
+          "directed": {
+            "true_positives": 11,
+            "false_positives": 1,
+            "false_negatives": 4,
+            "precision": 0.9167,
+            "recall": 0.7333,
+            "f1": 0.8148
+          },
+          "undirected_pair": {
+            "true_positives": 11,
+            "false_positives": 1,
+            "false_negatives": 4,
+            "precision": 0.9167,
+            "recall": 0.7333,
+            "f1": 0.8148
+          },
+          "direction": {
+            "correct_pairs": 11,
+            "reversed_pairs": 0,
+            "direction_accuracy": 1.0
+          }
+        },
+        "arrow_association": {
+          "detected_arrows": 13,
+          "arrows_mapped_to_event_pairs": 12,
+          "arrows_with_unresolved_event_end": 1,
+          "expected_arrows": 15
+        },
+        "activity_counts": {
+          "expected": 0,
+          "detected": 12,
+          "detected_including_unresolved": 13
+        },
+        "durations": {
+          "compared": 0,
+          "expected_with_duration": 0,
+          "exact_match_accuracy": null,
+          "mean_abs_error": null,
+          "mean_relative_error": null,
+          "note": "AOA per-arrow durations only measured when ground truth provides them"
+        }
       },
       "activity_ids": [
         "A1",
         "A10",
-        "A11",
-        "A14",
-        "A15",
-        "A17",
-        "A19",
-        "A21",
-        "A22",
-        "A23",
-        "A25",
-        "A26",
-        "A6",
-        "A7",
-        "A9",
+        "A2",
+        "A3",
+        "A4",
+        "A5",
+        "A8",
         "AE_1",
         "AE_2",
         "E",
-        "ETY",
         "FA",
-        "FAX",
         "ME",
-        "NE",
-        "OE",
-        "PAN",
-        "PATE",
         "X"
       ],
       "dependency_edges": [
         [
-          "A1",
-          "FAX"
+          "A2",
+          "A3"
         ],
         [
-          "PATE",
-          "A1"
+          "A3",
+          "A5"
         ],
         [
-          "ME",
-          "A1"
+          "A4",
+          "A8"
         ],
         [
-          "AE_1",
-          "A1"
-        ],
-        [
-          "ME",
-          "PATE"
-        ],
-        [
-          "AE_1",
-          "PATE"
-        ],
-        [
-          "A11",
-          "PAN"
-        ],
-        [
-          "OE",
-          "A10"
-        ],
-        [
-          "A6",
-          "A7"
-        ],
-        [
-          "A7",
-          "A11"
-        ],
-        [
-          "A10",
+          "A4",
           "FA"
         ],
         [
-          "FA",
-          "A14"
+          "ME",
+          "A1"
         ],
         [
-          "A10",
-          "A14"
+          "AE_1",
+          "A1"
         ],
         [
-          "FA",
-          "ETY"
-        ],
-        [
-          "A10",
-          "ETY"
-        ],
-        [
-          "A14",
+          "A8",
           "AE_1"
         ],
         [
-          "A22",
-          "AE_1"
-        ],
-        [
-          "A14",
-          "A22"
-        ],
-        [
-          "A15",
-          "ME"
-        ],
-        [
-          "ETY",
-          "ME"
-        ],
-        [
-          "A21",
-          "ME"
-        ],
-        [
-          "A23",
+          "FA",
           "ME"
         ],
         [
@@ -1115,52 +1087,20 @@
           "ME"
         ],
         [
-          "A26",
-          "ME"
-        ],
-        [
-          "ETY",
-          "A15"
-        ],
-        [
-          "ETY",
-          "A21"
-        ],
-        [
-          "ETY",
-          "A23"
-        ],
-        [
-          "ETY",
+          "FA",
           "E"
         ],
         [
-          "ETY",
-          "A26"
-        ],
-        [
-          "A17",
-          "AE_2"
-        ],
-        [
-          "NE",
-          "AE_2"
-        ],
-        [
-          "A25",
+          "A10",
           "AE_2"
         ],
         [
           "AE_2",
-          "A6"
+          "A2"
         ],
         [
           "X",
-          "A6"
-        ],
-        [
-          "A19",
-          "X"
+          "A2"
         ]
       ],
       "extra": {}
@@ -1171,7 +1111,7 @@
       "height": 720,
       "file_format": "JPEG",
       "file_size_bytes": 63497,
-      "duration_seconds": 12.687,
+      "duration_seconds": 12.41,
       "diagram_type": "AOA",
       "diagram_confidence": 1.0,
       "final_status": "REVIEW_REQUIRED",
@@ -1186,19 +1126,19 @@
         "lines_detected": 426,
         "lines_filtered": 180,
         "segments_merged": 177,
-        "arrows_detected": 41,
+        "arrows_detected": 36,
         "arrow_candidates": 56,
         "arrow_deduplicated": 1,
-        "validated_aoa_arrows": 41,
-        "aoa_rejected_arrows": 14,
+        "validated_aoa_arrows": 36,
+        "aoa_rejected_arrows": 19,
         "aoa_context": true,
         "ocr_regions": 62,
         "ocr_labels": 62,
         "ocr_id_candidates": 1,
         "ocr_numeric_candidates": 4,
-        "reconstructed_activities": 41,
+        "reconstructed_activities": 36,
         "reconstructed_events": 15,
-        "reconstructed_dependencies": 78,
+        "reconstructed_dependencies": 62,
         "raw_arrow_candidates": "UNAVAILABLE",
         "deduplicated_arrows": "UNAVAILABLE",
         "validated_node_pairs": "UNAVAILABLE",
@@ -1207,7 +1147,7 @@
         "rejected_dependencies": "UNAVAILABLE",
         "self_loops": "UNAVAILABLE",
         "duplicate_edges": "UNAVAILABLE",
-        "review_items": 78,
+        "review_items": 68,
         "graph_status": "INVALID",
         "graph_is_valid": false,
         "cpm_gate": "BLOCKED_REVIEW",
@@ -1223,7 +1163,7 @@
             "contours_analyzed": 1262,
             "raw_shapes": 15,
             "final_candidate_nodes": 15,
-            "reconstructed_activities": 41
+            "reconstructed_activities": 36
           }
         },
         {
@@ -1233,7 +1173,7 @@
             "deduplicated_arrows": "UNAVAILABLE",
             "validated_node_pairs": "UNAVAILABLE",
             "validated_dependencies": "UNAVAILABLE",
-            "reconstructed_dependencies": 78
+            "reconstructed_dependencies": 62
           }
         },
         {
@@ -1272,11 +1212,12 @@
         "Review preparation": "UNAVAILABLE"
       },
       "failure_classification": {
-        "stage": "Detecting arrows",
-        "failure_class": "ARROW_DETECTION",
+        "stage": "Building graph",
+        "failure_class": "GRAPH_BUILD",
         "evidence": {
-          "arrows_detected": 41,
-          "reconstructed_activities": 41
+          "graph_status": "INVALID",
+          "cpm_gate": "BLOCKED_REVIEW",
+          "reconstructed_activities": 36
         }
       },
       "error": null,
@@ -1301,34 +1242,29 @@
         "reason": "annotation_status=UNCERTAIN (not human-verified); excluded from accuracy math"
       },
       "activity_ids": [
+        "A",
         "A1",
         "A10",
-        "A14",
-        "A18",
+        "A16",
         "A19",
         "A2",
         "A20",
-        "A23",
+        "A22",
         "A24",
+        "A25",
         "A26",
+        "A27",
         "A28",
-        "A29",
         "A3",
         "A30",
-        "A31",
         "A32",
+        "A33",
         "A34",
         "A35",
-        "A37",
-        "A38",
-        "A39",
-        "A40",
-        "A41",
+        "A36",
         "A5",
         "A8",
         "AE",
-        "A_1",
-        "A_2",
         "E7",
         "N",
         "NS",
@@ -1346,39 +1282,39 @@
       "dependency_edges": [
         [
           "A1",
-          "A23"
+          "A19"
         ],
         [
           "A8",
-          "A23"
+          "A19"
         ],
         [
           "N",
-          "A23"
+          "A19"
         ],
         [
           "Y_4",
-          "A23"
+          "A19"
         ],
         [
           "A2",
           "N"
         ],
         [
-          "A20",
+          "A16",
           "N"
         ],
         [
-          "A39",
+          "A34",
           "N"
         ],
         [
           "A2",
-          "A20"
+          "A16"
         ],
         [
           "A2",
-          "A39"
+          "A34"
         ],
         [
           "A3",
@@ -1389,7 +1325,11 @@
           "A8"
         ],
         [
-          "A_2",
+          "A",
+          "A8"
+        ],
+        [
+          "A28",
           "A8"
         ],
         [
@@ -1397,20 +1337,16 @@
           "A8"
         ],
         [
-          "A37",
-          "A8"
+          "NS",
+          "A"
         ],
         [
           "NS",
-          "A_2"
+          "A28"
         ],
         [
           "NS",
           "A32"
-        ],
-        [
-          "NS",
-          "A37"
         ],
         [
           "A5",
@@ -1422,11 +1358,11 @@
         ],
         [
           "A5",
-          "A24"
+          "A20"
         ],
         [
           "A5",
-          "A28"
+          "A24"
         ],
         [
           "AE",
@@ -1449,7 +1385,7 @@
           "A3"
         ],
         [
-          "A26",
+          "A22",
           "A3"
         ],
         [
@@ -1457,16 +1393,12 @@
           "A3"
         ],
         [
-          "A35",
-          "A3"
-        ],
-        [
-          "A41",
+          "A36",
           "A3"
         ],
         [
           "A10",
-          "A26"
+          "A22"
         ],
         [
           "A10",
@@ -1474,22 +1406,10 @@
         ],
         [
           "A10",
-          "A35"
-        ],
-        [
-          "A10",
-          "A41"
+          "A36"
         ],
         [
           "SC",
-          "AE"
-        ],
-        [
-          "A14",
-          "AE"
-        ],
-        [
-          "A19",
           "AE"
         ],
         [
@@ -1501,14 +1421,6 @@
           "Y_6"
         ],
         [
-          "A14",
-          "Y_6"
-        ],
-        [
-          "A19",
-          "Y_6"
-        ],
-        [
           "Y_2",
           "Y_6"
         ],
@@ -1517,27 +1429,11 @@
           "A10"
         ],
         [
-          "A14",
-          "A10"
-        ],
-        [
-          "A19",
-          "A10"
-        ],
-        [
           "Y_2",
           "A10"
         ],
         [
           "SC",
-          "ON"
-        ],
-        [
-          "A14",
-          "ON"
-        ],
-        [
-          "A19",
           "ON"
         ],
         [
@@ -1553,11 +1449,11 @@
           "A2"
         ],
         [
-          "A29",
+          "A25",
           "A2"
         ],
         [
-          "A31",
+          "A27",
           "A2"
         ],
         [
@@ -1565,23 +1461,19 @@
           "Y_5"
         ],
         [
-          "A29",
+          "A25",
           "Y_5"
         ],
         [
-          "A31",
+          "A27",
           "Y_5"
         ],
         [
-          "A_1",
-          "A5"
-        ],
-        [
-          "A18",
-          "A5"
-        ],
-        [
           "YP",
+          "A5"
+        ],
+        [
+          "A26",
           "A5"
         ],
         [
@@ -1589,72 +1481,52 @@
           "A5"
         ],
         [
-          "A34",
+          "A33",
           "A5"
         ],
         [
-          "A38",
+          "A35",
           "A5"
-        ],
-        [
-          "A40",
-          "A5"
-        ],
-        [
-          "A_1",
-          "A29"
-        ],
-        [
-          "A18",
-          "A29"
         ],
         [
           "YP",
-          "A29"
+          "A25"
+        ],
+        [
+          "A26",
+          "A25"
         ],
         [
           "A30",
-          "A29"
+          "A25"
         ],
         [
-          "A34",
-          "A29"
+          "A33",
+          "A25"
         ],
         [
-          "A38",
-          "A29"
-        ],
-        [
-          "A40",
-          "A29"
-        ],
-        [
-          "A_1",
-          "A31"
-        ],
-        [
-          "A18",
-          "A31"
+          "A35",
+          "A25"
         ],
         [
           "YP",
-          "A31"
+          "A27"
+        ],
+        [
+          "A26",
+          "A27"
         ],
         [
           "A30",
-          "A31"
+          "A27"
         ],
         [
-          "A34",
-          "A31"
+          "A33",
+          "A27"
         ],
         [
-          "A38",
-          "A31"
-        ],
-        [
-          "A40",
-          "A31"
+          "A35",
+          "A27"
         ]
       ],
       "extra": {}
@@ -1665,7 +1537,7 @@
       "height": 720,
       "file_format": "JPEG",
       "file_size_bytes": 55833,
-      "duration_seconds": 22.792,
+      "duration_seconds": 22.549,
       "diagram_type": "AON",
       "diagram_confidence": 0.6403940886699508,
       "final_status": "REVIEW_REQUIRED",
@@ -1925,7 +1797,7 @@
       "height": 540,
       "file_format": "JPEG",
       "file_size_bytes": 42452,
-      "duration_seconds": 12.693,
+      "duration_seconds": 13.031,
       "diagram_type": "AOA",
       "diagram_confidence": 1.0,
       "final_status": "REVIEW_REQUIRED",
@@ -1940,19 +1812,19 @@
         "lines_detected": 539,
         "lines_filtered": 262,
         "segments_merged": 255,
-        "arrows_detected": 22,
+        "arrows_detected": 15,
         "arrow_candidates": 22,
         "arrow_deduplicated": 0,
-        "validated_aoa_arrows": 22,
-        "aoa_rejected_arrows": 0,
+        "validated_aoa_arrows": 15,
+        "aoa_rejected_arrows": 7,
         "aoa_context": true,
         "ocr_regions": 85,
         "ocr_labels": 85,
         "ocr_id_candidates": 0,
         "ocr_numeric_candidates": 1,
-        "reconstructed_activities": 22,
+        "reconstructed_activities": 15,
         "reconstructed_events": 12,
-        "reconstructed_dependencies": 39,
+        "reconstructed_dependencies": 16,
         "raw_arrow_candidates": "UNAVAILABLE",
         "deduplicated_arrows": "UNAVAILABLE",
         "validated_node_pairs": "UNAVAILABLE",
@@ -1961,7 +1833,7 @@
         "rejected_dependencies": "UNAVAILABLE",
         "self_loops": "UNAVAILABLE",
         "duplicate_edges": "UNAVAILABLE",
-        "review_items": 43,
+        "review_items": 29,
         "graph_status": "INVALID",
         "graph_is_valid": false,
         "cpm_gate": "BLOCKED_REVIEW",
@@ -1977,7 +1849,7 @@
             "contours_analyzed": 1328,
             "raw_shapes": 15,
             "final_candidate_nodes": 15,
-            "reconstructed_activities": 22
+            "reconstructed_activities": 15
           }
         },
         {
@@ -1987,7 +1859,7 @@
             "deduplicated_arrows": "UNAVAILABLE",
             "validated_node_pairs": "UNAVAILABLE",
             "validated_dependencies": "UNAVAILABLE",
-            "reconstructed_dependencies": 39
+            "reconstructed_dependencies": 16
           }
         },
         {
@@ -2031,7 +1903,7 @@
         "evidence": {
           "graph_status": "INVALID",
           "cpm_gate": "BLOCKED_REVIEW",
-          "reconstructed_activities": 22
+          "reconstructed_activities": 15
         }
       },
       "error": null,
@@ -2039,9 +1911,9 @@
       "ground_truth": null,
       "gt_compare": null,
       "accuracy_metrics": {
-        "annotation_status": "UNCERTAIN",
+        "annotation_status": "COMPLETE",
         "annotation_uncertain": {},
-        "notes": "DRAFT seeded from detector output. Verify every id against the image (correct OCR errors), add durations, add/remove dependencies, then set annotation_status=COMPLETE for benchmark inclusion.",
+        "notes": "Manually verified from the readable AOA diagram. Circle centers and bounds are approximate pixel geometry. The visible arrow K→M is labeled L(3); L is the activity label, not a separate event circle, so the event dependency is K→M.",
         "expected_activities": null,
         "expected_events": null,
         "expected_dependencies": null,
@@ -2052,37 +1924,97 @@
           "dependencies": 0,
           "note": "Uncertain/excluded reference items are never part of metric math."
         },
-        "available": false,
-        "reason": "annotation_status=UNCERTAIN (not human-verified); excluded from accuracy math"
+        "available": true,
+        "diagram_type": "AOA",
+        "events": {
+          "true_positives": 12,
+          "false_positives": 0,
+          "false_negatives": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "event_counts": {
+          "expected": 12,
+          "detected": 12,
+          "ratio": 1.0
+        },
+        "node_matching": {
+          "matched": 12,
+          "gt_unmatched": [],
+          "det_unmatched": []
+        },
+        "arrows": {
+          "expected_edges": 14,
+          "detected_edges": 6,
+          "incomparable_detected_edges": 0,
+          "directed": {
+            "true_positives": 6,
+            "false_positives": 0,
+            "false_negatives": 8,
+            "precision": 1.0,
+            "recall": 0.4286,
+            "f1": 0.6
+          },
+          "undirected_pair": {
+            "true_positives": 6,
+            "false_positives": 0,
+            "false_negatives": 8,
+            "precision": 1.0,
+            "recall": 0.4286,
+            "f1": 0.6
+          },
+          "direction": {
+            "correct_pairs": 6,
+            "reversed_pairs": 0,
+            "direction_accuracy": 1.0
+          }
+        },
+        "arrow_association": {
+          "detected_arrows": 15,
+          "arrows_mapped_to_event_pairs": 7,
+          "arrows_with_unresolved_event_end": 8,
+          "expected_arrows": 14
+        },
+        "activity_counts": {
+          "expected": 0,
+          "detected": 7,
+          "detected_including_unresolved": 15
+        },
+        "durations": {
+          "compared": 0,
+          "expected_with_duration": 0,
+          "exact_match_accuracy": null,
+          "mean_abs_error": null,
+          "mean_relative_error": null,
+          "note": "AOA per-arrow durations only measured when ground truth provides them"
+        }
       },
       "activity_ids": [
-        "A",
         "A1",
         "A10",
         "A11",
         "A12",
         "A13",
         "A14",
-        "A16",
-        "A17",
-        "A18",
-        "A19",
+        "A15",
         "A2",
-        "A21",
-        "A22",
         "A3",
-        "A4",
         "A5",
         "A6",
-        "A7",
         "A8",
         "A9",
-        "YA"
+        "AAA",
+        "EE"
       ],
       "dependency_edges": [
         [
           "A1",
-          "A7"
+          "A2"
+        ],
+        [
+          "A1",
+          "EE"
         ],
         [
           "A1",
@@ -2090,151 +2022,55 @@
         ],
         [
           "A1",
+          "A11"
+        ],
+        [
+          "A2",
+          "AAA"
+        ],
+        [
+          "A10",
+          "AAA"
+        ],
+        [
+          "A2",
           "A14"
         ],
         [
-          "A3",
-          "A4"
-        ],
-        [
-          "A3",
-          "A9"
-        ],
-        [
-          "A3",
-          "A12"
-        ],
-        [
-          "A3",
-          "A13"
-        ],
-        [
-          "A4",
-          "A6"
-        ],
-        [
-          "A12",
-          "A6"
-        ],
-        [
-          "A21",
-          "A6"
-        ],
-        [
-          "A4",
-          "A16"
-        ],
-        [
-          "A12",
-          "A16"
-        ],
-        [
-          "A21",
-          "A16"
-        ],
-        [
-          "A4",
-          "A21"
-        ],
-        [
-          "A12",
-          "A21"
-        ],
-        [
-          "A5",
-          "A22"
-        ],
-        [
-          "A6",
-          "A22"
-        ],
-        [
-          "A8",
-          "A22"
-        ],
-        [
-          "A16",
-          "A22"
-        ],
-        [
-          "A9",
-          "A5"
-        ],
-        [
-          "A13",
-          "A5"
-        ],
-        [
-          "A17",
-          "A5"
-        ],
-        [
-          "YA",
-          "A5"
-        ],
-        [
-          "A9",
-          "A8"
-        ],
-        [
-          "A13",
-          "A8"
-        ],
-        [
-          "A17",
-          "A8"
-        ],
-        [
-          "YA",
-          "A8"
-        ],
-        [
-          "A9",
-          "A17"
-        ],
-        [
-          "A13",
-          "A17"
-        ],
-        [
-          "A9",
-          "YA"
-        ],
-        [
-          "A13",
-          "YA"
-        ],
-        [
           "A10",
-          "A"
+          "A14"
         ],
         [
-          "A10",
-          "A18"
-        ],
-        [
-          "A10",
-          "A19"
-        ],
-        [
-          "A",
-          "A19"
-        ],
-        [
-          "A18",
-          "A19"
+          "EE",
+          "A3"
         ],
         [
           "A11",
-          "A2"
+          "A3"
         ],
         [
-          "A19",
-          "A2"
+          "EE",
+          "A6"
         ],
         [
-          "A19",
-          "A11"
+          "A11",
+          "A6"
+        ],
+        [
+          "A8",
+          "A13"
+        ],
+        [
+          "A8",
+          "A15"
+        ],
+        [
+          "A13",
+          "A15"
+        ],
+        [
+          "A15",
+          "A9"
         ]
       ],
       "extra": {}
@@ -2245,7 +2081,7 @@
       "height": 608,
       "file_format": "JPEG",
       "file_size_bytes": 76454,
-      "duration_seconds": 22.616,
+      "duration_seconds": 22.576,
       "diagram_type": "AON",
       "diagram_confidence": 1.0,
       "final_status": "REVIEW_REQUIRED",

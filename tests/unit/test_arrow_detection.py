@@ -1573,6 +1573,19 @@ class TestLogicalArrowConsolidation:
         assert contact_end["event_id"] == "e2"
         assert contact_end["contact"] is True
 
+    def test_10b_visual_aoa_artifacts_are_rejected(self):
+        circles = [("e1", 100, 150, 30), ("e2", 250, 150, 30), ("e3", 400, 150, 30)]
+        self_loop = _make_arrow(70, 150, 130, 150, arrowhead_conf=0.7)
+        merged = _make_arrow(70, 150, 430, 150, arrowhead_conf=0.7)
+        kept, rejected = self.detector._validate_aoa_arrows(
+            [self_loop, merged], circles
+        )
+        assert kept == []
+        assert {a.metadata["rejection_reason"] for a in rejected} == {
+            "same_event_self_loop",
+            "intervening_event_crossing",
+        }
+
     # (11) arrowhead ambiguity handled gracefully
     def test_11_arrowhead_ambiguity_no_crash(self):
         width, height = 500, 200
