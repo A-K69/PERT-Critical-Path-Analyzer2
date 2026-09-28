@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-09-28T21:18:57.632949+00:00",
+  "generated_at": "2026-09-28T21:53:51.860905+00:00",
   "pert_analyzer_version": "0.1.0",
   "dataset_root": "/home/ubuntu/PERT-Critical-Path-Analyzer2/tests/test_data/Imag PERT",
   "images_discovered": 8,
@@ -33,7 +33,7 @@
       "height": 752,
       "file_format": "PNG",
       "file_size_bytes": 48134,
-      "duration_seconds": 29.123,
+      "duration_seconds": 27.265,
       "diagram_type": "AON",
       "diagram_confidence": 1.0,
       "final_status": "REVIEW_REQUIRED",
@@ -298,7 +298,7 @@
       "height": 843,
       "file_format": "JPEG",
       "file_size_bytes": 145957,
-      "duration_seconds": 20.394,
+      "duration_seconds": 18.031,
       "diagram_type": "AON",
       "diagram_confidence": 0.7946859903381643,
       "final_status": "REVIEW_REQUIRED",
@@ -538,7 +538,7 @@
       "height": 1080,
       "file_format": "JPEG",
       "file_size_bytes": 213745,
-      "duration_seconds": 13.735,
+      "duration_seconds": 12.336,
       "diagram_type": "AOA",
       "diagram_confidence": 1.0,
       "final_status": "REVIEW_REQUIRED",
@@ -841,7 +841,7 @@
       "height": 540,
       "file_format": "JPEG",
       "file_size_bytes": 39885,
-      "duration_seconds": 13.4,
+      "duration_seconds": 12.794,
       "diagram_type": "AOA",
       "diagram_confidence": 1.0,
       "final_status": "REVIEW_REQUIRED",
@@ -856,19 +856,19 @@
         "lines_detected": 430,
         "lines_filtered": 214,
         "segments_merged": 182,
-        "arrows_detected": 13,
+        "arrows_detected": 14,
         "arrow_candidates": 34,
         "arrow_deduplicated": 5,
-        "validated_aoa_arrows": 13,
+        "validated_aoa_arrows": 14,
         "aoa_rejected_arrows": 16,
         "aoa_context": true,
         "ocr_regions": 59,
         "ocr_labels": 59,
         "ocr_id_candidates": 0,
         "ocr_numeric_candidates": 1,
-        "reconstructed_activities": 13,
+        "reconstructed_activities": 14,
         "reconstructed_events": 13,
-        "reconstructed_dependencies": 13,
+        "reconstructed_dependencies": 14,
         "raw_arrow_candidates": "UNAVAILABLE",
         "deduplicated_arrows": "UNAVAILABLE",
         "validated_node_pairs": "UNAVAILABLE",
@@ -877,7 +877,7 @@
         "rejected_dependencies": "UNAVAILABLE",
         "self_loops": "UNAVAILABLE",
         "duplicate_edges": "UNAVAILABLE",
-        "review_items": 25,
+        "review_items": 27,
         "graph_status": "INVALID",
         "graph_is_valid": false,
         "cpm_gate": "BLOCKED_REVIEW",
@@ -893,7 +893,7 @@
             "contours_analyzed": 747,
             "raw_shapes": 16,
             "final_candidate_nodes": 16,
-            "reconstructed_activities": 13
+            "reconstructed_activities": 14
           }
         },
         {
@@ -903,7 +903,7 @@
             "deduplicated_arrows": "UNAVAILABLE",
             "validated_node_pairs": "UNAVAILABLE",
             "validated_dependencies": "UNAVAILABLE",
-            "reconstructed_dependencies": 13
+            "reconstructed_dependencies": 14
           }
         },
         {
@@ -947,7 +947,7 @@
         "evidence": {
           "graph_status": "INVALID",
           "cpm_gate": "BLOCKED_REVIEW",
-          "reconstructed_activities": 13
+          "reconstructed_activities": 14
         }
       },
       "error": null,
@@ -990,40 +990,40 @@
         },
         "arrows": {
           "expected_edges": 15,
-          "detected_edges": 12,
+          "detected_edges": 13,
           "incomparable_detected_edges": 0,
           "directed": {
-            "true_positives": 11,
+            "true_positives": 12,
             "false_positives": 1,
-            "false_negatives": 4,
-            "precision": 0.9167,
-            "recall": 0.7333,
-            "f1": 0.8148
+            "false_negatives": 3,
+            "precision": 0.9231,
+            "recall": 0.8,
+            "f1": 0.8571
           },
           "undirected_pair": {
-            "true_positives": 11,
+            "true_positives": 12,
             "false_positives": 1,
-            "false_negatives": 4,
-            "precision": 0.9167,
-            "recall": 0.7333,
-            "f1": 0.8148
+            "false_negatives": 3,
+            "precision": 0.9231,
+            "recall": 0.8,
+            "f1": 0.8571
           },
           "direction": {
-            "correct_pairs": 11,
+            "correct_pairs": 12,
             "reversed_pairs": 0,
             "direction_accuracy": 1.0
           }
         },
         "arrow_association": {
-          "detected_arrows": 13,
-          "arrows_mapped_to_event_pairs": 12,
+          "detected_arrows": 14,
+          "arrows_mapped_to_event_pairs": 13,
           "arrows_with_unresolved_event_end": 1,
           "expected_arrows": 15
         },
         "activity_counts": {
           "expected": 0,
-          "detected": 12,
-          "detected_including_unresolved": 13
+          "detected": 13,
+          "detected_including_unresolved": 14
         },
         "durations": {
           "compared": 0,
@@ -1046,6 +1046,7 @@
         "AE_2",
         "E",
         "FA",
+        "FEE",
         "ME",
         "X"
       ],
@@ -1065,6 +1066,10 @@
         [
           "A4",
           "FA"
+        ],
+        [
+          "A4",
+          "FEE"
         ],
         [
           "ME",
@@ -1111,7 +1116,7 @@
       "height": 720,
       "file_format": "JPEG",
       "file_size_bytes": 63497,
-      "duration_seconds": 12.41,
+      "duration_seconds": 12.236,
       "diagram_type": "AOA",
       "diagram_confidence": 1.0,
       "final_status": "REVIEW_REQUIRED",
@@ -1537,7 +1542,7 @@
       "height": 720,
       "file_format": "JPEG",
       "file_size_bytes": 55833,
-      "duration_seconds": 22.549,
+      "duration_seconds": 21.404,
       "diagram_type": "AON",
       "diagram_confidence": 0.6403940886699508,
       "final_status": "REVIEW_REQUIRED",
@@ -1797,7 +1802,7 @@
       "height": 540,
       "file_format": "JPEG",
       "file_size_bytes": 42452,
-      "duration_seconds": 13.031,
+      "duration_seconds": 12.46,
       "diagram_type": "AOA",
       "diagram_confidence": 1.0,
       "final_status": "REVIEW_REQUIRED",
@@ -1812,19 +1817,19 @@
         "lines_detected": 539,
         "lines_filtered": 262,
         "segments_merged": 255,
-        "arrows_detected": 15,
+        "arrows_detected": 17,
         "arrow_candidates": 22,
         "arrow_deduplicated": 0,
-        "validated_aoa_arrows": 15,
+        "validated_aoa_arrows": 17,
         "aoa_rejected_arrows": 7,
         "aoa_context": true,
         "ocr_regions": 85,
         "ocr_labels": 85,
         "ocr_id_candidates": 0,
         "ocr_numeric_candidates": 1,
-        "reconstructed_activities": 15,
+        "reconstructed_activities": 17,
         "reconstructed_events": 12,
-        "reconstructed_dependencies": 16,
+        "reconstructed_dependencies": 23,
         "raw_arrow_candidates": "UNAVAILABLE",
         "deduplicated_arrows": "UNAVAILABLE",
         "validated_node_pairs": "UNAVAILABLE",
@@ -1833,7 +1838,7 @@
         "rejected_dependencies": "UNAVAILABLE",
         "self_loops": "UNAVAILABLE",
         "duplicate_edges": "UNAVAILABLE",
-        "review_items": 29,
+        "review_items": 33,
         "graph_status": "INVALID",
         "graph_is_valid": false,
         "cpm_gate": "BLOCKED_REVIEW",
@@ -1849,7 +1854,7 @@
             "contours_analyzed": 1328,
             "raw_shapes": 15,
             "final_candidate_nodes": 15,
-            "reconstructed_activities": 15
+            "reconstructed_activities": 17
           }
         },
         {
@@ -1859,7 +1864,7 @@
             "deduplicated_arrows": "UNAVAILABLE",
             "validated_node_pairs": "UNAVAILABLE",
             "validated_dependencies": "UNAVAILABLE",
-            "reconstructed_dependencies": 16
+            "reconstructed_dependencies": 23
           }
         },
         {
@@ -1903,7 +1908,7 @@
         "evidence": {
           "graph_status": "INVALID",
           "cpm_gate": "BLOCKED_REVIEW",
-          "reconstructed_activities": 15
+          "reconstructed_activities": 17
         }
       },
       "error": null,
@@ -1946,40 +1951,40 @@
         },
         "arrows": {
           "expected_edges": 14,
-          "detected_edges": 6,
+          "detected_edges": 8,
           "incomparable_detected_edges": 0,
           "directed": {
-            "true_positives": 6,
+            "true_positives": 8,
             "false_positives": 0,
-            "false_negatives": 8,
+            "false_negatives": 6,
             "precision": 1.0,
-            "recall": 0.4286,
-            "f1": 0.6
+            "recall": 0.5714,
+            "f1": 0.7273
           },
           "undirected_pair": {
-            "true_positives": 6,
+            "true_positives": 8,
             "false_positives": 0,
-            "false_negatives": 8,
+            "false_negatives": 6,
             "precision": 1.0,
-            "recall": 0.4286,
-            "f1": 0.6
+            "recall": 0.5714,
+            "f1": 0.7273
           },
           "direction": {
-            "correct_pairs": 6,
+            "correct_pairs": 8,
             "reversed_pairs": 0,
             "direction_accuracy": 1.0
           }
         },
         "arrow_association": {
-          "detected_arrows": 15,
-          "arrows_mapped_to_event_pairs": 7,
+          "detected_arrows": 17,
+          "arrows_mapped_to_event_pairs": 9,
           "arrows_with_unresolved_event_end": 8,
           "expected_arrows": 14
         },
         "activity_counts": {
           "expected": 0,
-          "detected": 7,
-          "detected_including_unresolved": 15
+          "detected": 9,
+          "detected_including_unresolved": 17
         },
         "durations": {
           "compared": 0,
@@ -2005,7 +2010,9 @@
         "A8",
         "A9",
         "AAA",
-        "EE"
+        "EE",
+        "IF",
+        "SS"
       ],
       "dependency_edges": [
         [
@@ -2041,6 +2048,22 @@
           "A14"
         ],
         [
+          "A3",
+          "IF"
+        ],
+        [
+          "AAA",
+          "IF"
+        ],
+        [
+          "A6",
+          "IF"
+        ],
+        [
+          "A14",
+          "IF"
+        ],
+        [
           "EE",
           "A3"
         ],
@@ -2071,6 +2094,18 @@
         [
           "A15",
           "A9"
+        ],
+        [
+          "IF",
+          "A5"
+        ],
+        [
+          "IF",
+          "A8"
+        ],
+        [
+          "IF",
+          "A12"
         ]
       ],
       "extra": {}
@@ -2081,7 +2116,7 @@
       "height": 608,
       "file_format": "JPEG",
       "file_size_bytes": 76454,
-      "duration_seconds": 22.576,
+      "duration_seconds": 21.584,
       "diagram_type": "AON",
       "diagram_confidence": 1.0,
       "final_status": "REVIEW_REQUIRED",

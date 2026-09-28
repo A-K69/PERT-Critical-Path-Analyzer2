@@ -1586,6 +1586,19 @@ class TestLogicalArrowConsolidation:
             "intervening_event_crossing",
         }
 
+    def test_10c_fragmented_route_recovery_respects_intervening_events(self):
+        image = np.full((300, 500), 255, dtype=np.uint8)
+        cv2.line(image, (130, 150), (220, 150), 0, 2, cv2.LINE_AA)
+        shapes = make_shape_result_with_circles(
+            image, [(100, 150, 30), (250, 150, 30), (400, 150, 30)]
+        )
+        recovered = self.detector._recover_fragmented_aoa_routes([], shapes, image)
+        assert len(recovered) == 1
+        assert recovered[0].evidence["aoa_validation"]["recovered_route"] is True
+        assert recovered[0].metadata["recovery_reason"] == (
+            "fragmented_shaft_without_observed_arrowhead"
+        )
+
     # (11) arrowhead ambiguity handled gracefully
     def test_11_arrowhead_ambiguity_no_crash(self):
         width, height = 500, 200
