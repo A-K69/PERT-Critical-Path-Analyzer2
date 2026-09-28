@@ -10,7 +10,9 @@ from pert_analyzer.core.models import BoundingBox, Point
 from pert_analyzer.cv.models import CandidateNode, DetectedArrow, ShapeType
 from pert_analyzer.cv.validated_dependency import (
     DependencyConfidence,
+    DependencyEvidence,
     DependencyValidationReport,
+    ValidatedDependency,
     ValidatedDependencyBuilder,
 )
 
@@ -290,6 +292,25 @@ class TestEvidencePreservation:
         assert dep.evidence.raw_evidence["visual"]["shaft_support"] == pytest.approx(
             dep.evidence.shaft_visual_support
         )
+
+    def test_visual_review_promotion_requires_independent_conjunction(self):
+        dep = ValidatedDependency(
+            source_id="A",
+            target_id="B",
+            arrow_id="a1",
+            confidence_score=0.70,
+            evidence=DependencyEvidence(
+                arrowhead_confidence=0.6,
+                source_boundary_intersection=0.8,
+                target_boundary_intersection=0.7,
+                direction_consistency=0.9,
+                angular_consistency=0.8,
+                visual_route_support=0.65,
+            ),
+        )
+        assert ValidatedDependencyBuilder._can_auto_accept_visual_review(dep)
+        dep.evidence.target_boundary_intersection = 0.2
+        assert not ValidatedDependencyBuilder._can_auto_accept_visual_review(dep)
 
 
 class TestDebugOutput:

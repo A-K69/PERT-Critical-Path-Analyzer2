@@ -48,6 +48,7 @@ class DependencyEvidence:
     angular_consistency: float = 0.0
     line_continuity: float = 0.0
     shaft_visual_support: float = 0.0
+    visual_route_support: float = 0.0
     node_interior_crossing_penalty: float = 0.0
     duplicate_arrow_penalty: float = 0.0
     raw_evidence: Dict[str, Any] = field(default_factory=dict)
@@ -293,6 +294,7 @@ class ValidatedDependencyBuilder:
         if not selected_pair:
             dep.rejection_reasons.append("no_selected_pair")
             return dep
+        dep.metadata["crossing_penalty"] = selected_pair.evidence.crossing_penalty
 
         # Stage 2: Direction Resolution — which direction for this pair?
         direction_resolver = ArrowDirectionResolver(
@@ -325,6 +327,9 @@ class ValidatedDependencyBuilder:
             direction_consistency=dir_result.evidence.get("direction_alignment", 0),
             angular_consistency=dir_result.evidence.get("angular_consistency", 0),
             shaft_visual_support=self._shaft_visual_support(arrow),
+            visual_route_support=self._visual_route_support(
+                arrow, selected_pair.evidence
+            ),
             raw_evidence={
                 "pairing": {
                     "status": pair_result.status.value,
@@ -345,7 +350,11 @@ class ValidatedDependencyBuilder:
                 },
                 "visual": {
                     "shaft_support": self._shaft_visual_support(arrow),
+                    "route_support": self._visual_route_support(
+                        arrow, selected_pair.evidence
+                    ),
                     "detector_evidence": arrow.evidence.get("shaft_continuity", {}),
+                    "pairing_evidence": selected_pair.evidence.to_dict(),
                 },
             },
         )
@@ -366,10 +375,26 @@ class ValidatedDependencyBuilder:
             geometry_score + 0.08 * dep.evidence.shaft_visual_support,
         )
 
-        # REVIEW if either stage says so
+        # A shaft that crosses another detected node is visual evidence of a
+        # routed bus, branch, or incorrect endpoint pair—not a clean direct
+        # dependency. Keep it reviewable even when aggregate confidence is
+        # high; do not silently accept a geometrically contradicted edge.
+        if selected_pair.evidence.crossing_penalty >= 0.30:
+            dep.review_required = True
+            dep.metadata["visual_confirmation_blocked"] = "intervening_node_crossing"
+
+        # REVIEW if either stage says so. A review candidate may be promoted
+        # only when independent pixel-derived shaft evidence corroborates the
+        # selected boundary route and direction.
         if (pair_result.status == PairingStatus.PAIR_REVIEW_REQUIRED or
                 dir_result.status == DirectionStatus.REVIEW_REQUIRED):
             dep.review_required = True
+            if self._can_auto_accept_visual_review(dep):
+                dep.review_required = False
+                dep.metadata["visual_confirmation"] = {
+                    "reason": "shaft_boundary_direction_angular_conjunction",
+                    "route_support": dep.evidence.visual_route_support,
+                }
 
         return dep
 
@@ -398,6 +423,40 @@ class ValidatedDependencyBuilder:
         return max(
             0.0,
             min(1.0, 0.60 * line_conf + 0.25 * length_support + 0.15 * segment_support),
+        )
+
+    @classmethod
+    def _visual_route_support(cls, arrow: DetectedArrow, pairing_evidence: Any) -> float:
+        """Combine pixel shaft evidence with the selected geometric route."""
+        pairing = pairing_evidence.to_dict() if hasattr(pairing_evidence, "to_dict") else {}
+        boundary = min(
+            float(pairing.get("boundary_contact_a", 0.0) or 0.0),
+            float(pairing.get("boundary_contact_b", 0.0) or 0.0),
+        )
+        continuity = float(pairing.get("line_continuity", 0.0) or 0.0)
+        arrowhead = min(1.0, max(0.0, float(arrow.arrowhead_confidence or 0.0)))
+        shaft = cls._shaft_visual_support(arrow)
+        return max(
+            0.0,
+            min(1.0, 0.40 * shaft + 0.25 * continuity + 0.20 * boundary + 0.15 * arrowhead),
+        )
+
+    @staticmethod
+    def _can_auto_accept_visual_review(dep: ValidatedDependency) -> bool:
+        """Require a high-quality visual conjunction before resolving review."""
+        evidence = dep.evidence
+        return (
+            float(dep.metadata.get("crossing_penalty", 0.0) or 0.0) < 0.30
+            and
+            dep.confidence_score >= 0.68
+            and evidence.visual_route_support >= 0.58
+            and evidence.arrowhead_confidence >= 0.50
+            and min(
+                evidence.source_boundary_intersection,
+                evidence.target_boundary_intersection,
+            ) >= 0.40
+            and evidence.direction_consistency >= 0.85
+            and evidence.angular_consistency >= 0.80
         )
 
     def _get_strict_direction(
@@ -824,6 +883,7 @@ class ValidatedDependencyBuilder:
                     "direction": dep.evidence.direction_consistency,
                     "angular": dep.evidence.angular_consistency,
                     "shaft_visual_support": dep.evidence.shaft_visual_support,
+                    "visual_route_support": dep.evidence.visual_route_support,
                 },
             }
             report.debug_entries.append(entry)
