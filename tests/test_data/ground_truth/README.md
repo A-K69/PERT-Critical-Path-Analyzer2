@@ -5,7 +5,7 @@ ground truth** for one corpus image in `tests/test_data/Imag PERT/`.
 
 > Determination rule: `tests/test_data/Imag PERT/<NAME>.<ext>` →
 > `tests/test_data/ground_truth/<NAME>.json` (same stem, different folder).
-> All 11 stems are unique, so the mapping is bijective and deterministic.
+> All 7 stems are unique, so the mapping is bijective and deterministic.
 
 This folder is the reference for the accuracy benchmark
 (`pert_analyzer.benchmark.accuracy`). It is **never** produced by the CV
@@ -19,7 +19,7 @@ pipeline output would make the benchmark circular and meaningless.
 - `1.json` is a **complete canonical gold standard** (verified against
   `tests/test_data/reference_diagrams/reference_aon_expected.json`: 22
   activities, 28 dependencies, CPM duration 54, 16 critical paths).
-- The other 10 files are **drafts seeded from detector output** — ids,
+- The other 5 files are **drafts seeded from detector output** — ids,
   positions and a dependency guess are already filled, but a human must
   verify them against the image before they are trustworthy.
 
