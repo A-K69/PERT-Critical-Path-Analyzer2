@@ -366,6 +366,34 @@ class TestMergeOCRResults:
         assert len(a_regions) == 1
         assert a_regions[0].confidence == 0.95
 
+    def test_merge_deduplicates_conflicting_overlap_and_keeps_alternative(self):
+        full = OCRProcessingResult(
+            regions=[
+                OCRTextRegion(
+                    text="9.17", confidence=0.8,
+                    bounding_box=BoundingBox(50, 50, 40, 20),
+                ),
+            ],
+            engine="mock",
+            image_dimensions=(100, 100),
+        )
+        node_result = NodeOCRResult(node_id="n1")
+        node_result.regions = [
+            OCRTextRegion(
+                text="5.17", confidence=0.95,
+                bounding_box=BoundingBox(52, 52, 40, 20),
+                source_engine="region_upscaled_psm6",
+            ),
+        ]
+
+        merged = merge_ocr_results(full, [node_result])
+
+        assert len(merged.regions) == 1
+        assert merged.regions[0].text == "5.17"
+        dedup = merged.regions[0].metadata["ocr_dedup"]
+        assert dedup["duplicate_count"] == 1
+        assert dedup["alternative_readings"][0]["text"] == "9.17"
+
 
 class TestAmbiguityHandling:
     def test_digit_to_letter_confusion(self):

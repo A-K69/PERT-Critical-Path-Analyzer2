@@ -508,6 +508,16 @@ class EndToEndAnalyzer:
                     raw, normalized = normalizer.normalize_preserve_raw(region.text)
                     region.raw_text = raw
                     region.normalized_text = normalized
+                # Merged node OCR introduces new regions after the initial
+                # full-image numeric pass. Re-run extraction so duration
+                # candidates are available to semantic reconstruction.
+                from pert_analyzer.cv.numeric_extraction import NumericExtractor
+                merged_extractor = NumericExtractor()
+                for region in ocr_result.regions:
+                    candidates = merged_extractor.extract_from_region(region)
+                    if candidates:
+                        region.is_numeric = True
+                        region.parsed_value = candidates[0].value
                 classifier.classify_regions(ocr_result.regions)
 
                 result.ocr_region_count = ocr_result.region_count
