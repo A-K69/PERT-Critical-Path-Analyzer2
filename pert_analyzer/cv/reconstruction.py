@@ -1034,6 +1034,28 @@ class ReconstructionEngine:
                 if extracted_id:
                     act_id = extracted_id
 
+            missing_arrowhead = arrow.arrowhead_point is None
+            if missing_arrowhead:
+                evidence_traces.append(EvidenceTrace(
+                    source_phase="arrow_detection",
+                    source_ids=[arrow.arrow_id],
+                    confidence_contribution=0.0,
+                    description=(
+                        "Arrowhead not observed; direction is geometry/layout-derived "
+                        "and requires human review"
+                    ),
+                    metadata={
+                        "recovered_route": bool(
+                            arrow.evidence.get("aoa_validation", {}).get(
+                                "recovered_route", False
+                            )
+                        ),
+                        "direction_source": arrow.metadata.get(
+                            "direction_source", "unavailable"
+                        ),
+                    },
+                ))
+
             act = ReconstructedActivity(
                 activity_id=act_id,
                 label=label or act_id,
@@ -1046,7 +1068,18 @@ class ReconstructionEngine:
                 source_arrow_id=arrow.arrow_id,
                 source_text_region_ids=text_region_ids,
                 position=(arrow.midpoint.x, arrow.midpoint.y),
-                warnings=[] if duration > 0 else ["No duration detected"],
+                warnings=([] if duration > 0 else ["No duration detected"])
+                + (["Arrowhead not observed; direction requires review"]
+                   if missing_arrowhead else []),
+                metadata={
+                    "missing_arrowhead": missing_arrowhead,
+                    "recovered_route": bool(
+                        arrow.evidence.get("aoa_validation", {}).get(
+                            "recovered_route", False
+                        )
+                    ),
+                },
+                needs_review=missing_arrowhead,
                 # AOA activities are arrows; geometric identity is the arrow
                 geometric_node_id=arrow.arrow_id,
                 semantic_activity_id=(

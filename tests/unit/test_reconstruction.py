@@ -739,6 +739,11 @@ class TestAOAReconstruction:
         diagram = engine.reconstruct_aoa(shape_result, arrow_result)
         assert diagram.activity_count == 1
         assert diagram.activities[0].source_arrow_id == "a1"
+        assert diagram.activities[0].needs_review is True
+        assert any(
+            warning.startswith("Arrowhead not observed")
+            for warning in diagram.activities[0].warnings
+        )
 
     def test_aoa_dependency_via_events(self) -> None:
         engine = ReconstructionEngine()
