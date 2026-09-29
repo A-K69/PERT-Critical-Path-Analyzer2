@@ -1,7 +1,7 @@
 # Generalization Benchmark
 
 - **PERT Analyzer version:** 0.1.0
-- **Generated at (UTC):** 2026-09-28T21:53:51.860905+00:00
+- **Generated at (UTC):** 2026-09-29T03:41:24.057945+00:00
 - **Dataset root:** `/home/ubuntu/PERT-Critical-Path-Analyzer2/tests/test_data/Imag PERT`
 - **Images discovered:** 8 · **Images analyzed:** 8
 
@@ -12,7 +12,7 @@
 - **Fatal failures:** 0
 - **With ground truth:** 0 · **Without ground truth:** 8
 - **With accuracy annotation:** 5 · **Statuses:** {'COMPLETE': 5}
-- **Largest activity-count inflation:** 36 (`4.jpeg`)
+- **Largest activity-count inflation:** 37 (`4.jpeg`)
 
 ## Bottleneck summary (first abnormal stage per image)
 
@@ -26,14 +26,14 @@
 
 | Image | Fmt | Size | Activities | Valid deps | OCR labels | Diagram | Outcome | Status | Bottleneck | Time |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| `1.png` | PNG | 1361x752 | 22 | 11 | 395 | AON | AUTOMATIC_REVIEW_REQUIRED | REVIEW_REQUIRED | GRAPH_BUILD | 27.265 s |
-| `11.jpeg` | JPEG | 1264x843 | 21 | 5 | 86 | AON | AUTOMATIC_REVIEW_REQUIRED | REVIEW_REQUIRED | GRAPH_BUILD | 18.031 s |
-| `2.jpg` | JPEG | 2340x1080 | 29 | _unavail_ | 77 | AOA | AUTOMATIC_REVIEW_REQUIRED | REVIEW_REQUIRED | GRAPH_BUILD | 12.336 s |
-| `3.jpeg` | JPEG | 1080x540 | 14 | _unavail_ | 59 | AOA | AUTOMATIC_REVIEW_REQUIRED | REVIEW_REQUIRED | GRAPH_BUILD | 12.794 s |
-| `4.jpeg` | JPEG | 1080x720 | 36 | _unavail_ | 62 | AOA | AUTOMATIC_REVIEW_REQUIRED | REVIEW_REQUIRED | GRAPH_BUILD | 12.236 s |
-| `5.jpeg` | JPEG | 1080x720 | 17 | 11 | 146 | AON | AUTOMATIC_REVIEW_REQUIRED | REVIEW_REQUIRED | GRAPH_BUILD | 21.404 s |
-| `6.jpeg` | JPEG | 1080x540 | 17 | _unavail_ | 85 | AOA | AUTOMATIC_REVIEW_REQUIRED | REVIEW_REQUIRED | GRAPH_BUILD | 12.46 s |
-| `7.jpeg` | JPEG | 1080x608 | 22 | 20 | 602 | AON | AUTOMATIC_REVIEW_REQUIRED | REVIEW_REQUIRED | GRAPH_BUILD | 21.584 s |
+| `1.png` | PNG | 1361x752 | 22 | 11 | 395 | AON | AUTOMATIC_REVIEW_REQUIRED | REVIEW_REQUIRED | GRAPH_BUILD | 26.506 s |
+| `11.jpeg` | JPEG | 1264x843 | 21 | 5 | 86 | AON | AUTOMATIC_REVIEW_REQUIRED | REVIEW_REQUIRED | GRAPH_BUILD | 17.822 s |
+| `2.jpg` | JPEG | 2340x1080 | 29 | _unavail_ | 77 | AOA | AUTOMATIC_REVIEW_REQUIRED | REVIEW_REQUIRED | GRAPH_BUILD | 13.006 s |
+| `3.jpeg` | JPEG | 1080x540 | 14 | _unavail_ | 59 | AOA | AUTOMATIC_REVIEW_REQUIRED | REVIEW_REQUIRED | GRAPH_BUILD | 13.483 s |
+| `4.jpeg` | JPEG | 1080x720 | 37 | _unavail_ | 62 | AOA | AUTOMATIC_REVIEW_REQUIRED | REVIEW_REQUIRED | GRAPH_BUILD | 13.415 s |
+| `5.jpeg` | JPEG | 1080x720 | 17 | 11 | 146 | AON | AUTOMATIC_REVIEW_REQUIRED | REVIEW_REQUIRED | GRAPH_BUILD | 23.834 s |
+| `6.jpeg` | JPEG | 1080x540 | 17 | _unavail_ | 85 | AOA | AUTOMATIC_REVIEW_REQUIRED | REVIEW_REQUIRED | GRAPH_BUILD | 13.499 s |
+| `7.jpeg` | JPEG | 1080x608 | 22 | 20 | 602 | AON | AUTOMATIC_REVIEW_REQUIRED | REVIEW_REQUIRED | GRAPH_BUILD | 21.184 s |
 
 ## Accuracy benchmark (v1.0 ground truth)
 
@@ -71,7 +71,7 @@ _Aggregation method: unweighted mean of the per-image metric over images where t
 ### 1. `1.png`
 
 - **Outcome:** `AUTOMATIC_REVIEW_REQUIRED` · **Final status:** `REVIEW_REQUIRED`
-- **Format/Size:** PNG 1361x752 (48134 bytes) · **Elapsed:** 27.265 s
+- **Format/Size:** PNG 1361x752 (48134 bytes) · **Elapsed:** 26.506 s
 - **Diagram type:** AON (confidence 1.0)
 
 **Measured pipeline progression:**
@@ -100,7 +100,7 @@ _Aggregation method: unweighted mean of the per-image metric over images where t
 ### 2. `11.jpeg`
 
 - **Outcome:** `AUTOMATIC_REVIEW_REQUIRED` · **Final status:** `REVIEW_REQUIRED`
-- **Format/Size:** JPEG 1264x843 (145957 bytes) · **Elapsed:** 18.031 s
+- **Format/Size:** JPEG 1264x843 (145957 bytes) · **Elapsed:** 17.822 s
 - **Diagram type:** AON (confidence 0.7946859903381643)
 
 **Measured pipeline progression:**
@@ -129,7 +129,7 @@ _Aggregation method: unweighted mean of the per-image metric over images where t
 ### 3. `2.jpg`
 
 - **Outcome:** `AUTOMATIC_REVIEW_REQUIRED` · **Final status:** `REVIEW_REQUIRED`
-- **Format/Size:** JPEG 2340x1080 (213745 bytes) · **Elapsed:** 12.336 s
+- **Format/Size:** JPEG 2340x1080 (213745 bytes) · **Elapsed:** 13.006 s
 - **Diagram type:** AOA (confidence 1.0)
 
 **Measured pipeline progression:**
@@ -149,7 +149,7 @@ _Aggregation method: unweighted mean of the per-image metric over images where t
 ### 4. `3.jpeg`
 
 - **Outcome:** `AUTOMATIC_REVIEW_REQUIRED` · **Final status:** `REVIEW_REQUIRED`
-- **Format/Size:** JPEG 1080x540 (39885 bytes) · **Elapsed:** 12.794 s
+- **Format/Size:** JPEG 1080x540 (39885 bytes) · **Elapsed:** 13.483 s
 - **Diagram type:** AOA (confidence 1.0)
 
 **Measured pipeline progression:**
@@ -177,27 +177,27 @@ _Aggregation method: unweighted mean of the per-image metric over images where t
 ### 5. `4.jpeg`
 
 - **Outcome:** `AUTOMATIC_REVIEW_REQUIRED` · **Final status:** `REVIEW_REQUIRED`
-- **Format/Size:** JPEG 1080x720 (63497 bytes) · **Elapsed:** 12.236 s
+- **Format/Size:** JPEG 1080x720 (63497 bytes) · **Elapsed:** 13.415 s
 - **Diagram type:** AOA (confidence 1.0)
 
 **Measured pipeline progression:**
 
 | Stage | Counts |
 | --- | --- |
-| Shape/candidate expansion (measured) | contours_analyzed=1262 · raw_shapes=15 · final_candidate_nodes=15 · reconstructed_activities=36 |
-| Arrow/dependency pipeline (measured) | raw_arrow_segments=426 · deduplicated_arrows=_unavail_ · validated_node_pairs=_unavail_ · validated_dependencies=_unavail_ · reconstructed_dependencies=62 |
+| Shape/candidate expansion (measured) | contours_analyzed=1262 · raw_shapes=15 · final_candidate_nodes=15 · reconstructed_activities=37 |
+| Arrow/dependency pipeline (measured) | raw_arrow_segments=426 · deduplicated_arrows=_unavail_ · validated_node_pairs=_unavail_ · validated_dependencies=_unavail_ · reconstructed_dependencies=68 |
 | OCR text (measured) | ocr_regions=62 · ocr_labels=62 · ocr_id_candidates=1 · ocr_numeric_candidates=4 |
 | Graph validation / CPM / PERT | graph_status=INVALID · graph_is_valid=False · cpm_gate=BLOCKED_REVIEW · cpm_project_duration=_unavail_ · critical_path_count=_unavail_ · pert_status=_unavail_ |
 
 **First abnormal stage:** Building graph
 
 **Failure classification:** `GRAPH_BUILD`
-**Measured evidence:** graph_status=INVALID · cpm_gate=BLOCKED_REVIEW · reconstructed_activities=36
+**Measured evidence:** graph_status=INVALID · cpm_gate=BLOCKED_REVIEW · reconstructed_activities=37
 
 ### 6. `5.jpeg`
 
 - **Outcome:** `AUTOMATIC_REVIEW_REQUIRED` · **Final status:** `REVIEW_REQUIRED`
-- **Format/Size:** JPEG 1080x720 (55833 bytes) · **Elapsed:** 21.404 s
+- **Format/Size:** JPEG 1080x720 (55833 bytes) · **Elapsed:** 23.834 s
 - **Diagram type:** AON (confidence 0.6403940886699508)
 
 **Measured pipeline progression:**
@@ -226,7 +226,7 @@ _Aggregation method: unweighted mean of the per-image metric over images where t
 ### 7. `6.jpeg`
 
 - **Outcome:** `AUTOMATIC_REVIEW_REQUIRED` · **Final status:** `REVIEW_REQUIRED`
-- **Format/Size:** JPEG 1080x540 (42452 bytes) · **Elapsed:** 12.46 s
+- **Format/Size:** JPEG 1080x540 (42452 bytes) · **Elapsed:** 13.499 s
 - **Diagram type:** AOA (confidence 1.0)
 
 **Measured pipeline progression:**
@@ -254,7 +254,7 @@ _Aggregation method: unweighted mean of the per-image metric over images where t
 ### 8. `7.jpeg`
 
 - **Outcome:** `AUTOMATIC_REVIEW_REQUIRED` · **Final status:** `REVIEW_REQUIRED`
-- **Format/Size:** JPEG 1080x608 (76454 bytes) · **Elapsed:** 21.584 s
+- **Format/Size:** JPEG 1080x608 (76454 bytes) · **Elapsed:** 21.184 s
 - **Diagram type:** AON (confidence 1.0)
 
 **Measured pipeline progression:**
