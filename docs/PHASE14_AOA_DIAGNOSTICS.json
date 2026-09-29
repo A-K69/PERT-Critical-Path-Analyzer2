@@ -1,0 +1,2422 @@
+[
+  {
+    "image": "3.jpeg",
+    "diagram_type": "AOA",
+    "event_count": 13,
+    "raw_line_segments": 430,
+    "logical_arrows": 14,
+    "rejected_arrows": 16,
+    "unresolved_logical_arrows": [
+      {
+        "arrow_id": "arrow_a263d7a5",
+        "length": 31.11,
+        "arrowhead_confidence": 0.685,
+        "event_contact_count": 1,
+        "start": [
+          576.0,
+          294.0
+        ],
+        "end": [
+          598.0,
+          316.0
+        ]
+      },
+      {
+        "arrow_id": "arrow_09c2770d",
+        "length": 29.97,
+        "arrowhead_confidence": 0.689,
+        "event_contact_count": 1,
+        "start": [
+          309.0,
+          340.0
+        ],
+        "end": [
+          336.0,
+          327.0
+        ]
+      },
+      {
+        "arrow_id": "arrow_27db302a",
+        "length": 32.8,
+        "arrowhead_confidence": 0.559,
+        "event_contact_count": 1,
+        "start": [
+          668.0,
+          191.0
+        ],
+        "end": [
+          694.0,
+          211.0
+        ]
+      }
+    ],
+    "route_inventory": [
+      {
+        "source": "cnode_41b0370a",
+        "target": "cnode_0a4d87a2",
+        "source_label": "L",
+        "target_label": "M",
+        "supporting_segments": 8,
+        "coverage": 1.0,
+        "angular_consistency": 0.9645,
+        "max_lateral_distance": 14.0,
+        "max_angle_delta": 22.0,
+        "intervening_events": [],
+        "candidate": true,
+        "near_candidate": true
+      },
+      {
+        "source": "cnode_fa654b98",
+        "target": "cnode_1a389e5b",
+        "source_label": "E",
+        "target_label": "F",
+        "supporting_segments": 3,
+        "coverage": 1.0,
+        "angular_consistency": 0.6639,
+        "max_lateral_distance": 14.0,
+        "max_angle_delta": 22.0,
+        "intervening_events": [],
+        "candidate": true,
+        "near_candidate": true
+      },
+      {
+        "source": "cnode_a5704578",
+        "target": "cnode_fa654b98",
+        "source_label": "B",
+        "target_label": "E",
+        "supporting_segments": 2,
+        "coverage": 1.0,
+        "angular_consistency": 0.9465,
+        "max_lateral_distance": 14.0,
+        "max_angle_delta": 22.0,
+        "intervening_events": [],
+        "candidate": true,
+        "near_candidate": true
+      },
+      {
+        "source": "cnode_a5704578",
+        "target": "cnode_13fcdc0f",
+        "source_label": "B",
+        "target_label": "D",
+        "supporting_segments": 3,
+        "coverage": 1.0,
+        "angular_consistency": 0.8395,
+        "max_lateral_distance": 14.0,
+        "max_angle_delta": 22.0,
+        "intervening_events": [],
+        "candidate": true,
+        "near_candidate": true
+      },
+      {
+        "source": "cnode_a5704578",
+        "target": "cnode_1ab64de3",
+        "source_label": "B",
+        "target_label": "C",
+        "supporting_segments": 3,
+        "coverage": 1.0,
+        "angular_consistency": 0.8284,
+        "max_lateral_distance": 14.0,
+        "max_angle_delta": 22.0,
+        "intervening_events": [],
+        "candidate": true,
+        "near_candidate": true
+      },
+      {
+        "source": "cnode_1a389e5b",
+        "target": "cnode_f9cee25f",
+        "source_label": "F",
+        "target_label": "G",
+        "supporting_segments": 2,
+        "coverage": 1.0,
+        "angular_consistency": 0.9996,
+        "max_lateral_distance": 14.0,
+        "max_angle_delta": 22.0,
+        "intervening_events": [],
+        "candidate": true,
+        "near_candidate": true
+      },
+      {
+        "source": "cnode_13fcdc0f",
+        "target": "cnode_1a389e5b",
+        "source_label": "D",
+        "target_label": "F",
+        "supporting_segments": 3,
+        "coverage": 1.0,
+        "angular_consistency": 0.9156,
+        "max_lateral_distance": 14.0,
+        "max_angle_delta": 22.0,
+        "intervening_events": [],
+        "candidate": true,
+        "near_candidate": true
+      },
+      {
+        "source": "cnode_67ce27e7",
+        "target": "cnode_a5704578",
+        "source_label": "A",
+        "target_label": "B",
+        "supporting_segments": 2,
+        "coverage": 1.0,
+        "angular_consistency": 0.9434,
+        "max_lateral_distance": 14.0,
+        "max_angle_delta": 22.0,
+        "intervening_events": [],
+        "candidate": true,
+        "near_candidate": true
+      },
+      {
+        "source": "cnode_41b9feee",
+        "target": "cnode_41b0370a",
+        "source_label": "K",
+        "target_label": "L",
+        "supporting_segments": 10,
+        "coverage": 1.0,
+        "angular_consistency": 0.859,
+        "max_lateral_distance": 14.0,
+        "max_angle_delta": 22.0,
+        "intervening_events": [],
+        "candidate": true,
+        "near_candidate": true
+      },
+      {
+        "source": "cnode_1ab64de3",
+        "target": "cnode_1a389e5b",
+        "source_label": "C",
+        "target_label": "F",
+        "supporting_segments": 2,
+        "coverage": 1.0,
+        "angular_consistency": 0.7045,
+        "max_lateral_distance": 14.0,
+        "max_angle_delta": 22.0,
+        "intervening_events": [],
+        "candidate": true,
+        "near_candidate": true
+      },
+      {
+        "source": "cnode_afa6be5d",
+        "target": "cnode_c4c633ac",
+        "source_label": "I",
+        "target_label": "J",
+        "supporting_segments": 2,
+        "coverage": 1.0,
+        "angular_consistency": 0.8005,
+        "max_lateral_distance": 14.0,
+        "max_angle_delta": 22.0,
+        "intervening_events": [],
+        "candidate": true,
+        "near_candidate": true
+      },
+      {
+        "source": "cnode_c4c633ac",
+        "target": "cnode_41b9feee",
+        "source_label": "J",
+        "target_label": "K",
+        "supporting_segments": 7,
+        "coverage": 1.0,
+        "angular_consistency": 0.8461,
+        "max_lateral_distance": 14.0,
+        "max_angle_delta": 22.0,
+        "intervening_events": [],
+        "candidate": true,
+        "near_candidate": true
+      },
+      {
+        "source": "cnode_f9cee25f",
+        "target": "cnode_afa6be5d",
+        "source_label": "G",
+        "target_label": "I",
+        "supporting_segments": 3,
+        "coverage": 1.0,
+        "angular_consistency": 0.5728,
+        "max_lateral_distance": 14.0,
+        "max_angle_delta": 22.0,
+        "intervening_events": [],
+        "candidate": false,
+        "near_candidate": true
+      },
+      {
+        "source": "cnode_1a389e5b",
+        "target": "cnode_cd320434",
+        "source_label": "F",
+        "target_label": "H",
+        "supporting_segments": 16,
+        "coverage": 0.8088,
+        "angular_consistency": 0.3946,
+        "max_lateral_distance": 14.0,
+        "max_angle_delta": 22.0,
+        "intervening_events": [
+          "cnode_f9cee25f"
+        ],
+        "candidate": false,
+        "near_candidate": false
+      },
+      {
+        "source": "cnode_cd320434",
+        "target": "cnode_41b9feee",
+        "source_label": "H",
+        "target_label": "K",
+        "supporting_segments": 17,
+        "coverage": 0.7815,
+        "angular_consistency": 0.2863,
+        "max_lateral_distance": 14.0,
+        "max_angle_delta": 22.0,
+        "intervening_events": [
+          "cnode_c4c633ac"
+        ],
+        "candidate": false,
+        "near_candidate": false
+      },
+      {
+        "source": "cnode_1ab64de3",
+        "target": "cnode_f9cee25f",
+        "source_label": "C",
+        "target_label": "G",
+        "supporting_segments": 6,
+        "coverage": 0.7707,
+        "angular_consistency": 0.132,
+        "max_lateral_distance": 14.0,
+        "max_angle_delta": 22.0,
+        "intervening_events": [],
+        "candidate": false,
+        "near_candidate": false
+      },
+      {
+        "source": "cnode_afa6be5d",
+        "target": "cnode_41b9feee",
+        "source_label": "I",
+        "target_label": "K",
+        "supporting_segments": 8,
+        "coverage": 0.7516,
+        "angular_consistency": 0.1943,
+        "max_lateral_distance": 14.0,
+        "max_angle_delta": 22.0,
+        "intervening_events": [
+          "cnode_c4c633ac"
+        ],
+        "candidate": false,
+        "near_candidate": false
+      },
+      {
+        "source": "cnode_1ab64de3",
+        "target": "cnode_afa6be5d",
+        "source_label": "C",
+        "target_label": "I",
+        "supporting_segments": 10,
+        "coverage": 0.735,
+        "angular_consistency": 0.2337,
+        "max_lateral_distance": 14.0,
+        "max_angle_delta": 22.0,
+        "intervening_events": [
+          "cnode_f9cee25f",
+          "cnode_1a389e5b"
+        ],
+        "candidate": false,
+        "near_candidate": false
+      },
+      {
+        "source": "cnode_a5704578",
+        "target": "cnode_1a389e5b",
+        "source_label": "B",
+        "target_label": "F",
+        "supporting_segments": 17,
+        "coverage": 0.7301,
+        "angular_consistency": 0.8908,
+        "max_lateral_distance": 14.0,
+        "max_angle_delta": 22.0,
+        "intervening_events": [
+          "cnode_13fcdc0f"
+        ],
+        "candidate": false,
+        "near_candidate": false
+      },
+      {
+        "source": "cnode_13fcdc0f",
+        "target": "cnode_f9cee25f",
+        "source_label": "D",
+        "target_label": "G",
+        "supporting_segments": 15,
+        "coverage": 0.7294,
+        "angular_consistency": 0.8983,
+        "max_lateral_distance": 14.0,
+        "max_angle_delta": 22.0,
+        "intervening_events": [
+          "cnode_1a389e5b"
+        ],
+        "candidate": false,
+        "near_candidate": false
+      },
+      {
+        "source": "cnode_67ce27e7",
+        "target": "cnode_13fcdc0f",
+        "source_label": "A",
+        "target_label": "D",
+        "supporting_segments": 15,
+        "coverage": 0.7073,
+        "angular_consistency": 0.8907,
+        "max_lateral_distance": 14.0,
+        "max_angle_delta": 22.0,
+        "intervening_events": [
+          "cnode_a5704578"
+        ],
+        "candidate": false,
+        "near_candidate": false
+      },
+      {
+        "source": "cnode_a5704578",
+        "target": "cnode_f9cee25f",
+        "source_label": "B",
+        "target_label": "G",
+        "supporting_segments": 29,
+        "coverage": 0.6863,
+        "angular_consistency": 0.8922,
+        "max_lateral_distance": 14.0,
+        "max_angle_delta": 22.0,
+        "intervening_events": [
+          "cnode_1a389e5b",
+          "cnode_13fcdc0f"
+        ],
+        "candidate": false,
+        "near_candidate": false
+      },
+      {
+        "source": "cnode_67ce27e7",
+        "target": "cnode_1a389e5b",
+        "source_label": "A",
+        "target_label": "F",
+        "supporting_segments": 29,
+        "coverage": 0.6817,
+        "angular_consistency": 0.8962,
+        "max_lateral_distance": 14.0,
+        "max_angle_delta": 22.0,
+        "intervening_events": [
+          "cnode_a5704578",
+          "cnode_13fcdc0f"
+        ],
+        "candidate": false,
+        "near_candidate": false
+      },
+      {
+        "source": "cnode_67ce27e7",
+        "target": "cnode_f9cee25f",
+        "source_label": "A",
+        "target_label": "G",
+        "supporting_segments": 41,
+        "coverage": 0.6651,
+        "angular_consistency": 0.8955,
+        "max_lateral_distance": 14.0,
+        "max_angle_delta": 22.0,
+        "intervening_events": [
+          "cnode_a5704578",
+          "cnode_1a389e5b",
+          "cnode_13fcdc0f"
+        ],
+        "candidate": false,
+        "near_candidate": false
+      },
+      {
+        "source": "cnode_c4c633ac",
+        "target": "cnode_41b0370a",
+        "source_label": "J",
+        "target_label": "L",
+        "supporting_segments": 27,
+        "coverage": 0.6468,
+        "angular_consistency": 0.8553,
+        "max_lateral_distance": 14.0,
+        "max_angle_delta": 22.0,
+        "intervening_events": [
+          "cnode_41b9feee"
+        ],
+        "candidate": false,
+        "near_candidate": false
+      },
+      {
+        "source": "cnode_41b9feee",
+        "target": "cnode_0a4d87a2",
+        "source_label": "K",
+        "target_label": "M",
+        "supporting_segments": 27,
+        "coverage": 0.623,
+        "angular_consistency": 0.9145,
+        "max_lateral_distance": 14.0,
+        "max_angle_delta": 22.0,
+        "intervening_events": [
+          "cnode_41b0370a"
+        ],
+        "candidate": false,
+        "near_candidate": false
+      },
+      {
+        "source": "cnode_c4c633ac",
+        "target": "cnode_0a4d87a2",
+        "source_label": "J",
+        "target_label": "M",
+        "supporting_segments": 45,
+        "coverage": 0.6043,
+        "angular_consistency": 0.8909,
+        "max_lateral_distance": 14.0,
+        "max_angle_delta": 22.0,
+        "intervening_events": [
+          "cnode_41b0370a",
+          "cnode_41b9feee"
+        ],
+        "candidate": false,
+        "near_candidate": false
+      },
+      {
+        "source": "cnode_cd320434",
+        "target": "cnode_c4c633ac",
+        "source_label": "H",
+        "target_label": "J",
+        "supporting_segments": 1,
+        "coverage": 0.5585,
+        "angular_consistency": 0.641,
+        "max_lateral_distance": 14.0,
+        "max_angle_delta": 22.0,
+        "intervening_events": [],
+        "candidate": false,
+        "near_candidate": false
+      },
+      {
+        "source": "cnode_fa654b98",
+        "target": "cnode_cd320434",
+        "source_label": "E",
+        "target_label": "H",
+        "supporting_segments": 8,
+        "coverage": 0.499,
+        "angular_consistency": 0.4327,
+        "max_lateral_distance": 14.0,
+        "max_angle_delta": 22.0,
+        "intervening_events": [
+          "cnode_f9cee25f"
+        ],
+        "candidate": false,
+        "near_candidate": false
+      },
+      {
+        "source": "cnode_67ce27e7",
+        "target": "cnode_0a4d87a2",
+        "source_label": "A",
+        "target_label": "M",
+        "supporting_segments": 101,
+        "coverage": 0.497,
+        "angular_consistency": 0.9038,
+        "max_lateral_distance": 14.0,
+        "max_angle_delta": 22.0,
+        "intervening_events": [
+          "cnode_41b0370a",
+          "cnode_f9cee25f",
+          "cnode_a5704578",
+          "cnode_1a389e5b",
+          "cnode_13fcdc0f",
+          "cnode_41b9feee",
+          "cnode_c4c633ac"
+        ],
+        "candidate": false,
+        "near_candidate": false
+      },
+      {
+        "source": "cnode_67ce27e7",
+        "target": "cnode_41b0370a",
+        "source_label": "A",
+        "target_label": "L",
+        "supporting_segments": 84,
+        "coverage": 0.4906,
+        "angular_consistency": 0.8947,
+        "max_lateral_distance": 14.0,
+        "max_angle_delta": 22.0,
+        "intervening_events": [
+          "cnode_f9cee25f",
+          "cnode_a5704578",
+          "cnode_1a389e5b",
+          "cnode_13fcdc0f",
+          "cnode_41b9feee",
+          "cnode_c4c633ac"
+        ],
+        "candidate": false,
+        "near_candidate": false
+      },
+      {
+        "source": "cnode_67ce27e7",
+        "target": "cnode_fa654b98",
+        "source_label": "A",
+        "target_label": "E",
+        "supporting_segments": 2,
+        "coverage": 0.49,
+        "angular_consistency": 0.072,
+        "max_lateral_distance": 14.0,
+        "max_angle_delta": 22.0,
+        "intervening_events": [],
+        "candidate": false,
+        "near_candidate": false
+      },
+      {
+        "source": "cnode_67ce27e7",
+        "target": "cnode_41b9feee",
+        "source_label": "A",
+        "target_label": "K",
+        "supporting_segments": 68,
+        "coverage": 0.481,
+        "angular_consistency": 0.8999,
+        "max_lateral_distance": 14.0,
+        "max_angle_delta": 22.0,
+        "intervening_events": [
+          "cnode_f9cee25f",
+          "cnode_a5704578",
+          "cnode_1a389e5b",
+          "cnode_13fcdc0f",
+          "cnode_c4c633ac"
+        ],
+        "candidate": false,
+        "near_candidate": false
+      },
+      {
+        "source": "cnode_a5704578",
+        "target": "cnode_0a4d87a2",
+        "source_label": "B",
+        "target_label": "M",
+        "supporting_segments": 89,
+        "coverage": 0.48,
+        "angular_consistency": 0.9041,
+        "max_lateral_distance": 14.0,
+        "max_angle_delta": 22.0,
+        "intervening_events": [
+          "cnode_41b0370a",
+          "cnode_f9cee25f",
+          "cnode_1a389e5b",
+          "cnode_13fcdc0f",
+          "cnode_41b9feee",
+          "cnode_c4c633ac"
+        ],
+        "candidate": false,
+        "near_candidate": false
+      },
+      {
+        "source": "cnode_67ce27e7",
+        "target": "cnode_c4c633ac",
+        "source_label": "A",
+        "target_label": "J",
+        "supporting_segments": 58,
+        "coverage": 0.4737,
+        "angular_consistency": 0.9028,
+        "max_lateral_distance": 14.0,
+        "max_angle_delta": 22.0,
+        "intervening_events": [
+          "cnode_f9cee25f",
+          "cnode_a5704578",
+          "cnode_1a389e5b",
+          "cnode_13fcdc0f"
+        ],
+        "candidate": false,
+        "near_candidate": false
+      },
+      {
+        "source": "cnode_a5704578",
+        "target": "cnode_41b0370a",
+        "source_label": "B",
+        "target_label": "L",
+        "supporting_segments": 72,
+        "coverage": 0.4702,
+        "angular_consistency": 0.8936,
+        "max_lateral_distance": 14.0,
+        "max_angle_delta": 22.0,
+        "intervening_events": [
+          "cnode_f9cee25f",
+          "cnode_1a389e5b",
+          "cnode_13fcdc0f",
+          "cnode_41b9feee",
+          "cnode_c4c633ac"
+        ],
+        "candidate": false,
+        "near_candidate": false
+      },
+      {
+        "source": "cnode_fa654b98",
+        "target": "cnode_f9cee25f",
+        "source_label": "E",
+        "target_label": "G",
+        "supporting_segments": 4,
+        "coverage": 0.4572,
+        "angular_consistency": 0.5591,
+        "max_lateral_distance": 14.0,
+        "max_angle_delta": 22.0,
+        "intervening_events": [],
+        "candidate": false,
+        "near_candidate": true
+      },
+      {
+        "source": "cnode_fa654b98",
+        "target": "cnode_0a4d87a2",
+        "source_label": "E",
+        "target_label": "M",
+        "supporting_segments": 55,
+        "coverage": 0.4556,
+        "angular_consistency": 0.6397,
+        "max_lateral_distance": 14.0,
+        "max_angle_delta": 22.0,
+        "intervening_events": [
+          "cnode_41b0370a",
+          "cnode_41b9feee",
+          "cnode_afa6be5d"
+        ],
+        "candidate": false,
+        "near_candidate": false
+      },
+      {
+        "source": "cnode_a5704578",
+        "target": "cnode_41b9feee",
+        "source_label": "B",
+        "target_label": "K",
+        "supporting_segments": 55,
+        "coverage": 0.4554,
+        "angular_consistency": 0.898,
+        "max_lateral_distance": 14.0,
+        "max_angle_delta": 22.0,
+        "intervening_events": [
+          "cnode_f9cee25f",
+          "cnode_1a389e5b",
+          "cnode_13fcdc0f",
+          "cnode_c4c633ac"
+        ],
+        "candidate": false,
+        "near_candidate": false
+      },
+      {
+        "source": "cnode_13fcdc0f",
+        "target": "cnode_0a4d87a2",
+        "source_label": "D",
+        "target_label": "M",
+        "supporting_segments": 74,
+        "coverage": 0.4547,
+        "angular_consistency": 0.9064,
+        "max_lateral_distance": 14.0,
+        "max_angle_delta": 22.0,
+        "intervening_events": [
+          "cnode_41b0370a",
+          "cnode_f9cee25f",
+          "cnode_1a389e5b",
+          "cnode_41b9feee",
+          "cnode_c4c633ac"
+        ],
+        "candidate": false,
+        "near_candidate": false
+      },
+      {
+        "source": "cnode_cd320434",
+        "target": "cnode_41b0370a",
+        "source_label": "H",
+        "target_label": "L",
+        "supporting_segments": 17,
+        "coverage": 0.4515,
+        "angular_consistency": 0.5588,
+        "max_lateral_distance": 14.0,
+        "max_angle_delta": 22.0,
+        "intervening_events": [
+          "cnode_41b9feee"
+        ],
+        "candidate": false,
+        "near_candidate": false
+      },
+      {
+        "source": "cnode_afa6be5d",
+        "target": "cnode_41b0370a",
+        "source_label": "I",
+        "target_label": "L",
+        "supporting_segments": 22,
+        "coverage": 0.4512,
+        "angular_consistency": 0.2498,
+        "max_lateral_distance": 14.0,
+        "max_angle_delta": 22.0,
+        "intervening_events": [
+          "cnode_41b9feee"
+        ],
+        "candidate": false,
+        "near_candidate": false
+      },
+      {
+        "source": "cnode_a5704578",
+        "target": "cnode_c4c633ac",
+        "source_label": "B",
+        "target_label": "J",
+        "supporting_segments": 43,
+        "coverage": 0.4412,
+        "angular_consistency": 0.8978,
+        "max_lateral_distance": 14.0,
+        "max_angle_delta": 22.0,
+        "intervening_events": [
+          "cnode_f9cee25f",
+          "cnode_1a389e5b",
+          "cnode_13fcdc0f"
+        ],
+        "candidate": false,
+        "near_candidate": false
+      },
+      {
+        "source": "cnode_afa6be5d",
+        "target": "cnode_0a4d87a2",
+        "source_label": "I",
+        "target_label": "M",
+        "supporting_segments": 29,
+        "coverage": 0.4389,
+        "angular_consistency": 0.4625,
+        "max_lateral_distance": 14.0,
+        "max_angle_delta": 22.0,
+        "intervening_events": [
+          "cnode_41b0370a"
+        ],
+        "candidate": false,
+        "near_candidate": false
+      },
+      {
+        "source": "cnode_13fcdc0f",
+        "target": "cnode_41b0370a",
+        "source_label": "D",
+        "target_label": "L",
+        "supporting_segments": 57,
+        "coverage": 0.4386,
+        "angular_consistency": 0.8939,
+        "max_lateral_distance": 14.0,
+        "max_angle_delta": 22.0,
+        "intervening_events": [
+          "cnode_f9cee25f",
+          "cnode_1a389e5b",
+          "cnode_41b9feee",
+          "cnode_c4c633ac"
+        ],
+        "candidate": false,
+        "near_candidate": false
+      },
+      {
+        "source": "cnode_fa654b98",
+        "target": "cnode_41b0370a",
+        "source_label": "E",
+        "target_label": "L",
+        "supporting_segments": 56,
+        "coverage": 0.4351,
+        "angular_consistency": 0.5761,
+        "max_lateral_distance": 14.0,
+        "max_angle_delta": 22.0,
+        "intervening_events": [
+          "cnode_41b9feee",
+          "cnode_afa6be5d",
+          "cnode_c4c633ac"
+        ],
+        "candidate": false,
+        "near_candidate": false
+      },
+      {
+        "source": "cnode_1ab64de3",
+        "target": "cnode_41b9feee",
+        "source_label": "C",
+        "target_label": "K",
+        "supporting_segments": 46,
+        "coverage": 0.4282,
+        "angular_consistency": 0.4759,
+        "max_lateral_distance": 14.0,
+        "max_angle_delta": 22.0,
+        "intervening_events": [
+          "cnode_cd320434",
+          "cnode_c4c633ac"
+        ],
+        "candidate": false,
+        "near_candidate": false
+      },
+      {
+        "source": "cnode_cd320434",
+        "target": "cnode_0a4d87a2",
+        "source_label": "H",
+        "target_label": "M",
+        "supporting_segments": 18,
+        "coverage": 0.4225,
+        "angular_consistency": 0.627,
+        "max_lateral_distance": 14.0,
+        "max_angle_delta": 22.0,
+        "intervening_events": [
+          "cnode_41b0370a",
+          "cnode_41b9feee"
+        ],
+        "candidate": false,
+        "near_candidate": false
+      },
+      {
+        "source": "cnode_13fcdc0f",
+        "target": "cnode_41b9feee",
+        "source_label": "D",
+        "target_label": "K",
+        "supporting_segments": 39,
+        "coverage": 0.4139,
+        "angular_consistency": 0.8975,
+        "max_lateral_distance": 14.0,
+        "max_angle_delta": 22.0,
+        "intervening_events": [
+          "cnode_f9cee25f",
+          "cnode_1a389e5b",
+          "cnode_c4c633ac"
+        ],
+        "candidate": false,
+        "near_candidate": false
+      },
+      {
+        "source": "cnode_67ce27e7",
+        "target": "cnode_cd320434",
+        "source_label": "A",
+        "target_label": "H",
+        "supporting_segments": 20,
+        "coverage": 0.4133,
+        "angular_consistency": 0.676,
+        "max_lateral_distance": 14.0,
+        "max_angle_delta": 22.0,
+        "intervening_events": [
+          "cnode_a5704578",
+          "cnode_1a389e5b",
+          "cnode_13fcdc0f"
+        ],
+        "candidate": false,
+        "near_candidate": false
+      },
+      {
+        "source": "cnode_1a389e5b",
+        "target": "cnode_0a4d87a2",
+        "source_label": "F",
+        "target_label": "M",
+        "supporting_segments": 61,
+        "coverage": 0.4106,
+        "angular_consistency": 0.9125,
+        "max_lateral_distance": 14.0,
+        "max_angle_delta": 22.0,
+        "intervening_events": [
+          "cnode_41b0370a",
+          "cnode_f9cee25f",
+          "cnode_41b9feee",
+          "cnode_c4c633ac"
+        ],
+        "candidate": false,
+        "near_candidate": false
+      },
+      {
+        "source": "cnode_f9cee25f",
+        "target": "cnode_cd320434",
+        "source_label": "G",
+        "target_label": "H",
+        "supporting_segments": 3,
+        "coverage": 0.4071,
+        "angular_consistency": 0.3605,
+        "max_lateral_distance": 14.0,
+        "max_angle_delta": 22.0,
+        "intervening_events": [],
+        "candidate": false,
+        "near_candidate": false
+      },
+      {
+        "source": "cnode_1ab64de3",
+        "target": "cnode_c4c633ac",
+        "source_label": "C",
+        "target_label": "J",
+        "supporting_segments": 20,
+        "coverage": 0.3945,
+        "angular_consistency": 0.4312,
+        "max_lateral_distance": 14.0,
+        "max_angle_delta": 22.0,
+        "intervening_events": [
+          "cnode_cd320434"
+        ],
+        "candidate": false,
+        "near_candidate": false
+      },
+      {
+        "source": "cnode_13fcdc0f",
+        "target": "cnode_cd320434",
+        "source_label": "D",
+        "target_label": "H",
+        "supporting_segments": 12,
+        "coverage": 0.3921,
+        "angular_consistency": 0.5818,
+        "max_lateral_distance": 14.0,
+        "max_angle_delta": 22.0,
+        "intervening_events": [
+          "cnode_f9cee25f",
+          "cnode_1a389e5b"
+        ],
+        "candidate": false,
+        "near_candidate": false
+      },
+      {
+        "source": "cnode_a5704578",
+        "target": "cnode_cd320434",
+        "source_label": "B",
+        "target_label": "H",
+        "supporting_segments": 18,
+        "coverage": 0.391,
+        "angular_consistency": 0.6058,
+        "max_lateral_distance": 14.0,
+        "max_angle_delta": 22.0,
+        "intervening_events": [
+          "cnode_1a389e5b",
+          "cnode_13fcdc0f"
+        ],
+        "candidate": false,
+        "near_candidate": false
+      },
+      {
+        "source": "cnode_fa654b98",
+        "target": "cnode_41b9feee",
+        "source_label": "E",
+        "target_label": "K",
+        "supporting_segments": 42,
+        "coverage": 0.3896,
+        "angular_consistency": 0.5262,
+        "max_lateral_distance": 14.0,
+        "max_angle_delta": 22.0,
+        "intervening_events": [
+          "cnode_c4c633ac"
+        ],
+        "candidate": false,
+        "near_candidate": false
+      },
+      {
+        "source": "cnode_67ce27e7",
+        "target": "cnode_afa6be5d",
+        "source_label": "A",
+        "target_label": "I",
+        "supporting_segments": 28,
+        "coverage": 0.388,
+        "angular_consistency": 0.6186,
+        "max_lateral_distance": 14.0,
+        "max_angle_delta": 22.0,
+        "intervening_events": [
+          "cnode_a5704578",
+          "cnode_13fcdc0f"
+        ],
+        "candidate": false,
+        "near_candidate": false
+      },
+      {
+        "source": "cnode_13fcdc0f",
+        "target": "cnode_c4c633ac",
+        "source_label": "D",
+        "target_label": "J",
+        "supporting_segments": 28,
+        "coverage": 0.3845,
+        "angular_consistency": 0.898,
+        "max_lateral_distance": 14.0,
+        "max_angle_delta": 22.0,
+        "intervening_events": [
+          "cnode_f9cee25f",
+          "cnode_1a389e5b"
+        ],
+        "candidate": false,
+        "near_candidate": false
+      },
+      {
+        "source": "cnode_1a389e5b",
+        "target": "cnode_41b0370a",
+        "source_label": "F",
+        "target_label": "L",
+        "supporting_segments": 44,
+        "coverage": 0.3808,
+        "angular_consistency": 0.8988,
+        "max_lateral_distance": 14.0,
+        "max_angle_delta": 22.0,
+        "intervening_events": [
+          "cnode_f9cee25f",
+          "cnode_41b9feee",
+          "cnode_c4c633ac"
+        ],
+        "candidate": false,
+        "near_candidate": false
+      },
+      {
+        "source": "cnode_f9cee25f",
+        "target": "cnode_0a4d87a2",
+        "source_label": "G",
+        "target_label": "M",
+        "supporting_segments": 49,
+        "coverage": 0.3685,
+        "angular_consistency": 0.9071,
+        "max_lateral_distance": 14.0,
+        "max_angle_delta": 22.0,
+        "intervening_events": [
+          "cnode_41b0370a",
+          "cnode_41b9feee",
+          "cnode_c4c633ac"
+        ],
+        "candidate": false,
+        "near_candidate": false
+      },
+      {
+        "source": "cnode_a5704578",
+        "target": "cnode_afa6be5d",
+        "source_label": "B",
+        "target_label": "I",
+        "supporting_segments": 24,
+        "coverage": 0.3593,
+        "angular_consistency": 0.551,
+        "max_lateral_distance": 14.0,
+        "max_angle_delta": 22.0,
+        "intervening_events": [
+          "cnode_13fcdc0f"
+        ],
+        "candidate": false,
+        "near_candidate": false
+      },
+      {
+        "source": "cnode_13fcdc0f",
+        "target": "cnode_afa6be5d",
+        "source_label": "D",
+        "target_label": "I",
+        "supporting_segments": 13,
+        "coverage": 0.3475,
+        "angular_consistency": 0.3927,
+        "max_lateral_distance": 14.0,
+        "max_angle_delta": 22.0,
+        "intervening_events": [
+          "cnode_1a389e5b"
+        ],
+        "candidate": false,
+        "near_candidate": false
+      },
+      {
+        "source": "cnode_1ab64de3",
+        "target": "cnode_41b0370a",
+        "source_label": "C",
+        "target_label": "L",
+        "supporting_segments": 42,
+        "coverage": 0.3458,
+        "angular_consistency": 0.5709,
+        "max_lateral_distance": 14.0,
+        "max_angle_delta": 22.0,
+        "intervening_events": [
+          "cnode_cd320434",
+          "cnode_41b9feee",
+          "cnode_c4c633ac"
+        ],
+        "candidate": false,
+        "near_candidate": false
+      },
+      {
+        "source": "cnode_1a389e5b",
+        "target": "cnode_41b9feee",
+        "source_label": "F",
+        "target_label": "K",
+        "supporting_segments": 26,
+        "coverage": 0.3318,
+        "angular_consistency": 0.9086,
+        "max_lateral_distance": 14.0,
+        "max_angle_delta": 22.0,
+        "intervening_events": [
+          "cnode_f9cee25f",
+          "cnode_c4c633ac"
+        ],
+        "candidate": false,
+        "near_candidate": false
+      },
+      {
+        "source": "cnode_f9cee25f",
+        "target": "cnode_41b0370a",
+        "source_label": "G",
+        "target_label": "L",
+        "supporting_segments": 32,
+        "coverage": 0.3165,
+        "angular_consistency": 0.8863,
+        "max_lateral_distance": 14.0,
+        "max_angle_delta": 22.0,
+        "intervening_events": [
+          "cnode_41b9feee",
+          "cnode_c4c633ac"
+        ],
+        "candidate": false,
+        "near_candidate": false
+      },
+      {
+        "source": "cnode_1a389e5b",
+        "target": "cnode_c4c633ac",
+        "source_label": "F",
+        "target_label": "J",
+        "supporting_segments": 13,
+        "coverage": 0.2562,
+        "angular_consistency": 0.9129,
+        "max_lateral_distance": 14.0,
+        "max_angle_delta": 22.0,
+        "intervening_events": [
+          "cnode_f9cee25f"
+        ],
+        "candidate": false,
+        "near_candidate": false
+      },
+      {
+        "source": "cnode_1a389e5b",
+        "target": "cnode_afa6be5d",
+        "source_label": "F",
+        "target_label": "I",
+        "supporting_segments": 3,
+        "coverage": 0.2294,
+        "angular_consistency": 0.2237,
+        "max_lateral_distance": 14.0,
+        "max_angle_delta": 22.0,
+        "intervening_events": [],
+        "candidate": false,
+        "near_candidate": false
+      },
+      {
+        "source": "cnode_67ce27e7",
+        "target": "cnode_1ab64de3",
+        "source_label": "A",
+        "target_label": "C",
+        "supporting_segments": 2,
+        "coverage": 0.2279,
+        "angular_consistency": 0.3815,
+        "max_lateral_distance": 14.0,
+        "max_angle_delta": 22.0,
+        "intervening_events": [],
+        "candidate": false,
+        "near_candidate": false
+      },
+      {
+        "source": "cnode_f9cee25f",
+        "target": "cnode_41b9feee",
+        "source_label": "G",
+        "target_label": "K",
+        "supporting_segments": 14,
+        "coverage": 0.2182,
+        "angular_consistency": 0.8933,
+        "max_lateral_distance": 14.0,
+        "max_angle_delta": 22.0,
+        "intervening_events": [
+          "cnode_c4c633ac"
+        ],
+        "candidate": false,
+        "near_candidate": false
+      },
+      {
+        "source": "cnode_1ab64de3",
+        "target": "cnode_0a4d87a2",
+        "source_label": "C",
+        "target_label": "M",
+        "supporting_segments": 29,
+        "coverage": 0.2093,
+        "angular_consistency": 0.6036,
+        "max_lateral_distance": 14.0,
+        "max_angle_delta": 22.0,
+        "intervening_events": [
+          "cnode_cd320434",
+          "cnode_41b0370a",
+          "cnode_41b9feee"
+        ],
+        "candidate": false,
+        "near_candidate": false
+      },
+      {
+        "source": "cnode_fa654b98",
+        "target": "cnode_c4c633ac",
+        "source_label": "E",
+        "target_label": "J",
+        "supporting_segments": 2,
+        "coverage": 0.0585,
+        "angular_consistency": 0.5922,
+        "max_lateral_distance": 14.0,
+        "max_angle_delta": 22.0,
+        "intervening_events": [],
+        "candidate": false,
+        "near_candidate": false
+      },
+      {
+        "source": "cnode_1ab64de3",
+        "target": "cnode_cd320434",
+        "source_label": "C",
+        "target_label": "H",
+        "supporting_segments": 2,
+        "coverage": 0.048,
+        "angular_consistency": 0.8318,
+        "max_lateral_distance": 14.0,
+        "max_angle_delta": 22.0,
+        "intervening_events": [],
+        "candidate": false,
+        "near_candidate": false
+      },
+      {
+        "source": "cnode_1ab64de3",
+        "target": "cnode_fa654b98",
+        "source_label": "C",
+        "target_label": "E",
+        "supporting_segments": 0,
+        "coverage": 0.0,
+        "angular_consistency": 0.0,
+        "max_lateral_distance": 14.0,
+        "max_angle_delta": 22.0,
+        "intervening_events": [
+          "cnode_13fcdc0f"
+        ],
+        "candidate": false,
+        "near_candidate": false
+      }
+    ]
+  },
+  {
+    "image": "6.jpeg",
+    "diagram_type": "AOA",
+    "event_count": 12,
+    "raw_line_segments": 539,
+    "logical_arrows": 17,
+    "rejected_arrows": 7,
+    "unresolved_logical_arrows": [
+      {
+        "arrow_id": "arrow_56539c68",
+        "length": 35.01,
+        "arrowhead_confidence": 0.426,
+        "event_contact_count": 0,
+        "start": [
+          106.0,
+          210.0
+        ],
+        "end": [
+          141.0,
+          211.0
+        ]
+      },
+      {
+        "arrow_id": "arrow_a80557a0",
+        "length": 55.87,
+        "arrowhead_confidence": 0.568,
+        "event_contact_count": 1,
+        "start": [
+          231.0,
+          191.0
+        ],
+        "end": [
+          271.0,
+          152.0
+        ]
+      },
+      {
+        "arrow_id": "arrow_a9d84365",
+        "length": 54.01,
+        "arrowhead_confidence": 0.665,
+        "event_contact_count": 0,
+        "start": [
+          358.0,
+          325.0
+        ],
+        "end": [
+          412.0,
+          324.0
+        ]
+      },
+      {
+        "arrow_id": "arrow_419c3cc3",
+        "length": 37.64,
+        "arrowhead_confidence": 0.584,
+        "event_contact_count": 0,
+        "start": [
+          567.0,
+          186.0
+        ],
+        "end": [
+          603.0,
+          197.0
+        ]
+      },
+      {
+        "arrow_id": "arrow_733c4e76",
+        "length": 62.2,
+        "arrowhead_confidence": 0.528,
+        "event_contact_count": 1,
+        "start": [
+          565.0,
+          318.0
+        ],
+        "end": [
+          627.0,
+          313.0
+        ]
+      },
+      {
+        "arrow_id": "arrow_2472f387",
+        "length": 32.56,
+        "arrowhead_confidence": 0.562,
+        "event_contact_count": 1,
+        "start": [
+          711.0,
+          229.0
+        ],
+        "end": [
+          743.0,
+          235.0
+        ]
+      },
+      {
+        "arrow_id": "arrow_f03659cc",
+        "length": 55.73,
+        "arrowhead_confidence": 0.495,
+        "event_contact_count": 0,
+        "start": [
+          203.0,
+          157.0
+        ],
+        "end": [
+          258.0,
+          166.0
+        ]
+      },
+      {
+        "arrow_id": "arrow_531caeee",
+        "length": 54.04,
+        "arrowhead_confidence": 0.67,
+        "event_contact_count": 0,
+        "start": [
+          210.0,
+          323.0
+        ],
+        "end": [
+          264.0,
+          321.0
+        ]
+      },
+      {
+        "arrow_id": "arrow_06eb966e",
+        "length": 67.12,
+        "arrowhead_confidence": 0.552,
+        "event_contact_count": 1,
+        "start": [
+          592.0,
+          305.0
+        ],
+        "end": [
+          648.0,
+          342.0
+        ]
+      },
+      {
+        "arrow_id": "arrow_4d813064",
+        "length": 33.38,
+        "arrowhead_confidence": 0.485,
+        "event_contact_count": 0,
+        "start": [
+          379.0,
+          160.0
+        ],
+        "end": [
+          412.0,
+          165.0
+        ]
+      },
+      {
+        "arrow_id": "arrow_b77b47a7",
+        "length": 43.1,
+        "arrowhead_confidence": 0.57,
+        "event_contact_count": 0,
+        "start": [
+          700.0,
+          312.0
+        ],
+        "end": [
+          743.0,
+          315.0
+        ]
+      }
+    ],
+    "route_inventory": [
+      {
+        "source": "cnode_1380f59b",
+        "target": "cnode_0d0d8e6b",
+        "source_label": "F",
+        "target_label": "G",
+        "supporting_segments": 2,
+        "coverage": 1.0,
+        "angular_consistency": 0.9551,
+        "max_lateral_distance": 14.0,
+        "max_angle_delta": 22.0,
+        "intervening_events": [],
+        "candidate": true,
+        "near_candidate": true
+      },
+      {
+        "source": "cnode_c7400497",
+        "target": "cnode_1380f59b",
+        "source_label": "E",
+        "target_label": "F",
+        "supporting_segments": 5,
+        "coverage": 1.0,
+        "angular_consistency": 0.7349,
+        "max_lateral_distance": 14.0,
+        "max_angle_delta": 22.0,
+        "intervening_events": [],
+        "candidate": true,
+        "near_candidate": true
+      },
+      {
+        "source": "cnode_ad89729a",
+        "target": "cnode_16b2aa80",
+        "source_label": "A",
+        "target_label": "B",
+        "supporting_segments": 2,
+        "coverage": 1.0,
+        "angular_consistency": 0.998,
+        "max_lateral_distance": 14.0,
+        "max_angle_delta": 22.0,
+        "intervening_events": [],
+        "candidate": true,
+        "near_candidate": true
+      },
+      {
+        "source": "cnode_e86b4b5a",
+        "target": "cnode_1380f59b",
+        "source_label": "D",
+        "target_label": "F",
+        "supporting_segments": 5,
+        "coverage": 1.0,
+        "angular_consistency": 0.8551,
+        "max_lateral_distance": 14.0,
+        "max_angle_delta": 22.0,
+        "intervening_events": [],
+        "candidate": true,
+        "near_candidate": true
+      },
+      {
+        "source": "cnode_55d07a25",
+        "target": "cnode_1380f59b",
+        "source_label": "C",
+        "target_label": "F",
+        "supporting_segments": 4,
+        "coverage": 1.0,
+        "angular_consistency": 0.8082,
+        "max_lateral_distance": 14.0,
+        "max_angle_delta": 22.0,
+        "intervening_events": [],
+        "candidate": true,
+        "near_candidate": true
+      },
+      {
+        "source": "cnode_b57df280",
+        "target": "cnode_65e1ffeb",
+        "source_label": "I",
+        "target_label": "J",
+        "supporting_segments": 2,
+        "coverage": 1.0,
+        "angular_consistency": 0.7083,
+        "max_lateral_distance": 14.0,
+        "max_angle_delta": 22.0,
+        "intervening_events": [],
+        "candidate": true,
+        "near_candidate": true
+      },
+      {
+        "source": "cnode_0d0d8e6b",
+        "target": "cnode_b57df280",
+        "source_label": "G",
+        "target_label": "I",
+        "supporting_segments": 3,
+        "coverage": 1.0,
+        "angular_consistency": 0.6825,
+        "max_lateral_distance": 14.0,
+        "max_angle_delta": 22.0,
+        "intervening_events": [],
+        "candidate": true,
+        "near_candidate": true
+      },
+      {
+        "source": "cnode_16b2aa80",
+        "target": "cnode_c7400497",
+        "source_label": "B",
+        "target_label": "E",
+        "supporting_segments": 3,
+        "coverage": 1.0,
+        "angular_consistency": 0.894,
+        "max_lateral_distance": 14.0,
+        "max_angle_delta": 22.0,
+        "intervening_events": [],
+        "candidate": true,
+        "near_candidate": true
+      },
+      {
+        "source": "cnode_16b2aa80",
+        "target": "cnode_e86b4b5a",
+        "source_label": "B",
+        "target_label": "D",
+        "supporting_segments": 6,
+        "coverage": 1.0,
+        "angular_consistency": 0.9357,
+        "max_lateral_distance": 14.0,
+        "max_angle_delta": 22.0,
+        "intervening_events": [],
+        "candidate": true,
+        "near_candidate": true
+      },
+      {
+        "source": "cnode_16b2aa80",
+        "target": "cnode_55d07a25",
+        "source_label": "B",
+        "target_label": "C",
+        "supporting_segments": 3,
+        "coverage": 1.0,
+        "angular_consistency": 0.9224,
+        "max_lateral_distance": 14.0,
+        "max_angle_delta": 22.0,
+        "intervening_events": [],
+        "candidate": true,
+        "near_candidate": true
+      },
+      {
+        "source": "cnode_fd4f7519",
+        "target": "cnode_dfd81c01",
+        "source_label": "K",
+        "target_label": "M",
+        "supporting_segments": 1,
+        "coverage": 1.0,
+        "angular_consistency": 0.778,
+        "max_lateral_distance": 14.0,
+        "max_angle_delta": 22.0,
+        "intervening_events": [],
+        "candidate": false,
+        "near_candidate": false
+      },
+      {
+        "source": "cnode_1380f59b",
+        "target": "cnode_0c822511",
+        "source_label": "F",
+        "target_label": "H",
+        "supporting_segments": 23,
+        "coverage": 1.0,
+        "angular_consistency": 0.5871,
+        "max_lateral_distance": 14.0,
+        "max_angle_delta": 22.0,
+        "intervening_events": [
+          "cnode_0d0d8e6b"
+        ],
+        "candidate": false,
+        "near_candidate": false
+      },
+      {
+        "source": "cnode_ad89729a",
+        "target": "cnode_1380f59b",
+        "source_label": "A",
+        "target_label": "F",
+        "supporting_segments": 41,
+        "coverage": 1.0,
+        "angular_consistency": 0.8448,
+        "max_lateral_distance": 14.0,
+        "max_angle_delta": 22.0,
+        "intervening_events": [
+          "cnode_e86b4b5a",
+          "cnode_16b2aa80"
+        ],
+        "candidate": false,
+        "near_candidate": false
+      },
+      {
+        "source": "cnode_ad89729a",
+        "target": "cnode_e86b4b5a",
+        "source_label": "A",
+        "target_label": "D",
+        "supporting_segments": 24,
+        "coverage": 1.0,
+        "angular_consistency": 0.9106,
+        "max_lateral_distance": 14.0,
+        "max_angle_delta": 22.0,
+        "intervening_events": [
+          "cnode_16b2aa80"
+        ],
+        "candidate": false,
+        "near_candidate": false
+      },
+      {
+        "source": "cnode_ad89729a",
+        "target": "cnode_0d0d8e6b",
+        "source_label": "A",
+        "target_label": "G",
+        "supporting_segments": 55,
+        "coverage": 1.0,
+        "angular_consistency": 0.8449,
+        "max_lateral_distance": 14.0,
+        "max_angle_delta": 22.0,
+        "intervening_events": [
+          "cnode_1380f59b",
+          "cnode_e86b4b5a",
+          "cnode_16b2aa80"
+        ],
+        "candidate": false,
+        "near_candidate": false
+      },
+      {
+        "source": "cnode_ad89729a",
+        "target": "cnode_0c822511",
+        "source_label": "A",
+        "target_label": "H",
+        "supporting_segments": 83,
+        "coverage": 1.0,
+        "angular_consistency": 0.7662,
+        "max_lateral_distance": 14.0,
+        "max_angle_delta": 22.0,
+        "intervening_events": [
+          "cnode_1380f59b",
+          "cnode_e86b4b5a",
+          "cnode_0d0d8e6b",
+          "cnode_16b2aa80"
+        ],
+        "candidate": false,
+        "near_candidate": false
+      },
+      {
+        "source": "cnode_e86b4b5a",
+        "target": "cnode_0d0d8e6b",
+        "source_label": "D",
+        "target_label": "G",
+        "supporting_segments": 20,
+        "coverage": 1.0,
+        "angular_consistency": 0.8509,
+        "max_lateral_distance": 14.0,
+        "max_angle_delta": 22.0,
+        "intervening_events": [
+          "cnode_1380f59b"
+        ],
+        "candidate": false,
+        "near_candidate": false
+      },
+      {
+        "source": "cnode_e86b4b5a",
+        "target": "cnode_0c822511",
+        "source_label": "D",
+        "target_label": "H",
+        "supporting_segments": 44,
+        "coverage": 1.0,
+        "angular_consistency": 0.6818,
+        "max_lateral_distance": 14.0,
+        "max_angle_delta": 22.0,
+        "intervening_events": [
+          "cnode_1380f59b",
+          "cnode_0d0d8e6b"
+        ],
+        "candidate": false,
+        "near_candidate": false
+      },
+      {
+        "source": "cnode_65e1ffeb",
+        "target": "cnode_dfd81c01",
+        "source_label": "J",
+        "target_label": "M",
+        "supporting_segments": 26,
+        "coverage": 1.0,
+        "angular_consistency": 0.6558,
+        "max_lateral_distance": 14.0,
+        "max_angle_delta": 22.0,
+        "intervening_events": [
+          "cnode_fd4f7519"
+        ],
+        "candidate": false,
+        "near_candidate": false
+      },
+      {
+        "source": "cnode_0d0d8e6b",
+        "target": "cnode_0c822511",
+        "source_label": "G",
+        "target_label": "H",
+        "supporting_segments": 5,
+        "coverage": 1.0,
+        "angular_consistency": 0.3301,
+        "max_lateral_distance": 14.0,
+        "max_angle_delta": 22.0,
+        "intervening_events": [],
+        "candidate": false,
+        "near_candidate": false
+      },
+      {
+        "source": "cnode_16b2aa80",
+        "target": "cnode_1380f59b",
+        "source_label": "B",
+        "target_label": "F",
+        "supporting_segments": 23,
+        "coverage": 1.0,
+        "angular_consistency": 0.7969,
+        "max_lateral_distance": 14.0,
+        "max_angle_delta": 22.0,
+        "intervening_events": [
+          "cnode_e86b4b5a"
+        ],
+        "candidate": false,
+        "near_candidate": false
+      },
+      {
+        "source": "cnode_16b2aa80",
+        "target": "cnode_0d0d8e6b",
+        "source_label": "B",
+        "target_label": "G",
+        "supporting_segments": 37,
+        "coverage": 1.0,
+        "angular_consistency": 0.8147,
+        "max_lateral_distance": 14.0,
+        "max_angle_delta": 22.0,
+        "intervening_events": [
+          "cnode_1380f59b",
+          "cnode_e86b4b5a"
+        ],
+        "candidate": false,
+        "near_candidate": false
+      },
+      {
+        "source": "cnode_16b2aa80",
+        "target": "cnode_0c822511",
+        "source_label": "B",
+        "target_label": "H",
+        "supporting_segments": 66,
+        "coverage": 1.0,
+        "angular_consistency": 0.716,
+        "max_lateral_distance": 14.0,
+        "max_angle_delta": 22.0,
+        "intervening_events": [
+          "cnode_1380f59b",
+          "cnode_e86b4b5a",
+          "cnode_0d0d8e6b"
+        ],
+        "candidate": false,
+        "near_candidate": false
+      },
+      {
+        "source": "cnode_e86b4b5a",
+        "target": "cnode_b57df280",
+        "source_label": "D",
+        "target_label": "I",
+        "supporting_segments": 15,
+        "coverage": 0.9658,
+        "angular_consistency": 0.294,
+        "max_lateral_distance": 14.0,
+        "max_angle_delta": 22.0,
+        "intervening_events": [
+          "cnode_1380f59b"
+        ],
+        "candidate": false,
+        "near_candidate": false
+      },
+      {
+        "source": "cnode_0c822511",
+        "target": "cnode_dfd81c01",
+        "source_label": "H",
+        "target_label": "M",
+        "supporting_segments": 40,
+        "coverage": 0.9164,
+        "angular_consistency": 0.7271,
+        "max_lateral_distance": 14.0,
+        "max_angle_delta": 22.0,
+        "intervening_events": [
+          "cnode_fd4f7519"
+        ],
+        "candidate": false,
+        "near_candidate": false
+      },
+      {
+        "source": "cnode_0c822511",
+        "target": "cnode_fd4f7519",
+        "source_label": "H",
+        "target_label": "K",
+        "supporting_segments": 28,
+        "coverage": 0.8874,
+        "angular_consistency": 0.6339,
+        "max_lateral_distance": 14.0,
+        "max_angle_delta": 22.0,
+        "intervening_events": [],
+        "candidate": false,
+        "near_candidate": true
+      },
+      {
+        "source": "cnode_ad89729a",
+        "target": "cnode_dfd81c01",
+        "source_label": "A",
+        "target_label": "M",
+        "supporting_segments": 120,
+        "coverage": 0.8785,
+        "angular_consistency": 0.8516,
+        "max_lateral_distance": 14.0,
+        "max_angle_delta": 22.0,
+        "intervening_events": [
+          "cnode_fd4f7519",
+          "cnode_1380f59b",
+          "cnode_e86b4b5a",
+          "cnode_65e1ffeb",
+          "cnode_0d0d8e6b",
+          "cnode_16b2aa80"
+        ],
+        "candidate": false,
+        "near_candidate": false
+      },
+      {
+        "source": "cnode_16b2aa80",
+        "target": "cnode_dfd81c01",
+        "source_label": "B",
+        "target_label": "M",
+        "supporting_segments": 105,
+        "coverage": 0.8588,
+        "angular_consistency": 0.8412,
+        "max_lateral_distance": 14.0,
+        "max_angle_delta": 22.0,
+        "intervening_events": [
+          "cnode_fd4f7519",
+          "cnode_1380f59b",
+          "cnode_e86b4b5a",
+          "cnode_65e1ffeb",
+          "cnode_0d0d8e6b"
+        ],
+        "candidate": false,
+        "near_candidate": false
+      },
+      {
+        "source": "cnode_ad89729a",
+        "target": "cnode_fd4f7519",
+        "source_label": "A",
+        "target_label": "K",
+        "supporting_segments": 95,
+        "coverage": 0.8536,
+        "angular_consistency": 0.8509,
+        "max_lateral_distance": 14.0,
+        "max_angle_delta": 22.0,
+        "intervening_events": [
+          "cnode_1380f59b",
+          "cnode_e86b4b5a",
+          "cnode_65e1ffeb",
+          "cnode_0d0d8e6b",
+          "cnode_16b2aa80"
+        ],
+        "candidate": false,
+        "near_candidate": false
+      },
+      {
+        "source": "cnode_e86b4b5a",
+        "target": "cnode_dfd81c01",
+        "source_label": "D",
+        "target_label": "M",
+        "supporting_segments": 89,
+        "coverage": 0.8284,
+        "angular_consistency": 0.8522,
+        "max_lateral_distance": 14.0,
+        "max_angle_delta": 22.0,
+        "intervening_events": [
+          "cnode_fd4f7519",
+          "cnode_1380f59b",
+          "cnode_65e1ffeb",
+          "cnode_0d0d8e6b"
+        ],
+        "candidate": false,
+        "near_candidate": false
+      },
+      {
+        "source": "cnode_16b2aa80",
+        "target": "cnode_fd4f7519",
+        "source_label": "B",
+        "target_label": "K",
+        "supporting_segments": 81,
+        "coverage": 0.824,
+        "angular_consistency": 0.8437,
+        "max_lateral_distance": 14.0,
+        "max_angle_delta": 22.0,
+        "intervening_events": [
+          "cnode_1380f59b",
+          "cnode_e86b4b5a",
+          "cnode_65e1ffeb",
+          "cnode_0d0d8e6b"
+        ],
+        "candidate": false,
+        "near_candidate": false
+      },
+      {
+        "source": "cnode_e86b4b5a",
+        "target": "cnode_fd4f7519",
+        "source_label": "D",
+        "target_label": "K",
+        "supporting_segments": 63,
+        "coverage": 0.7891,
+        "angular_consistency": 0.8385,
+        "max_lateral_distance": 14.0,
+        "max_angle_delta": 22.0,
+        "intervening_events": [
+          "cnode_1380f59b",
+          "cnode_65e1ffeb",
+          "cnode_0d0d8e6b"
+        ],
+        "candidate": false,
+        "near_candidate": false
+      },
+      {
+        "source": "cnode_1380f59b",
+        "target": "cnode_dfd81c01",
+        "source_label": "F",
+        "target_label": "M",
+        "supporting_segments": 71,
+        "coverage": 0.7865,
+        "angular_consistency": 0.8566,
+        "max_lateral_distance": 14.0,
+        "max_angle_delta": 22.0,
+        "intervening_events": [
+          "cnode_fd4f7519",
+          "cnode_65e1ffeb",
+          "cnode_0d0d8e6b"
+        ],
+        "candidate": false,
+        "near_candidate": false
+      },
+      {
+        "source": "cnode_55d07a25",
+        "target": "cnode_0d0d8e6b",
+        "source_label": "C",
+        "target_label": "G",
+        "supporting_segments": 15,
+        "coverage": 0.7794,
+        "angular_consistency": 0.2133,
+        "max_lateral_distance": 14.0,
+        "max_angle_delta": 22.0,
+        "intervening_events": [],
+        "candidate": false,
+        "near_candidate": false
+      },
+      {
+        "source": "cnode_ad89729a",
+        "target": "cnode_65e1ffeb",
+        "source_label": "A",
+        "target_label": "J",
+        "supporting_segments": 48,
+        "coverage": 0.763,
+        "angular_consistency": 0.8407,
+        "max_lateral_distance": 14.0,
+        "max_angle_delta": 22.0,
+        "intervening_events": [
+          "cnode_1380f59b",
+          "cnode_e86b4b5a",
+          "cnode_0d0d8e6b",
+          "cnode_16b2aa80"
+        ],
+        "candidate": false,
+        "near_candidate": false
+      },
+      {
+        "source": "cnode_55d07a25",
+        "target": "cnode_b57df280",
+        "source_label": "C",
+        "target_label": "I",
+        "supporting_segments": 11,
+        "coverage": 0.7461,
+        "angular_consistency": 0.4086,
+        "max_lateral_distance": 14.0,
+        "max_angle_delta": 22.0,
+        "intervening_events": [
+          "cnode_1380f59b",
+          "cnode_0d0d8e6b"
+        ],
+        "candidate": false,
+        "near_candidate": false
+      },
+      {
+        "source": "cnode_0d0d8e6b",
+        "target": "cnode_dfd81c01",
+        "source_label": "G",
+        "target_label": "M",
+        "supporting_segments": 53,
+        "coverage": 0.7251,
+        "angular_consistency": 0.8364,
+        "max_lateral_distance": 14.0,
+        "max_angle_delta": 22.0,
+        "intervening_events": [
+          "cnode_fd4f7519",
+          "cnode_65e1ffeb"
+        ],
+        "candidate": false,
+        "near_candidate": false
+      },
+      {
+        "source": "cnode_1380f59b",
+        "target": "cnode_fd4f7519",
+        "source_label": "F",
+        "target_label": "K",
+        "supporting_segments": 48,
+        "coverage": 0.7247,
+        "angular_consistency": 0.8584,
+        "max_lateral_distance": 14.0,
+        "max_angle_delta": 22.0,
+        "intervening_events": [
+          "cnode_65e1ffeb",
+          "cnode_0d0d8e6b"
+        ],
+        "candidate": false,
+        "near_candidate": false
+      },
+      {
+        "source": "cnode_16b2aa80",
+        "target": "cnode_65e1ffeb",
+        "source_label": "B",
+        "target_label": "J",
+        "supporting_segments": 37,
+        "coverage": 0.6971,
+        "angular_consistency": 0.802,
+        "max_lateral_distance": 14.0,
+        "max_angle_delta": 22.0,
+        "intervening_events": [
+          "cnode_1380f59b",
+          "cnode_e86b4b5a",
+          "cnode_0d0d8e6b"
+        ],
+        "candidate": false,
+        "near_candidate": false
+      },
+      {
+        "source": "cnode_b57df280",
+        "target": "cnode_fd4f7519",
+        "source_label": "I",
+        "target_label": "K",
+        "supporting_segments": 11,
+        "coverage": 0.6297,
+        "angular_consistency": 0.3444,
+        "max_lateral_distance": 14.0,
+        "max_angle_delta": 22.0,
+        "intervening_events": [
+          "cnode_65e1ffeb"
+        ],
+        "candidate": false,
+        "near_candidate": false
+      },
+      {
+        "source": "cnode_0d0d8e6b",
+        "target": "cnode_fd4f7519",
+        "source_label": "G",
+        "target_label": "K",
+        "supporting_segments": 30,
+        "coverage": 0.6266,
+        "angular_consistency": 0.816,
+        "max_lateral_distance": 14.0,
+        "max_angle_delta": 22.0,
+        "intervening_events": [
+          "cnode_65e1ffeb"
+        ],
+        "candidate": false,
+        "near_candidate": false
+      },
+      {
+        "source": "cnode_c7400497",
+        "target": "cnode_dfd81c01",
+        "source_label": "E",
+        "target_label": "M",
+        "supporting_segments": 48,
+        "coverage": 0.6042,
+        "angular_consistency": 0.5859,
+        "max_lateral_distance": 14.0,
+        "max_angle_delta": 22.0,
+        "intervening_events": [
+          "cnode_fd4f7519",
+          "cnode_65e1ffeb"
+        ],
+        "candidate": false,
+        "near_candidate": false
+      },
+      {
+        "source": "cnode_e86b4b5a",
+        "target": "cnode_65e1ffeb",
+        "source_label": "D",
+        "target_label": "J",
+        "supporting_segments": 30,
+        "coverage": 0.5955,
+        "angular_consistency": 0.7797,
+        "max_lateral_distance": 14.0,
+        "max_angle_delta": 22.0,
+        "intervening_events": [
+          "cnode_1380f59b",
+          "cnode_0d0d8e6b"
+        ],
+        "candidate": false,
+        "near_candidate": false
+      },
+      {
+        "source": "cnode_55d07a25",
+        "target": "cnode_fd4f7519",
+        "source_label": "C",
+        "target_label": "K",
+        "supporting_segments": 71,
+        "coverage": 0.5831,
+        "angular_consistency": 0.6037,
+        "max_lateral_distance": 14.0,
+        "max_angle_delta": 22.0,
+        "intervening_events": [
+          "cnode_0c822511"
+        ],
+        "candidate": false,
+        "near_candidate": false
+      },
+      {
+        "source": "cnode_b57df280",
+        "target": "cnode_dfd81c01",
+        "source_label": "I",
+        "target_label": "M",
+        "supporting_segments": 15,
+        "coverage": 0.5544,
+        "angular_consistency": 0.369,
+        "max_lateral_distance": 14.0,
+        "max_angle_delta": 22.0,
+        "intervening_events": [
+          "cnode_fd4f7519"
+        ],
+        "candidate": false,
+        "near_candidate": false
+      },
+      {
+        "source": "cnode_65e1ffeb",
+        "target": "cnode_fd4f7519",
+        "source_label": "J",
+        "target_label": "K",
+        "supporting_segments": 5,
+        "coverage": 0.5387,
+        "angular_consistency": 0.2949,
+        "max_lateral_distance": 14.0,
+        "max_angle_delta": 22.0,
+        "intervening_events": [],
+        "candidate": false,
+        "near_candidate": false
+      },
+      {
+        "source": "cnode_55d07a25",
+        "target": "cnode_dfd81c01",
+        "source_label": "C",
+        "target_label": "M",
+        "supporting_segments": 61,
+        "coverage": 0.5267,
+        "angular_consistency": 0.6512,
+        "max_lateral_distance": 14.0,
+        "max_angle_delta": 22.0,
+        "intervening_events": [
+          "cnode_fd4f7519",
+          "cnode_0c822511"
+        ],
+        "candidate": false,
+        "near_candidate": false
+      },
+      {
+        "source": "cnode_0c822511",
+        "target": "cnode_65e1ffeb",
+        "source_label": "H",
+        "target_label": "J",
+        "supporting_segments": 2,
+        "coverage": 0.5093,
+        "angular_consistency": 0.3926,
+        "max_lateral_distance": 14.0,
+        "max_angle_delta": 22.0,
+        "intervening_events": [],
+        "candidate": false,
+        "near_candidate": false
+      },
+      {
+        "source": "cnode_c7400497",
+        "target": "cnode_0d0d8e6b",
+        "source_label": "E",
+        "target_label": "G",
+        "supporting_segments": 6,
+        "coverage": 0.5051,
+        "angular_consistency": 0.0412,
+        "max_lateral_distance": 14.0,
+        "max_angle_delta": 22.0,
+        "intervening_events": [],
+        "candidate": false,
+        "near_candidate": false
+      },
+      {
+        "source": "cnode_55d07a25",
+        "target": "cnode_65e1ffeb",
+        "source_label": "C",
+        "target_label": "J",
+        "supporting_segments": 25,
+        "coverage": 0.503,
+        "angular_consistency": 0.5664,
+        "max_lateral_distance": 14.0,
+        "max_angle_delta": 22.0,
+        "intervening_events": [
+          "cnode_0c822511"
+        ],
+        "candidate": false,
+        "near_candidate": false
+      },
+      {
+        "source": "cnode_c7400497",
+        "target": "cnode_0c822511",
+        "source_label": "E",
+        "target_label": "H",
+        "supporting_segments": 13,
+        "coverage": 0.4656,
+        "angular_consistency": 0.0941,
+        "max_lateral_distance": 14.0,
+        "max_angle_delta": 22.0,
+        "intervening_events": [
+          "cnode_0d0d8e6b"
+        ],
+        "candidate": false,
+        "near_candidate": false
+      },
+      {
+        "source": "cnode_c7400497",
+        "target": "cnode_fd4f7519",
+        "source_label": "E",
+        "target_label": "K",
+        "supporting_segments": 34,
+        "coverage": 0.4435,
+        "angular_consistency": 0.5748,
+        "max_lateral_distance": 14.0,
+        "max_angle_delta": 22.0,
+        "intervening_events": [
+          "cnode_65e1ffeb"
+        ],
+        "candidate": false,
+        "near_candidate": false
+      },
+      {
+        "source": "cnode_ad89729a",
+        "target": "cnode_c7400497",
+        "source_label": "A",
+        "target_label": "E",
+        "supporting_segments": 4,
+        "coverage": 0.4399,
+        "angular_consistency": 0.3224,
+        "max_lateral_distance": 14.0,
+        "max_angle_delta": 22.0,
+        "intervening_events": [],
+        "candidate": false,
+        "near_candidate": false
+      },
+      {
+        "source": "cnode_1380f59b",
+        "target": "cnode_65e1ffeb",
+        "source_label": "F",
+        "target_label": "J",
+        "supporting_segments": 15,
+        "coverage": 0.4194,
+        "angular_consistency": 0.7928,
+        "max_lateral_distance": 14.0,
+        "max_angle_delta": 22.0,
+        "intervening_events": [
+          "cnode_0d0d8e6b"
+        ],
+        "candidate": false,
+        "near_candidate": false
+      },
+      {
+        "source": "cnode_ad89729a",
+        "target": "cnode_55d07a25",
+        "source_label": "A",
+        "target_label": "C",
+        "supporting_segments": 4,
+        "coverage": 0.4116,
+        "angular_consistency": 0.0636,
+        "max_lateral_distance": 14.0,
+        "max_angle_delta": 22.0,
+        "intervening_events": [],
+        "candidate": false,
+        "near_candidate": false
+      },
+      {
+        "source": "cnode_ad89729a",
+        "target": "cnode_b57df280",
+        "source_label": "A",
+        "target_label": "I",
+        "supporting_segments": 27,
+        "coverage": 0.3983,
+        "angular_consistency": 0.4767,
+        "max_lateral_distance": 14.0,
+        "max_angle_delta": 22.0,
+        "intervening_events": [
+          "cnode_16b2aa80"
+        ],
+        "candidate": false,
+        "near_candidate": false
+      },
+      {
+        "source": "cnode_1380f59b",
+        "target": "cnode_b57df280",
+        "source_label": "F",
+        "target_label": "I",
+        "supporting_segments": 3,
+        "coverage": 0.3696,
+        "angular_consistency": 0.4446,
+        "max_lateral_distance": 14.0,
+        "max_angle_delta": 22.0,
+        "intervening_events": [],
+        "candidate": false,
+        "near_candidate": false
+      },
+      {
+        "source": "cnode_16b2aa80",
+        "target": "cnode_b57df280",
+        "source_label": "B",
+        "target_label": "I",
+        "supporting_segments": 19,
+        "coverage": 0.305,
+        "angular_consistency": 0.3727,
+        "max_lateral_distance": 14.0,
+        "max_angle_delta": 22.0,
+        "intervening_events": [
+          "cnode_e86b4b5a"
+        ],
+        "candidate": false,
+        "near_candidate": false
+      },
+      {
+        "source": "cnode_55d07a25",
+        "target": "cnode_0c822511",
+        "source_label": "C",
+        "target_label": "H",
+        "supporting_segments": 24,
+        "coverage": 0.2586,
+        "angular_consistency": 0.6776,
+        "max_lateral_distance": 14.0,
+        "max_angle_delta": 22.0,
+        "intervening_events": [],
+        "candidate": false,
+        "near_candidate": true
+      },
+      {
+        "source": "cnode_0d0d8e6b",
+        "target": "cnode_65e1ffeb",
+        "source_label": "G",
+        "target_label": "J",
+        "supporting_segments": 3,
+        "coverage": 0.2346,
+        "angular_consistency": 0.8944,
+        "max_lateral_distance": 14.0,
+        "max_angle_delta": 22.0,
+        "intervening_events": [],
+        "candidate": false,
+        "near_candidate": false
+      },
+      {
+        "source": "cnode_c7400497",
+        "target": "cnode_b57df280",
+        "source_label": "E",
+        "target_label": "I",
+        "supporting_segments": 3,
+        "coverage": 0.1717,
+        "angular_consistency": 0.9094,
+        "max_lateral_distance": 14.0,
+        "max_angle_delta": 22.0,
+        "intervening_events": [],
+        "candidate": false,
+        "near_candidate": false
+      },
+      {
+        "source": "cnode_c7400497",
+        "target": "cnode_65e1ffeb",
+        "source_label": "E",
+        "target_label": "J",
+        "supporting_segments": 8,
+        "coverage": 0.16,
+        "angular_consistency": 0.5167,
+        "max_lateral_distance": 14.0,
+        "max_angle_delta": 22.0,
+        "intervening_events": [],
+        "candidate": false,
+        "near_candidate": false
+      },
+      {
+        "source": "cnode_55d07a25",
+        "target": "cnode_c7400497",
+        "source_label": "C",
+        "target_label": "E",
+        "supporting_segments": 0,
+        "coverage": 0.0,
+        "angular_consistency": 0.0,
+        "max_lateral_distance": 14.0,
+        "max_angle_delta": 22.0,
+        "intervening_events": [
+          "cnode_e86b4b5a"
+        ],
+        "candidate": false,
+        "near_candidate": false
+      }
+    ]
+  }
+]
