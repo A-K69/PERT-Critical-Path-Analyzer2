@@ -122,6 +122,14 @@ def diagnose_image(image_path: str | Path, annotation_path: str | Path | None = 
         counts[row["error_class"]] = counts.get(row["error_class"], 0) + 1
     ambiguous = sum(1 for row in region_rows if row["association_ambiguous"])
     unmatched = sum(1 for row in region_rows if not row["associated_expected_id"])
+    normalized_numeric_regions = [
+        region for region in regions
+        if getattr(region, "metadata", {}).get("numeric_normalization")
+    ]
+    normalization_corrections = sum(
+        len(region.metadata["numeric_normalization"].get("warnings", []))
+        for region in normalized_numeric_regions
+    )
     return {
         "image": path.name,
         "diagram_type": getattr(result, "diagram_type", None),
@@ -131,6 +139,8 @@ def diagnose_image(image_path: str | Path, annotation_path: str | Path | None = 
         "association_results": len(associations),
         "ambiguous_associations": ambiguous,
         "unmatched_regions": unmatched,
+        "normalized_numeric_regions": len(normalized_numeric_regions),
+        "normalization_corrections": normalization_corrections,
         "item_error_counts": counts,
         "id_exact_matches": sum(1 for row in item_rows if row["id_match"]),
         "duration_exact_matches": sum(1 for row in item_rows if row["duration_match"]),
@@ -146,14 +156,15 @@ def render_markdown(records: List[Dict[str, Any]]) -> str:
         "",
         "Measurement-only report. No OCR behavior is changed by this artifact.",
         "",
-        "| Image | Type | Expected items | OCR regions | Numeric candidates | Ambiguous associations | Unmatched regions | ID exact | Duration exact | Association exact |",
-        "|---|---|---:|---:|---:|---:|---:|---:|---:|---:|",
+        "| Image | Type | Expected items | OCR regions | Numeric candidates | Normalized numeric regions | Ambiguous associations | Unmatched regions | ID exact | Duration exact | Association exact |",
+        "|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|",
     ]
     for record in records:
         lines.append(
             f"| {record['image']} | {record['diagram_type']} | {record['expected_items']} | "
             f"{record['ocr_regions']} | {record['ocr_numeric_candidates']} | "
-            f"{record['ambiguous_associations']} | {record['unmatched_regions']} | "
+            f"{record['normalized_numeric_regions']} | {record['ambiguous_associations']} | "
+            f"{record['unmatched_regions']} | "
             f"{record['id_exact_matches']} | {record['duration_exact_matches']} | "
             f"{record['association_exact_matches']} |"
         )

@@ -26,6 +26,7 @@ def test_render_markdown_exposes_error_taxonomy():
             "expected_items": 1,
             "ocr_regions": 3,
             "ocr_numeric_candidates": 1,
+            "normalized_numeric_regions": 0,
             "ambiguous_associations": 1,
             "unmatched_regions": 0,
             "id_exact_matches": 1,

@@ -47,6 +47,33 @@ PERT_LIKE_PATTERN = re.compile(
 )
 
 
+def normalize_numeric_ocr_text(text: str) -> Tuple[str, List[str]]:
+    """Normalize only high-confidence numeric OCR confusions.
+
+    The function is gated by an existing digit and a numeric-looking character
+    set, so a standalone activity ID such as ``O`` or ``I`` is never changed.
+    Raw OCR remains on the source region and corrections are returned as
+    auditable warnings.
+    """
+    value = (text or "").strip()
+    if not value or not re.search(r"\d", value):
+        return value, []
+    if not re.fullmatch(r"[0-9OoIlS.,\s+\-]+", value):
+        return value, []
+    warnings: List[str] = []
+    normalized = value
+    for old, new in {"O": "0", "o": "0", "I": "1", "l": "1"}.items():
+        if old in normalized:
+            normalized = normalized.replace(old, new)
+            warnings.append(f"Mapped OCR '{old}' to '{new}' in numeric context")
+    if "." not in normalized and normalized.count(",") == 1:
+        left, right = normalized.split(",")
+        if left.strip().lstrip("+-").isdigit() and 1 <= len(right.strip()) <= 2:
+            normalized = normalized.replace(",", ".")
+            warnings.append("Mapped comma decimal separator to '.'")
+    return normalized, warnings
+
+
 class NumericExtractor:
     """
     Extracts numeric candidates from OCR text regions.
@@ -71,7 +98,23 @@ class NumericExtractor:
             List of NumericCandidate objects found in the region.
         """
         candidates = []
-        text = region.normalized_text or region.text
+        raw_text = region.normalized_text or region.text
+        text, normalization_warnings = normalize_numeric_ocr_text(raw_text)
+        if normalization_warnings:
+            region.metadata.setdefault("numeric_normalization", {
+                "raw_text": region.raw_text or region.text,
+                "normalized_text": text,
+                "warnings": [],
+            })
+            details = region.metadata["numeric_normalization"]
+            details["warnings"].extend(
+                warning for warning in normalization_warnings
+                if warning not in details["warnings"]
+            )
+            region.numeric_parse_warnings.extend(
+                warning for warning in normalization_warnings
+                if warning not in region.numeric_parse_warnings
+            )
 
         if not text or not text.strip():
             return candidates
@@ -83,6 +126,9 @@ class NumericExtractor:
                 text.strip(), region
             )
             if candidate:
+                candidate.metadata["raw_ocr_text"] = region.raw_text or region.text
+                candidate.metadata["normalized_ocr_text"] = text.strip()
+                candidate.parse_warnings = normalization_warnings + candidate.parse_warnings
                 candidates.append(candidate)
             return candidates
 
@@ -93,6 +139,9 @@ class NumericExtractor:
                 num_text, region
             )
             if candidate:
+                candidate.metadata["raw_ocr_text"] = region.raw_text or region.text
+                candidate.metadata["normalized_ocr_text"] = num_text
+                candidate.parse_warnings = normalization_warnings + candidate.parse_warnings
                 candidates.append(candidate)
 
         return candidates
