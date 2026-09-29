@@ -243,7 +243,7 @@ class ArrowDetector(ArrowDetectorABC):
         )
         if stats["aoa_context"] and shape_result is not None:
             recovered = self._recover_fragmented_aoa_routes(
-                final_arrows, shape_result, preprocessing_result.grayscale
+                final_arrows, shape_result, preprocessing_result.grayscale, filtered
             )
             final_arrows.extend(recovered)
 
@@ -294,6 +294,7 @@ class ArrowDetector(ArrowDetectorABC):
         arrows: List[DetectedArrow],
         shape_result: ShapeDetectionResult,
         grayscale: Optional[np.ndarray],
+        segments: Optional[List[DetectedLineSegment]] = None,
     ) -> List[DetectedArrow]:
         """Recover strongly pixel-supported direct AOA routes only."""
         if grayscale is None or grayscale.ndim != 2:
@@ -329,6 +330,14 @@ class ArrowDetector(ArrowDetectorABC):
                 support, coverage = self._sample_aoa_route(
                     grayscale, sx, sy, tx, ty, sr, tr
                 )
+                chain = None
+                if (support < 0.45 or coverage < 0.65) and segments:
+                    chain = self._find_aoa_segment_chain(
+                        source, target, circles, segments
+                    )
+                if chain is not None:
+                    support = max(support, chain["support"])
+                    coverage = max(coverage, chain["coverage"])
                 if support < 0.45 or coverage < 0.65:
                     continue
                 ux, uy = (tx - sx) / distance, (ty - sy) / distance
@@ -355,12 +364,99 @@ class ArrowDetector(ArrowDetectorABC):
                         "validation_status": "recovered::aoa_route_geometry",
                     },
                     metadata={
-                        "recovery_reason": "fragmented_shaft_without_observed_arrowhead",
+                        "recovery_reason": (
+                            "multi_segment_stitch_without_observed_arrowhead"
+                            if chain is not None
+                            else "fragmented_shaft_without_observed_arrowhead"
+                        ),
                         "direction_source": "dominant_left_to_right_event_layout",
+                        "stitched_segment_count": (
+                            chain["segment_count"] if chain is not None else 0
+                        ),
                     },
                 ))
                 existing.add(frozenset((sid, tid)))
         return recovered
+
+    def _find_aoa_segment_chain(
+        self,
+        source: Tuple[str, float, float, float],
+        target: Tuple[str, float, float, float],
+        circles: List[Tuple[str, float, float, float]],
+        segments: List[DetectedLineSegment],
+    ) -> Optional[Dict[str, float]]:
+        """Find a short, coherent Hough chain between two event boundaries."""
+        if len(segments) < 2:
+            return None
+        _, sx, sy, sr = source
+        _, tx, ty, tr = target
+        usable = [
+            segment for segment in segments
+            if segment.length >= 12.0 and segment.confidence >= 0.2
+        ]
+        if len(usable) < 2:
+            return None
+        def endpoint_distance(segment: DetectedLineSegment, x: float, y: float) -> float:
+            return min(
+                math.hypot(segment.start.x - x, segment.start.y - y),
+                math.hypot(segment.end.x - x, segment.end.y - y),
+            )
+        starts = [i for i, segment in enumerate(usable) if endpoint_distance(segment, sx, sy) <= sr + 28.0]
+        ends = {i for i, segment in enumerate(usable) if endpoint_distance(segment, tx, ty) <= tr + 28.0}
+        if not starts or not ends:
+            return None
+        adjacency: Dict[int, List[int]] = {i: [] for i in range(len(usable))}
+        for i, left in enumerate(usable):
+            left_angle = left.angle_deg % 180.0
+            for j in range(i + 1, len(usable)):
+                right = usable[j]
+                angle_delta = abs(left_angle - (right.angle_deg % 180.0))
+                angle_delta = min(angle_delta, 180.0 - angle_delta)
+                if angle_delta > 22.0:
+                    continue
+                gap = min(
+                    left.start.distance_to(right.start),
+                    left.start.distance_to(right.end),
+                    left.end.distance_to(right.start),
+                    left.end.distance_to(right.end),
+                )
+                if gap <= 28.0:
+                    adjacency[i].append(j)
+                    adjacency[j].append(i)
+        queue: List[List[int]] = [[index] for index in starts]
+        visited = set(starts)
+        while queue:
+            path = queue.pop(0)
+            last = path[-1]
+            if last in ends and len(path) >= 2:
+                chosen = [usable[index] for index in path]
+                if any(
+                    self._intervening_event_ids(
+                        DetectedArrow(start=segment.start, end=segment.end),
+                        circles,
+                        {source[0], target[0]},
+                    )
+                    for segment in chosen
+                ):
+                    continue
+                total_length = sum(segment.length for segment in chosen)
+                direct = math.hypot(tx - sx, ty - sy)
+                if total_length > direct * 1.55:
+                    continue
+                mean_confidence = sum(segment.confidence for segment in chosen) / len(chosen)
+                return {
+                    "segment_count": float(len(chosen)),
+                    "coverage": min(1.0, total_length / max(1.0, direct)),
+                    "support": min(1.0, mean_confidence),
+                }
+            if len(path) >= 4:
+                continue
+            for neighbor in adjacency.get(last, []):
+                if neighbor in visited:
+                    continue
+                visited.add(neighbor)
+                queue.append(path + [neighbor])
+        return None
 
     @staticmethod
     def _sample_aoa_route(
