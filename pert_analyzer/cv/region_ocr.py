@@ -593,11 +593,41 @@ def merge_ocr_results(
 
 
 def _deduplicate_merged(regions: List[OCRTextRegion]) -> List[OCRTextRegion]:
-    """Deduplicate merged regions, preferring region-based results."""
+    """Deduplicate overlapping OCR readings while preserving alternatives.
+
+    Full-image OCR and node-region OCR intentionally produce different text
+    readings for the same pixels. Exact-text matching alone therefore leaves
+    duplicates such as ``5.17``/``9.17`` in the merged result. This pass uses
+    conservative geometry plus source priority, and stores discarded readings
+    as provenance instead of treating them as independent labels.
+    """
     if not regions:
         return regions
 
-    sorted_regions = sorted(regions, key=lambda r: r.confidence, reverse=True)
+    def source_priority(region: OCRTextRegion) -> int:
+        source = (region.source_engine or "").lower()
+        return 2 if source.startswith(("region_", "subcrop_")) else 1
+
+    def quality(region: OCRTextRegion) -> tuple[int, float, int]:
+        return (source_priority(region), float(region.confidence), len(region.text.strip()))
+
+    def near_duplicate(candidate: OCRTextRegion, existing: OCRTextRegion) -> bool:
+        candidate_text = candidate.text.strip()
+        existing_text = existing.text.strip()
+        candidate_numeric = bool(re.fullmatch(r"[0-9OolI.,]+", candidate_text))
+        existing_numeric = bool(re.fullmatch(r"[0-9OolI.,]+", existing_text))
+        candidate_id = len(candidate_text) == 1 and candidate_text.isalpha()
+        existing_id = len(existing_text) == 1 and existing_text.isalpha()
+        # A node's ID and duration can have oversized OCR boxes that overlap;
+        # they must remain separate semantic candidates.
+        if (candidate_numeric and existing_id) or (existing_numeric and candidate_id):
+            return False
+        overlap = _compute_iou(candidate.bounding_box, existing.bounding_box)
+        # Do not use center proximity alone: an activity ID and its duration
+        # are intentionally close but occupy different text boxes.
+        return overlap >= 0.30
+
+    sorted_regions = sorted(regions, key=quality, reverse=True)
     unique = []
 
     for region in sorted_regions:
@@ -605,15 +635,32 @@ def _deduplicate_merged(regions: List[OCRTextRegion]) -> List[OCRTextRegion]:
         if not text:
             continue
 
-        is_dup = False
+        duplicate_of = None
         for existing in unique:
-            overlap = _compute_iou(region.bounding_box, existing.bounding_box)
-            if overlap > 0.3 and text.lower() == existing.text.lower():
-                is_dup = True
+            if near_duplicate(region, existing):
+                duplicate_of = existing
                 break
 
-        if not is_dup:
+        if duplicate_of is None:
             unique.append(region)
+            region.metadata.setdefault("ocr_dedup", {
+                "duplicate_count": 0,
+                "alternative_readings": [],
+            })
+        else:
+            details = duplicate_of.metadata.setdefault("ocr_dedup", {
+                "duplicate_count": 0,
+                "alternative_readings": [],
+            })
+            details["duplicate_count"] += 1
+            alternatives = details.setdefault("alternative_readings", [])
+            alternative = {
+                "text": text,
+                "confidence": round(float(region.confidence), 3),
+                "source_engine": region.source_engine,
+            }
+            if alternative not in alternatives:
+                alternatives.append(alternative)
 
     return unique
 
