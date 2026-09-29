@@ -1599,6 +1599,27 @@ class TestLogicalArrowConsolidation:
             "fragmented_shaft_without_observed_arrowhead"
         )
 
+    def test_10d_multisegment_diagonal_chain_is_stitched(self):
+        circles = [
+            ("e1", 100.0, 100.0, 20.0),
+            ("e2", 300.0, 220.0, 20.0),
+        ]
+        segments = [
+            DetectedLineSegment(
+                start=Point(118, 111), end=Point(198, 159),
+                length=93.3, confidence=0.9, angle_deg=31.0,
+            ),
+            DetectedLineSegment(
+                start=Point(201, 161), end=Point(282, 210),
+                length=94.6, confidence=0.9, angle_deg=31.0,
+            ),
+        ]
+        chain = self.detector._find_aoa_segment_chain(
+            circles[0], circles[1], circles, segments
+        )
+        assert chain is not None
+        assert chain["segment_count"] == 2
+
     # (11) arrowhead ambiguity handled gracefully
     def test_11_arrowhead_ambiguity_no_crash(self):
         width, height = 500, 200
