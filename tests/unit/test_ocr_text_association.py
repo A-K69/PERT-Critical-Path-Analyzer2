@@ -475,6 +475,28 @@ class TestNumericExtraction:
         assert len(candidates) == 1
         assert candidates[0].value == 10.0
 
+    def test_numeric_ocr_confusions_are_normalized_with_provenance(self):
+        extractor = NumericExtractor()
+        region = _make_region("5,O0", confidence=0.8)
+        candidates = extractor.extract_from_region(region)
+        assert len(candidates) == 1
+        assert candidates[0].value == pytest.approx(5.00)
+        assert candidates[0].metadata["raw_ocr_text"] == "5,O0"
+        assert candidates[0].metadata["normalized_ocr_text"] == "5.00"
+        assert region.metadata["numeric_normalization"]["warnings"]
+
+    def test_comma_decimal_is_normalized_but_thousands_is_preserved(self):
+        extractor = NumericExtractor()
+        decimal = extractor.extract_from_region(_make_region("5,17", confidence=0.8))
+        thousands = extractor.extract_from_region(_make_region("1,000", confidence=0.8))
+        assert decimal[0].value == pytest.approx(5.17)
+        assert thousands[0].value == pytest.approx(1000.0)
+
+    def test_standalone_activity_confusables_are_not_numeric(self):
+        extractor = NumericExtractor()
+        assert extractor.extract_from_region(_make_region("O", confidence=0.9)) == []
+        assert extractor.extract_from_region(_make_region("I", confidence=0.9)) == []
+
 
 # =============================================================================
 # Test: Confidence Normalization
