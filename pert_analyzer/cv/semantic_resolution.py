@@ -178,15 +178,16 @@ class SemanticResolver:
             if cr.alternatives:
                 sorted_alts = sorted(cr.alternatives, key=lambda x: x[1], reverse=True)
                 for alt_id, alt_conf in sorted_alts:
-                    if alt_id in self.VALID_ACTIVITY_IDS and alt_conf >= 0.30:
-                        cr.resolved_id = alt_id
+                    normalized_alt = str(alt_id).strip().upper()
+                    if normalized_alt in self.VALID_ACTIVITY_IDS and alt_conf >= 0.30:
+                        cr.resolved_id = normalized_alt
                         cr.source = ResolutionSource.OCR_ALTERNATIVE
                         cr.status = ResolutionStatus.CONTEXTUALLY_RESOLVED
                         cr.evidence.append(ResolutionEvidence(
-                            reason=f"Alternative '{alt_id}' (conf={alt_conf:.2f}) preferred over raw '{raw}' (conf={conf:.2f})",
+                            reason=f"Alternative '{normalized_alt}' (conf={alt_conf:.2f}) preferred over raw '{raw}' (conf={conf:.2f})",
                             supporting_factors=[
                                 f"raw='{raw}' conf={conf:.3f}",
-                                f"alt='{alt_id}' conf={alt_conf:.3f}",
+                                f"alt='{normalized_alt}' conf={alt_conf:.3f}",
                                 f"alt_conf/raw_conf ratio={alt_conf/max(conf,0.01):.2f}",
                             ],
                             confidence_contribution=alt_conf,
@@ -209,15 +210,16 @@ class SemanticResolver:
             # Sort alternatives by confidence
             sorted_alts = sorted(cr.alternatives, key=lambda x: x[1], reverse=True)
             for alt_id, alt_conf in sorted_alts:
-                if alt_id in self.VALID_ACTIVITY_IDS and alt_conf >= 0.30:
-                    cr.resolved_id = alt_id
+                normalized_alt = str(alt_id).strip().upper()
+                if normalized_alt in self.VALID_ACTIVITY_IDS and alt_conf >= 0.30:
+                    cr.resolved_id = normalized_alt
                     cr.source = ResolutionSource.OCR_ALTERNATIVE
                     cr.status = ResolutionStatus.CONTEXTUALLY_RESOLVED
                     cr.evidence.append(ResolutionEvidence(
-                        reason=f"Alternative '{alt_id}' (conf={alt_conf:.2f}) preferred over raw '{raw}' (conf={conf:.2f})",
+                        reason=f"Alternative '{normalized_alt}' (conf={alt_conf:.2f}) preferred over raw '{raw}' (conf={conf:.2f})",
                         supporting_factors=[
                             f"raw='{raw}' conf={conf:.3f}",
-                            f"alt='{alt_id}' conf={alt_conf:.3f}",
+                            f"alt='{normalized_alt}' conf={alt_conf:.3f}",
                             f"alt_conf/raw_conf ratio={alt_conf/max(conf,0.01):.2f}",
                         ],
                         confidence_contribution=alt_conf,
@@ -282,23 +284,24 @@ class SemanticResolver:
                 for alt_id, alt_conf in sorted(
                     dup.alternatives, key=lambda x: x[1], reverse=True
                 ):
+                    normalized_alt = str(alt_id).strip().upper()
                     if (
-                        alt_id in self.VALID_ACTIVITY_IDS
-                        and alt_id not in used_ids
+                        normalized_alt in self.VALID_ACTIVITY_IDS
+                        and normalized_alt not in used_ids
                     ):
-                        dup.resolved_id = alt_id
+                        dup.resolved_id = normalized_alt
                         dup.source = ResolutionSource.CONTEXTUAL_RESOLUTION
                         dup.status = ResolutionStatus.CONTEXTUALLY_RESOLVED
                         dup.evidence.append(ResolutionEvidence(
-                            reason=f"Duplicate '{aid}' resolved to alternative '{alt_id}' (uniqueness constraint)",
+                            reason=f"Duplicate '{aid}' resolved to alternative '{normalized_alt}' (uniqueness constraint)",
                             supporting_factors=[
                                 f"original='{dup.raw_id}'",
-                                f"alt='{alt_id}' conf={alt_conf:.3f}",
+                                f"alt='{normalized_alt}' conf={alt_conf:.3f}",
                                 f"conflict with node_id={primary.node_id}",
                             ],
                             confidence_contribution=alt_conf,
                         ))
-                        used_ids.add(alt_id)
+                        used_ids.add(normalized_alt)
                         alt_resolved = True
                         break
 
@@ -384,13 +387,24 @@ class SemanticResolver:
         for value, raw_text, conf in nr.numeric_candidates:
             score = 0.0
             reasons = []
+            format_text = raw_text
+            normalization_applied = False
+            for region in nr.regions + nr.duration_sub_crop_regions:
+                if region.parsed_value != value:
+                    continue
+                details = region.metadata.get("numeric_normalization", {})
+                normalized_text = details.get("normalized_text")
+                if normalized_text:
+                    format_text = normalized_text
+                    normalization_applied = True
+                    break
 
             # Factor 1: OCR confidence (0.0 - 0.3)
             score += min(conf, 1.0) * 0.3
             reasons.append(f"ocr_conf={conf:.3f}")
 
             # Factor 2: Numeric format validity (0.0 - 0.2)
-            if self._is_valid_duration_format(raw_text):
+            if self._is_valid_duration_format(format_text):
                 score += 0.2
                 reasons.append("valid_format")
             else:
@@ -420,6 +434,14 @@ class SemanticResolver:
                     score += 0.1
                     reasons.append("from_duration_sub_crop")
                     break
+
+            # Corrected OCR remains usable, but is slightly less trusted than
+            # an uncorrected reading. This bounded penalty prevents a weak
+            # correction from displacing a clean candidate while retaining the
+            # value and its audit trail.
+            if normalization_applied:
+                score = max(0.0, score - 0.04)
+                reasons.append("numeric_ocr_normalized(-0.04)")
 
             scored.append((value, raw_text, score, reasons))
 

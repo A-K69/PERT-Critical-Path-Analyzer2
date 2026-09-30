@@ -1,0 +1,7031 @@
+[
+  {
+    "image": "1.png",
+    "diagram_type": "AON",
+    "expected_items": 22,
+    "ocr_regions": 204,
+    "ocr_numeric_candidates": 43,
+    "association_results": 204,
+    "ambiguous_associations": 111,
+    "unmatched_regions": 46,
+    "normalized_numeric_regions": 0,
+    "normalization_corrections": 0,
+    "item_error_counts": {
+      "duplicate_detections": 15,
+      "recognition_or_semantic_error": 7
+    },
+    "id_exact_matches": 13,
+    "duration_exact_matches": 13,
+    "association_exact_matches": 22,
+    "items": [
+      {
+        "id": "A",
+        "expected_duration": 1,
+        "regions_inside": 7,
+        "regions_nearby": 7,
+        "id_match": true,
+        "duration_match": false,
+        "association_match": true,
+        "error_class": "duplicate_detections",
+        "observed_text": [
+          "A",
+          "(a)",
+          "Tex",
+          "Sa)",
+          "Pp",
+          "3",
+          "eee)"
+        ]
+      },
+      {
+        "id": "B",
+        "expected_duration": 2,
+        "regions_inside": 8,
+        "regions_nearby": 9,
+        "id_match": true,
+        "duration_match": true,
+        "association_match": true,
+        "error_class": "duplicate_detections",
+        "observed_text": [
+          "B",
+          "|",
+          "2",
+          "ax",
+          "Eg",
+          "(8s)",
+          "Ady",
+          "Heal"
+        ]
+      },
+      {
+        "id": "C",
+        "expected_duration": 2,
+        "regions_inside": 8,
+        "regions_nearby": 9,
+        "id_match": false,
+        "duration_match": true,
+        "association_match": true,
+        "error_class": "duplicate_detections",
+        "observed_text": [
+          "=",
+          "-",
+          "2",
+          "ax",
+          "Cc",
+          "|",
+          "Salad",
+          "Chasod"
+        ]
+      },
+      {
+        "id": "D",
+        "expected_duration": 3,
+        "regions_inside": 9,
+        "regions_nearby": 12,
+        "id_match": true,
+        "duration_match": true,
+        "association_match": true,
+        "error_class": "duplicate_detections",
+        "observed_text": [
+          "D",
+          "ax",
+          "3",
+          ")",
+          "abs",
+          "2",
+          "Eg",
+          "o.",
+          "eae"
+        ]
+      },
+      {
+        "id": "E",
+        "expected_duration": 4,
+        "regions_inside": 4,
+        "regions_nearby": 7,
+        "id_match": true,
+        "duration_match": true,
+        "association_match": true,
+        "error_class": "duplicate_detections",
+        "observed_text": [
+          "E",
+          "4ex",
+          "Guba)",
+          "4"
+        ]
+      },
+      {
+        "id": "F",
+        "expected_duration": 4,
+        "regions_inside": 6,
+        "regions_nearby": 16,
+        "id_match": true,
+        "duration_match": true,
+        "association_match": true,
+        "error_class": "duplicate_detections",
+        "observed_text": [
+          "F",
+          "4ex",
+          "dgaail",
+          "=",
+          "(F",
+          "4"
+        ]
+      },
+      {
+        "id": "G",
+        "expected_duration": 4,
+        "regions_inside": 8,
+        "regions_nearby": 15,
+        "id_match": true,
+        "duration_match": true,
+        "association_match": true,
+        "error_class": "duplicate_detections",
+        "observed_text": [
+          "G",
+          "G",
+          "-",
+          "4ex",
+          "AD",
+          "jaa",
+          "(_\u00ab)",
+          "4"
+        ]
+      },
+      {
+        "id": "H",
+        "expected_duration": 4,
+        "regions_inside": 6,
+        "regions_nearby": 10,
+        "id_match": true,
+        "duration_match": true,
+        "association_match": true,
+        "error_class": "duplicate_detections",
+        "observed_text": [
+          "H",
+          "4ex",
+          "(4)",
+          "\u201cetal",
+          "4",
+          "s."
+        ]
+      },
+      {
+        "id": "I",
+        "expected_duration": 5,
+        "regions_inside": 8,
+        "regions_nearby": 11,
+        "id_match": false,
+        "duration_match": true,
+        "association_match": true,
+        "error_class": "duplicate_detections",
+        "observed_text": [
+          "5",
+          "=",
+          "Sax",
+          "l",
+          "abled",
+          "(1)",
+          "gd",
+          "gm."
+        ]
+      },
+      {
+        "id": "J",
+        "expected_duration": 5,
+        "regions_inside": 7,
+        "regions_nearby": 9,
+        "id_match": true,
+        "duration_match": true,
+        "association_match": true,
+        "error_class": "duplicate_detections",
+        "observed_text": [
+          "J",
+          "Sax",
+          "5",
+          "Salas",
+          "(2)",
+          "jathsial)",
+          "as"
+        ]
+      },
+      {
+        "id": "K",
+        "expected_duration": 3,
+        "regions_inside": 7,
+        "regions_nearby": 9,
+        "id_match": true,
+        "duration_match": true,
+        "association_match": true,
+        "error_class": "duplicate_detections",
+        "observed_text": [
+          "K",
+          "ax",
+          "3",
+          "(_\u00ab)",
+          "a!",
+          "ith",
+          "\u201c"
+        ]
+      },
+      {
+        "id": "L",
+        "expected_duration": 6,
+        "regions_inside": 7,
+        "regions_nearby": 13,
+        "id_match": true,
+        "duration_match": true,
+        "association_match": true,
+        "error_class": "duplicate_detections",
+        "observed_text": [
+          "L",
+          "ax",
+          "6",
+          "(\u00a9)",
+          "all)",
+          "ff",
+          "tT"
+        ]
+      },
+      {
+        "id": "M",
+        "expected_duration": 6,
+        "regions_inside": 7,
+        "regions_nearby": 12,
+        "id_match": true,
+        "duration_match": true,
+        "association_match": true,
+        "error_class": "duplicate_detections",
+        "observed_text": [
+          "M",
+          "ax",
+          "6",
+          "ac",
+          "Gu)",
+          "a",
+          "(TM.)"
+        ]
+      },
+      {
+        "id": "N",
+        "expected_duration": 8,
+        "regions_inside": 9,
+        "regions_nearby": 11,
+        "id_match": true,
+        "duration_match": false,
+        "association_match": true,
+        "error_class": "duplicate_detections",
+        "observed_text": [
+          "N",
+          "ax",
+          "ja",
+          "pis",
+          "alia\u00bb",
+          "-",
+          "(on)",
+          "S",
+          "ee"
+        ]
+      },
+      {
+        "id": "O",
+        "expected_duration": 3,
+        "regions_inside": 5,
+        "regions_nearby": 8,
+        "id_match": false,
+        "duration_match": false,
+        "association_match": true,
+        "error_class": "recognition_or_semantic_error",
+        "observed_text": [
+          "Tas",
+          "V",
+          "DE!",
+          "sree",
+          "(vv)"
+        ]
+      },
+      {
+        "id": "P",
+        "expected_duration": 4,
+        "regions_inside": 7,
+        "regions_nearby": 9,
+        "id_match": false,
+        "duration_match": false,
+        "association_match": true,
+        "error_class": "recognition_or_semantic_error",
+        "observed_text": [
+          "U",
+          "+",
+          "Tax",
+          "1",
+          "ala",
+          "cogil",
+          "(uv)"
+        ]
+      },
+      {
+        "id": "Q",
+        "expected_duration": 3,
+        "regions_inside": 8,
+        "regions_nearby": 12,
+        "id_match": false,
+        "duration_match": false,
+        "association_match": true,
+        "error_class": "recognition_or_semantic_error",
+        "observed_text": [
+          "T",
+          "2",
+          "(7)",
+          "55",
+          "v",
+          "eH",
+          "(pall",
+          "bets"
+        ]
+      },
+      {
+        "id": "R",
+        "expected_duration": 2,
+        "regions_inside": 8,
+        "regions_nearby": 12,
+        "id_match": true,
+        "duration_match": true,
+        "association_match": true,
+        "error_class": "duplicate_detections",
+        "observed_text": [
+          "Tex",
+          "$",
+          "Gull",
+          "(s",
+          "ote",
+          "2",
+          "r",
+          "X"
+        ]
+      },
+      {
+        "id": "S",
+        "expected_duration": 1,
+        "regions_inside": 7,
+        "regions_nearby": 10,
+        "id_match": false,
+        "duration_match": false,
+        "association_match": true,
+        "error_class": "recognition_or_semantic_error",
+        "observed_text": [
+          "R",
+          "px",
+          "2",
+          "*",
+          "sass)",
+          "(Rr)",
+          "chased"
+        ]
+      },
+      {
+        "id": "T",
+        "expected_duration": 2,
+        "regions_inside": 6,
+        "regions_nearby": 7,
+        "id_match": false,
+        "duration_match": false,
+        "association_match": true,
+        "error_class": "recognition_or_semantic_error",
+        "observed_text": [
+          "Q",
+          "Sex",
+          "(a)",
+          "3",
+          "lbs)",
+          "cdi!"
+        ]
+      },
+      {
+        "id": "U",
+        "expected_duration": 1,
+        "regions_inside": 6,
+        "regions_nearby": 7,
+        "id_match": false,
+        "duration_match": false,
+        "association_match": true,
+        "error_class": "recognition_or_semantic_error",
+        "observed_text": [
+          "P",
+          "4ey",
+          "ss)",
+          "(Pp)",
+          "aulsad",
+          "*"
+        ]
+      },
+      {
+        "id": "V",
+        "expected_duration": 1,
+        "regions_inside": 8,
+        "regions_nearby": 8,
+        "id_match": false,
+        "duration_match": false,
+        "association_match": true,
+        "error_class": "recognition_or_semantic_error",
+        "observed_text": [
+          "JAS",
+          "CAT",
+          "ax",
+          "3",
+          "gall",
+          "(0)",
+          "EAR",
+          "'@]"
+        ]
+      }
+    ],
+    "regions": [
+      {
+        "region_id": "ocr_f92f0954",
+        "text": "A",
+        "raw_text": "A",
+        "confidence": 0.96,
+        "text_type": "UNKNOWN",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          78.7,
+          236.0
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.93,
+        "associated_expected_id": "A"
+      },
+      {
+        "region_id": "ocr_bf94629b",
+        "text": "J",
+        "raw_text": "J",
+        "confidence": 0.96,
+        "text_type": "UNKNOWN",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          856.2,
+          236.0
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.93,
+        "associated_expected_id": "J"
+      },
+      {
+        "region_id": "ocr_40226eae",
+        "text": "|",
+        "raw_text": "|",
+        "confidence": 0.96,
+        "text_type": "UNKNOWN",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          485.8,
+          430.2
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.41,
+        "associated_expected_id": null
+      },
+      {
+        "region_id": "ocr_fb921514",
+        "text": "=",
+        "raw_text": "=",
+        "confidence": 0.95,
+        "text_type": "UNKNOWN",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          243.5,
+          345.5
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.97,
+        "associated_expected_id": "C"
+      },
+      {
+        "region_id": "ocr_ce028351",
+        "text": "|",
+        "raw_text": "|",
+        "confidence": 0.95,
+        "text_type": "UNKNOWN",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          1213.5,
+          270.5
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.6,
+        "associated_expected_id": null
+      },
+      {
+        "region_id": "ocr_39031263",
+        "text": "N",
+        "raw_text": "N",
+        "confidence": 0.93,
+        "text_type": "UNKNOWN",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          1286.2,
+          236.0
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.93,
+        "associated_expected_id": "N"
+      },
+      {
+        "region_id": "ocr_488e1872",
+        "text": "L",
+        "raw_text": "L",
+        "confidence": 0.93,
+        "text_type": "UNKNOWN",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          1150.7,
+          176.0
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.93,
+        "associated_expected_id": "L"
+      },
+      {
+        "region_id": "ocr_03c20836",
+        "text": "T",
+        "raw_text": "T",
+        "confidence": 0.92,
+        "text_type": "UNKNOWN",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          525.5,
+          516.0
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.93,
+        "associated_expected_id": "Q"
+      },
+      {
+        "region_id": "ocr_383e3a58",
+        "text": "|",
+        "raw_text": "|",
+        "confidence": 0.92,
+        "text_type": "UNKNOWN",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          464.7,
+          555.2
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.805,
+        "associated_expected_id": null
+      },
+      {
+        "region_id": "ocr_99675d75",
+        "text": "|",
+        "raw_text": "|",
+        "confidence": 0.92,
+        "text_type": "UNKNOWN",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          611.7,
+          555.2
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.59,
+        "associated_expected_id": null
+      },
+      {
+        "region_id": "ocr_53f58b2c",
+        "text": "|",
+        "raw_text": "|",
+        "confidence": 0.92,
+        "text_type": "UNKNOWN",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          317.7,
+          555.2
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.753,
+        "associated_expected_id": null
+      },
+      {
+        "region_id": "ocr_0c765e73",
+        "text": "|",
+        "raw_text": "|",
+        "confidence": 0.92,
+        "text_type": "UNKNOWN",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          170.7,
+          555.2
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.458,
+        "associated_expected_id": null
+      },
+      {
+        "region_id": "ocr_a038f752",
+        "text": "|",
+        "raw_text": "|",
+        "confidence": 0.92,
+        "text_type": "UNKNOWN",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          1052.7,
+          555.2
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.765,
+        "associated_expected_id": null
+      },
+      {
+        "region_id": "ocr_9ac0478e",
+        "text": "Q",
+        "raw_text": "Q",
+        "confidence": 0.92,
+        "text_type": "UNKNOWN",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          965.5,
+          516.5
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.931,
+        "associated_expected_id": "T"
+      },
+      {
+        "region_id": "ocr_87459634",
+        "text": "R",
+        "raw_text": "R",
+        "confidence": 0.92,
+        "text_type": "UNKNOWN",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          818.8,
+          516.0
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.93,
+        "associated_expected_id": "S"
+      },
+      {
+        "region_id": "ocr_df8c096e",
+        "text": "|",
+        "raw_text": "|",
+        "confidence": 0.92,
+        "text_type": "UNKNOWN",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          758.7,
+          555.2
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.794,
+        "associated_expected_id": null
+      },
+      {
+        "region_id": "ocr_c776ff9d",
+        "text": "|",
+        "raw_text": "|",
+        "confidence": 0.92,
+        "text_type": "UNKNOWN",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          1226.7,
+          275.2
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.659,
+        "associated_expected_id": null
+      },
+      {
+        "region_id": "ocr_01de35c3",
+        "text": "|",
+        "raw_text": "|",
+        "confidence": 0.92,
+        "text_type": "UNKNOWN",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          1090.7,
+          215.2
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.715,
+        "associated_expected_id": "L"
+      },
+      {
+        "region_id": "ocr_b14acd47",
+        "text": "K",
+        "raw_text": "K",
+        "confidence": 0.92,
+        "text_type": "UNKNOWN",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          1004.0,
+          236.0
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.93,
+        "associated_expected_id": "K"
+      },
+      {
+        "region_id": "ocr_06983d15",
+        "text": "|",
+        "raw_text": "|",
+        "confidence": 0.92,
+        "text_type": "UNKNOWN",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          943.7,
+          275.2
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.82,
+        "associated_expected_id": null
+      },
+      {
+        "region_id": "ocr_784012f0",
+        "text": "G",
+        "raw_text": "G",
+        "confidence": 0.92,
+        "text_type": "UNKNOWN",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          549.3,
+          315.9
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.99,
+        "associated_expected_id": "G"
+      },
+      {
+        "region_id": "ocr_e75da958",
+        "text": "D",
+        "raw_text": "D",
+        "confidence": 0.92,
+        "text_type": "UNKNOWN",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          391.7,
+          236.0
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.93,
+        "associated_expected_id": "D"
+      },
+      {
+        "region_id": "ocr_cc0175e0",
+        "text": "|",
+        "raw_text": "|",
+        "confidence": 0.92,
+        "text_type": "UNKNOWN",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          796.7,
+          275.2
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.814,
+        "associated_expected_id": null
+      },
+      {
+        "region_id": "ocr_ad43de02",
+        "text": "|",
+        "raw_text": "|",
+        "confidence": 0.92,
+        "text_type": "UNKNOWN",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          649.7,
+          275.2
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.665,
+        "associated_expected_id": null
+      },
+      {
+        "region_id": "ocr_4d226860",
+        "text": "H",
+        "raw_text": "H",
+        "confidence": 0.92,
+        "text_type": "UNKNOWN",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          549.3,
+          391.0
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.933,
+        "associated_expected_id": "G"
+      },
+      {
+        "region_id": "ocr_e3b7400d",
+        "text": "|",
+        "raw_text": "|",
+        "confidence": 0.92,
+        "text_type": "UNKNOWN",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          488.7,
+          223.2
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.754,
+        "associated_expected_id": "F"
+      },
+      {
+        "region_id": "ocr_d2991958",
+        "text": "B",
+        "raw_text": "B",
+        "confidence": 0.92,
+        "text_type": "UNKNOWN",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          235.2,
+          176.0
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.93,
+        "associated_expected_id": "B"
+      },
+      {
+        "region_id": "ocr_57c726f9",
+        "text": "M",
+        "raw_text": "M",
+        "confidence": 0.92,
+        "text_type": "UNKNOWN",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          1150.5,
+          315.0
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.931,
+        "associated_expected_id": "M"
+      },
+      {
+        "region_id": "ocr_a809791a",
+        "text": "E",
+        "raw_text": "E",
+        "confidence": 0.92,
+        "text_type": "UNKNOWN",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          549.5,
+          81.0
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.931,
+        "associated_expected_id": "E"
+      },
+      {
+        "region_id": "ocr_0d9c4564",
+        "text": "P",
+        "raw_text": "P",
+        "confidence": 0.91,
+        "text_type": "UNKNOWN",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          1112.5,
+          516.0
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.93,
+        "associated_expected_id": "U"
+      },
+      {
+        "region_id": "ocr_c03312d4",
+        "text": "F",
+        "raw_text": "F",
+        "confidence": 0.91,
+        "text_type": "UNKNOWN",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          549.3,
+          184.0
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.934,
+        "associated_expected_id": "E"
+      },
+      {
+        "region_id": "ocr_afa0653e",
+        "text": "G",
+        "raw_text": "G",
+        "confidence": 0.91,
+        "text_type": "UNKNOWN",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          549.2,
+          288.0
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.938,
+        "associated_expected_id": null
+      },
+      {
+        "region_id": "ocr_345c06f1",
+        "text": "ax",
+        "raw_text": "ax",
+        "confidence": 0.9,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          1291.0,
+          290.2
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.914,
+        "associated_expected_id": "N"
+      },
+      {
+        "region_id": "ocr_88ef8bda",
+        "text": "-",
+        "raw_text": "-",
+        "confidence": 0.89,
+        "text_type": "UNKNOWN",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          535.0,
+          309.5
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.964,
+        "associated_expected_id": "G"
+      },
+      {
+        "region_id": "ocr_c0d07f99",
+        "text": "|",
+        "raw_text": "|",
+        "confidence": 0.89,
+        "text_type": "UNKNOWN",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          294.7,
+          215.2
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.456,
+        "associated_expected_id": null
+      },
+      {
+        "region_id": "ocr_5f2a1513",
+        "text": "-",
+        "raw_text": "-",
+        "confidence": 0.89,
+        "text_type": "UNKNOWN",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          204.5,
+          336.5
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.923,
+        "associated_expected_id": "C"
+      },
+      {
+        "region_id": "ocr_5bd3acd8",
+        "text": "2",
+        "raw_text": "2",
+        "confidence": 0.88,
+        "text_type": "NUMERIC_CANDIDATE",
+        "is_numeric": true,
+        "parsed_value": 2.0,
+        "center": [
+          227.7,
+          228.0
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.917,
+        "associated_expected_id": "B"
+      },
+      {
+        "region_id": "ocr_e803c55a",
+        "text": "2",
+        "raw_text": "2",
+        "confidence": 0.88,
+        "text_type": "NUMERIC_CANDIDATE",
+        "is_numeric": true,
+        "parsed_value": 2.0,
+        "center": [
+          227.3,
+          367.0
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.925,
+        "associated_expected_id": null
+      },
+      {
+        "region_id": "ocr_55b3ed5c",
+        "text": "U",
+        "raw_text": "U",
+        "confidence": 0.87,
+        "text_type": "UNKNOWN",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          377.8,
+          516.0
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.93,
+        "associated_expected_id": "P"
+      },
+      {
+        "region_id": "ocr_4b8e09f8",
+        "text": "Tas",
+        "raw_text": "Tas",
+        "confidence": 0.85,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          232.0,
+          568.5
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.923,
+        "associated_expected_id": "O"
+      },
+      {
+        "region_id": "ocr_28082523",
+        "text": "JT",
+        "raw_text": "JT",
+        "confidence": 0.85,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          613.5,
+          158.0
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.801,
+        "associated_expected_id": "E"
+      },
+      {
+        "region_id": "ocr_6be62f50",
+        "text": "&",
+        "raw_text": "&",
+        "confidence": 0.85,
+        "text_type": "UNKNOWN",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          1253.5,
+          42.4
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.852,
+        "associated_expected_id": "L"
+      },
+      {
+        "region_id": "ocr_d4aa0ef7",
+        "text": "JT",
+        "raw_text": "JT",
+        "confidence": 0.82,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          613.5,
+          261.5
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.831,
+        "associated_expected_id": null
+      },
+      {
+        "region_id": "ocr_88c8820c",
+        "text": "5",
+        "raw_text": "5",
+        "confidence": 0.82,
+        "text_type": "NUMERIC_CANDIDATE",
+        "is_numeric": true,
+        "parsed_value": 5.0,
+        "center": [
+          702.3,
+          288.0
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.917,
+        "associated_expected_id": "I"
+      },
+      {
+        "region_id": "ocr_7680c6c8",
+        "text": "2",
+        "raw_text": "2",
+        "confidence": 0.81,
+        "text_type": "NUMERIC_CANDIDATE",
+        "is_numeric": true,
+        "parsed_value": 2.0,
+        "center": [
+          517.0,
+          568.0
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.916,
+        "associated_expected_id": "Q"
+      },
+      {
+        "region_id": "ocr_f03c3dc5",
+        "text": "if",
+        "raw_text": "if",
+        "confidence": 0.8,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          333.2,
+          266.2
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.487,
+        "associated_expected_id": null
+      },
+      {
+        "region_id": "ocr_788ae400",
+        "text": "Sax",
+        "raw_text": "Sax",
+        "confidence": 0.79,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          857.0,
+          288.7
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.923,
+        "associated_expected_id": "J"
+      },
+      {
+        "region_id": "ocr_9a136623",
+        "text": "JAS",
+        "raw_text": "JAS",
+        "confidence": 0.79,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          1279.2,
+          543.0
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.949,
+        "associated_expected_id": "V"
+      },
+      {
+        "region_id": "ocr_4c0ae83a",
+        "text": "=",
+        "raw_text": "=",
+        "confidence": 0.77,
+        "text_type": "UNKNOWN",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          730.3,
+          265.0
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.947,
+        "associated_expected_id": "I"
+      },
+      {
+        "region_id": "ocr_b9e1a1ab",
+        "text": "ax",
+        "raw_text": "ax",
+        "confidence": 0.75,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          396.2,
+          290.2
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.915,
+        "associated_expected_id": "D"
+      },
+      {
+        "region_id": "ocr_42711b23",
+        "text": "ax",
+        "raw_text": "ax",
+        "confidence": 0.75,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          240.0,
+          230.0
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.915,
+        "associated_expected_id": "B"
+      },
+      {
+        "region_id": "ocr_bbf81362",
+        "text": "ax",
+        "raw_text": "ax",
+        "confidence": 0.75,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          240.0,
+          369.0
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.934,
+        "associated_expected_id": null
+      },
+      {
+        "region_id": "ocr_1774caa3",
+        "text": "~~",
+        "raw_text": "~~",
+        "confidence": 0.75,
+        "text_type": "UNKNOWN",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          906.7,
+          58.0
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.75,
+        "associated_expected_id": "K"
+      },
+      {
+        "region_id": "ocr_c4c3e777",
+        "text": "3",
+        "raw_text": "3",
+        "confidence": 0.75,
+        "text_type": "NUMERIC_CANDIDATE",
+        "is_numeric": true,
+        "parsed_value": 3.0,
+        "center": [
+          384.3,
+          288.0
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.917,
+        "associated_expected_id": "D"
+      },
+      {
+        "region_id": "ocr_7120e72f",
+        "text": "ax",
+        "raw_text": "ax",
+        "confidence": 0.74,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          1155.0,
+          230.2
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.914,
+        "associated_expected_id": "L"
+      },
+      {
+        "region_id": "ocr_31de7723",
+        "text": "ax",
+        "raw_text": "ax",
+        "confidence": 0.74,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          1155.0,
+          265.3
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.969,
+        "associated_expected_id": "L"
+      },
+      {
+        "region_id": "ocr_e1ea183e",
+        "text": "6",
+        "raw_text": "6",
+        "confidence": 0.74,
+        "text_type": "NUMERIC_CANDIDATE",
+        "is_numeric": true,
+        "parsed_value": 6.0,
+        "center": [
+          1142.8,
+          228.0
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.968,
+        "associated_expected_id": null
+      },
+      {
+        "region_id": "ocr_b0241d27",
+        "text": "6",
+        "raw_text": "6",
+        "confidence": 0.74,
+        "text_type": "NUMERIC_CANDIDATE",
+        "is_numeric": true,
+        "parsed_value": 6.0,
+        "center": [
+          1143.2,
+          260.4
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.976,
+        "associated_expected_id": "L"
+      },
+      {
+        "region_id": "ocr_f8d4d17d",
+        "text": "Tex",
+        "raw_text": "Tex",
+        "confidence": 0.73,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          672.2,
+          568.7
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.923,
+        "associated_expected_id": "R"
+      },
+      {
+        "region_id": "ocr_d01737d7",
+        "text": "(a)",
+        "raw_text": "(a)",
+        "confidence": 0.72,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          81.5,
+          266.6
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.947,
+        "associated_expected_id": "A"
+      },
+      {
+        "region_id": "ocr_ee21f786",
+        "text": "ax",
+        "raw_text": "ax",
+        "confidence": 0.72,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          1155.0,
+          369.2
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.912,
+        "associated_expected_id": "M"
+      },
+      {
+        "region_id": "ocr_56e68b4e",
+        "text": "V",
+        "raw_text": "V",
+        "confidence": 0.72,
+        "text_type": "UNKNOWN",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          231.0,
+          516.0
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.93,
+        "associated_expected_id": "O"
+      },
+      {
+        "region_id": "ocr_de2ecb69",
+        "text": "6",
+        "raw_text": "6",
+        "confidence": 0.72,
+        "text_type": "NUMERIC_CANDIDATE",
+        "is_numeric": true,
+        "parsed_value": 6.0,
+        "center": [
+          1143.2,
+          367.0
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.916,
+        "associated_expected_id": "M"
+      },
+      {
+        "region_id": "ocr_4f86cf28",
+        "text": "4ex",
+        "raw_text": "4ex",
+        "confidence": 0.71,
+        "text_type": "NUMERIC_CANDIDATE",
+        "is_numeric": true,
+        "parsed_value": 4.0,
+        "center": [
+          549.5,
+          340.5
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.94,
+        "associated_expected_id": "G"
+      },
+      {
+        "region_id": "ocr_cbfb1251",
+        "text": "4ex",
+        "raw_text": "4ex",
+        "confidence": 0.71,
+        "text_type": "NUMERIC_CANDIDATE",
+        "is_numeric": true,
+        "parsed_value": 4.0,
+        "center": [
+          549.5,
+          443.5
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.97,
+        "associated_expected_id": null
+      },
+      {
+        "region_id": "ocr_816668f7",
+        "text": "4ex",
+        "raw_text": "4ex",
+        "confidence": 0.71,
+        "text_type": "NUMERIC_CANDIDATE",
+        "is_numeric": true,
+        "parsed_value": 4.0,
+        "center": [
+          549.5,
+          236.5
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.937,
+        "associated_expected_id": "F"
+      },
+      {
+        "region_id": "ocr_15009e69",
+        "text": "4ex",
+        "raw_text": "4ex",
+        "confidence": 0.71,
+        "text_type": "NUMERIC_CANDIDATE",
+        "is_numeric": true,
+        "parsed_value": 4.0,
+        "center": [
+          549.5,
+          133.5
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.938,
+        "associated_expected_id": "E"
+      },
+      {
+        "region_id": "ocr_eeca8b1c",
+        "text": "(7)",
+        "raw_text": "(7)",
+        "confidence": 0.7,
+        "text_type": "NUMERIC_CANDIDATE",
+        "is_numeric": true,
+        "parsed_value": 7.0,
+        "center": [
+          528.0,
+          555.2
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.919,
+        "associated_expected_id": "Q"
+      },
+      {
+        "region_id": "ocr_c827ee71",
+        "text": "px",
+        "raw_text": "px",
+        "confidence": 0.7,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          823.5,
+          570.0
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.939,
+        "associated_expected_id": null
+      },
+      {
+        "region_id": "ocr_c57767cf",
+        "text": "2",
+        "raw_text": "2",
+        "confidence": 0.7,
+        "text_type": "NUMERIC_CANDIDATE",
+        "is_numeric": true,
+        "parsed_value": 2.0,
+        "center": [
+          810.8,
+          568.0
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.947,
+        "associated_expected_id": null
+      },
+      {
+        "region_id": "ocr_1eef33e0",
+        "text": ")",
+        "raw_text": ")",
+        "confidence": 0.69,
+        "text_type": "UNKNOWN",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          451.0,
+          275.5
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.724,
+        "associated_expected_id": null
+      },
+      {
+        "region_id": "ocr_686f5496",
+        "text": "DE!",
+        "raw_text": "DE!",
+        "confidence": 0.67,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          250.0,
+          543.5
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.953,
+        "associated_expected_id": "O"
+      },
+      {
+        "region_id": "ocr_a9831e06",
+        "text": "Sax",
+        "raw_text": "Sax",
+        "confidence": 0.67,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          710.0,
+          288.7
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.923,
+        "associated_expected_id": "I"
+      },
+      {
+        "region_id": "ocr_cfe1377a",
+        "text": "ax",
+        "raw_text": "ax",
+        "confidence": 0.67,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          1008.2,
+          290.2
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.914,
+        "associated_expected_id": "K"
+      },
+      {
+        "region_id": "ocr_8a05e94f",
+        "text": "3",
+        "raw_text": "3",
+        "confidence": 0.67,
+        "text_type": "NUMERIC_CANDIDATE",
+        "is_numeric": true,
+        "parsed_value": 3.0,
+        "center": [
+          996.0,
+          288.0
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.917,
+        "associated_expected_id": "K"
+      },
+      {
+        "region_id": "ocr_9cbd3673",
+        "text": "wy",
+        "raw_text": "wy",
+        "confidence": 0.65,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          1197.2,
+          47.2
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.848,
+        "associated_expected_id": "L"
+      },
+      {
+        "region_id": "ocr_fa20b6f0",
+        "text": "$",
+        "raw_text": "$",
+        "confidence": 0.65,
+        "text_type": "UNKNOWN",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          672.2,
+          516.0
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.93,
+        "associated_expected_id": "R"
+      },
+      {
+        "region_id": "ocr_4868fb8f",
+        "text": "Sex",
+        "raw_text": "Sex",
+        "confidence": 0.64,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          965.5,
+          568.5
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.967,
+        "associated_expected_id": null
+      },
+      {
+        "region_id": "ocr_eb26e8fa",
+        "text": "Tex",
+        "raw_text": "Tex",
+        "confidence": 0.64,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          79.2,
+          288.7
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.923,
+        "associated_expected_id": "A"
+      },
+      {
+        "region_id": "ocr_c9a81d6c",
+        "text": "+",
+        "raw_text": "+",
+        "confidence": 0.64,
+        "text_type": "UNKNOWN",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          378.0,
+          543.2
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.993,
+        "associated_expected_id": "P"
+      },
+      {
+        "region_id": "ocr_24dbe6a7",
+        "text": ")",
+        "raw_text": ")",
+        "confidence": 0.64,
+        "text_type": "UNKNOWN",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          609.0,
+          223.2
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.753,
+        "associated_expected_id": "F"
+      },
+      {
+        "region_id": "ocr_bf5fe5dd",
+        "text": "Cc",
+        "raw_text": "Cc",
+        "confidence": 0.63,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          235.0,
+          315.0
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.931,
+        "associated_expected_id": "C"
+      },
+      {
+        "region_id": "ocr_fc4bebaf",
+        "text": "5",
+        "raw_text": "5",
+        "confidence": 0.63,
+        "text_type": "NUMERIC_CANDIDATE",
+        "is_numeric": true,
+        "parsed_value": 5.0,
+        "center": [
+          849.3,
+          288.0
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.917,
+        "associated_expected_id": "J"
+      },
+      {
+        "region_id": "ocr_3b1f9a6e",
+        "text": "|",
+        "raw_text": "|",
+        "confidence": 0.63,
+        "text_type": "UNKNOWN",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          1030.0,
+          46.3
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.597,
+        "associated_expected_id": null
+      },
+      {
+        "region_id": "ocr_938ada58",
+        "text": "Salas",
+        "raw_text": "Salas",
+        "confidence": 0.62,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          878.3,
+          262.5
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.948,
+        "associated_expected_id": "J"
+      },
+      {
+        "region_id": "ocr_0389cede",
+        "text": "4ey",
+        "raw_text": "4ey",
+        "confidence": 0.62,
+        "text_type": "NUMERIC_CANDIDATE",
+        "is_numeric": true,
+        "parsed_value": 4.0,
+        "center": [
+          1112.5,
+          568.5
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.923,
+        "associated_expected_id": "U"
+      },
+      {
+        "region_id": "ocr_7aa989a5",
+        "text": "(a)",
+        "raw_text": "(a)",
+        "confidence": 0.62,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          965.5,
+          555.2
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.928,
+        "associated_expected_id": "T"
+      },
+      {
+        "region_id": "ocr_118e204b",
+        "text": "AD",
+        "raw_text": "AD",
+        "confidence": 0.61,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          538.0,
+          313.7
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.974,
+        "associated_expected_id": "G"
+      },
+      {
+        "region_id": "ocr_bf062091",
+        "text": "(\u00a9)",
+        "raw_text": "(\u00a9)",
+        "confidence": 0.6,
+        "text_type": "UNKNOWN",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          1147.5,
+          215.2
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.919,
+        "associated_expected_id": "L"
+      },
+      {
+        "region_id": "ocr_3c4a89e5",
+        "text": "LST",
+        "raw_text": "LST",
+        "confidence": 0.6,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          548.5,
+          364.5
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.957,
+        "associated_expected_id": "G"
+      },
+      {
+        "region_id": "ocr_274f3440",
+        "text": "l",
+        "raw_text": "l",
+        "confidence": 0.58,
+        "text_type": "UNKNOWN",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          709.8,
+          236.0
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.93,
+        "associated_expected_id": "I"
+      },
+      {
+        "region_id": "ocr_6916c588",
+        "text": ".",
+        "raw_text": ".",
+        "confidence": 0.58,
+        "text_type": "UNKNOWN",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          933.7,
+          63.6
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.508,
+        "associated_expected_id": null
+      },
+      {
+        "region_id": "ocr_8573fb0a",
+        "text": "3",
+        "raw_text": "3",
+        "confidence": 0.57,
+        "text_type": "NUMERIC_CANDIDATE",
+        "is_numeric": true,
+        "parsed_value": 3.0,
+        "center": [
+          958.2,
+          568.0
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.932,
+        "associated_expected_id": null
+      },
+      {
+        "region_id": "ocr_419daf8d",
+        "text": "abs",
+        "raw_text": "abs",
+        "confidence": 0.55,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          411.0,
+          262.0
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.954,
+        "associated_expected_id": "D"
+      },
+      {
+        "region_id": "ocr_14415643",
+        "text": "55",
+        "raw_text": "55",
+        "confidence": 0.55,
+        "text_type": "NUMERIC_CANDIDATE",
+        "is_numeric": true,
+        "parsed_value": 55.0,
+        "center": [
+          556.8,
+          543.0
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.96,
+        "associated_expected_id": null
+      },
+      {
+        "region_id": "ocr_b72a32f3",
+        "text": "(4)",
+        "raw_text": "(4)",
+        "confidence": 0.54,
+        "text_type": "NUMERIC_CANDIDATE",
+        "is_numeric": true,
+        "parsed_value": 4.0,
+        "center": [
+          546.0,
+          430.2
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.919,
+        "associated_expected_id": "H"
+      },
+      {
+        "region_id": "ocr_c134147e",
+        "text": "eC.",
+        "raw_text": "eC.",
+        "confidence": 0.54,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          1151.5,
+          50.6
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.855,
+        "associated_expected_id": "L"
+      },
+      {
+        "region_id": "ocr_e8aad7c6",
+        "text": "|",
+        "raw_text": "|",
+        "confidence": 0.54,
+        "text_type": "UNKNOWN",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          233.0,
+          341.8
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.98,
+        "associated_expected_id": null
+      },
+      {
+        "region_id": "ocr_9fbb201d",
+        "text": "*",
+        "raw_text": "*",
+        "confidence": 0.53,
+        "text_type": "UNKNOWN",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          818.8,
+          543.2
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.994,
+        "associated_expected_id": null
+      },
+      {
+        "region_id": "ocr_660bed55",
+        "text": "dgaail",
+        "raw_text": "dgaail",
+        "confidence": 0.52,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          549.2,
+          211.0
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.994,
+        "associated_expected_id": "F"
+      },
+      {
+        "region_id": "ocr_f50fd5f9",
+        "text": "Guba)",
+        "raw_text": "Guba)",
+        "confidence": 0.52,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          549.3,
+          108.0
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.993,
+        "associated_expected_id": "E"
+      },
+      {
+        "region_id": "ocr_18a22c82",
+        "text": "CAT",
+        "raw_text": "CAT",
+        "confidence": 0.52,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          1237.0,
+          541.0
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.947,
+        "associated_expected_id": "V"
+      },
+      {
+        "region_id": "ocr_2d3d4636",
+        "text": "jaa",
+        "raw_text": "jaa",
+        "confidence": 0.52,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          557.5,
+          313.8
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.977,
+        "associated_expected_id": "G"
+      },
+      {
+        "region_id": "ocr_595a1d5a",
+        "text": "ax",
+        "raw_text": "ax",
+        "confidence": 0.52,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          1264.0,
+          570.2
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.932,
+        "associated_expected_id": null
+      },
+      {
+        "region_id": "ocr_8517bab1",
+        "text": "3",
+        "raw_text": "3",
+        "confidence": 0.52,
+        "text_type": "NUMERIC_CANDIDATE",
+        "is_numeric": true,
+        "parsed_value": 3.0,
+        "center": [
+          1251.8,
+          568.0
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.928,
+        "associated_expected_id": null
+      },
+      {
+        "region_id": "ocr_22c12ff2",
+        "text": "Tax",
+        "raw_text": "Tax",
+        "confidence": 0.51,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          378.5,
+          568.5
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.923,
+        "associated_expected_id": "P"
+      },
+      {
+        "region_id": "ocr_31b9d189",
+        "text": "v",
+        "raw_text": "v",
+        "confidence": 0.51,
+        "text_type": "UNKNOWN",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          525.8,
+          543.2
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.993,
+        "associated_expected_id": "Q"
+      },
+      {
+        "region_id": "ocr_39df5bf0",
+        "text": "1",
+        "raw_text": "1",
+        "confidence": 0.51,
+        "text_type": "NUMERIC_CANDIDATE",
+        "is_numeric": true,
+        "parsed_value": 1.0,
+        "center": [
+          370.0,
+          568.0
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.916,
+        "associated_expected_id": "P"
+      },
+      {
+        "region_id": "ocr_5a3aa4f3",
+        "text": "sass)",
+        "raw_text": "sass)",
+        "confidence": 0.49,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          833.3,
+          543.0
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.963,
+        "associated_expected_id": "S"
+      },
+      {
+        "region_id": "ocr_00d66657",
+        "text": "abled",
+        "raw_text": "abled",
+        "confidence": 0.49,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          699.0,
+          263.0
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.971,
+        "associated_expected_id": "I"
+      },
+      {
+        "region_id": "ocr_dc5326b3",
+        "text": "Gull",
+        "raw_text": "Gull",
+        "confidence": 0.49,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          658.2,
+          542.0
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.965,
+        "associated_expected_id": "R"
+      },
+      {
+        "region_id": "ocr_7b4e5108",
+        "text": "Sa)",
+        "raw_text": "Sa)",
+        "confidence": 0.49,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          71.0,
+          263.0
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.978,
+        "associated_expected_id": "A"
+      },
+      {
+        "region_id": "ocr_e974d486",
+        "text": "(2)",
+        "raw_text": "(2)",
+        "confidence": 0.48,
+        "text_type": "NUMERIC_CANDIDATE",
+        "is_numeric": true,
+        "parsed_value": 2.0,
+        "center": [
+          854.0,
+          275.2
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.919,
+        "associated_expected_id": "J"
+      },
+      {
+        "region_id": "ocr_79a02fa5",
+        "text": "Eg",
+        "raw_text": "Eg",
+        "confidence": 0.48,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          211.8,
+          204.5
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.939,
+        "associated_expected_id": "B"
+      },
+      {
+        "region_id": "ocr_9eac21a7",
+        "text": "ala",
+        "raw_text": "ala",
+        "confidence": 0.47,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          394.7,
+          542.8
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.959,
+        "associated_expected_id": "P"
+      },
+      {
+        "region_id": "ocr_dc776b19",
+        "text": "ac",
+        "raw_text": "ac",
+        "confidence": 0.47,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          1166.5,
+          340.0
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.96,
+        "associated_expected_id": "M"
+      },
+      {
+        "region_id": "ocr_204bf311",
+        "text": "eH",
+        "raw_text": "eH",
+        "confidence": 0.46,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          529.5,
+          570.0
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.915,
+        "associated_expected_id": "Q"
+      },
+      {
+        "region_id": "ocr_12a97252",
+        "text": "(Rr)",
+        "raw_text": "(Rr)",
+        "confidence": 0.45,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          818.5,
+          541.0
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.966,
+        "associated_expected_id": null
+      },
+      {
+        "region_id": "ocr_203533ab",
+        "text": "(_\u00ab)",
+        "raw_text": "(_\u00ab)",
+        "confidence": 0.45,
+        "text_type": "UNKNOWN",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          1000.5,
+          261.0
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.968,
+        "associated_expected_id": null
+      },
+      {
+        "region_id": "ocr_df4d00a3",
+        "text": "a!",
+        "raw_text": "a!",
+        "confidence": 0.45,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          1026.0,
+          261.5
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.946,
+        "associated_expected_id": "K"
+      },
+      {
+        "region_id": "ocr_4f5ab7ce",
+        "text": "a",
+        "raw_text": "a",
+        "confidence": 0.44,
+        "text_type": "UNKNOWN",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          221.0,
+          705.3
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.396,
+        "associated_expected_id": "O"
+      },
+      {
+        "region_id": "ocr_598d1e3c",
+        "text": "Gu)",
+        "raw_text": "Gu)",
+        "confidence": 0.43,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          1138.5,
+          341.5
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.97,
+        "associated_expected_id": "M"
+      },
+      {
+        "region_id": "ocr_222609c1",
+        "text": "cogil",
+        "raw_text": "cogil",
+        "confidence": 0.41,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          362.0,
+          542.8
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.959,
+        "associated_expected_id": "P"
+      },
+      {
+        "region_id": "ocr_6ff5c11d",
+        "text": "ss)",
+        "raw_text": "ss)",
+        "confidence": 0.41,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          1126.8,
+          541.0
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.967,
+        "associated_expected_id": "U"
+      },
+      {
+        "region_id": "ocr_4e28d1d6",
+        "text": "sak",
+        "raw_text": "sak",
+        "confidence": 0.41,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          1085.3,
+          42.7
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.858,
+        "associated_expected_id": "L"
+      },
+      {
+        "region_id": "ocr_59b83fad",
+        "text": "La",
+        "raw_text": "La",
+        "confidence": 0.41,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          548.5,
+          261.5
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.966,
+        "associated_expected_id": "F"
+      },
+      {
+        "region_id": "ocr_92311eea",
+        "text": "all)",
+        "raw_text": "all)",
+        "confidence": 0.4,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          1136.2,
+          203.2
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.963,
+        "associated_expected_id": "L"
+      },
+      {
+        "region_id": "ocr_a7fd012d",
+        "text": "ja",
+        "raw_text": "ja",
+        "confidence": 0.4,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          1292.7,
+          263.8
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.98,
+        "associated_expected_id": "N"
+      },
+      {
+        "region_id": "ocr_030d1b01",
+        "text": "(s",
+        "raw_text": "(s",
+        "confidence": 0.39,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          643.7,
+          555.2
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.877,
+        "associated_expected_id": "R"
+      },
+      {
+        "region_id": "ocr_9252eac9",
+        "text": ")",
+        "raw_text": ")",
+        "confidence": 0.39,
+        "text_type": "UNKNOWN",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          735.0,
+          555.2
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.787,
+        "associated_expected_id": null
+      },
+      {
+        "region_id": "ocr_9a3982c1",
+        "text": "pis",
+        "raw_text": "pis",
+        "confidence": 0.38,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          1305.7,
+          263.8
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.95,
+        "associated_expected_id": "N"
+      },
+      {
+        "region_id": "ocr_f5ddd694",
+        "text": "ith",
+        "raw_text": "ith",
+        "confidence": 0.38,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          989.8,
+          262.0
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.966,
+        "associated_expected_id": "K"
+      },
+      {
+        "region_id": "ocr_14fb0695",
+        "text": "Eg",
+        "raw_text": "Eg",
+        "confidence": 0.38,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          917.7,
+          39.3
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.894,
+        "associated_expected_id": "K"
+      },
+      {
+        "region_id": "ocr_d40e9563",
+        "text": "2",
+        "raw_text": "2",
+        "confidence": 0.38,
+        "text_type": "NUMERIC_CANDIDATE",
+        "is_numeric": true,
+        "parsed_value": 2.0,
+        "center": [
+          391.7,
+          263.2
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.993,
+        "associated_expected_id": "D"
+      },
+      {
+        "region_id": "ocr_0ee935b4",
+        "text": "Pp",
+        "raw_text": "Pp",
+        "confidence": 0.37,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          62.3,
+          263.0
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.958,
+        "associated_expected_id": "A"
+      },
+      {
+        "region_id": "ocr_19503f99",
+        "text": "3",
+        "raw_text": "3",
+        "confidence": 0.37,
+        "text_type": "NUMERIC_CANDIDATE",
+        "is_numeric": true,
+        "parsed_value": 3.0,
+        "center": [
+          57.3,
+          262.0
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.948,
+        "associated_expected_id": "A"
+      },
+      {
+        "region_id": "ocr_c0cb804e",
+        "text": "swell",
+        "raw_text": "swell",
+        "confidence": 0.36,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          985.7,
+          39.3
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.927,
+        "associated_expected_id": "K"
+      },
+      {
+        "region_id": "ocr_360f1a13",
+        "text": "eee)",
+        "raw_text": "eee)",
+        "confidence": 0.36,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          91.0,
+          263.0
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.969,
+        "associated_expected_id": "A"
+      },
+      {
+        "region_id": "ocr_e5519797",
+        "text": "beet",
+        "raw_text": "beet",
+        "confidence": 0.36,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          1276.2,
+          42.4
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.869,
+        "associated_expected_id": "L"
+      },
+      {
+        "region_id": "ocr_392abbd3",
+        "text": "h",
+        "raw_text": "h",
+        "confidence": 0.35,
+        "text_type": "UNKNOWN",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          223.0,
+          692.0
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.997,
+        "associated_expected_id": "O"
+      },
+      {
+        "region_id": "ocr_a04c0d46",
+        "text": "(pall",
+        "raw_text": "(pall",
+        "confidence": 0.34,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          525.0,
+          543.0
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.994,
+        "associated_expected_id": "Q"
+      },
+      {
+        "region_id": "ocr_990c722e",
+        "text": "(8s)",
+        "raw_text": "(8s)",
+        "confidence": 0.34,
+        "text_type": "NUMERIC_CANDIDATE",
+        "is_numeric": true,
+        "parsed_value": 8.0,
+        "center": [
+          235.0,
+          201.0
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.966,
+        "associated_expected_id": null
+      },
+      {
+        "region_id": "ocr_d22e77a2",
+        "text": "Salad",
+        "raw_text": "Salad",
+        "confidence": 0.33,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          218.2,
+          341.5
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.956,
+        "associated_expected_id": "C"
+      },
+      {
+        "region_id": "ocr_d098b681",
+        "text": "bets",
+        "raw_text": "bets",
+        "confidence": 0.33,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          543.7,
+          543.0
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.977,
+        "associated_expected_id": null
+      },
+      {
+        "region_id": "ocr_072b431d",
+        "text": "(uv)",
+        "raw_text": "(uv)",
+        "confidence": 0.33,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          381.0,
+          541.0
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.957,
+        "associated_expected_id": null
+      },
+      {
+        "region_id": "ocr_a509414c",
+        "text": "gall",
+        "raw_text": "gall",
+        "confidence": 0.33,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          1252.0,
+          541.5
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.982,
+        "associated_expected_id": "V"
+      },
+      {
+        "region_id": "ocr_5cdc49fc",
+        "text": "(La",
+        "raw_text": "(La",
+        "confidence": 0.31,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          548.5,
+          158.0
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.966,
+        "associated_expected_id": "E"
+      },
+      {
+        "region_id": "ocr_7dff20e2",
+        "text": "Eg",
+        "raw_text": "Eg",
+        "confidence": 0.31,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          370.5,
+          263.5
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.946,
+        "associated_expected_id": "D"
+      },
+      {
+        "region_id": "ocr_466dfa0a",
+        "text": "ee",
+        "raw_text": "ee",
+        "confidence": 0.31,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          1156.5,
+          50.5
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.924,
+        "associated_expected_id": "L"
+      },
+      {
+        "region_id": "ocr_1bc4ffff",
+        "text": "\u201cetal",
+        "raw_text": "\u201cetal",
+        "confidence": 0.3,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          549.0,
+          417.5
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.996,
+        "associated_expected_id": "H"
+      },
+      {
+        "region_id": "ocr_677b3dff",
+        "text": "ote",
+        "raw_text": "ote",
+        "confidence": 0.3,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          686.0,
+          543.5
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.965,
+        "associated_expected_id": "R"
+      },
+      {
+        "region_id": "ocr_fb39de0a",
+        "text": "chased",
+        "raw_text": "chased",
+        "confidence": 0.29,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          804.8,
+          543.0
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.964,
+        "associated_expected_id": "S"
+      },
+      {
+        "region_id": "ocr_b558633d",
+        "text": "Lose",
+        "raw_text": "Lose",
+        "confidence": 0.29,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          1132.5,
+          270.5
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.951,
+        "associated_expected_id": "L"
+      },
+      {
+        "region_id": "ocr_8fc2b11e",
+        "text": "Ady",
+        "raw_text": "Ady",
+        "confidence": 0.29,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          254.2,
+          202.5
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.954,
+        "associated_expected_id": "B"
+      },
+      {
+        "region_id": "ocr_8a8cbffd",
+        "text": "(0)",
+        "raw_text": "(0)",
+        "confidence": 0.28,
+        "text_type": "NUMERIC_CANDIDATE",
+        "is_numeric": true,
+        "parsed_value": 0.0,
+        "center": [
+          1259.0,
+          556.3
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.922,
+        "associated_expected_id": "V"
+      },
+      {
+        "region_id": "ocr_16b00960",
+        "text": "alia\u00bb",
+        "raw_text": "alia\u00bb",
+        "confidence": 0.27,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          1286.5,
+          263.5
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.993,
+        "associated_expected_id": "N"
+      },
+      {
+        "region_id": "ocr_c3b885e3",
+        "text": "2",
+        "raw_text": "2",
+        "confidence": 0.25,
+        "text_type": "NUMERIC_CANDIDATE",
+        "is_numeric": true,
+        "parsed_value": 2.0,
+        "center": [
+          672.0,
+          543.2
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.993,
+        "associated_expected_id": "R"
+      },
+      {
+        "region_id": "ocr_73484b14",
+        "text": "of",
+        "raw_text": "of",
+        "confidence": 0.22,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          1011.8,
+          49.1
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.81,
+        "associated_expected_id": "K"
+      },
+      {
+        "region_id": "ocr_210d59d1",
+        "text": "\u201c",
+        "raw_text": "\u201c",
+        "confidence": 0.22,
+        "text_type": "UNKNOWN",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          1003.7,
+          263.2
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.994,
+        "associated_expected_id": "K"
+      },
+      {
+        "region_id": "ocr_e3a5da46",
+        "text": "a",
+        "raw_text": "a",
+        "confidence": 0.22,
+        "text_type": "UNKNOWN",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          1152.0,
+          324.0
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.955,
+        "associated_expected_id": "M"
+      },
+      {
+        "region_id": "ocr_fb3232a6",
+        "text": "ae",
+        "raw_text": "ae",
+        "confidence": 0.21,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          973.2,
+          43.9
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.952,
+        "associated_expected_id": "K"
+      },
+      {
+        "region_id": "ocr_7c771bb2",
+        "text": "lbs)",
+        "raw_text": "lbs)",
+        "confidence": 0.19,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          951.5,
+          541.2
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.966,
+        "associated_expected_id": "T"
+      },
+      {
+        "region_id": "ocr_5b5967c2",
+        "text": "(_\u00ab)",
+        "raw_text": "(_\u00ab)",
+        "confidence": 0.19,
+        "text_type": "UNKNOWN",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          546.0,
+          312.5
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.945,
+        "associated_expected_id": "G"
+      },
+      {
+        "region_id": "ocr_bd424f88",
+        "text": "EAR",
+        "raw_text": "EAR",
+        "confidence": 0.19,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          1257.3,
+          541.2
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.995,
+        "associated_expected_id": "V"
+      },
+      {
+        "region_id": "ocr_6b548bfe",
+        "text": "Heal",
+        "raw_text": "Heal",
+        "confidence": 0.18,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          232.5,
+          203.7
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.988,
+        "associated_expected_id": null
+      },
+      {
+        "region_id": "ocr_fc8bcb9f",
+        "text": "(1)",
+        "raw_text": "(1)",
+        "confidence": 0.17,
+        "text_type": "NUMERIC_CANDIDATE",
+        "is_numeric": true,
+        "parsed_value": 1.0,
+        "center": [
+          707.0,
+          275.2
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.919,
+        "associated_expected_id": "I"
+      },
+      {
+        "region_id": "ocr_8f107c35",
+        "text": "=",
+        "raw_text": "=",
+        "confidence": 0.17,
+        "text_type": "UNKNOWN",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          549.3,
+          211.2
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.993,
+        "associated_expected_id": "F"
+      },
+      {
+        "region_id": "ocr_10e9a33c",
+        "text": "ff",
+        "raw_text": "ff",
+        "confidence": 0.16,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          1162.2,
+          210.6
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.955,
+        "associated_expected_id": "L"
+      },
+      {
+        "region_id": "ocr_e0886ab4",
+        "text": "eee",
+        "raw_text": "eee",
+        "confidence": 0.15,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          1192.5,
+          52.0
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.892,
+        "associated_expected_id": "L"
+      },
+      {
+        "region_id": "ocr_d6fc2798",
+        "text": "(F",
+        "raw_text": "(F",
+        "confidence": 0.14,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          517.8,
+          223.2
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.86,
+        "associated_expected_id": "F"
+      },
+      {
+        "region_id": "ocr_0dc8b660",
+        "text": "sree",
+        "raw_text": "sree",
+        "confidence": 0.12,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          218.0,
+          543.5
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.965,
+        "associated_expected_id": "O"
+      },
+      {
+        "region_id": "ocr_130e9623",
+        "text": "(TM.)",
+        "raw_text": "(\u2122.)",
+        "confidence": 0.11,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          1150.0,
+          339.5
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.946,
+        "associated_expected_id": "M"
+      },
+      {
+        "region_id": "ocr_af05c038",
+        "text": "4",
+        "raw_text": "4",
+        "confidence": 0.11,
+        "text_type": "NUMERIC_CANDIDATE",
+        "is_numeric": true,
+        "parsed_value": 4.0,
+        "center": [
+          542.0,
+          340.0
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.934,
+        "associated_expected_id": "G"
+      },
+      {
+        "region_id": "ocr_5fd78c90",
+        "text": "4",
+        "raw_text": "4",
+        "confidence": 0.11,
+        "text_type": "NUMERIC_CANDIDATE",
+        "is_numeric": true,
+        "parsed_value": 4.0,
+        "center": [
+          542.0,
+          443.0
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.931,
+        "associated_expected_id": null
+      },
+      {
+        "region_id": "ocr_2eca2e3e",
+        "text": "4",
+        "raw_text": "4",
+        "confidence": 0.11,
+        "text_type": "NUMERIC_CANDIDATE",
+        "is_numeric": true,
+        "parsed_value": 4.0,
+        "center": [
+          542.0,
+          236.0
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.931,
+        "associated_expected_id": "F"
+      },
+      {
+        "region_id": "ocr_20072302",
+        "text": "4",
+        "raw_text": "4",
+        "confidence": 0.11,
+        "text_type": "NUMERIC_CANDIDATE",
+        "is_numeric": true,
+        "parsed_value": 4.0,
+        "center": [
+          541.8,
+          133.0
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.932,
+        "associated_expected_id": "E"
+      },
+      {
+        "region_id": "ocr_7efff26c",
+        "text": "(Pp)",
+        "raw_text": "(Pp)",
+        "confidence": 0.1,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          1112.5,
+          541.0
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.959,
+        "associated_expected_id": null
+      },
+      {
+        "region_id": "ocr_9d913ea2",
+        "text": "-",
+        "raw_text": "-",
+        "confidence": 0.1,
+        "text_type": "UNKNOWN",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          1286.2,
+          263.2
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.996,
+        "associated_expected_id": null
+      },
+      {
+        "region_id": "ocr_a575da44",
+        "text": "(vv)",
+        "raw_text": "(vv)",
+        "confidence": 0.09,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          234.0,
+          541.0
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.953,
+        "associated_expected_id": null
+      },
+      {
+        "region_id": "ocr_e9a1f2da",
+        "text": "o.",
+        "raw_text": "o.",
+        "confidence": 0.06,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          386.0,
+          261.0
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.952,
+        "associated_expected_id": "D"
+      },
+      {
+        "region_id": "ocr_fc3ccea1",
+        "text": "eeerrrrerrred",
+        "raw_text": "eeerrrrerrred",
+        "confidence": 0.0,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          1083.5,
+          52.0
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.867,
+        "associated_expected_id": null
+      },
+      {
+        "region_id": "ocr_817fc6f2",
+        "text": "jathsial)",
+        "raw_text": "jathsial)",
+        "confidence": 0.0,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          840.5,
+          262.0
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.96,
+        "associated_expected_id": "J"
+      },
+      {
+        "region_id": "ocr_c24f54a8",
+        "text": "ceisill",
+        "raw_text": "ceisill",
+        "confidence": 0.0,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          1167.2,
+          36.5
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.996,
+        "associated_expected_id": "L"
+      },
+      {
+        "region_id": "ocr_1ee43f8a",
+        "text": "aulsad",
+        "raw_text": "aulsad",
+        "confidence": 0.0,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          1097.7,
+          541.0
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.964,
+        "associated_expected_id": "U"
+      },
+      {
+        "region_id": "ocr_4a6a313b",
+        "text": "Chasod",
+        "raw_text": "Chasod",
+        "confidence": 0.0,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          254.7,
+          341.5
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.952,
+        "associated_expected_id": "C"
+      },
+      {
+        "region_id": "ocr_c447afb1",
+        "text": "cdi!",
+        "raw_text": "cdi!",
+        "confidence": 0.0,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          981.7,
+          543.7
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.959,
+        "associated_expected_id": "T"
+      },
+      {
+        "region_id": "ocr_bef52e50",
+        "text": "(on)",
+        "raw_text": "(on)",
+        "confidence": 0.0,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          1283.5,
+          261.0
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.966,
+        "associated_expected_id": null
+      },
+      {
+        "region_id": "ocr_a37887b6",
+        "text": "'@]",
+        "raw_text": "'@]",
+        "confidence": 0.0,
+        "text_type": "UNKNOWN",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          1259.5,
+          516.0
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.932,
+        "associated_expected_id": "V"
+      },
+      {
+        "region_id": "ocr_33f71b16",
+        "text": "eee",
+        "raw_text": "eee",
+        "confidence": 0.0,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          987.5,
+          52.0
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.898,
+        "associated_expected_id": "K"
+      },
+      {
+        "region_id": "ocr_76960a5a",
+        "text": "gd",
+        "raw_text": "gd",
+        "confidence": 0.0,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          687.5,
+          261.5
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.947,
+        "associated_expected_id": "I"
+      },
+      {
+        "region_id": "ocr_43bd37c3",
+        "text": "s.",
+        "raw_text": "s.",
+        "confidence": 0.0,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          548.5,
+          432.4
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.928,
+        "associated_expected_id": "H"
+      },
+      {
+        "region_id": "ocr_73f9d122",
+        "text": "tT",
+        "raw_text": "tT",
+        "confidence": 0.0,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          1130.5,
+          212.1
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.934,
+        "associated_expected_id": "L"
+      },
+      {
+        "region_id": "ocr_2c029f05",
+        "text": "&,",
+        "raw_text": "&,",
+        "confidence": 0.0,
+        "text_type": "UNKNOWN",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          1317.5,
+          43.6
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.719,
+        "associated_expected_id": "L"
+      },
+      {
+        "region_id": "ocr_8cb2ca33",
+        "text": "*",
+        "raw_text": "*",
+        "confidence": 0.0,
+        "text_type": "UNKNOWN",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          1112.5,
+          543.2
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.993,
+        "associated_expected_id": "U"
+      },
+      {
+        "region_id": "ocr_59601cef",
+        "text": "S",
+        "raw_text": "S",
+        "confidence": 0.0,
+        "text_type": "UNKNOWN",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          1278.7,
+          288.0
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.917,
+        "associated_expected_id": "N"
+      },
+      {
+        "region_id": "ocr_2880b8a4",
+        "text": "FINISH",
+        "raw_text": "FINISH",
+        "confidence": 0.96,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          231.5,
+          616.0
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.191,
+        "associated_expected_id": "O"
+      },
+      {
+        "region_id": "ocr_364b67bc",
+        "text": "START",
+        "raw_text": "START",
+        "confidence": 0.96,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          80.0,
+          161.0
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.15,
+        "associated_expected_id": "A"
+      },
+      {
+        "region_id": "ocr_c8ac22e5",
+        "text": "H",
+        "raw_text": "H",
+        "confidence": 0.85,
+        "text_type": "UNKNOWN",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          745.5,
+          541.0
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.985,
+        "associated_expected_id": null
+      },
+      {
+        "region_id": "ocr_eb7d372e",
+        "text": "as",
+        "raw_text": "as",
+        "confidence": 0.56,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          881.5,
+          261.0
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.942,
+        "associated_expected_id": "J"
+      },
+      {
+        "region_id": "ocr_4f9a89b4",
+        "text": "gm.",
+        "raw_text": "gm.",
+        "confidence": 0.41,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          734.0,
+          260.0
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.942,
+        "associated_expected_id": "I"
+      },
+      {
+        "region_id": "ocr_fbe2ff9f",
+        "text": "r",
+        "raw_text": "r",
+        "confidence": 0.31,
+        "text_type": "UNKNOWN",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          618.0,
+          506.0
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.773,
+        "associated_expected_id": "R"
+      },
+      {
+        "region_id": "ocr_6580ec63",
+        "text": "X",
+        "raw_text": "X",
+        "confidence": 0.11,
+        "text_type": "UNKNOWN",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          618.0,
+          576.0
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.773,
+        "associated_expected_id": "R"
+      },
+      {
+        "region_id": "ocr_3854c7e8",
+        "text": "ee",
+        "raw_text": "ee",
+        "confidence": 0.06,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          1269.0,
+          265.0
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.954,
+        "associated_expected_id": "N"
+      },
+      {
+        "region_id": "ocr_f9f6ab93",
+        "text": "eae",
+        "raw_text": "eae",
+        "confidence": 0.04,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          377.5,
+          260.0
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.964,
+        "associated_expected_id": "D"
+      }
+    ]
+  },
+  {
+    "image": "5.jpeg",
+    "diagram_type": "AON",
+    "expected_items": 17,
+    "ocr_regions": 105,
+    "ocr_numeric_candidates": 27,
+    "association_results": 105,
+    "ambiguous_associations": 58,
+    "unmatched_regions": 59,
+    "normalized_numeric_regions": 0,
+    "normalization_corrections": 0,
+    "item_error_counts": {
+      "matched": 9,
+      "duplicate_detections": 6,
+      "association_error": 1,
+      "recognition_or_semantic_error": 1
+    },
+    "id_exact_matches": 16,
+    "duration_exact_matches": 10,
+    "association_exact_matches": 16,
+    "items": [
+      {
+        "id": "A",
+        "expected_duration": 5.17,
+        "regions_inside": 3,
+        "regions_nearby": 3,
+        "id_match": true,
+        "duration_match": false,
+        "association_match": true,
+        "error_class": "matched",
+        "observed_text": [
+          "A",
+          "9.17",
+          "(a)"
+        ]
+      },
+      {
+        "id": "B",
+        "expected_duration": 2.0,
+        "regions_inside": 4,
+        "regions_nearby": 5,
+        "id_match": true,
+        "duration_match": true,
+        "association_match": true,
+        "error_class": "duplicate_detections",
+        "observed_text": [
+          "2.00",
+          "B",
+          "(Jase)",
+          "(Jaze)"
+        ]
+      },
+      {
+        "id": "D",
+        "expected_duration": 10.0,
+        "regions_inside": 3,
+        "regions_nearby": 3,
+        "id_match": true,
+        "duration_match": true,
+        "association_match": false,
+        "error_class": "association_error",
+        "observed_text": [
+          "10.00",
+          "D",
+          "(pd)"
+        ]
+      },
+      {
+        "id": "E",
+        "expected_duration": 5.17,
+        "regions_inside": 3,
+        "regions_nearby": 3,
+        "id_match": true,
+        "duration_match": true,
+        "association_match": true,
+        "error_class": "matched",
+        "observed_text": [
+          "E",
+          "5.17",
+          "(eE)"
+        ]
+      },
+      {
+        "id": "F",
+        "expected_duration": 5.17,
+        "regions_inside": 3,
+        "regions_nearby": 3,
+        "id_match": true,
+        "duration_match": true,
+        "association_match": true,
+        "error_class": "matched",
+        "observed_text": [
+          "5.17",
+          "F",
+          "i)"
+        ]
+      },
+      {
+        "id": "G",
+        "expected_duration": 5.17,
+        "regions_inside": 3,
+        "regions_nearby": 4,
+        "id_match": true,
+        "duration_match": false,
+        "association_match": true,
+        "error_class": "matched",
+        "observed_text": [
+          "G",
+          "9.17",
+          "(6)"
+        ]
+      },
+      {
+        "id": "H",
+        "expected_duration": 5.17,
+        "regions_inside": 3,
+        "regions_nearby": 5,
+        "id_match": true,
+        "duration_match": false,
+        "association_match": true,
+        "error_class": "matched",
+        "observed_text": [
+          "H",
+          "9.17",
+          "(Cn)"
+        ]
+      },
+      {
+        "id": "I",
+        "expected_duration": 5.17,
+        "regions_inside": 2,
+        "regions_nearby": 2,
+        "id_match": true,
+        "duration_match": false,
+        "association_match": true,
+        "error_class": "matched",
+        "observed_text": [
+          "I",
+          "(Gm)"
+        ]
+      },
+      {
+        "id": "J",
+        "expected_duration": 28.0,
+        "regions_inside": 3,
+        "regions_nearby": 6,
+        "id_match": true,
+        "duration_match": true,
+        "association_match": true,
+        "error_class": "matched",
+        "observed_text": [
+          "28.00",
+          "J",
+          "pr)"
+        ]
+      },
+      {
+        "id": "K",
+        "expected_duration": 5.17,
+        "regions_inside": 3,
+        "regions_nearby": 3,
+        "id_match": true,
+        "duration_match": true,
+        "association_match": true,
+        "error_class": "matched",
+        "observed_text": [
+          "5.17",
+          "K",
+          "CK.)"
+        ]
+      },
+      {
+        "id": "L",
+        "expected_duration": 5.17,
+        "regions_inside": 4,
+        "regions_nearby": 9,
+        "id_match": true,
+        "duration_match": true,
+        "association_match": true,
+        "error_class": "duplicate_detections",
+        "observed_text": [
+          "5.17",
+          "L",
+          "aan",
+          "Ee"
+        ]
+      },
+      {
+        "id": "M",
+        "expected_duration": 10.0,
+        "regions_inside": 3,
+        "regions_nearby": 4,
+        "id_match": false,
+        "duration_match": false,
+        "association_match": true,
+        "error_class": "recognition_or_semantic_error",
+        "observed_text": [
+          ")",
+          "(m.)",
+          "M_"
+        ]
+      },
+      {
+        "id": "N",
+        "expected_duration": 5.17,
+        "regions_inside": 4,
+        "regions_nearby": 5,
+        "id_match": true,
+        "duration_match": false,
+        "association_match": true,
+        "error_class": "duplicate_detections",
+        "observed_text": [
+          "N",
+          "9.17",
+          "(Nn)",
+          "st"
+        ]
+      },
+      {
+        "id": "O",
+        "expected_duration": 5.17,
+        "regions_inside": 7,
+        "regions_nearby": 9,
+        "id_match": true,
+        "duration_match": true,
+        "association_match": true,
+        "error_class": "duplicate_detections",
+        "observed_text": [
+          "5.17",
+          "O",
+          "0",
+          "oOo",
+          "(0)",
+          "J",
+          "Le"
+        ]
+      },
+      {
+        "id": "P",
+        "expected_duration": 5.17,
+        "regions_inside": 4,
+        "regions_nearby": 6,
+        "id_match": true,
+        "duration_match": true,
+        "association_match": true,
+        "error_class": "duplicate_detections",
+        "observed_text": [
+          "5.17",
+          "p",
+          "Pp",
+          "(pep)"
+        ]
+      },
+      {
+        "id": "Q",
+        "expected_duration": 3.0,
+        "regions_inside": 5,
+        "regions_nearby": 6,
+        "id_match": true,
+        "duration_match": true,
+        "association_match": true,
+        "error_class": "duplicate_detections",
+        "observed_text": [
+          "3.00",
+          "Q",
+          "\u2018@",
+          "(Ham)",
+          ")}"
+        ]
+      },
+      {
+        "id": "R",
+        "expected_duration": 2.0,
+        "regions_inside": 2,
+        "regions_nearby": 4,
+        "id_match": true,
+        "duration_match": false,
+        "association_match": true,
+        "error_class": "matched",
+        "observed_text": [
+          "R",
+          "Cr)"
+        ]
+      }
+    ],
+    "regions": [
+      {
+        "region_id": "ocr_0e3d589b",
+        "text": "28.00",
+        "raw_text": "28.00",
+        "confidence": 0.96,
+        "text_type": "NUMERIC_CANDIDATE",
+        "is_numeric": true,
+        "parsed_value": 28.0,
+        "center": [
+          918.3,
+          308.8
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.971,
+        "associated_expected_id": null
+      },
+      {
+        "region_id": "ocr_3909738e",
+        "text": "10.00",
+        "raw_text": "10.00",
+        "confidence": 0.96,
+        "text_type": "NUMERIC_CANDIDATE",
+        "is_numeric": true,
+        "parsed_value": 10.0,
+        "center": [
+          532.0,
+          145.0
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.967,
+        "associated_expected_id": null
+      },
+      {
+        "region_id": "ocr_403c1357",
+        "text": "5.17",
+        "raw_text": "5.17",
+        "confidence": 0.96,
+        "text_type": "NUMERIC_CANDIDATE",
+        "is_numeric": true,
+        "parsed_value": 5.17,
+        "center": [
+          905.2,
+          145.0
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.956,
+        "associated_expected_id": "F"
+      },
+      {
+        "region_id": "ocr_9544c3af",
+        "text": "2.00",
+        "raw_text": "2.00",
+        "confidence": 0.96,
+        "text_type": "NUMERIC_CANDIDATE",
+        "is_numeric": true,
+        "parsed_value": 2.0,
+        "center": [
+          351.8,
+          145.2
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.955,
+        "associated_expected_id": "B"
+      },
+      {
+        "region_id": "ocr_f181aad2",
+        "text": "3.00",
+        "raw_text": "3.00",
+        "confidence": 0.96,
+        "text_type": "NUMERIC_CANDIDATE",
+        "is_numeric": true,
+        "parsed_value": 3.0,
+        "center": [
+          348.0,
+          620.5
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.993,
+        "associated_expected_id": null
+      },
+      {
+        "region_id": "ocr_096b19fa",
+        "text": "5.17",
+        "raw_text": "5.17",
+        "confidence": 0.96,
+        "text_type": "NUMERIC_CANDIDATE",
+        "is_numeric": true,
+        "parsed_value": 5.17,
+        "center": [
+          346.8,
+          462.5
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.955,
+        "associated_expected_id": "L"
+      },
+      {
+        "region_id": "ocr_36a6b004",
+        "text": "5.17",
+        "raw_text": "5.17",
+        "confidence": 0.96,
+        "text_type": "NUMERIC_CANDIDATE",
+        "is_numeric": true,
+        "parsed_value": 5.17,
+        "center": [
+          158.7,
+          462.7
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.994,
+        "associated_expected_id": null
+      },
+      {
+        "region_id": "ocr_bba931eb",
+        "text": "Pr",
+        "raw_text": "Pr",
+        "confidence": 0.96,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          431.3,
+          30.5
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.898,
+        "associated_expected_id": "B"
+      },
+      {
+        "region_id": "ocr_45b8727f",
+        "text": "J",
+        "raw_text": "J",
+        "confidence": 0.96,
+        "text_type": "UNKNOWN",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          918.0,
+          270.3
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.94,
+        "associated_expected_id": "J"
+      },
+      {
+        "region_id": "ocr_361b57f8",
+        "text": "A",
+        "raw_text": "A",
+        "confidence": 0.96,
+        "text_type": "UNKNOWN",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          188.8,
+          106.7
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.941,
+        "associated_expected_id": "A"
+      },
+      {
+        "region_id": "ocr_5b8514d0",
+        "text": "5.17",
+        "raw_text": "5.17",
+        "confidence": 0.95,
+        "text_type": "NUMERIC_CANDIDATE",
+        "is_numeric": true,
+        "parsed_value": 5.17,
+        "center": [
+          171.8,
+          620.5
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.995,
+        "associated_expected_id": null
+      },
+      {
+        "region_id": "ocr_9443a805",
+        "text": "|",
+        "raw_text": "|",
+        "confidence": 0.95,
+        "text_type": "UNKNOWN",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          743.8,
+          38.9
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.81,
+        "associated_expected_id": "E"
+      },
+      {
+        "region_id": "ocr_c0700601",
+        "text": "|",
+        "raw_text": "|",
+        "confidence": 0.94,
+        "text_type": "UNKNOWN",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          408.3,
+          143.8
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.66,
+        "associated_expected_id": null
+      },
+      {
+        "region_id": "ocr_f5c0d5ae",
+        "text": "D",
+        "raw_text": "D",
+        "confidence": 0.93,
+        "text_type": "UNKNOWN",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          532.3,
+          106.7
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.983,
+        "associated_expected_id": null
+      },
+      {
+        "region_id": "ocr_0eecb261",
+        "text": "B",
+        "raw_text": "B",
+        "confidence": 0.93,
+        "text_type": "UNKNOWN",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          387.5,
+          108.5
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.884,
+        "associated_expected_id": "B"
+      },
+      {
+        "region_id": "ocr_d145291e",
+        "text": "Q",
+        "raw_text": "Q",
+        "confidence": 0.93,
+        "text_type": "UNKNOWN",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          348.0,
+          584.5
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.975,
+        "associated_expected_id": null
+      },
+      {
+        "region_id": "ocr_f76bfcf6",
+        "text": "K",
+        "raw_text": "K",
+        "confidence": 0.93,
+        "text_type": "UNKNOWN",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          158.8,
+          424.8
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.941,
+        "associated_expected_id": "K"
+      },
+      {
+        "region_id": "ocr_34b010bc",
+        "text": "N",
+        "raw_text": "N",
+        "confidence": 0.93,
+        "text_type": "UNKNOWN",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          727.0,
+          423.5
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.942,
+        "associated_expected_id": "N"
+      },
+      {
+        "region_id": "ocr_36bd7dd2",
+        "text": "H",
+        "raw_text": "H",
+        "confidence": 0.92,
+        "text_type": "UNKNOWN",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          531.5,
+          270.3
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.941,
+        "associated_expected_id": "H"
+      },
+      {
+        "region_id": "ocr_d6b8fa1e",
+        "text": "|",
+        "raw_text": "|",
+        "confidence": 0.92,
+        "text_type": "UNKNOWN",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          588.5,
+          307.5
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.481,
+        "associated_expected_id": null
+      },
+      {
+        "region_id": "ocr_b8205e26",
+        "text": "E",
+        "raw_text": "E",
+        "confidence": 0.92,
+        "text_type": "UNKNOWN",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          712.5,
+          106.5
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.941,
+        "associated_expected_id": "E"
+      },
+      {
+        "region_id": "ocr_0f3ddb24",
+        "text": "R",
+        "raw_text": "R",
+        "confidence": 0.92,
+        "text_type": "UNKNOWN",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          523.2,
+          619.2
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.984,
+        "associated_expected_id": null
+      },
+      {
+        "region_id": "ocr_d69fedf9",
+        "text": "5.17",
+        "raw_text": "5.17",
+        "confidence": 0.91,
+        "text_type": "NUMERIC_CANDIDATE",
+        "is_numeric": true,
+        "parsed_value": 5.17,
+        "center": [
+          712.0,
+          145.0
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.955,
+        "associated_expected_id": "E"
+      },
+      {
+        "region_id": "ocr_349d0652",
+        "text": "G",
+        "raw_text": "G",
+        "confidence": 0.91,
+        "text_type": "UNKNOWN",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          347.5,
+          270.5
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.941,
+        "associated_expected_id": "G"
+      },
+      {
+        "region_id": "ocr_e8cb0d46",
+        "text": "L",
+        "raw_text": "L",
+        "confidence": 0.91,
+        "text_type": "UNKNOWN",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          346.8,
+          425.3
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.943,
+        "associated_expected_id": "L"
+      },
+      {
+        "region_id": "ocr_dee24db1",
+        "text": "Cr)",
+        "raw_text": "Cr)",
+        "confidence": 0.88,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          522.7,
+          610.7
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.956,
+        "associated_expected_id": "R"
+      },
+      {
+        "region_id": "ocr_bc5f462f",
+        "text": "5.17",
+        "raw_text": "5.17",
+        "confidence": 0.86,
+        "text_type": "NUMERIC_CANDIDATE",
+        "is_numeric": true,
+        "parsed_value": 5.17,
+        "center": [
+          922.3,
+          461.0
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.971,
+        "associated_expected_id": null
+      },
+      {
+        "region_id": "ocr_db4ff256",
+        "text": "PI",
+        "raw_text": "PI",
+        "confidence": 0.84,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          182.8,
+          30.5
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.893,
+        "associated_expected_id": "A"
+      },
+      {
+        "region_id": "ocr_7a341708",
+        "text": "|",
+        "raw_text": "|",
+        "confidence": 0.84,
+        "text_type": "UNKNOWN",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          979.3,
+          307.1
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.801,
+        "associated_expected_id": null
+      },
+      {
+        "region_id": "ocr_3d47dd88",
+        "text": "|",
+        "raw_text": "|",
+        "confidence": 0.84,
+        "text_type": "UNKNOWN",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          977.2,
+          459.9
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.465,
+        "associated_expected_id": null
+      },
+      {
+        "region_id": "ocr_4a97094a",
+        "text": "|",
+        "raw_text": "|",
+        "confidence": 0.84,
+        "text_type": "UNKNOWN",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          576.3,
+          620.0
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.515,
+        "associated_expected_id": null
+      },
+      {
+        "region_id": "ocr_ef4e4948",
+        "text": "9.17",
+        "raw_text": "9.17",
+        "confidence": 0.82,
+        "text_type": "NUMERIC_CANDIDATE",
+        "is_numeric": true,
+        "parsed_value": 9.17,
+        "center": [
+          189.3,
+          145.2
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.964,
+        "associated_expected_id": null
+      },
+      {
+        "region_id": "ocr_ab97e99c",
+        "text": "9.17",
+        "raw_text": "9.17",
+        "confidence": 0.82,
+        "text_type": "NUMERIC_CANDIDATE",
+        "is_numeric": true,
+        "parsed_value": 9.17,
+        "center": [
+          347.8,
+          309.2
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.971,
+        "associated_expected_id": null
+      },
+      {
+        "region_id": "ocr_3a211a57",
+        "text": "(6)",
+        "raw_text": "(6)",
+        "confidence": 0.81,
+        "text_type": "NUMERIC_CANDIDATE",
+        "is_numeric": true,
+        "parsed_value": 6.0,
+        "center": [
+          347.7,
+          298.9
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.958,
+        "associated_expected_id": "G"
+      },
+      {
+        "region_id": "ocr_69754f59",
+        "text": "p",
+        "raw_text": "p",
+        "confidence": 0.81,
+        "text_type": "UNKNOWN",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          172.2,
+          583.7
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.944,
+        "associated_expected_id": "P"
+      },
+      {
+        "region_id": "ocr_272888e6",
+        "text": "9.17",
+        "raw_text": "9.17",
+        "confidence": 0.8,
+        "text_type": "NUMERIC_CANDIDATE",
+        "is_numeric": true,
+        "parsed_value": 9.17,
+        "center": [
+          531.8,
+          309.2
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.969,
+        "associated_expected_id": null
+      },
+      {
+        "region_id": "ocr_55c3c0ac",
+        "text": "(Jase)",
+        "raw_text": "(Jase)",
+        "confidence": 0.79,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          351.7,
+          142.3
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.941,
+        "associated_expected_id": "B"
+      },
+      {
+        "region_id": "ocr_ff7796ac",
+        "text": "F",
+        "raw_text": "F",
+        "confidence": 0.77,
+        "text_type": "UNKNOWN",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          905.2,
+          106.7
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.941,
+        "associated_expected_id": "F"
+      },
+      {
+        "region_id": "ocr_b7d4b912",
+        "text": ">",
+        "raw_text": ">",
+        "confidence": 0.77,
+        "text_type": "UNKNOWN",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          832.5,
+          293.5
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.874,
+        "associated_expected_id": "J"
+      },
+      {
+        "region_id": "ocr_8173fbd6",
+        "text": "(Be",
+        "raw_text": "(Be",
+        "confidence": 0.75,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          672.5,
+          31.3
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.874,
+        "associated_expected_id": "E"
+      },
+      {
+        "region_id": "ocr_581fea1d",
+        "text": "O",
+        "raw_text": "O",
+        "confidence": 0.73,
+        "text_type": "UNKNOWN",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          922.0,
+          423.0
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.943,
+        "associated_expected_id": "O"
+      },
+      {
+        "region_id": "ocr_def6ad43",
+        "text": "9.17",
+        "raw_text": "9.17",
+        "confidence": 0.71,
+        "text_type": "NUMERIC_CANDIDATE",
+        "is_numeric": true,
+        "parsed_value": 9.17,
+        "center": [
+          727.5,
+          462.2
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.954,
+        "associated_expected_id": "N"
+      },
+      {
+        "region_id": "ocr_6af68c9e",
+        "text": "0",
+        "raw_text": "0",
+        "confidence": 0.69,
+        "text_type": "NUMERIC_CANDIDATE",
+        "is_numeric": true,
+        "parsed_value": 0.0,
+        "center": [
+          922.0,
+          423.0
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.944,
+        "associated_expected_id": "O"
+      },
+      {
+        "region_id": "ocr_dba067d2",
+        "text": "(Cn)",
+        "raw_text": "(Cn)",
+        "confidence": 0.68,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          531.5,
+          298.9
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.959,
+        "associated_expected_id": "H"
+      },
+      {
+        "region_id": "ocr_600b4f85",
+        "text": "0)",
+        "raw_text": "0)",
+        "confidence": 0.64,
+        "text_type": "NUMERIC_CANDIDATE",
+        "is_numeric": true,
+        "parsed_value": 0.0,
+        "center": [
+          898.0,
+          31.5
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.887,
+        "associated_expected_id": "F"
+      },
+      {
+        "region_id": "ocr_8af3a9e2",
+        "text": "Pe",
+        "raw_text": "Pe",
+        "confidence": 0.64,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          362.7,
+          30.7
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.895,
+        "associated_expected_id": "B"
+      },
+      {
+        "region_id": "ocr_7bcde7bb",
+        "text": "(a>",
+        "raw_text": "(a>",
+        "confidence": 0.63,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          47.0,
+          610.9
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.947,
+        "associated_expected_id": "P"
+      },
+      {
+        "region_id": "ocr_5d79bc5a",
+        "text": "(a)",
+        "raw_text": "(a)",
+        "confidence": 0.61,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          189.0,
+          135.2
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.958,
+        "associated_expected_id": "A"
+      },
+      {
+        "region_id": "ocr_5a3ad790",
+        "text": "(pd)",
+        "raw_text": "(pd)",
+        "confidence": 0.6,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          532.3,
+          143.8
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.982,
+        "associated_expected_id": null
+      },
+      {
+        "region_id": "ocr_8cc47214",
+        "text": "(",
+        "raw_text": "(",
+        "confidence": 0.6,
+        "text_type": "UNKNOWN",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          293.8,
+          620.0
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.792,
+        "associated_expected_id": null
+      },
+      {
+        "region_id": "ocr_5c0b248c",
+        "text": "I",
+        "raw_text": "I",
+        "confidence": 0.6,
+        "text_type": "UNKNOWN",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          596.5,
+          30.7
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.896,
+        "associated_expected_id": "D"
+      },
+      {
+        "region_id": "ocr_95a6c2d5",
+        "text": ")",
+        "raw_text": ")",
+        "confidence": 0.59,
+        "text_type": "UNKNOWN",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          592.0,
+          461.6
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.784,
+        "associated_expected_id": null
+      },
+      {
+        "region_id": "ocr_9f1aa4d1",
+        "text": "_",
+        "raw_text": "_",
+        "confidence": 0.58,
+        "text_type": "UNKNOWN",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          54.0,
+          164.8
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.563,
+        "associated_expected_id": null
+      },
+      {
+        "region_id": "ocr_e1c12f22",
+        "text": "CK.)",
+        "raw_text": "CK.)",
+        "confidence": 0.56,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          158.3,
+          452.5
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.959,
+        "associated_expected_id": "K"
+      },
+      {
+        "region_id": "ocr_2c7916ac",
+        "text": "1]",
+        "raw_text": "1]",
+        "confidence": 0.56,
+        "text_type": "NUMERIC_CANDIDATE",
+        "is_numeric": true,
+        "parsed_value": 1.0,
+        "center": [
+          733.0,
+          30.5
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.891,
+        "associated_expected_id": "E"
+      },
+      {
+        "region_id": "ocr_1aa63aec",
+        "text": "(Jaze)",
+        "raw_text": "(Jaze)",
+        "confidence": 0.54,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          351.7,
+          110.2
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.951,
+        "associated_expected_id": "B"
+      },
+      {
+        "region_id": "ocr_0aa37b04",
+        "text": "I",
+        "raw_text": "I",
+        "confidence": 0.54,
+        "text_type": "UNKNOWN",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          721.0,
+          270.2
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.94,
+        "associated_expected_id": "I"
+      },
+      {
+        "region_id": "ocr_b833a4d3",
+        "text": "\u2018@",
+        "raw_text": "\u2018@",
+        "confidence": 0.52,
+        "text_type": "UNKNOWN",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          343.5,
+          617.7
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.942,
+        "associated_expected_id": null
+      },
+      {
+        "region_id": "ocr_340de1d4",
+        "text": "(Ham)",
+        "raw_text": "(Ham)",
+        "confidence": 0.48,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          347.7,
+          619.2
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.977,
+        "associated_expected_id": null
+      },
+      {
+        "region_id": "ocr_218035ad",
+        "text": "Pp",
+        "raw_text": "Pp",
+        "confidence": 0.46,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          169.8,
+          617.7
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.96,
+        "associated_expected_id": null
+      },
+      {
+        "region_id": "ocr_77de5972",
+        "text": "(Gm)",
+        "raw_text": "(Gm)",
+        "confidence": 0.44,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          721.5,
+          298.9
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.958,
+        "associated_expected_id": "I"
+      },
+      {
+        "region_id": "ocr_d9c43a03",
+        "text": "|",
+        "raw_text": "|",
+        "confidence": 0.4,
+        "text_type": "UNKNOWN",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          224.8,
+          620.0
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.806,
+        "associated_expected_id": null
+      },
+      {
+        "region_id": "ocr_005aaeb8",
+        "text": "(m.)",
+        "raw_text": "(m.)",
+        "confidence": 0.39,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          533.0,
+          452.2
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.958,
+        "associated_expected_id": "M"
+      },
+      {
+        "region_id": "ocr_fcda18c5",
+        "text": "(eE)",
+        "raw_text": "(eE)",
+        "confidence": 0.35,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          712.3,
+          143.8
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.968,
+        "associated_expected_id": null
+      },
+      {
+        "region_id": "ocr_ab44645d",
+        "text": "(pep)",
+        "raw_text": "(pep)",
+        "confidence": 0.3,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          171.7,
+          619.2
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.984,
+        "associated_expected_id": null
+      },
+      {
+        "region_id": "ocr_ea599fcc",
+        "text": "aan",
+        "raw_text": "aan",
+        "confidence": 0.3,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          346.5,
+          452.7
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.958,
+        "associated_expected_id": "L"
+      },
+      {
+        "region_id": "ocr_1b26beea",
+        "text": "f",
+        "raw_text": "f",
+        "confidence": 0.3,
+        "text_type": "UNKNOWN",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          857.5,
+          307.5
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.508,
+        "associated_expected_id": null
+      },
+      {
+        "region_id": "ocr_a5400451",
+        "text": "f",
+        "raw_text": "f",
+        "confidence": 0.28,
+        "text_type": "UNKNOWN",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          469.2,
+          619.2
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.806,
+        "associated_expected_id": null
+      },
+      {
+        "region_id": "ocr_63752325",
+        "text": "pr)",
+        "raw_text": "pr)",
+        "confidence": 0.26,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          918.5,
+          298.9
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.959,
+        "associated_expected_id": "J"
+      },
+      {
+        "region_id": "ocr_0b1fe651",
+        "text": "f",
+        "raw_text": "f",
+        "confidence": 0.26,
+        "text_type": "UNKNOWN",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          118.5,
+          619.2
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.789,
+        "associated_expected_id": null
+      },
+      {
+        "region_id": "ocr_7fd12861",
+        "text": ")}",
+        "raw_text": ")}",
+        "confidence": 0.24,
+        "text_type": "UNKNOWN",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          391.8,
+          617.7
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.834,
+        "associated_expected_id": "Q"
+      },
+      {
+        "region_id": "ocr_eb941dae",
+        "text": "i)",
+        "raw_text": "i)",
+        "confidence": 0.23,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          905.0,
+          143.5
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.931,
+        "associated_expected_id": "F"
+      },
+      {
+        "region_id": "ocr_73c1e92b",
+        "text": "M_",
+        "raw_text": "M_",
+        "confidence": 0.21,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          533.2,
+          460.8
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.982,
+        "associated_expected_id": null
+      },
+      {
+        "region_id": "ocr_7f2e779e",
+        "text": "Ee",
+        "raw_text": "Ee",
+        "confidence": 0.21,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          351.8,
+          459.7
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.952,
+        "associated_expected_id": null
+      },
+      {
+        "region_id": "ocr_245b5a3d",
+        "text": "nl",
+        "raw_text": "nl",
+        "confidence": 0.13,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          268.5,
+          457.0
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.795,
+        "associated_expected_id": "L"
+      },
+      {
+        "region_id": "ocr_55f6747e",
+        "text": "f",
+        "raw_text": "f",
+        "confidence": 0.12,
+        "text_type": "UNKNOWN",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          474.2,
+          460.8
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.81,
+        "associated_expected_id": null
+      },
+      {
+        "region_id": "ocr_d46ec9c1",
+        "text": "oOo",
+        "raw_text": "oOo",
+        "confidence": 0.09,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          922.5,
+          457.7
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.984,
+        "associated_expected_id": null
+      },
+      {
+        "region_id": "ocr_afb792f1",
+        "text": "yO",
+        "raw_text": "yO",
+        "confidence": 0.08,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          47.7,
+          130.0
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.961,
+        "associated_expected_id": null
+      },
+      {
+        "region_id": "ocr_b31b945a",
+        "text": "f",
+        "raw_text": "f",
+        "confidence": 0.07,
+        "text_type": "UNKNOWN",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          291.8,
+          461.2
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.484,
+        "associated_expected_id": null
+      },
+      {
+        "region_id": "ocr_97f881a5",
+        "text": "l",
+        "raw_text": "l",
+        "confidence": 0.03,
+        "text_type": "UNKNOWN",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          253.2,
+          435.8
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.879,
+        "associated_expected_id": null
+      },
+      {
+        "region_id": "ocr_9f8771ad",
+        "text": "ry",
+        "raw_text": "ry",
+        "confidence": 0.01,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          69.0,
+          167.8
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.563,
+        "associated_expected_id": null
+      },
+      {
+        "region_id": "ocr_7b8e330f",
+        "text": "(Nn)",
+        "raw_text": "(Nn)",
+        "confidence": 0.0,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          727.0,
+          460.2
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.929,
+        "associated_expected_id": "N"
+      },
+      {
+        "region_id": "ocr_007b9c61",
+        "text": "fun",
+        "raw_text": "fun",
+        "confidence": 0.0,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          40.8,
+          166.3
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.532,
+        "associated_expected_id": null
+      },
+      {
+        "region_id": "ocr_68f68acc",
+        "text": "(0)",
+        "raw_text": "(0)",
+        "confidence": 0.0,
+        "text_type": "NUMERIC_CANDIDATE",
+        "is_numeric": true,
+        "parsed_value": 0.0,
+        "center": [
+          922.0,
+          459.2
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.995,
+        "associated_expected_id": null
+      },
+      {
+        "region_id": "ocr_89d695a7",
+        "text": "_TM~",
+        "raw_text": "_\u2122~",
+        "confidence": 0.0,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          268.5,
+          437.3
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.749,
+        "associated_expected_id": null
+      },
+      {
+        "region_id": "ocr_d7bff718",
+        "text": "/",
+        "raw_text": "/",
+        "confidence": 0.0,
+        "text_type": "UNKNOWN",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          474.5,
+          307.5
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.807,
+        "associated_expected_id": null
+      },
+      {
+        "region_id": "ocr_4169183c",
+        "text": "/",
+        "raw_text": "/",
+        "confidence": 0.0,
+        "text_type": "UNKNOWN",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          290.0,
+          308.2
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.791,
+        "associated_expected_id": null
+      },
+      {
+        "region_id": "ocr_eb1badf0",
+        "text": "f",
+        "raw_text": "f",
+        "confidence": 0.0,
+        "text_type": "UNKNOWN",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          866.8,
+          459.2
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.746,
+        "associated_expected_id": null
+      },
+      {
+        "region_id": "ocr_3e06e981",
+        "text": "s",
+        "raw_text": "s",
+        "confidence": 0.0,
+        "text_type": "UNKNOWN",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          253.3,
+          458.7
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.72,
+        "associated_expected_id": null
+      },
+      {
+        "region_id": "ocr_1d72a1da",
+        "text": "_",
+        "raw_text": "_",
+        "confidence": 0.0,
+        "text_type": "UNKNOWN",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          256.0,
+          447.5
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.837,
+        "associated_expected_id": null
+      },
+      {
+        "region_id": "ocr_5d407e42",
+        "text": "Critical",
+        "raw_text": "Critical",
+        "confidence": 0.96,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          294.5,
+          30.0
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.541,
+        "associated_expected_id": null
+      },
+      {
+        "region_id": "ocr_3d76e2b8",
+        "text": "Schedule",
+        "raw_text": "Schedule",
+        "confidence": 0.96,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          582.5,
+          30.5
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.786,
+        "associated_expected_id": null
+      },
+      {
+        "region_id": "ocr_3b2226eb",
+        "text": "Critical",
+        "raw_text": "Critical",
+        "confidence": 0.96,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          781.0,
+          676.5
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.648,
+        "associated_expected_id": null
+      },
+      {
+        "region_id": "ocr_1e2fd992",
+        "text": "Project",
+        "raw_text": "Project",
+        "confidence": 0.96,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          466.0,
+          33.0
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.624,
+        "associated_expected_id": null
+      },
+      {
+        "region_id": "ocr_a06bcacd",
+        "text": "117.00",
+        "raw_text": "117.00",
+        "confidence": 0.96,
+        "text_type": "NUMERIC_CANDIDATE",
+        "is_numeric": true,
+        "parsed_value": 117.0,
+        "center": [
+          1005.5,
+          677.0
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.594,
+        "associated_expected_id": null
+      },
+      {
+        "region_id": "ocr_0e48bf6a",
+        "text": "Image",
+        "raw_text": "Image",
+        "confidence": 0.96,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          836.5,
+          33.5
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.702,
+        "associated_expected_id": null
+      },
+      {
+        "region_id": "ocr_182e818c",
+        "text": "on",
+        "raw_text": "on",
+        "confidence": 0.96,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          770.5,
+          33.0
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.544,
+        "associated_expected_id": null
+      },
+      {
+        "region_id": "ocr_ed1be913",
+        "text": "Time:",
+        "raw_text": "Time:",
+        "confidence": 0.95,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          923.5,
+          677.0
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.728,
+        "associated_expected_id": null
+      },
+      {
+        "region_id": "ocr_f3917bc8",
+        "text": "Path",
+        "raw_text": "Path",
+        "confidence": 0.95,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          857.0,
+          676.5
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.956,
+        "associated_expected_id": null
+      },
+      {
+        "region_id": "ocr_21e693ad",
+        "text": "|Total",
+        "raw_text": "|Total",
+        "confidence": 0.81,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          697.5,
+          679.0
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.849,
+        "associated_expected_id": null
+      },
+      {
+        "region_id": "ocr_b607c332",
+        "text": ">",
+        "raw_text": ">",
+        "confidence": 0.55,
+        "text_type": "UNKNOWN",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          646.0,
+          459.0
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.988,
+        "associated_expected_id": null
+      },
+      {
+        "region_id": "ocr_5d850e8f",
+        "text": "J",
+        "raw_text": "J",
+        "confidence": 0.49,
+        "text_type": "UNKNOWN",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          971.0,
+          459.0
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.765,
+        "associated_expected_id": "O"
+      },
+      {
+        "region_id": "ocr_41eb6eb8",
+        "text": "st",
+        "raw_text": "st",
+        "confidence": 0.4,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          726.0,
+          459.0
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.926,
+        "associated_expected_id": null
+      },
+      {
+        "region_id": "ocr_04072122",
+        "text": "Le",
+        "raw_text": "Le",
+        "confidence": 0.35,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          876.0,
+          459.0
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.747,
+        "associated_expected_id": "O"
+      },
+      {
+        "region_id": "ocr_c5b76c68",
+        "text": "OL",
+        "raw_text": "OL",
+        "confidence": 0.32,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          266.0,
+          459.0
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.653,
+        "associated_expected_id": null
+      }
+    ]
+  },
+  {
+    "image": "11.jpeg",
+    "diagram_type": "AON",
+    "expected_items": 21,
+    "ocr_regions": 65,
+    "ocr_numeric_candidates": 19,
+    "association_results": 65,
+    "ambiguous_associations": 19,
+    "unmatched_regions": 10,
+    "normalized_numeric_regions": 0,
+    "normalization_corrections": 0,
+    "item_error_counts": {
+      "recognition_or_semantic_error": 11,
+      "duplicate_detections": 3,
+      "localization_error": 3,
+      "matched": 4
+    },
+    "id_exact_matches": 4,
+    "duration_exact_matches": 7,
+    "association_exact_matches": 16,
+    "items": [
+      {
+        "id": "A",
+        "expected_duration": 2.0,
+        "regions_inside": 1,
+        "regions_nearby": 1,
+        "id_match": false,
+        "duration_match": false,
+        "association_match": true,
+        "error_class": "recognition_or_semantic_error",
+        "observed_text": [
+          "(ea)"
+        ]
+      },
+      {
+        "id": "B",
+        "expected_duration": 2.0,
+        "regions_inside": 4,
+        "regions_nearby": 4,
+        "id_match": true,
+        "duration_match": true,
+        "association_match": true,
+        "error_class": "duplicate_detections",
+        "observed_text": [
+          "2.00",
+          "B",
+          "ea",
+          "4)"
+        ]
+      },
+      {
+        "id": "C",
+        "expected_duration": 3.0,
+        "regions_inside": 4,
+        "regions_nearby": 5,
+        "id_match": true,
+        "duration_match": true,
+        "association_match": true,
+        "error_class": "duplicate_detections",
+        "observed_text": [
+          "3.00",
+          "C",
+          "ea",
+          "@-BHEHEHBHEH"
+        ]
+      },
+      {
+        "id": "D",
+        "expected_duration": 6.0,
+        "regions_inside": 5,
+        "regions_nearby": 5,
+        "id_match": true,
+        "duration_match": true,
+        "association_match": true,
+        "error_class": "duplicate_detections",
+        "observed_text": [
+          "6.00",
+          "D",
+          "a)",
+          "pn",
+          "["
+        ]
+      },
+      {
+        "id": "H",
+        "expected_duration": 6.0,
+        "regions_inside": 1,
+        "regions_nearby": 2,
+        "id_match": false,
+        "duration_match": false,
+        "association_match": true,
+        "error_class": "recognition_or_semantic_error",
+        "observed_text": [
+          "are"
+        ]
+      },
+      {
+        "id": "I",
+        "expected_duration": 5.0,
+        "regions_inside": 1,
+        "regions_nearby": 4,
+        "id_match": false,
+        "duration_match": false,
+        "association_match": false,
+        "error_class": "recognition_or_semantic_error",
+        "observed_text": [
+          "|"
+        ]
+      },
+      {
+        "id": "J",
+        "expected_duration": 3.0,
+        "regions_inside": 1,
+        "regions_nearby": 5,
+        "id_match": false,
+        "duration_match": false,
+        "association_match": true,
+        "error_class": "recognition_or_semantic_error",
+        "observed_text": [
+          "(iP"
+        ]
+      },
+      {
+        "id": "K",
+        "expected_duration": 2.0,
+        "regions_inside": 0,
+        "regions_nearby": 3,
+        "id_match": false,
+        "duration_match": false,
+        "association_match": false,
+        "error_class": "localization_error",
+        "observed_text": []
+      },
+      {
+        "id": "L",
+        "expected_duration": 3.0,
+        "regions_inside": 0,
+        "regions_nearby": 4,
+        "id_match": false,
+        "duration_match": false,
+        "association_match": false,
+        "error_class": "localization_error",
+        "observed_text": []
+      },
+      {
+        "id": "M",
+        "expected_duration": 2.0,
+        "regions_inside": 0,
+        "regions_nearby": 6,
+        "id_match": false,
+        "duration_match": false,
+        "association_match": false,
+        "error_class": "localization_error",
+        "observed_text": []
+      },
+      {
+        "id": "N",
+        "expected_duration": 2.0,
+        "regions_inside": 1,
+        "regions_nearby": 5,
+        "id_match": false,
+        "duration_match": false,
+        "association_match": false,
+        "error_class": "recognition_or_semantic_error",
+        "observed_text": [
+          "["
+        ]
+      },
+      {
+        "id": "O",
+        "expected_duration": 1.0,
+        "regions_inside": 2,
+        "regions_nearby": 2,
+        "id_match": false,
+        "duration_match": true,
+        "association_match": true,
+        "error_class": "matched",
+        "observed_text": [
+          "TN",
+          "1.00"
+        ]
+      },
+      {
+        "id": "P",
+        "expected_duration": 2.0,
+        "regions_inside": 2,
+        "regions_nearby": 2,
+        "id_match": false,
+        "duration_match": true,
+        "association_match": true,
+        "error_class": "matched",
+        "observed_text": [
+          "ea",
+          "2.00"
+        ]
+      },
+      {
+        "id": "Q",
+        "expected_duration": 2.0,
+        "regions_inside": 3,
+        "regions_nearby": 3,
+        "id_match": true,
+        "duration_match": true,
+        "association_match": true,
+        "error_class": "matched",
+        "observed_text": [
+          "2.00",
+          "Q",
+          "eam"
+        ]
+      },
+      {
+        "id": "R",
+        "expected_duration": 2.0,
+        "regions_inside": 2,
+        "regions_nearby": 2,
+        "id_match": false,
+        "duration_match": true,
+        "association_match": true,
+        "error_class": "matched",
+        "observed_text": [
+          "(ea",
+          "2.00"
+        ]
+      },
+      {
+        "id": "E",
+        "expected_duration": 6.0,
+        "regions_inside": 1,
+        "regions_nearby": 1,
+        "id_match": false,
+        "duration_match": false,
+        "association_match": true,
+        "error_class": "recognition_or_semantic_error",
+        "observed_text": [
+          "ey"
+        ]
+      },
+      {
+        "id": "F",
+        "expected_duration": 2.0,
+        "regions_inside": 2,
+        "regions_nearby": 2,
+        "id_match": false,
+        "duration_match": false,
+        "association_match": true,
+        "error_class": "recognition_or_semantic_error",
+        "observed_text": [
+          "a",
+          "ica"
+        ]
+      },
+      {
+        "id": "G",
+        "expected_duration": 5.0,
+        "regions_inside": 2,
+        "regions_nearby": 2,
+        "id_match": false,
+        "duration_match": false,
+        "association_match": true,
+        "error_class": "recognition_or_semantic_error",
+        "observed_text": [
+          "Gea",
+          "eal"
+        ]
+      },
+      {
+        "id": "E1",
+        "expected_duration": 6.0,
+        "regions_inside": 2,
+        "regions_nearby": 2,
+        "id_match": false,
+        "duration_match": false,
+        "association_match": true,
+        "error_class": "recognition_or_semantic_error",
+        "observed_text": [
+          "(ea",
+          "|"
+        ]
+      },
+      {
+        "id": "F1",
+        "expected_duration": 2.0,
+        "regions_inside": 3,
+        "regions_nearby": 3,
+        "id_match": false,
+        "duration_match": false,
+        "association_match": true,
+        "error_class": "recognition_or_semantic_error",
+        "observed_text": [
+          "al",
+          "(ea",
+          "fata"
+        ]
+      },
+      {
+        "id": "G1",
+        "expected_duration": 5.0,
+        "regions_inside": 3,
+        "regions_nearby": 3,
+        "id_match": false,
+        "duration_match": false,
+        "association_match": true,
+        "error_class": "recognition_or_semantic_error",
+        "observed_text": [
+          "fie",
+          "ae",
+          "i"
+        ]
+      }
+    ],
+    "regions": [
+      {
+        "region_id": "ocr_d647e350",
+        "text": "6.00",
+        "raw_text": "6.00",
+        "confidence": 0.96,
+        "text_type": "NUMERIC_CANDIDATE",
+        "is_numeric": true,
+        "parsed_value": 6.0,
+        "center": [
+          479.3,
+          162.8
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.954,
+        "associated_expected_id": "D"
+      },
+      {
+        "region_id": "ocr_9c43b1be",
+        "text": "2.00",
+        "raw_text": "2.00",
+        "confidence": 0.96,
+        "text_type": "NUMERIC_CANDIDATE",
+        "is_numeric": true,
+        "parsed_value": 2.0,
+        "center": [
+          1204.0,
+          490.0
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.955,
+        "associated_expected_id": "Q"
+      },
+      {
+        "region_id": "ocr_fa87a3fc",
+        "text": "3.00",
+        "raw_text": "3.00",
+        "confidence": 0.96,
+        "text_type": "NUMERIC_CANDIDATE",
+        "is_numeric": true,
+        "parsed_value": 3.0,
+        "center": [
+          362.2,
+          162.7
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.955,
+        "associated_expected_id": "C"
+      },
+      {
+        "region_id": "ocr_3e6f5683",
+        "text": "2.00",
+        "raw_text": "2.00",
+        "confidence": 0.96,
+        "text_type": "NUMERIC_CANDIDATE",
+        "is_numeric": true,
+        "parsed_value": 2.0,
+        "center": [
+          252.0,
+          162.5
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.957,
+        "associated_expected_id": "B"
+      },
+      {
+        "region_id": "ocr_9dd9546e",
+        "text": "3.00",
+        "raw_text": "3.00",
+        "confidence": 0.96,
+        "text_type": "NUMERIC_CANDIDATE",
+        "is_numeric": true,
+        "parsed_value": 3.0,
+        "center": [
+          1009.5,
+          162.8
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.956,
+        "associated_expected_id": "L"
+      },
+      {
+        "region_id": "ocr_207d9d14",
+        "text": "D",
+        "raw_text": "D",
+        "confidence": 0.93,
+        "text_type": "UNKNOWN",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          479.8,
+          136.3
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.964,
+        "associated_expected_id": "D"
+      },
+      {
+        "region_id": "ocr_ff170a3a",
+        "text": "B",
+        "raw_text": "B",
+        "confidence": 0.93,
+        "text_type": "UNKNOWN",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          252.5,
+          136.5
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.963,
+        "associated_expected_id": "B"
+      },
+      {
+        "region_id": "ocr_426a90a8",
+        "text": "Q",
+        "raw_text": "Q",
+        "confidence": 0.92,
+        "text_type": "UNKNOWN",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          1204.5,
+          465.0
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.967,
+        "associated_expected_id": "Q"
+      },
+      {
+        "region_id": "ocr_4dc5aec6",
+        "text": "L",
+        "raw_text": "L",
+        "confidence": 0.92,
+        "text_type": "UNKNOWN",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          1010.2,
+          136.7
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.962,
+        "associated_expected_id": "L"
+      },
+      {
+        "region_id": "ocr_2843627e",
+        "text": "|",
+        "raw_text": "|",
+        "confidence": 0.72,
+        "text_type": "UNKNOWN",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          513.3,
+          159.9
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.507,
+        "associated_expected_id": null
+      },
+      {
+        "region_id": "ocr_66d9338e",
+        "text": "a\u00bb",
+        "raw_text": "a\u00bb",
+        "confidence": 0.7,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          1203.8,
+          700.0
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.951,
+        "associated_expected_id": "R"
+      },
+      {
+        "region_id": "ocr_9eaba31f",
+        "text": "al",
+        "raw_text": "al",
+        "confidence": 0.68,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          455.7,
+          367.8
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.834,
+        "associated_expected_id": "F1"
+      },
+      {
+        "region_id": "ocr_dbcd6607",
+        "text": "(ea",
+        "raw_text": "(ea",
+        "confidence": 0.66,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          1203.8,
+          587.0
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.951,
+        "associated_expected_id": "R"
+      },
+      {
+        "region_id": "ocr_f57940a1",
+        "text": "Gea",
+        "raw_text": "Gea",
+        "confidence": 0.64,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          528.5,
+          262.7
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.941,
+        "associated_expected_id": "G"
+      },
+      {
+        "region_id": "ocr_02cf6e85",
+        "text": "ea",
+        "raw_text": "ea",
+        "confidence": 0.64,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          1203.8,
+          365.5
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.95,
+        "associated_expected_id": "P"
+      },
+      {
+        "region_id": "ocr_4f4d2a88",
+        "text": "C",
+        "raw_text": "C",
+        "confidence": 0.63,
+        "text_type": "UNKNOWN",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          362.0,
+          136.5
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.965,
+        "associated_expected_id": "C"
+      },
+      {
+        "region_id": "ocr_c29ba71c",
+        "text": "|",
+        "raw_text": "|",
+        "confidence": 0.63,
+        "text_type": "UNKNOWN",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          624.5,
+          148.0
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.941,
+        "associated_expected_id": null
+      },
+      {
+        "region_id": "ocr_95475085",
+        "text": "fie",
+        "raw_text": "fie",
+        "confidence": 0.62,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          528.5,
+          364.0
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.945,
+        "associated_expected_id": "G1"
+      },
+      {
+        "region_id": "ocr_6bba212b",
+        "text": "are",
+        "raw_text": "are",
+        "confidence": 0.59,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          588.5,
+          160.6
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.924,
+        "associated_expected_id": "H"
+      },
+      {
+        "region_id": "ocr_f0e0f135",
+        "text": "ea",
+        "raw_text": "ea",
+        "confidence": 0.59,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          362.3,
+          154.7
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.947,
+        "associated_expected_id": "C"
+      },
+      {
+        "region_id": "ocr_423cbb83",
+        "text": "a",
+        "raw_text": "a",
+        "confidence": 0.59,
+        "text_type": "UNKNOWN",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          428.5,
+          268.0
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.957,
+        "associated_expected_id": null
+      },
+      {
+        "region_id": "ocr_cebdd11e",
+        "text": "|",
+        "raw_text": "|",
+        "confidence": 0.59,
+        "text_type": "UNKNOWN",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          1134.5,
+          159.0
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.846,
+        "associated_expected_id": "M"
+      },
+      {
+        "region_id": "ocr_49ced6a6",
+        "text": "(ea)",
+        "raw_text": "(ea)",
+        "confidence": 0.55,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          150.2,
+          159.1
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.929,
+        "associated_expected_id": "A"
+      },
+      {
+        "region_id": "ocr_4bcaf175",
+        "text": "eam",
+        "raw_text": "eam",
+        "confidence": 0.54,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          1203.8,
+          475.5
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.95,
+        "associated_expected_id": "Q"
+      },
+      {
+        "region_id": "ocr_d49941dc",
+        "text": "ea",
+        "raw_text": "ea",
+        "confidence": 0.54,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          252.0,
+          155.2
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.949,
+        "associated_expected_id": "B"
+      },
+      {
+        "region_id": "ocr_a6bea675",
+        "text": "Gon",
+        "raw_text": "Gon",
+        "confidence": 0.52,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          905.5,
+          154.9
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.949,
+        "associated_expected_id": "K"
+      },
+      {
+        "region_id": "ocr_159918ce",
+        "text": "ey",
+        "raw_text": "ey",
+        "confidence": 0.52,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          329.3,
+          268.3
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.921,
+        "associated_expected_id": "E"
+      },
+      {
+        "region_id": "ocr_28250ad6",
+        "text": "[",
+        "raw_text": "[",
+        "confidence": 0.52,
+        "text_type": "UNKNOWN",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          1171.0,
+          159.9
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.584,
+        "associated_expected_id": null
+      },
+      {
+        "region_id": "ocr_80c13dd7",
+        "text": "fon",
+        "raw_text": "fon",
+        "confidence": 0.5,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          1105.3,
+          155.3
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.948,
+        "associated_expected_id": "M"
+      },
+      {
+        "region_id": "ocr_6ee0a52f",
+        "text": "ian",
+        "raw_text": "ian",
+        "confidence": 0.48,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          694.3,
+          154.7
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.946,
+        "associated_expected_id": "I"
+      },
+      {
+        "region_id": "ocr_252f9405",
+        "text": "(ea",
+        "raw_text": "(ea",
+        "confidence": 0.48,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          329.3,
+          369.3
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.991,
+        "associated_expected_id": null
+      },
+      {
+        "region_id": "ocr_aa355196",
+        "text": "ae",
+        "raw_text": "ae",
+        "confidence": 0.47,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          825.3,
+          158.7
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.863,
+        "associated_expected_id": "J"
+      },
+      {
+        "region_id": "ocr_a3fe103d",
+        "text": "a)",
+        "raw_text": "a)",
+        "confidence": 0.45,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          480.0,
+          154.7
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.949,
+        "associated_expected_id": "D"
+      },
+      {
+        "region_id": "ocr_075831bd",
+        "text": "Sar",
+        "raw_text": "Sar",
+        "confidence": 0.43,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          1211.8,
+          159.9
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.914,
+        "associated_expected_id": "N"
+      },
+      {
+        "region_id": "ocr_a6216bb3",
+        "text": "TN",
+        "raw_text": "TN",
+        "confidence": 0.41,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          1203.8,
+          256.5
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.95,
+        "associated_expected_id": "O"
+      },
+      {
+        "region_id": "ocr_6e890944",
+        "text": "(ea",
+        "raw_text": "(ea",
+        "confidence": 0.39,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          428.3,
+          369.3
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.921,
+        "associated_expected_id": "F1"
+      },
+      {
+        "region_id": "ocr_8f824b94",
+        "text": "7.",
+        "raw_text": "7.",
+        "confidence": 0.37,
+        "text_type": "NUMERIC_CANDIDATE",
+        "is_numeric": true,
+        "parsed_value": 7.0,
+        "center": [
+          53.0,
+          152.9
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.946,
+        "associated_expected_id": "A"
+      },
+      {
+        "region_id": "ocr_6f160486",
+        "text": "ae",
+        "raw_text": "ae",
+        "confidence": 0.33,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          551.7,
+          369.3
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.865,
+        "associated_expected_id": "G1"
+      },
+      {
+        "region_id": "ocr_f8cae78a",
+        "text": "(iP",
+        "raw_text": "(iP",
+        "confidence": 0.32,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          776.3,
+          158.7
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.858,
+        "associated_expected_id": "J"
+      },
+      {
+        "region_id": "ocr_8245c3c4",
+        "text": "i",
+        "raw_text": "i",
+        "confidence": 0.31,
+        "text_type": "UNKNOWN",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          496.8,
+          369.3
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.736,
+        "associated_expected_id": null
+      },
+      {
+        "region_id": "ocr_cd36d2ec",
+        "text": "|",
+        "raw_text": "|",
+        "confidence": 0.31,
+        "text_type": "UNKNOWN",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          357.7,
+          367.8
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.824,
+        "associated_expected_id": "E1"
+      },
+      {
+        "region_id": "ocr_3426e5a8",
+        "text": "pn",
+        "raw_text": "pn",
+        "confidence": 0.3,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          479.8,
+          158.4
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.941,
+        "associated_expected_id": "D"
+      },
+      {
+        "region_id": "ocr_39e23f63",
+        "text": "iw",
+        "raw_text": "iw",
+        "confidence": 0.29,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          800.8,
+          155.4
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.943,
+        "associated_expected_id": "J"
+      },
+      {
+        "region_id": "ocr_c3379a67",
+        "text": "eal",
+        "raw_text": "eal",
+        "confidence": 0.26,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          552.8,
+          267.2
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.907,
+        "associated_expected_id": null
+      },
+      {
+        "region_id": "ocr_508269e9",
+        "text": "(SE",
+        "raw_text": "(SE",
+        "confidence": 0.22,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          1009.3,
+          154.9
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.95,
+        "associated_expected_id": "L"
+      },
+      {
+        "region_id": "ocr_b955a1c4",
+        "text": "tay",
+        "raw_text": "tay",
+        "confidence": 0.19,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          801.8,
+          158.7
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.938,
+        "associated_expected_id": "J"
+      },
+      {
+        "region_id": "ocr_16678219",
+        "text": "%",
+        "raw_text": "%",
+        "confidence": 0.19,
+        "text_type": "UNKNOWN",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          81.7,
+          146.5
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.583,
+        "associated_expected_id": null
+      },
+      {
+        "region_id": "ocr_86623bc6",
+        "text": "[",
+        "raw_text": "[",
+        "confidence": 0.08,
+        "text_type": "UNKNOWN",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          446.5,
+          159.9
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.499,
+        "associated_expected_id": null
+      },
+      {
+        "region_id": "ocr_34764e6f",
+        "text": "4)",
+        "raw_text": "4)",
+        "confidence": 0.03,
+        "text_type": "NUMERIC_CANDIDATE",
+        "is_numeric": true,
+        "parsed_value": 4.0,
+        "center": [
+          280.3,
+          159.8
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.833,
+        "associated_expected_id": "B"
+      },
+      {
+        "region_id": "ocr_49ca81c3",
+        "text": "(it)",
+        "raw_text": "(it)",
+        "confidence": 0.0,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          390.3,
+          158.0
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.834,
+        "associated_expected_id": "C"
+      },
+      {
+        "region_id": "ocr_27f376f6",
+        "text": "2.00",
+        "raw_text": "2.00",
+        "confidence": 0.96,
+        "text_type": "NUMERIC_CANDIDATE",
+        "is_numeric": true,
+        "parsed_value": 2.0,
+        "center": [
+          1204.0,
+          601.5
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.956,
+        "associated_expected_id": "R"
+      },
+      {
+        "region_id": "ocr_e8f4fe7c",
+        "text": "5.00",
+        "raw_text": "5.00",
+        "confidence": 0.95,
+        "text_type": "NUMERIC_CANDIDATE",
+        "is_numeric": true,
+        "parsed_value": 5.0,
+        "center": [
+          694.0,
+          162.5
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.955,
+        "associated_expected_id": "I"
+      },
+      {
+        "region_id": "ocr_26b019f5",
+        "text": "J",
+        "raw_text": "J",
+        "confidence": 0.95,
+        "text_type": "UNKNOWN",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          799.5,
+          138.5
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.968,
+        "associated_expected_id": "J"
+      },
+      {
+        "region_id": "ocr_24d529ec",
+        "text": "3.00",
+        "raw_text": "3.00",
+        "confidence": 0.94,
+        "text_type": "NUMERIC_CANDIDATE",
+        "is_numeric": true,
+        "parsed_value": 3.0,
+        "center": [
+          801.0,
+          163.0
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.954,
+        "associated_expected_id": "J"
+      },
+      {
+        "region_id": "ocr_63daeaab",
+        "text": "2.00",
+        "raw_text": "2.00",
+        "confidence": 0.94,
+        "text_type": "NUMERIC_CANDIDATE",
+        "is_numeric": true,
+        "parsed_value": 2.0,
+        "center": [
+          1204.0,
+          379.5
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.957,
+        "associated_expected_id": "P"
+      },
+      {
+        "region_id": "ocr_820ba054",
+        "text": "2.00",
+        "raw_text": "2.00",
+        "confidence": 0.93,
+        "text_type": "NUMERIC_CANDIDATE",
+        "is_numeric": true,
+        "parsed_value": 2.0,
+        "center": [
+          1204.0,
+          162.0
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.957,
+        "associated_expected_id": "N"
+      },
+      {
+        "region_id": "ocr_88b88ea9",
+        "text": "M",
+        "raw_text": "M",
+        "confidence": 0.92,
+        "text_type": "UNKNOWN",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          1105.5,
+          136.5
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.963,
+        "associated_expected_id": "M"
+      },
+      {
+        "region_id": "ocr_c79fd542",
+        "text": "N",
+        "raw_text": "N",
+        "confidence": 0.91,
+        "text_type": "UNKNOWN",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          1204.0,
+          136.5
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.965,
+        "associated_expected_id": "N"
+      },
+      {
+        "region_id": "ocr_e406389d",
+        "text": "2.00",
+        "raw_text": "2.00",
+        "confidence": 0.9,
+        "text_type": "NUMERIC_CANDIDATE",
+        "is_numeric": true,
+        "parsed_value": 2.0,
+        "center": [
+          1106.0,
+          162.5
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.956,
+        "associated_expected_id": "M"
+      },
+      {
+        "region_id": "ocr_de08e3e4",
+        "text": "1.00",
+        "raw_text": "1.00",
+        "confidence": 0.89,
+        "text_type": "NUMERIC_CANDIDATE",
+        "is_numeric": true,
+        "parsed_value": 1.0,
+        "center": [
+          1204.0,
+          270.5
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.957,
+        "associated_expected_id": "O"
+      },
+      {
+        "region_id": "ocr_ba49f9b9",
+        "text": "2.00",
+        "raw_text": "2.00",
+        "confidence": 0.84,
+        "text_type": "NUMERIC_CANDIDATE",
+        "is_numeric": true,
+        "parsed_value": 2.0,
+        "center": [
+          905.0,
+          162.5
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.956,
+        "associated_expected_id": "K"
+      },
+      {
+        "region_id": "ocr_50ccd510",
+        "text": "|",
+        "raw_text": "|",
+        "confidence": 0.62,
+        "text_type": "UNKNOWN",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          694.0,
+          136.5
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.964,
+        "associated_expected_id": "I"
+      },
+      {
+        "region_id": "ocr_67411ff6",
+        "text": "fata",
+        "raw_text": "fata",
+        "confidence": 0.29,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          429.0,
+          356.5
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.873,
+        "associated_expected_id": null
+      },
+      {
+        "region_id": "ocr_8fdfb0cd",
+        "text": "ica",
+        "raw_text": "ica",
+        "confidence": 0.28,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          428.5,
+          255.5
+        ],
+        "association_ambiguous": true,
+        "association_score": 0.846,
+        "associated_expected_id": "F"
+      },
+      {
+        "region_id": "ocr_611b79ba",
+        "text": "@-BHEHEHBHEH",
+        "raw_text": "@-BHEHEHBHEH",
+        "confidence": 0.0,
+        "text_type": "TEXT_LABEL_CANDIDATE",
+        "is_numeric": false,
+        "parsed_value": null,
+        "center": [
+          342.5,
+          147.0
+        ],
+        "association_ambiguous": false,
+        "association_score": 0.76,
+        "associated_expected_id": "C"
+      }
+    ]
+  }
+]
