@@ -1,0 +1,30 @@
+{
+  "schema_version": "1.0",
+  "phase": "15.6",
+  "measurement_only": true,
+  "production_outcome_data_available": false,
+  "sessions": 0,
+  "sessions_with_decisions": 0,
+  "items": 0,
+  "decision_counts": {},
+  "overall": {
+    "total": 0,
+    "resolved": 0,
+    "pending": 0,
+    "accepted": 0,
+    "corrected": 0,
+    "rejected": 0,
+    "_unresolved_blockers": 0,
+    "resolution_rate": null,
+    "correction_rate": null,
+    "unresolved_blocker_rate": null,
+    "mean_confidence": null
+  },
+  "by_tier": {},
+  "by_type": {},
+  "limitations": [
+    "No persisted production reviewer sessions were found in this repository at measurement time.",
+    "Evaluation-only gold corrections are not counted as reviewer outcomes.",
+    "False-review rate requires an explicit reviewer outcome label or adjudicated ground truth."
+  ]
+}
