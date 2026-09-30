@@ -1375,8 +1375,69 @@ def build_review_summary(candidate: ReviewedGraphCandidate) -> ReviewSummary:
 
 
 # =============================================================================
-# Review session factory
+# Review session construction
 # =============================================================================
+
+
+def _calibrate_activity_review(
+    activity: Any, reasons: List[str]
+) -> Dict[str, Any]:
+    """Classify review priority without auto-accepting any activity."""
+    status = getattr(getattr(activity, "semantic_status", None), "value", "")
+    activity_id = getattr(activity, "activity_id", "") or ""
+    confidence = float(getattr(activity, "confidence", 0.0) or 0.0)
+    if activity_id.startswith("INFERRED_") or status == "review_required":
+        tier = "BLOCKING_REVIEW"
+    elif confidence < 0.5:
+        tier = "HIGH_PRIORITY_REVIEW"
+    elif confidence < 0.7:
+        tier = "STANDARD_REVIEW"
+    else:
+        tier = "LOW_RISK_REVIEW"
+    return {
+        "calibration": "phase15.5",
+        "tier": tier,
+        "confidence": round(confidence, 3),
+        "auto_accept": False,
+        "reason_codes": list(reasons),
+    }
+
+
+def _calibrate_duration_review(
+    duration: float, reasons: List[str], confidence: float
+) -> Dict[str, Any]:
+    """Classify duration review urgency while keeping CPM blocking intact."""
+    if duration <= 0:
+        tier = "BLOCKING_REVIEW"
+    elif confidence < 0.4:
+        tier = "HIGH_PRIORITY_REVIEW"
+    else:
+        tier = "STANDARD_REVIEW"
+    return {
+        "calibration": "phase15.5",
+        "tier": tier,
+        "confidence": round(confidence, 3),
+        "auto_accept": False,
+        "cpm_blocked_until_resolved": duration <= 0,
+        "reason_codes": list(reasons),
+    }
+
+
+def _calibrate_dependency_review(confidence: float) -> Dict[str, Any]:
+    """Triage arrow reviews by confidence; never auto-accept a relation."""
+    if confidence < 0.4:
+        tier = "HIGH_RISK_REVIEW"
+    elif confidence < 0.75:
+        tier = "STANDARD_REVIEW"
+    else:
+        tier = "STRONG_EVIDENCE_REVIEW"
+    return {
+        "calibration": "phase15.5",
+        "tier": tier,
+        "confidence": round(confidence, 3),
+        "auto_accept": False,
+        "relationship_gate_unchanged": True,
+    }
 
 
 def build_review_session(
@@ -1462,12 +1523,14 @@ def build_review_session(
         if not reasons:
             continue
 
+        calibration = _calibrate_activity_review(act, reasons)
         evidence = [
             ReviewEvidence(
                 source=e.source_phase,
                 reference_ids=list(getattr(e, "source_ids", []) or []),
                 description=getattr(e, "description", ""),
                 confidence=getattr(e, "confidence_contribution", 0.0) or 0.0,
+                metadata={"review_calibration": calibration},
             )
             for e in getattr(act, "evidence", []) or []
         ]
@@ -1512,6 +1575,10 @@ def build_review_session(
             reasons.append("low-confidence OCR duration")
         if not reasons:
             continue
+        duration_confidence = max(evidence_confs, default=0.0)
+        calibration = _calibrate_duration_review(
+            duration, reasons, duration_confidence
+        )
         session.durations.append(DurationReview(
             geometric_node_id=node,
             activity_id=act.activity_id,
@@ -1523,6 +1590,7 @@ def build_review_session(
                     reference_ids=list(getattr(e, "source_ids", []) or []),
                     description=getattr(e, "description", ""),
                     confidence=getattr(e, "confidence_contribution", 0.0) or 0.0,
+                    metadata={"review_calibration": calibration},
                 )
                 for e in getattr(act, "evidence", []) or []
             ],
@@ -1546,6 +1614,7 @@ def build_review_session(
             )
             arrow_id = getattr(vdep, "arrow_id", None)
             confidence = float(getattr(vdep, "confidence_score", 0.0) or 0.0)
+            calibration = _calibrate_dependency_review(confidence)
             cur_src = node_to_activity.get(src_node) if src_node else None
             cur_tgt = node_to_activity.get(tgt_node) if tgt_node else None
             evidence = [
@@ -1556,6 +1625,7 @@ def build_review_session(
                     or "ambiguous arrow pair",
                     confidence=confidence,
                     metadata={
+                        "review_calibration": calibration,
                         "source_boundary": getattr(
                             getattr(vdep, "evidence", None),
                             "source_boundary_intersection", None,
@@ -1594,6 +1664,47 @@ def build_review_session(
                 provenance=provenance,
             ))
 
+    calibration_items = (
+        list(session.activities) + list(session.durations) + list(session.dependencies)
+    )
+    tier_counts: Dict[str, int] = {}
+    for item in calibration_items:
+        if isinstance(item, ActivityReview):
+            if item.current_activity_id and item.current_activity_id.startswith("INFERRED_"):
+                fallback_tier = "BLOCKING_REVIEW"
+            elif item.confidence < 0.5:
+                fallback_tier = "HIGH_PRIORITY_REVIEW"
+            elif item.confidence < 0.7:
+                fallback_tier = "STANDARD_REVIEW"
+            else:
+                fallback_tier = "LOW_RISK_REVIEW"
+        elif isinstance(item, DurationReview):
+            fallback_tier = (
+                "BLOCKING_REVIEW"
+                if (item.current_duration or 0.0) <= 0
+                else "STANDARD_REVIEW"
+            )
+        else:
+            fallback_tier = _calibrate_dependency_review(
+                float(getattr(item, "confidence", 0.0) or 0.0)
+            )["tier"]
+        item_tier = None
+        for evidence in getattr(item, "evidence", []) or []:
+            calibration = getattr(evidence, "metadata", {}).get(
+                "review_calibration", {}
+            )
+            tier = calibration.get("tier")
+            if tier:
+                item_tier = tier
+                break
+        tier = item_tier or fallback_tier
+        tier_counts[tier] = tier_counts.get(tier, 0) + 1
+    session.metadata["review_calibration"] = {
+        "policy": "phase15.5",
+        "auto_accept_enabled": False,
+        "relationship_gate_unchanged": True,
+        "tier_counts": tier_counts,
+    }
     return session
 
 
