@@ -22,9 +22,11 @@ pipeline output would make the benchmark circular and meaningless.
 - `5.json` and `11.json` are also **COMPLETE** manually verified AON
   references, with visible node geometry, durations, and dependencies.
 - `3.json` and `6.json` are **COMPLETE** manually verified AOA references.
-- The other 3 files are **drafts seeded from detector output** — ids,
-  positions and a dependency guess are already filled, but a human must
-  verify them against the image before they are trustworthy.
+- `2.json`, `4.json`, and `7.json` were completed in Phase 16A-Lite from
+  manual pixel inspection. Repeated labels in `4.jpeg` are disambiguated
+  with suffixes, and Arabic labels in `7.jpeg` are retained as their visible
+  Latin activity ids. All eight corpus annotations now validate with zero
+  errors and zero warnings.
 
 Until an entry is filled in (activities/events/dependencies), the annotation
 is an honest `UNCERTAIN` placeholder and the accuracy report shows the image

@@ -1,0 +1,2559 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-09-30T18:56:01.667039+00:00",
+  "pert_analyzer_version": "0.1.0",
+  "dataset_root": "/home/ubuntu/PERT-Critical-Path-Analyzer2/tests/test_data/Imag PERT",
+  "images_discovered": 8,
+  "images_analyzed": 8,
+  "bottleneck_summary": [
+    {
+      "failure_class": "GRAPH_BUILD",
+      "image_count": 8
+    }
+  ],
+  "summary": {
+    "images_discovered": 8,
+    "images_analyzed": 8,
+    "automatic_success": 0,
+    "automatic_review_required": 8,
+    "fatal_failures": 0,
+    "with_ground_truth": 0,
+    "without_ground_truth": 8,
+    "with_accuracy_annotation": 8,
+    "annotation_statuses": {
+      "COMPLETE": 8
+    },
+    "largest_activity_count_inflation": 37,
+    "largest_activity_count_inflation_image": "4.jpeg"
+  },
+  "images": [
+    {
+      "relative_path": "1.png",
+      "width": 1361,
+      "height": 752,
+      "file_format": "PNG",
+      "file_size_bytes": 48134,
+      "duration_seconds": 29.701,
+      "diagram_type": "AON",
+      "diagram_confidence": 1.0,
+      "final_status": "REVIEW_REQUIRED",
+      "outcome": "AUTOMATIC_REVIEW_REQUIRED",
+      "stage_metrics": {
+        "raw_shapes": 34,
+        "contours_analyzed": 274,
+        "shapes_filtered": 191,
+        "duplicates_suppressed": 49,
+        "final_candidate_nodes": 31,
+        "raw_arrow_segments": 600,
+        "lines_detected": 600,
+        "lines_filtered": 411,
+        "segments_merged": 144,
+        "arrows_detected": 43,
+        "arrow_candidates": 43,
+        "arrow_deduplicated": 0,
+        "validated_aoa_arrows": 43,
+        "aoa_rejected_arrows": 0,
+        "aoa_context": false,
+        "ocr_regions": 204,
+        "ocr_labels": 204,
+        "ocr_id_candidates": 0,
+        "ocr_numeric_candidates": 33,
+        "reconstructed_activities": 22,
+        "reconstructed_events": 1,
+        "reconstructed_dependencies": 11,
+        "raw_arrow_candidates": 43,
+        "deduplicated_arrows": 38,
+        "validated_node_pairs": 38,
+        "validated_dependencies": 11,
+        "review_candidate_dependencies": 23,
+        "rejected_dependencies": 2,
+        "self_loops": 0,
+        "duplicate_edges": 2,
+        "review_items": 29,
+        "graph_status": "INVALID",
+        "graph_is_valid": false,
+        "cpm_gate": "BLOCKED_REVIEW",
+        "cpm_project_duration": "UNAVAILABLE",
+        "critical_path_count": "UNAVAILABLE",
+        "pert_status": "UNAVAILABLE",
+        "diagram_type": "AON"
+      },
+      "stage_progression": [
+        {
+          "stage": "Shape/candidate expansion (measured)",
+          "counts": {
+            "contours_analyzed": 274,
+            "raw_shapes": 34,
+            "final_candidate_nodes": 31,
+            "reconstructed_activities": 22
+          }
+        },
+        {
+          "stage": "Arrow/dependency pipeline (measured)",
+          "counts": {
+            "raw_arrow_segments": 600,
+            "deduplicated_arrows": 38,
+            "validated_node_pairs": 38,
+            "validated_dependencies": 11,
+            "reconstructed_dependencies": 11
+          }
+        },
+        {
+          "stage": "OCR text (measured)",
+          "counts": {
+            "ocr_regions": 204,
+            "ocr_labels": 204,
+            "ocr_id_candidates": 0,
+            "ocr_numeric_candidates": 33
+          }
+        },
+        {
+          "stage": "Graph validation / CPM / PERT",
+          "counts": {
+            "graph_status": "INVALID",
+            "graph_is_valid": false,
+            "cpm_gate": "BLOCKED_REVIEW",
+            "cpm_project_duration": "UNAVAILABLE",
+            "critical_path_count": "UNAVAILABLE",
+            "pert_status": "UNAVAILABLE"
+          }
+        }
+      ],
+      "stage_timings": {
+        "Loading image": "UNAVAILABLE",
+        "Preprocessing": "UNAVAILABLE",
+        "Detecting shapes": "UNAVAILABLE",
+        "Classifying diagram": "UNAVAILABLE",
+        "Detecting arrows": "UNAVAILABLE",
+        "Extracting text (OCR)": "UNAVAILABLE",
+        "Associating text": "UNAVAILABLE",
+        "Reconstructing diagram": "UNAVAILABLE",
+        "Building graph": "UNAVAILABLE",
+        "Validating and analyzing": "UNAVAILABLE",
+        "Complete": "UNAVAILABLE",
+        "Review preparation": "UNAVAILABLE"
+      },
+      "failure_classification": {
+        "stage": "Building graph",
+        "failure_class": "GRAPH_BUILD",
+        "evidence": {
+          "graph_status": "INVALID",
+          "cpm_gate": "BLOCKED_REVIEW",
+          "reconstructed_activities": 22
+        }
+      },
+      "error": null,
+      "warnings": [],
+      "ground_truth": null,
+      "gt_compare": null,
+      "accuracy_metrics": {
+        "annotation_status": "COMPLETE",
+        "annotation_uncertain": {},
+        "notes": "Canonical gold standard from tests/test_data/reference_diagrams/reference_aon_expected.json (verified CPM: duration=54, 16 critical paths). Positions are box centres derived from the canonical corner anchors plus the uniform renderer box size 118x78.",
+        "expected_activities": 22,
+        "expected_events": null,
+        "expected_dependencies": 28,
+        "excluded": {
+          "count": 0,
+          "activities": 0,
+          "events": 0,
+          "dependencies": 0,
+          "note": "Uncertain/excluded reference items are never part of metric math."
+        },
+        "available": true,
+        "diagram_type": "AON",
+        "activities": {
+          "true_positives": 22,
+          "false_positives": 0,
+          "false_negatives": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "activity_counts": {
+          "expected": 22,
+          "detected": 22,
+          "ratio": 1.0
+        },
+        "node_matching": {
+          "matched": 22,
+          "gt_unmatched": [],
+          "det_unmatched": []
+        },
+        "ids": {
+          "compared": 22,
+          "id_accuracy": 0.5455
+        },
+        "durations": {
+          "compared": 22,
+          "expected_with_duration": 22,
+          "exact_matches": 13,
+          "exact_match_accuracy": 0.5909,
+          "mean_abs_error": 1.0909,
+          "mean_relative_error": 0.5265
+        },
+        "dependencies": {
+          "expected_edges": 28,
+          "detected_edges": 11,
+          "incomparable_detected_edges": 0,
+          "directed": {
+            "true_positives": 11,
+            "false_positives": 0,
+            "false_negatives": 17,
+            "precision": 1.0,
+            "recall": 0.3929,
+            "f1": 0.5641
+          },
+          "undirected_pair": {
+            "true_positives": 11,
+            "false_positives": 0,
+            "false_negatives": 17,
+            "precision": 1.0,
+            "recall": 0.3929,
+            "f1": 0.5641
+          },
+          "direction": {
+            "correct_pairs": 11,
+            "reversed_pairs": 0,
+            "direction_accuracy": 1.0
+          }
+        },
+        "detected_dependencies": 11
+      },
+      "activity_ids": [
+        "A",
+        "B_1",
+        "B_2",
+        "D",
+        "E",
+        "F",
+        "G",
+        "H",
+        "J",
+        "K",
+        "L",
+        "M",
+        "N",
+        "P",
+        "Q",
+        "R",
+        "S",
+        "T",
+        "U",
+        "V",
+        "Z_1",
+        "Z_2"
+      ],
+      "dependency_edges": [
+        [
+          "V",
+          "U"
+        ],
+        [
+          "U",
+          "T"
+        ],
+        [
+          "Q",
+          "P"
+        ],
+        [
+          "S",
+          "J"
+        ],
+        [
+          "L",
+          "N"
+        ],
+        [
+          "T",
+          "Z_2"
+        ],
+        [
+          "A",
+          "Z_1"
+        ],
+        [
+          "J",
+          "K"
+        ],
+        [
+          "P",
+          "B_2"
+        ],
+        [
+          "Z_2",
+          "R"
+        ],
+        [
+          "R",
+          "Q"
+        ]
+      ],
+      "extra": {}
+    },
+    {
+      "relative_path": "11.jpeg",
+      "width": 1264,
+      "height": 843,
+      "file_format": "JPEG",
+      "file_size_bytes": 145957,
+      "duration_seconds": 19.118,
+      "diagram_type": "AON",
+      "diagram_confidence": 0.7946859903381643,
+      "final_status": "REVIEW_REQUIRED",
+      "outcome": "AUTOMATIC_REVIEW_REQUIRED",
+      "stage_metrics": {
+        "raw_shapes": 23,
+        "contours_analyzed": 11882,
+        "shapes_filtered": 11856,
+        "duplicates_suppressed": 3,
+        "final_candidate_nodes": 23,
+        "raw_arrow_segments": 557,
+        "lines_detected": 557,
+        "lines_filtered": 306,
+        "segments_merged": 226,
+        "arrows_detected": 21,
+        "arrow_candidates": 23,
+        "arrow_deduplicated": 2,
+        "validated_aoa_arrows": 21,
+        "aoa_rejected_arrows": 0,
+        "aoa_context": false,
+        "ocr_regions": 65,
+        "ocr_labels": 65,
+        "ocr_id_candidates": 0,
+        "ocr_numeric_candidates": 15,
+        "reconstructed_activities": 21,
+        "reconstructed_events": 2,
+        "reconstructed_dependencies": 5,
+        "raw_arrow_candidates": 21,
+        "deduplicated_arrows": 19,
+        "validated_node_pairs": 19,
+        "validated_dependencies": 5,
+        "review_candidate_dependencies": 14,
+        "rejected_dependencies": 0,
+        "self_loops": 0,
+        "duplicate_edges": 0,
+        "review_items": 25,
+        "graph_status": "INVALID",
+        "graph_is_valid": false,
+        "cpm_gate": "BLOCKED_REVIEW",
+        "cpm_project_duration": "UNAVAILABLE",
+        "critical_path_count": "UNAVAILABLE",
+        "pert_status": "UNAVAILABLE",
+        "diagram_type": "AON"
+      },
+      "stage_progression": [
+        {
+          "stage": "Shape/candidate expansion (measured)",
+          "counts": {
+            "contours_analyzed": 11882,
+            "raw_shapes": 23,
+            "final_candidate_nodes": 23,
+            "reconstructed_activities": 21
+          }
+        },
+        {
+          "stage": "Arrow/dependency pipeline (measured)",
+          "counts": {
+            "raw_arrow_segments": 557,
+            "deduplicated_arrows": 19,
+            "validated_node_pairs": 19,
+            "validated_dependencies": 5,
+            "reconstructed_dependencies": 5
+          }
+        },
+        {
+          "stage": "OCR text (measured)",
+          "counts": {
+            "ocr_regions": 65,
+            "ocr_labels": 65,
+            "ocr_id_candidates": 0,
+            "ocr_numeric_candidates": 15
+          }
+        },
+        {
+          "stage": "Graph validation / CPM / PERT",
+          "counts": {
+            "graph_status": "INVALID",
+            "graph_is_valid": false,
+            "cpm_gate": "BLOCKED_REVIEW",
+            "cpm_project_duration": "UNAVAILABLE",
+            "critical_path_count": "UNAVAILABLE",
+            "pert_status": "UNAVAILABLE"
+          }
+        }
+      ],
+      "stage_timings": {
+        "Loading image": "UNAVAILABLE",
+        "Preprocessing": "UNAVAILABLE",
+        "Detecting shapes": "UNAVAILABLE",
+        "Classifying diagram": "UNAVAILABLE",
+        "Detecting arrows": "UNAVAILABLE",
+        "Extracting text (OCR)": "UNAVAILABLE",
+        "Associating text": "UNAVAILABLE",
+        "Reconstructing diagram": "UNAVAILABLE",
+        "Building graph": "UNAVAILABLE",
+        "Validating and analyzing": "UNAVAILABLE",
+        "Complete": "UNAVAILABLE",
+        "Review preparation": "UNAVAILABLE"
+      },
+      "failure_classification": {
+        "stage": "Building graph",
+        "failure_class": "GRAPH_BUILD",
+        "evidence": {
+          "graph_status": "INVALID",
+          "cpm_gate": "BLOCKED_REVIEW",
+          "reconstructed_activities": 21
+        }
+      },
+      "error": null,
+      "warnings": [],
+      "ground_truth": null,
+      "gt_compare": null,
+      "accuracy_metrics": {
+        "annotation_status": "COMPLETE",
+        "annotation_uncertain": {},
+        "notes": "Manually verified from the uploaded AON image. Start and End circles are external terminals and are excluded from activity dependencies. The two parallel branches B-E-F-G-H and B-E1-F1-G1-H are both explicit dependencies. Coordinates are approximate pixel geometry from the visible node boundaries.",
+        "expected_activities": 21,
+        "expected_events": null,
+        "expected_dependencies": 22,
+        "excluded": {
+          "count": 0,
+          "activities": 0,
+          "events": 0,
+          "dependencies": 0,
+          "note": "Uncertain/excluded reference items are never part of metric math."
+        },
+        "available": true,
+        "diagram_type": "AON",
+        "activities": {
+          "true_positives": 21,
+          "false_positives": 0,
+          "false_negatives": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "activity_counts": {
+          "expected": 21,
+          "detected": 21,
+          "ratio": 1.0
+        },
+        "node_matching": {
+          "matched": 21,
+          "gt_unmatched": [],
+          "det_unmatched": []
+        },
+        "ids": {
+          "compared": 21,
+          "id_accuracy": 0.2381
+        },
+        "durations": {
+          "compared": 21,
+          "expected_with_duration": 21,
+          "exact_matches": 10,
+          "exact_match_accuracy": 0.4762,
+          "mean_abs_error": 1.3333,
+          "mean_relative_error": 0.4159
+        },
+        "dependencies": {
+          "expected_edges": 22,
+          "detected_edges": 5,
+          "incomparable_detected_edges": 0,
+          "directed": {
+            "true_positives": 3,
+            "false_positives": 2,
+            "false_negatives": 19,
+            "precision": 0.6,
+            "recall": 0.1364,
+            "f1": 0.2222
+          },
+          "undirected_pair": {
+            "true_positives": 4,
+            "false_positives": 1,
+            "false_negatives": 18,
+            "precision": 0.8,
+            "recall": 0.1818,
+            "f1": 0.2963
+          },
+          "direction": {
+            "correct_pairs": 3,
+            "reversed_pairs": 1,
+            "direction_accuracy": 0.75
+          }
+        },
+        "detected_dependencies": 5
+      },
+      "activity_ids": [
+        "A",
+        "ARE",
+        "B",
+        "C",
+        "D",
+        "EA",
+        "EY",
+        "FON",
+        "GEA",
+        "GON",
+        "I",
+        "IAN",
+        "INFERRED_001",
+        "INFERRED_016",
+        "INFERRED_017",
+        "INFERRED_021",
+        "IW",
+        "L",
+        "Q",
+        "SAR",
+        "TN"
+      ],
+      "dependency_edges": [
+        [
+          "INFERRED_016",
+          "B"
+        ],
+        [
+          "Q",
+          "INFERRED_021"
+        ],
+        [
+          "EY",
+          "A"
+        ],
+        [
+          "A",
+          "GEA"
+        ],
+        [
+          "A",
+          "INFERRED_017"
+        ]
+      ],
+      "extra": {}
+    },
+    {
+      "relative_path": "2.jpg",
+      "width": 2340,
+      "height": 1080,
+      "file_format": "JPEG",
+      "file_size_bytes": 213745,
+      "duration_seconds": 13.057,
+      "diagram_type": "AOA",
+      "diagram_confidence": 1.0,
+      "final_status": "REVIEW_REQUIRED",
+      "outcome": "AUTOMATIC_REVIEW_REQUIRED",
+      "stage_metrics": {
+        "raw_shapes": 14,
+        "contours_analyzed": 3556,
+        "shapes_filtered": 3538,
+        "duplicates_suppressed": 4,
+        "final_candidate_nodes": 14,
+        "raw_arrow_segments": 405,
+        "lines_detected": 405,
+        "lines_filtered": 52,
+        "segments_merged": 276,
+        "arrows_detected": 29,
+        "arrow_candidates": 70,
+        "arrow_deduplicated": 5,
+        "validated_aoa_arrows": 29,
+        "aoa_rejected_arrows": 36,
+        "aoa_context": true,
+        "ocr_regions": 38,
+        "ocr_labels": 38,
+        "ocr_id_candidates": 0,
+        "ocr_numeric_candidates": 5,
+        "reconstructed_activities": 29,
+        "reconstructed_events": 9,
+        "reconstructed_dependencies": 33,
+        "raw_arrow_candidates": "UNAVAILABLE",
+        "deduplicated_arrows": "UNAVAILABLE",
+        "validated_node_pairs": "UNAVAILABLE",
+        "validated_dependencies": "UNAVAILABLE",
+        "review_candidate_dependencies": "UNAVAILABLE",
+        "rejected_dependencies": "UNAVAILABLE",
+        "self_loops": "UNAVAILABLE",
+        "duplicate_edges": "UNAVAILABLE",
+        "review_items": 39,
+        "graph_status": "INVALID",
+        "graph_is_valid": false,
+        "cpm_gate": "BLOCKED_REVIEW",
+        "cpm_project_duration": "UNAVAILABLE",
+        "critical_path_count": "UNAVAILABLE",
+        "pert_status": "UNAVAILABLE",
+        "diagram_type": "AOA"
+      },
+      "stage_progression": [
+        {
+          "stage": "Shape/candidate expansion (measured)",
+          "counts": {
+            "contours_analyzed": 3556,
+            "raw_shapes": 14,
+            "final_candidate_nodes": 14,
+            "reconstructed_activities": 29
+          }
+        },
+        {
+          "stage": "Arrow/dependency pipeline (measured)",
+          "counts": {
+            "raw_arrow_segments": 405,
+            "deduplicated_arrows": "UNAVAILABLE",
+            "validated_node_pairs": "UNAVAILABLE",
+            "validated_dependencies": "UNAVAILABLE",
+            "reconstructed_dependencies": 33
+          }
+        },
+        {
+          "stage": "OCR text (measured)",
+          "counts": {
+            "ocr_regions": 38,
+            "ocr_labels": 38,
+            "ocr_id_candidates": 0,
+            "ocr_numeric_candidates": 5
+          }
+        },
+        {
+          "stage": "Graph validation / CPM / PERT",
+          "counts": {
+            "graph_status": "INVALID",
+            "graph_is_valid": false,
+            "cpm_gate": "BLOCKED_REVIEW",
+            "cpm_project_duration": "UNAVAILABLE",
+            "critical_path_count": "UNAVAILABLE",
+            "pert_status": "UNAVAILABLE"
+          }
+        }
+      ],
+      "stage_timings": {
+        "Loading image": "UNAVAILABLE",
+        "Preprocessing": "UNAVAILABLE",
+        "Detecting shapes": "UNAVAILABLE",
+        "Classifying diagram": "UNAVAILABLE",
+        "Detecting arrows": "UNAVAILABLE",
+        "Extracting text (OCR)": "UNAVAILABLE",
+        "Associating text": "UNAVAILABLE",
+        "Reconstructing diagram": "UNAVAILABLE",
+        "Building graph": "UNAVAILABLE",
+        "Validating and analyzing": "UNAVAILABLE",
+        "Complete": "UNAVAILABLE",
+        "Review preparation": "UNAVAILABLE"
+      },
+      "failure_classification": {
+        "stage": "Building graph",
+        "failure_class": "GRAPH_BUILD",
+        "evidence": {
+          "graph_status": "INVALID",
+          "cpm_gate": "BLOCKED_REVIEW",
+          "reconstructed_activities": 29
+        }
+      },
+      "error": null,
+      "warnings": [],
+      "ground_truth": null,
+      "gt_compare": null,
+      "accuracy_metrics": {
+        "annotation_status": "COMPLETE",
+        "annotation_uncertain": {},
+        "notes": "Manually verified from the readable Arabic AOA exercise image. Event labels are Arabic numerals normalized to 1-6. Arrow labels and durations are visible but this annotation records the event topology; the screenshot frame and presentation chrome are excluded from the diagram geometry.",
+        "expected_activities": null,
+        "expected_events": 6,
+        "expected_dependencies": 7,
+        "excluded": {
+          "count": 0,
+          "activities": 0,
+          "events": 0,
+          "dependencies": 0,
+          "note": "Uncertain/excluded reference items are never part of metric math."
+        },
+        "available": true,
+        "diagram_type": "AOA",
+        "events": {
+          "true_positives": 6,
+          "false_positives": 3,
+          "false_negatives": 0,
+          "precision": 0.6667,
+          "recall": 1.0,
+          "f1": 0.8
+        },
+        "event_counts": {
+          "expected": 6,
+          "detected": 9,
+          "ratio": 1.5
+        },
+        "node_matching": {
+          "matched": 6,
+          "gt_unmatched": [],
+          "det_unmatched": [
+            "1",
+            "3",
+            "Q"
+          ]
+        },
+        "arrows": {
+          "expected_edges": 7,
+          "detected_edges": 4,
+          "incomparable_detected_edges": 0,
+          "directed": {
+            "true_positives": 0,
+            "false_positives": 4,
+            "false_negatives": 7,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": null
+          },
+          "undirected_pair": {
+            "true_positives": 2,
+            "false_positives": 2,
+            "false_negatives": 5,
+            "precision": 0.5,
+            "recall": 0.2857,
+            "f1": 0.3636
+          },
+          "direction": {
+            "correct_pairs": 0,
+            "reversed_pairs": 2,
+            "direction_accuracy": 0.0
+          }
+        },
+        "arrow_association": {
+          "detected_arrows": 29,
+          "arrows_mapped_to_event_pairs": 4,
+          "arrows_with_unresolved_event_end": 25,
+          "expected_arrows": 7
+        },
+        "activity_counts": {
+          "expected": 0,
+          "detected": 4,
+          "detected_including_unresolved": 29
+        },
+        "durations": {
+          "compared": 0,
+          "expected_with_duration": 0,
+          "exact_match_accuracy": null,
+          "mean_abs_error": null,
+          "mean_relative_error": null,
+          "note": "AOA per-arrow durations only measured when ground truth provides them"
+        }
+      },
+      "activity_ids": [
+        "A1",
+        "A10",
+        "A11",
+        "A12",
+        "A13",
+        "A14",
+        "A15",
+        "A17",
+        "A18",
+        "A19",
+        "A21",
+        "A22",
+        "A23",
+        "A25",
+        "A26",
+        "A27",
+        "A29",
+        "A3",
+        "A7",
+        "A8",
+        "A_1",
+        "A_2",
+        "A_3",
+        "BS",
+        "I",
+        "PE",
+        "SOE",
+        "WF",
+        "É"
+      ],
+      "dependency_edges": [
+        [
+          "A1",
+          "A23"
+        ],
+        [
+          "WF",
+          "A23"
+        ],
+        [
+          "I",
+          "A23"
+        ],
+        [
+          "A11",
+          "A23"
+        ],
+        [
+          "A3",
+          "A13"
+        ],
+        [
+          "A_3",
+          "A3"
+        ],
+        [
+          "A_3",
+          "I"
+        ],
+        [
+          "A_3",
+          "A11"
+        ],
+        [
+          "É",
+          "A1"
+        ],
+        [
+          "SOE",
+          "A1"
+        ],
+        [
+          "PE",
+          "A1"
+        ],
+        [
+          "A19",
+          "A1"
+        ],
+        [
+          "BS",
+          "A1"
+        ],
+        [
+          "A21",
+          "A1"
+        ],
+        [
+          "A22",
+          "A1"
+        ],
+        [
+          "A27",
+          "A1"
+        ],
+        [
+          "A_1",
+          "A1"
+        ],
+        [
+          "A29",
+          "A1"
+        ],
+        [
+          "É",
+          "SOE"
+        ],
+        [
+          "É",
+          "PE"
+        ],
+        [
+          "É",
+          "A19"
+        ],
+        [
+          "É",
+          "BS"
+        ],
+        [
+          "É",
+          "A21"
+        ],
+        [
+          "É",
+          "A22"
+        ],
+        [
+          "É",
+          "A27"
+        ],
+        [
+          "É",
+          "A_1"
+        ],
+        [
+          "É",
+          "A29"
+        ],
+        [
+          "A10",
+          "WF"
+        ],
+        [
+          "A25",
+          "WF"
+        ],
+        [
+          "A10",
+          "A_3"
+        ],
+        [
+          "A25",
+          "A_3"
+        ],
+        [
+          "A10",
+          "É"
+        ],
+        [
+          "A25",
+          "É"
+        ]
+      ],
+      "extra": {}
+    },
+    {
+      "relative_path": "3.jpeg",
+      "width": 1080,
+      "height": 540,
+      "file_format": "JPEG",
+      "file_size_bytes": 39885,
+      "duration_seconds": 13.402,
+      "diagram_type": "AOA",
+      "diagram_confidence": 1.0,
+      "final_status": "REVIEW_REQUIRED",
+      "outcome": "AUTOMATIC_REVIEW_REQUIRED",
+      "stage_metrics": {
+        "raw_shapes": 16,
+        "contours_analyzed": 747,
+        "shapes_filtered": 731,
+        "duplicates_suppressed": 0,
+        "final_candidate_nodes": 16,
+        "raw_arrow_segments": 430,
+        "lines_detected": 430,
+        "lines_filtered": 214,
+        "segments_merged": 182,
+        "arrows_detected": 14,
+        "arrow_candidates": 34,
+        "arrow_deduplicated": 5,
+        "validated_aoa_arrows": 14,
+        "aoa_rejected_arrows": 16,
+        "aoa_context": true,
+        "ocr_regions": 30,
+        "ocr_labels": 30,
+        "ocr_id_candidates": 0,
+        "ocr_numeric_candidates": 7,
+        "reconstructed_activities": 14,
+        "reconstructed_events": 13,
+        "reconstructed_dependencies": 14,
+        "raw_arrow_candidates": "UNAVAILABLE",
+        "deduplicated_arrows": "UNAVAILABLE",
+        "validated_node_pairs": "UNAVAILABLE",
+        "validated_dependencies": "UNAVAILABLE",
+        "review_candidate_dependencies": "UNAVAILABLE",
+        "rejected_dependencies": "UNAVAILABLE",
+        "self_loops": "UNAVAILABLE",
+        "duplicate_edges": "UNAVAILABLE",
+        "review_items": 11,
+        "graph_status": "INVALID",
+        "graph_is_valid": false,
+        "cpm_gate": "BLOCKED_REVIEW",
+        "cpm_project_duration": "UNAVAILABLE",
+        "critical_path_count": "UNAVAILABLE",
+        "pert_status": "UNAVAILABLE",
+        "diagram_type": "AOA"
+      },
+      "stage_progression": [
+        {
+          "stage": "Shape/candidate expansion (measured)",
+          "counts": {
+            "contours_analyzed": 747,
+            "raw_shapes": 16,
+            "final_candidate_nodes": 16,
+            "reconstructed_activities": 14
+          }
+        },
+        {
+          "stage": "Arrow/dependency pipeline (measured)",
+          "counts": {
+            "raw_arrow_segments": 430,
+            "deduplicated_arrows": "UNAVAILABLE",
+            "validated_node_pairs": "UNAVAILABLE",
+            "validated_dependencies": "UNAVAILABLE",
+            "reconstructed_dependencies": 14
+          }
+        },
+        {
+          "stage": "OCR text (measured)",
+          "counts": {
+            "ocr_regions": 30,
+            "ocr_labels": 30,
+            "ocr_id_candidates": 0,
+            "ocr_numeric_candidates": 7
+          }
+        },
+        {
+          "stage": "Graph validation / CPM / PERT",
+          "counts": {
+            "graph_status": "INVALID",
+            "graph_is_valid": false,
+            "cpm_gate": "BLOCKED_REVIEW",
+            "cpm_project_duration": "UNAVAILABLE",
+            "critical_path_count": "UNAVAILABLE",
+            "pert_status": "UNAVAILABLE"
+          }
+        }
+      ],
+      "stage_timings": {
+        "Loading image": "UNAVAILABLE",
+        "Preprocessing": "UNAVAILABLE",
+        "Detecting shapes": "UNAVAILABLE",
+        "Classifying diagram": "UNAVAILABLE",
+        "Detecting arrows": "UNAVAILABLE",
+        "Extracting text (OCR)": "UNAVAILABLE",
+        "Associating text": "UNAVAILABLE",
+        "Reconstructing diagram": "UNAVAILABLE",
+        "Building graph": "UNAVAILABLE",
+        "Validating and analyzing": "UNAVAILABLE",
+        "Complete": "UNAVAILABLE",
+        "Review preparation": "UNAVAILABLE"
+      },
+      "failure_classification": {
+        "stage": "Building graph",
+        "failure_class": "GRAPH_BUILD",
+        "evidence": {
+          "graph_status": "INVALID",
+          "cpm_gate": "BLOCKED_REVIEW",
+          "reconstructed_activities": 14
+        }
+      },
+      "error": null,
+      "warnings": [],
+      "ground_truth": null,
+      "gt_compare": null,
+      "accuracy_metrics": {
+        "annotation_status": "COMPLETE",
+        "annotation_uncertain": {},
+        "notes": "Manually verified from the readable AOA diagram. Circle centers and bounds are approximate pixel geometry. Dependencies represent visible directed arrows between event circles; durations printed inside circles are not treated as AOA activity durations.",
+        "expected_activities": null,
+        "expected_events": null,
+        "expected_dependencies": null,
+        "excluded": {
+          "count": 0,
+          "activities": 0,
+          "events": 0,
+          "dependencies": 0,
+          "note": "Uncertain/excluded reference items are never part of metric math."
+        },
+        "available": true,
+        "diagram_type": "AOA",
+        "events": {
+          "true_positives": 13,
+          "false_positives": 0,
+          "false_negatives": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "event_counts": {
+          "expected": 13,
+          "detected": 13,
+          "ratio": 1.0
+        },
+        "node_matching": {
+          "matched": 13,
+          "gt_unmatched": [],
+          "det_unmatched": []
+        },
+        "arrows": {
+          "expected_edges": 15,
+          "detected_edges": 13,
+          "incomparable_detected_edges": 0,
+          "directed": {
+            "true_positives": 12,
+            "false_positives": 1,
+            "false_negatives": 3,
+            "precision": 0.9231,
+            "recall": 0.8,
+            "f1": 0.8571
+          },
+          "undirected_pair": {
+            "true_positives": 12,
+            "false_positives": 1,
+            "false_negatives": 3,
+            "precision": 0.9231,
+            "recall": 0.8,
+            "f1": 0.8571
+          },
+          "direction": {
+            "correct_pairs": 12,
+            "reversed_pairs": 0,
+            "direction_accuracy": 1.0
+          }
+        },
+        "arrow_association": {
+          "detected_arrows": 14,
+          "arrows_mapped_to_event_pairs": 13,
+          "arrows_with_unresolved_event_end": 1,
+          "expected_arrows": 15
+        },
+        "activity_counts": {
+          "expected": 0,
+          "detected": 13,
+          "detected_including_unresolved": 14
+        },
+        "durations": {
+          "compared": 0,
+          "expected_with_duration": 0,
+          "exact_match_accuracy": null,
+          "mean_abs_error": null,
+          "mean_relative_error": null,
+          "note": "AOA per-arrow durations only measured when ground truth provides them"
+        }
+      },
+      "activity_ids": [
+        "A1",
+        "A10",
+        "A11",
+        "A2",
+        "A3",
+        "A4",
+        "A5",
+        "AE",
+        "E",
+        "FA",
+        "FEE",
+        "LER",
+        "PATE",
+        "X"
+      ],
+      "dependency_edges": [
+        [
+          "A2",
+          "A3"
+        ],
+        [
+          "A3",
+          "A5"
+        ],
+        [
+          "A4",
+          "LER"
+        ],
+        [
+          "A4",
+          "FA"
+        ],
+        [
+          "A4",
+          "FEE"
+        ],
+        [
+          "PATE",
+          "A1"
+        ],
+        [
+          "AE",
+          "A1"
+        ],
+        [
+          "LER",
+          "AE"
+        ],
+        [
+          "FA",
+          "PATE"
+        ],
+        [
+          "E",
+          "PATE"
+        ],
+        [
+          "FA",
+          "E"
+        ],
+        [
+          "A10",
+          "A11"
+        ],
+        [
+          "A11",
+          "A2"
+        ],
+        [
+          "X",
+          "A2"
+        ]
+      ],
+      "extra": {}
+    },
+    {
+      "relative_path": "4.jpeg",
+      "width": 1080,
+      "height": 720,
+      "file_format": "JPEG",
+      "file_size_bytes": 63497,
+      "duration_seconds": 14.302,
+      "diagram_type": "AOA",
+      "diagram_confidence": 1.0,
+      "final_status": "REVIEW_REQUIRED",
+      "outcome": "AUTOMATIC_REVIEW_REQUIRED",
+      "stage_metrics": {
+        "raw_shapes": 15,
+        "contours_analyzed": 1262,
+        "shapes_filtered": 1240,
+        "duplicates_suppressed": 7,
+        "final_candidate_nodes": 15,
+        "raw_arrow_segments": 426,
+        "lines_detected": 426,
+        "lines_filtered": 180,
+        "segments_merged": 177,
+        "arrows_detected": 37,
+        "arrow_candidates": 56,
+        "arrow_deduplicated": 1,
+        "validated_aoa_arrows": 37,
+        "aoa_rejected_arrows": 19,
+        "aoa_context": true,
+        "ocr_regions": 32,
+        "ocr_labels": 32,
+        "ocr_id_candidates": 0,
+        "ocr_numeric_candidates": 5,
+        "reconstructed_activities": 37,
+        "reconstructed_events": 15,
+        "reconstructed_dependencies": 68,
+        "raw_arrow_candidates": "UNAVAILABLE",
+        "deduplicated_arrows": "UNAVAILABLE",
+        "validated_node_pairs": "UNAVAILABLE",
+        "validated_dependencies": "UNAVAILABLE",
+        "review_candidate_dependencies": "UNAVAILABLE",
+        "rejected_dependencies": "UNAVAILABLE",
+        "self_loops": "UNAVAILABLE",
+        "duplicate_edges": "UNAVAILABLE",
+        "review_items": 63,
+        "graph_status": "INVALID",
+        "graph_is_valid": false,
+        "cpm_gate": "BLOCKED_REVIEW",
+        "cpm_project_duration": "UNAVAILABLE",
+        "critical_path_count": "UNAVAILABLE",
+        "pert_status": "UNAVAILABLE",
+        "diagram_type": "AOA"
+      },
+      "stage_progression": [
+        {
+          "stage": "Shape/candidate expansion (measured)",
+          "counts": {
+            "contours_analyzed": 1262,
+            "raw_shapes": 15,
+            "final_candidate_nodes": 15,
+            "reconstructed_activities": 37
+          }
+        },
+        {
+          "stage": "Arrow/dependency pipeline (measured)",
+          "counts": {
+            "raw_arrow_segments": 426,
+            "deduplicated_arrows": "UNAVAILABLE",
+            "validated_node_pairs": "UNAVAILABLE",
+            "validated_dependencies": "UNAVAILABLE",
+            "reconstructed_dependencies": 68
+          }
+        },
+        {
+          "stage": "OCR text (measured)",
+          "counts": {
+            "ocr_regions": 32,
+            "ocr_labels": 32,
+            "ocr_id_candidates": 0,
+            "ocr_numeric_candidates": 5
+          }
+        },
+        {
+          "stage": "Graph validation / CPM / PERT",
+          "counts": {
+            "graph_status": "INVALID",
+            "graph_is_valid": false,
+            "cpm_gate": "BLOCKED_REVIEW",
+            "cpm_project_duration": "UNAVAILABLE",
+            "critical_path_count": "UNAVAILABLE",
+            "pert_status": "UNAVAILABLE"
+          }
+        }
+      ],
+      "stage_timings": {
+        "Loading image": "UNAVAILABLE",
+        "Preprocessing": "UNAVAILABLE",
+        "Detecting shapes": "UNAVAILABLE",
+        "Classifying diagram": "UNAVAILABLE",
+        "Detecting arrows": "UNAVAILABLE",
+        "Extracting text (OCR)": "UNAVAILABLE",
+        "Associating text": "UNAVAILABLE",
+        "Reconstructing diagram": "UNAVAILABLE",
+        "Building graph": "UNAVAILABLE",
+        "Validating and analyzing": "UNAVAILABLE",
+        "Complete": "UNAVAILABLE",
+        "Review preparation": "UNAVAILABLE"
+      },
+      "failure_classification": {
+        "stage": "Building graph",
+        "failure_class": "GRAPH_BUILD",
+        "evidence": {
+          "graph_status": "INVALID",
+          "cpm_gate": "BLOCKED_REVIEW",
+          "reconstructed_activities": 37
+        }
+      },
+      "error": null,
+      "warnings": [],
+      "ground_truth": null,
+      "gt_compare": null,
+      "accuracy_metrics": {
+        "annotation_status": "COMPLETE",
+        "annotation_uncertain": {},
+        "notes": "Manually verified from the readable AOA diagram. Repeated visible labels F, H, and E are disambiguated as F1/F2, H1/H2, and E1; the final purple event is T. Edge durations are visible in the image but are not needed for this event/dependency topology annotation.",
+        "expected_activities": null,
+        "expected_events": 12,
+        "expected_dependencies": 15,
+        "excluded": {
+          "count": 0,
+          "activities": 0,
+          "events": 0,
+          "dependencies": 0,
+          "note": "Uncertain/excluded reference items are never part of metric math."
+        },
+        "available": true,
+        "diagram_type": "AOA",
+        "events": {
+          "true_positives": 10,
+          "false_positives": 4,
+          "false_negatives": 2,
+          "precision": 0.7143,
+          "recall": 0.8333,
+          "f1": 0.7692
+        },
+        "event_counts": {
+          "expected": 12,
+          "detected": 15,
+          "ratio": 1.25
+        },
+        "node_matching": {
+          "matched": 10,
+          "gt_unmatched": [
+            "B",
+            "T"
+          ],
+          "det_unmatched": [
+            "10",
+            "10",
+            "10",
+            "8"
+          ]
+        },
+        "arrows": {
+          "expected_edges": 15,
+          "detected_edges": 14,
+          "incomparable_detected_edges": 0,
+          "directed": {
+            "true_positives": 7,
+            "false_positives": 7,
+            "false_negatives": 8,
+            "precision": 0.5,
+            "recall": 0.4667,
+            "f1": 0.4828
+          },
+          "undirected_pair": {
+            "true_positives": 7,
+            "false_positives": 7,
+            "false_negatives": 8,
+            "precision": 0.5,
+            "recall": 0.4667,
+            "f1": 0.4828
+          },
+          "direction": {
+            "correct_pairs": 7,
+            "reversed_pairs": 0,
+            "direction_accuracy": 1.0
+          }
+        },
+        "arrow_association": {
+          "detected_arrows": 37,
+          "arrows_mapped_to_event_pairs": 20,
+          "arrows_with_unresolved_event_end": 17,
+          "expected_arrows": 15
+        },
+        "activity_counts": {
+          "expected": 0,
+          "detected": 20,
+          "detected_including_unresolved": 37
+        },
+        "durations": {
+          "compared": 0,
+          "expected_with_duration": 0,
+          "exact_match_accuracy": null,
+          "mean_abs_error": null,
+          "mean_relative_error": null,
+          "note": "AOA per-arrow durations only measured when ground truth provides them"
+        }
+      },
+      "activity_ids": [
+        "A",
+        "A1",
+        "A10",
+        "A14",
+        "A15",
+        "A16",
+        "A17",
+        "A19",
+        "A2",
+        "A20",
+        "A22",
+        "A24",
+        "A25",
+        "A26",
+        "A27",
+        "A28",
+        "A30",
+        "A32",
+        "A33",
+        "A34",
+        "A35",
+        "A36",
+        "A37",
+        "A4",
+        "A5",
+        "A8",
+        "N",
+        "ON",
+        "SC",
+        "YP",
+        "Y_1",
+        "Y_2",
+        "Y_3",
+        "Y_4",
+        "Y_5",
+        "Y_6",
+        "Y_7"
+      ],
+      "dependency_edges": [
+        [
+          "A1",
+          "A19"
+        ],
+        [
+          "A8",
+          "A19"
+        ],
+        [
+          "N",
+          "A19"
+        ],
+        [
+          "Y_5",
+          "A19"
+        ],
+        [
+          "A37",
+          "A19"
+        ],
+        [
+          "A2",
+          "N"
+        ],
+        [
+          "A16",
+          "N"
+        ],
+        [
+          "A34",
+          "N"
+        ],
+        [
+          "A2",
+          "A16"
+        ],
+        [
+          "A2",
+          "A34"
+        ],
+        [
+          "Y_1",
+          "A1"
+        ],
+        [
+          "A4",
+          "A8"
+        ],
+        [
+          "A17",
+          "A8"
+        ],
+        [
+          "A28",
+          "A8"
+        ],
+        [
+          "A32",
+          "A8"
+        ],
+        [
+          "A4",
+          "A17"
+        ],
+        [
+          "A4",
+          "A28"
+        ],
+        [
+          "A4",
+          "A32"
+        ],
+        [
+          "A5",
+          "A14"
+        ],
+        [
+          "A5",
+          "A15"
+        ],
+        [
+          "A5",
+          "A20"
+        ],
+        [
+          "A5",
+          "A24"
+        ],
+        [
+          "A5",
+          "A37"
+        ],
+        [
+          "A14",
+          "A37"
+        ],
+        [
+          "A15",
+          "A37"
+        ],
+        [
+          "A20",
+          "A37"
+        ],
+        [
+          "A24",
+          "A37"
+        ],
+        [
+          "ON",
+          "Y_5"
+        ],
+        [
+          "Y_4",
+          "Y_5"
+        ],
+        [
+          "ON",
+          "Y_4"
+        ],
+        [
+          "Y_7",
+          "A4"
+        ],
+        [
+          "A10",
+          "Y_1"
+        ],
+        [
+          "A22",
+          "Y_1"
+        ],
+        [
+          "Y_2",
+          "Y_1"
+        ],
+        [
+          "A36",
+          "Y_1"
+        ],
+        [
+          "A10",
+          "A22"
+        ],
+        [
+          "A10",
+          "Y_2"
+        ],
+        [
+          "A10",
+          "A36"
+        ],
+        [
+          "SC",
+          "ON"
+        ],
+        [
+          "Y_3",
+          "ON"
+        ],
+        [
+          "SC",
+          "Y_7"
+        ],
+        [
+          "Y_3",
+          "Y_7"
+        ],
+        [
+          "SC",
+          "A10"
+        ],
+        [
+          "Y_3",
+          "A10"
+        ],
+        [
+          "SC",
+          "A"
+        ],
+        [
+          "Y_3",
+          "A"
+        ],
+        [
+          "A",
+          "A2"
+        ],
+        [
+          "Y_6",
+          "A2"
+        ],
+        [
+          "A25",
+          "A2"
+        ],
+        [
+          "A27",
+          "A2"
+        ],
+        [
+          "A",
+          "Y_6"
+        ],
+        [
+          "A25",
+          "Y_6"
+        ],
+        [
+          "A27",
+          "Y_6"
+        ],
+        [
+          "YP",
+          "A5"
+        ],
+        [
+          "A26",
+          "A5"
+        ],
+        [
+          "A30",
+          "A5"
+        ],
+        [
+          "A33",
+          "A5"
+        ],
+        [
+          "A35",
+          "A5"
+        ],
+        [
+          "YP",
+          "A25"
+        ],
+        [
+          "A26",
+          "A25"
+        ],
+        [
+          "A30",
+          "A25"
+        ],
+        [
+          "A33",
+          "A25"
+        ],
+        [
+          "A35",
+          "A25"
+        ],
+        [
+          "YP",
+          "A27"
+        ],
+        [
+          "A26",
+          "A27"
+        ],
+        [
+          "A30",
+          "A27"
+        ],
+        [
+          "A33",
+          "A27"
+        ],
+        [
+          "A35",
+          "A27"
+        ]
+      ],
+      "extra": {}
+    },
+    {
+      "relative_path": "5.jpeg",
+      "width": 1080,
+      "height": 720,
+      "file_format": "JPEG",
+      "file_size_bytes": 55833,
+      "duration_seconds": 24.138,
+      "diagram_type": "AON",
+      "diagram_confidence": 0.6403940886699508,
+      "final_status": "REVIEW_REQUIRED",
+      "outcome": "AUTOMATIC_REVIEW_REQUIRED",
+      "stage_metrics": {
+        "raw_shapes": 29,
+        "contours_analyzed": 5168,
+        "shapes_filtered": 5124,
+        "duplicates_suppressed": 15,
+        "final_candidate_nodes": 28,
+        "raw_arrow_segments": 691,
+        "lines_detected": 691,
+        "lines_filtered": 284,
+        "segments_merged": 320,
+        "arrows_detected": 73,
+        "arrow_candidates": 73,
+        "arrow_deduplicated": 0,
+        "validated_aoa_arrows": 73,
+        "aoa_rejected_arrows": 0,
+        "aoa_context": false,
+        "ocr_regions": 105,
+        "ocr_labels": 105,
+        "ocr_id_candidates": 0,
+        "ocr_numeric_candidates": 20,
+        "reconstructed_activities": 17,
+        "reconstructed_events": 11,
+        "reconstructed_dependencies": 11,
+        "raw_arrow_candidates": 73,
+        "deduplicated_arrows": 51,
+        "validated_node_pairs": 51,
+        "validated_dependencies": 11,
+        "review_candidate_dependencies": 30,
+        "rejected_dependencies": 9,
+        "self_loops": 0,
+        "duplicate_edges": 1,
+        "review_items": 36,
+        "graph_status": "INVALID",
+        "graph_is_valid": false,
+        "cpm_gate": "BLOCKED_REVIEW",
+        "cpm_project_duration": "UNAVAILABLE",
+        "critical_path_count": "UNAVAILABLE",
+        "pert_status": "UNAVAILABLE",
+        "diagram_type": "AON"
+      },
+      "stage_progression": [
+        {
+          "stage": "Shape/candidate expansion (measured)",
+          "counts": {
+            "contours_analyzed": 5168,
+            "raw_shapes": 29,
+            "final_candidate_nodes": 28,
+            "reconstructed_activities": 17
+          }
+        },
+        {
+          "stage": "Arrow/dependency pipeline (measured)",
+          "counts": {
+            "raw_arrow_segments": 691,
+            "deduplicated_arrows": 51,
+            "validated_node_pairs": 51,
+            "validated_dependencies": 11,
+            "reconstructed_dependencies": 11
+          }
+        },
+        {
+          "stage": "OCR text (measured)",
+          "counts": {
+            "ocr_regions": 105,
+            "ocr_labels": 105,
+            "ocr_id_candidates": 0,
+            "ocr_numeric_candidates": 20
+          }
+        },
+        {
+          "stage": "Graph validation / CPM / PERT",
+          "counts": {
+            "graph_status": "INVALID",
+            "graph_is_valid": false,
+            "cpm_gate": "BLOCKED_REVIEW",
+            "cpm_project_duration": "UNAVAILABLE",
+            "critical_path_count": "UNAVAILABLE",
+            "pert_status": "UNAVAILABLE"
+          }
+        }
+      ],
+      "stage_timings": {
+        "Loading image": "UNAVAILABLE",
+        "Preprocessing": "UNAVAILABLE",
+        "Detecting shapes": "UNAVAILABLE",
+        "Classifying diagram": "UNAVAILABLE",
+        "Detecting arrows": "UNAVAILABLE",
+        "Extracting text (OCR)": "UNAVAILABLE",
+        "Associating text": "UNAVAILABLE",
+        "Reconstructing diagram": "UNAVAILABLE",
+        "Building graph": "UNAVAILABLE",
+        "Validating and analyzing": "UNAVAILABLE",
+        "Complete": "UNAVAILABLE",
+        "Review preparation": "UNAVAILABLE"
+      },
+      "failure_classification": {
+        "stage": "Building graph",
+        "failure_class": "GRAPH_BUILD",
+        "evidence": {
+          "graph_status": "INVALID",
+          "cpm_gate": "BLOCKED_REVIEW",
+          "reconstructed_activities": 17
+        }
+      },
+      "error": null,
+      "warnings": [],
+      "ground_truth": null,
+      "gt_compare": null,
+      "accuracy_metrics": {
+        "annotation_status": "COMPLETE",
+        "annotation_uncertain": {},
+        "notes": "Manually verified from the visible node labels, durations, and connector arrows. Start/End circles are external terminals and are not activity dependencies in this AON annotation. Arabic text inside the nodes does not change the activity ids.",
+        "expected_activities": 17,
+        "expected_events": null,
+        "expected_dependencies": 14,
+        "excluded": {
+          "count": 0,
+          "activities": 0,
+          "events": 0,
+          "dependencies": 0,
+          "note": "Uncertain/excluded reference items are never part of metric math."
+        },
+        "available": true,
+        "diagram_type": "AON",
+        "activities": {
+          "true_positives": 17,
+          "false_positives": 0,
+          "false_negatives": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "activity_counts": {
+          "expected": 17,
+          "detected": 17,
+          "ratio": 1.0
+        },
+        "node_matching": {
+          "matched": 17,
+          "gt_unmatched": [],
+          "det_unmatched": []
+        },
+        "ids": {
+          "compared": 17,
+          "id_accuracy": 0.9412
+        },
+        "durations": {
+          "compared": 17,
+          "expected_with_duration": 17,
+          "exact_matches": 10,
+          "exact_match_accuracy": 0.5882,
+          "mean_abs_error": 1.7647,
+          "mean_relative_error": 0.3224
+        },
+        "dependencies": {
+          "expected_edges": 14,
+          "detected_edges": 11,
+          "incomparable_detected_edges": 0,
+          "directed": {
+            "true_positives": 10,
+            "false_positives": 1,
+            "false_negatives": 4,
+            "precision": 0.9091,
+            "recall": 0.7143,
+            "f1": 0.8
+          },
+          "undirected_pair": {
+            "true_positives": 10,
+            "false_positives": 1,
+            "false_negatives": 4,
+            "precision": 0.9091,
+            "recall": 0.7143,
+            "f1": 0.8
+          },
+          "direction": {
+            "correct_pairs": 10,
+            "reversed_pairs": 0,
+            "direction_accuracy": 1.0
+          }
+        },
+        "detected_dependencies": 11
+      },
+      "activity_ids": [
+        "A",
+        "B",
+        "D",
+        "E",
+        "F_1",
+        "F_2",
+        "G",
+        "H",
+        "I",
+        "J",
+        "K",
+        "L",
+        "N",
+        "O",
+        "P",
+        "Q",
+        "R"
+      ],
+      "dependency_edges": [
+        [
+          "I",
+          "J"
+        ],
+        [
+          "D",
+          "E"
+        ],
+        [
+          "A",
+          "B"
+        ],
+        [
+          "B",
+          "D"
+        ],
+        [
+          "N",
+          "O"
+        ],
+        [
+          "L",
+          "F_2"
+        ],
+        [
+          "F_2",
+          "N"
+        ],
+        [
+          "P",
+          "Q"
+        ],
+        [
+          "K",
+          "L"
+        ],
+        [
+          "Q",
+          "R"
+        ],
+        [
+          "F_2",
+          "I"
+        ]
+      ],
+      "extra": {}
+    },
+    {
+      "relative_path": "6.jpeg",
+      "width": 1080,
+      "height": 540,
+      "file_format": "JPEG",
+      "file_size_bytes": 42452,
+      "duration_seconds": 14.124,
+      "diagram_type": "AOA",
+      "diagram_confidence": 1.0,
+      "final_status": "REVIEW_REQUIRED",
+      "outcome": "AUTOMATIC_REVIEW_REQUIRED",
+      "stage_metrics": {
+        "raw_shapes": 15,
+        "contours_analyzed": 1328,
+        "shapes_filtered": 1313,
+        "duplicates_suppressed": 0,
+        "final_candidate_nodes": 15,
+        "raw_arrow_segments": 539,
+        "lines_detected": 539,
+        "lines_filtered": 262,
+        "segments_merged": 255,
+        "arrows_detected": 17,
+        "arrow_candidates": 22,
+        "arrow_deduplicated": 0,
+        "validated_aoa_arrows": 17,
+        "aoa_rejected_arrows": 7,
+        "aoa_context": true,
+        "ocr_regions": 47,
+        "ocr_labels": 47,
+        "ocr_id_candidates": 0,
+        "ocr_numeric_candidates": 17,
+        "reconstructed_activities": 17,
+        "reconstructed_events": 12,
+        "reconstructed_dependencies": 23,
+        "raw_arrow_candidates": "UNAVAILABLE",
+        "deduplicated_arrows": "UNAVAILABLE",
+        "validated_node_pairs": "UNAVAILABLE",
+        "validated_dependencies": "UNAVAILABLE",
+        "review_candidate_dependencies": "UNAVAILABLE",
+        "rejected_dependencies": "UNAVAILABLE",
+        "self_loops": "UNAVAILABLE",
+        "duplicate_edges": "UNAVAILABLE",
+        "review_items": 6,
+        "graph_status": "INVALID",
+        "graph_is_valid": false,
+        "cpm_gate": "BLOCKED_REVIEW",
+        "cpm_project_duration": "UNAVAILABLE",
+        "critical_path_count": "UNAVAILABLE",
+        "pert_status": "UNAVAILABLE",
+        "diagram_type": "AOA"
+      },
+      "stage_progression": [
+        {
+          "stage": "Shape/candidate expansion (measured)",
+          "counts": {
+            "contours_analyzed": 1328,
+            "raw_shapes": 15,
+            "final_candidate_nodes": 15,
+            "reconstructed_activities": 17
+          }
+        },
+        {
+          "stage": "Arrow/dependency pipeline (measured)",
+          "counts": {
+            "raw_arrow_segments": 539,
+            "deduplicated_arrows": "UNAVAILABLE",
+            "validated_node_pairs": "UNAVAILABLE",
+            "validated_dependencies": "UNAVAILABLE",
+            "reconstructed_dependencies": 23
+          }
+        },
+        {
+          "stage": "OCR text (measured)",
+          "counts": {
+            "ocr_regions": 47,
+            "ocr_labels": 47,
+            "ocr_id_candidates": 0,
+            "ocr_numeric_candidates": 17
+          }
+        },
+        {
+          "stage": "Graph validation / CPM / PERT",
+          "counts": {
+            "graph_status": "INVALID",
+            "graph_is_valid": false,
+            "cpm_gate": "BLOCKED_REVIEW",
+            "cpm_project_duration": "UNAVAILABLE",
+            "critical_path_count": "UNAVAILABLE",
+            "pert_status": "UNAVAILABLE"
+          }
+        }
+      ],
+      "stage_timings": {
+        "Loading image": "UNAVAILABLE",
+        "Preprocessing": "UNAVAILABLE",
+        "Detecting shapes": "UNAVAILABLE",
+        "Classifying diagram": "UNAVAILABLE",
+        "Detecting arrows": "UNAVAILABLE",
+        "Extracting text (OCR)": "UNAVAILABLE",
+        "Associating text": "UNAVAILABLE",
+        "Reconstructing diagram": "UNAVAILABLE",
+        "Building graph": "UNAVAILABLE",
+        "Validating and analyzing": "UNAVAILABLE",
+        "Complete": "UNAVAILABLE",
+        "Review preparation": "UNAVAILABLE"
+      },
+      "failure_classification": {
+        "stage": "Building graph",
+        "failure_class": "GRAPH_BUILD",
+        "evidence": {
+          "graph_status": "INVALID",
+          "cpm_gate": "BLOCKED_REVIEW",
+          "reconstructed_activities": 17
+        }
+      },
+      "error": null,
+      "warnings": [],
+      "ground_truth": null,
+      "gt_compare": null,
+      "accuracy_metrics": {
+        "annotation_status": "COMPLETE",
+        "annotation_uncertain": {},
+        "notes": "Manually verified from the readable AOA diagram. Circle centers and bounds are approximate pixel geometry. The visible arrow K→M is labeled L(3); L is the activity label, not a separate event circle, so the event dependency is K→M.",
+        "expected_activities": null,
+        "expected_events": null,
+        "expected_dependencies": null,
+        "excluded": {
+          "count": 0,
+          "activities": 0,
+          "events": 0,
+          "dependencies": 0,
+          "note": "Uncertain/excluded reference items are never part of metric math."
+        },
+        "available": true,
+        "diagram_type": "AOA",
+        "events": {
+          "true_positives": 12,
+          "false_positives": 0,
+          "false_negatives": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "event_counts": {
+          "expected": 12,
+          "detected": 12,
+          "ratio": 1.0
+        },
+        "node_matching": {
+          "matched": 12,
+          "gt_unmatched": [],
+          "det_unmatched": []
+        },
+        "arrows": {
+          "expected_edges": 14,
+          "detected_edges": 8,
+          "incomparable_detected_edges": 0,
+          "directed": {
+            "true_positives": 8,
+            "false_positives": 0,
+            "false_negatives": 6,
+            "precision": 1.0,
+            "recall": 0.5714,
+            "f1": 0.7273
+          },
+          "undirected_pair": {
+            "true_positives": 8,
+            "false_positives": 0,
+            "false_negatives": 6,
+            "precision": 1.0,
+            "recall": 0.5714,
+            "f1": 0.7273
+          },
+          "direction": {
+            "correct_pairs": 8,
+            "reversed_pairs": 0,
+            "direction_accuracy": 1.0
+          }
+        },
+        "arrow_association": {
+          "detected_arrows": 17,
+          "arrows_mapped_to_event_pairs": 9,
+          "arrows_with_unresolved_event_end": 8,
+          "expected_arrows": 14
+        },
+        "activity_counts": {
+          "expected": 0,
+          "detected": 9,
+          "detected_including_unresolved": 17
+        },
+        "durations": {
+          "compared": 0,
+          "expected_with_duration": 0,
+          "exact_match_accuracy": null,
+          "mean_abs_error": null,
+          "mean_relative_error": null,
+          "note": "AOA per-arrow durations only measured when ground truth provides them"
+        }
+      },
+      "activity_ids": [
+        "A10",
+        "A11",
+        "A12",
+        "A14",
+        "A15",
+        "A16",
+        "A17",
+        "A2",
+        "A3",
+        "A5",
+        "A6",
+        "A8",
+        "AAA",
+        "A_1",
+        "A_2",
+        "EE",
+        "RH"
+      ],
+      "dependency_edges": [
+        [
+          "A_1",
+          "A2"
+        ],
+        [
+          "A_1",
+          "EE"
+        ],
+        [
+          "A_1",
+          "A10"
+        ],
+        [
+          "A_1",
+          "A11"
+        ],
+        [
+          "A2",
+          "AAA"
+        ],
+        [
+          "A10",
+          "AAA"
+        ],
+        [
+          "A2",
+          "A14"
+        ],
+        [
+          "A10",
+          "A14"
+        ],
+        [
+          "A3",
+          "A17"
+        ],
+        [
+          "AAA",
+          "A17"
+        ],
+        [
+          "A6",
+          "A17"
+        ],
+        [
+          "A14",
+          "A17"
+        ],
+        [
+          "EE",
+          "A3"
+        ],
+        [
+          "A11",
+          "A3"
+        ],
+        [
+          "EE",
+          "A6"
+        ],
+        [
+          "A11",
+          "A6"
+        ],
+        [
+          "A8",
+          "A_2"
+        ],
+        [
+          "A8",
+          "A15"
+        ],
+        [
+          "A_2",
+          "A15"
+        ],
+        [
+          "A15",
+          "RH"
+        ],
+        [
+          "A17",
+          "A5"
+        ],
+        [
+          "A17",
+          "A8"
+        ],
+        [
+          "A17",
+          "A12"
+        ]
+      ],
+      "extra": {}
+    },
+    {
+      "relative_path": "7.jpeg",
+      "width": 1080,
+      "height": 608,
+      "file_format": "JPEG",
+      "file_size_bytes": 76454,
+      "duration_seconds": 23.287,
+      "diagram_type": "AON",
+      "diagram_confidence": 1.0,
+      "final_status": "REVIEW_REQUIRED",
+      "outcome": "AUTOMATIC_REVIEW_REQUIRED",
+      "stage_metrics": {
+        "raw_shapes": 22,
+        "contours_analyzed": 950,
+        "shapes_filtered": 920,
+        "duplicates_suppressed": 8,
+        "final_candidate_nodes": 22,
+        "raw_arrow_segments": 651,
+        "lines_detected": 651,
+        "lines_filtered": 371,
+        "segments_merged": 196,
+        "arrows_detected": 74,
+        "arrow_candidates": 78,
+        "arrow_deduplicated": 4,
+        "validated_aoa_arrows": 74,
+        "aoa_rejected_arrows": 0,
+        "aoa_context": false,
+        "ocr_regions": 275,
+        "ocr_labels": 275,
+        "ocr_id_candidates": 0,
+        "ocr_numeric_candidates": 52,
+        "reconstructed_activities": 22,
+        "reconstructed_events": 0,
+        "reconstructed_dependencies": 14,
+        "raw_arrow_candidates": 74,
+        "deduplicated_arrows": 63,
+        "validated_node_pairs": 63,
+        "validated_dependencies": 20,
+        "review_candidate_dependencies": 37,
+        "rejected_dependencies": 5,
+        "self_loops": 0,
+        "duplicate_edges": 1,
+        "review_items": 44,
+        "graph_status": "INVALID",
+        "graph_is_valid": false,
+        "cpm_gate": "BLOCKED_REVIEW",
+        "cpm_project_duration": "UNAVAILABLE",
+        "critical_path_count": "UNAVAILABLE",
+        "pert_status": "UNAVAILABLE",
+        "diagram_type": "AON"
+      },
+      "stage_progression": [
+        {
+          "stage": "Shape/candidate expansion (measured)",
+          "counts": {
+            "contours_analyzed": 950,
+            "raw_shapes": 22,
+            "final_candidate_nodes": 22,
+            "reconstructed_activities": 22
+          }
+        },
+        {
+          "stage": "Arrow/dependency pipeline (measured)",
+          "counts": {
+            "raw_arrow_segments": 651,
+            "deduplicated_arrows": 63,
+            "validated_node_pairs": 63,
+            "validated_dependencies": 20,
+            "reconstructed_dependencies": 14
+          }
+        },
+        {
+          "stage": "OCR text (measured)",
+          "counts": {
+            "ocr_regions": 275,
+            "ocr_labels": 275,
+            "ocr_id_candidates": 0,
+            "ocr_numeric_candidates": 52
+          }
+        },
+        {
+          "stage": "Graph validation / CPM / PERT",
+          "counts": {
+            "graph_status": "INVALID",
+            "graph_is_valid": false,
+            "cpm_gate": "BLOCKED_REVIEW",
+            "cpm_project_duration": "UNAVAILABLE",
+            "critical_path_count": "UNAVAILABLE",
+            "pert_status": "UNAVAILABLE"
+          }
+        }
+      ],
+      "stage_timings": {
+        "Loading image": "UNAVAILABLE",
+        "Preprocessing": "UNAVAILABLE",
+        "Detecting shapes": "UNAVAILABLE",
+        "Classifying diagram": "UNAVAILABLE",
+        "Detecting arrows": "UNAVAILABLE",
+        "Extracting text (OCR)": "UNAVAILABLE",
+        "Associating text": "UNAVAILABLE",
+        "Reconstructing diagram": "UNAVAILABLE",
+        "Building graph": "UNAVAILABLE",
+        "Validating and analyzing": "UNAVAILABLE",
+        "Complete": "UNAVAILABLE",
+        "Review preparation": "UNAVAILABLE"
+      },
+      "failure_classification": {
+        "stage": "Building graph",
+        "failure_class": "GRAPH_BUILD",
+        "evidence": {
+          "graph_status": "INVALID",
+          "cpm_gate": "BLOCKED_REVIEW",
+          "reconstructed_activities": 22
+        }
+      },
+      "error": null,
+      "warnings": [],
+      "ground_truth": null,
+      "gt_compare": null,
+      "accuracy_metrics": {
+        "annotation_status": "COMPLETE",
+        "annotation_uncertain": {},
+        "notes": "Manually verified Arabic AON diagram. All visible labels A-W and durations were readable. The two visually parallel routes into the right-side review set are represented as O/P predecessors to Q-V; W is the final closure activity. Geometry is pixel-space and approximate for the rightmost W box.",
+        "expected_activities": 23,
+        "expected_events": null,
+        "expected_dependencies": 36,
+        "excluded": {
+          "count": 0,
+          "activities": 0,
+          "events": 0,
+          "dependencies": 0,
+          "note": "Uncertain/excluded reference items are never part of metric math."
+        },
+        "available": true,
+        "diagram_type": "AON",
+        "activities": {
+          "true_positives": 21,
+          "false_positives": 1,
+          "false_negatives": 2,
+          "precision": 0.9545,
+          "recall": 0.913,
+          "f1": 0.9333
+        },
+        "activity_counts": {
+          "expected": 23,
+          "detected": 22,
+          "ratio": 0.9565
+        },
+        "node_matching": {
+          "matched": 21,
+          "gt_unmatched": [
+            "G",
+            "W"
+          ],
+          "det_unmatched": [
+            "P92"
+          ]
+        },
+        "ids": {
+          "compared": 21,
+          "id_accuracy": 0.0476
+        },
+        "durations": {
+          "compared": 21,
+          "expected_with_duration": 23,
+          "exact_matches": 20,
+          "exact_match_accuracy": 0.9524,
+          "mean_abs_error": 0.0476,
+          "mean_relative_error": 0.0238
+        },
+        "dependencies": {
+          "expected_edges": 36,
+          "detected_edges": 14,
+          "incomparable_detected_edges": 0,
+          "directed": {
+            "true_positives": 5,
+            "false_positives": 9,
+            "false_negatives": 31,
+            "precision": 0.3571,
+            "recall": 0.1389,
+            "f1": 0.2
+          },
+          "undirected_pair": {
+            "true_positives": 7,
+            "false_positives": 7,
+            "false_negatives": 29,
+            "precision": 0.5,
+            "recall": 0.1944,
+            "f1": 0.28
+          },
+          "direction": {
+            "correct_pairs": 5,
+            "reversed_pairs": 2,
+            "direction_accuracy": 0.7143
+          }
+        },
+        "detected_dependencies": 14
+      },
+      "activity_ids": [
+        "A_1",
+        "A_2",
+        "BULL",
+        "E",
+        "EGAT",
+        "G",
+        "G8",
+        "INFERRED_022",
+        "I_1",
+        "I_2",
+        "I_3",
+        "I_4",
+        "I_5",
+        "J_1",
+        "J_2",
+        "P92",
+        "S390",
+        "T",
+        "Z_1",
+        "Z_2",
+        "Z_3",
+        "Z_4"
+      ],
+      "dependency_edges": [
+        [
+          "EGAT",
+          "BULL"
+        ],
+        [
+          "J_2",
+          "I_4"
+        ],
+        [
+          "Z_1",
+          "A_1"
+        ],
+        [
+          "I_5",
+          "P92"
+        ],
+        [
+          "J_2",
+          "Z_4"
+        ],
+        [
+          "EGAT",
+          "J_2"
+        ],
+        [
+          "T",
+          "Z_3"
+        ],
+        [
+          "I_3",
+          "J_1"
+        ],
+        [
+          "G8",
+          "G"
+        ],
+        [
+          "I_2",
+          "BULL"
+        ],
+        [
+          "T",
+          "I_5"
+        ],
+        [
+          "Z_1",
+          "I_1"
+        ],
+        [
+          "A_2",
+          "INFERRED_022"
+        ],
+        [
+          "J_1",
+          "Z_2"
+        ]
+      ],
+      "extra": {}
+    }
+  ]
+}
