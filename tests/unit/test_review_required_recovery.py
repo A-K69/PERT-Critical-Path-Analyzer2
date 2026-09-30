@@ -231,6 +231,18 @@ class TestReviewableDefectsBecomeReviewRequired:
         assert result.errors == []
         assert result.review_required is True
 
+    def test_phase15_5_calibration_is_auditable_and_non_bypassing(
+        self, temp_image_file
+    ) -> None:
+        result = _run_pipeline(temp_image_file, _q_reconstruction())
+        session = build_review_session(result, source_image_id="phase15_5.png")
+        calibration = session.metadata["review_calibration"]
+        assert calibration["policy"] == "phase15.5"
+        assert calibration["auto_accept_enabled"] is False
+        assert calibration["relationship_gate_unchanged"] is True
+        assert calibration["tier_counts"]["BLOCKING_REVIEW"] >= 1
+        assert any(d.current_duration == 0.0 for d in session.durations)
+
 
 # =============================================================================
 # Classification: fatal failures stay FAILED

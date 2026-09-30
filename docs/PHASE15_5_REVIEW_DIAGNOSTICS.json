@@ -1,0 +1,83 @@
+[
+  {
+    "image": "1.png",
+    "analysis_status": "REVIEW_REQUIRED",
+    "activity_reviews": 2,
+    "duration_reviews": 4,
+    "dependency_reviews": 23,
+    "ambiguities": 47,
+    "tier_counts": {
+      "LOW_RISK_REVIEW": 2,
+      "HIGH_PRIORITY_REVIEW": 2,
+      "BLOCKING_REVIEW": 2,
+      "STRONG_EVIDENCE_REVIEW": 2,
+      "HIGH_RISK_REVIEW": 2,
+      "STANDARD_REVIEW": 19
+    },
+    "auto_accept_enabled": false,
+    "relationship_gate_unchanged": true
+  },
+  {
+    "image": "3.jpeg",
+    "analysis_status": "REVIEW_REQUIRED",
+    "activity_reviews": 4,
+    "duration_reviews": 7,
+    "dependency_reviews": 0,
+    "ambiguities": 2,
+    "tier_counts": {
+      "BLOCKING_REVIEW": 10,
+      "HIGH_PRIORITY_REVIEW": 1
+    },
+    "auto_accept_enabled": false,
+    "relationship_gate_unchanged": true
+  },
+  {
+    "image": "5.jpeg",
+    "analysis_status": "REVIEW_REQUIRED",
+    "activity_reviews": 3,
+    "duration_reviews": 3,
+    "dependency_reviews": 30,
+    "ambiguities": 56,
+    "tier_counts": {
+      "LOW_RISK_REVIEW": 2,
+      "HIGH_PRIORITY_REVIEW": 1,
+      "BLOCKING_REVIEW": 3,
+      "STANDARD_REVIEW": 22,
+      "HIGH_RISK_REVIEW": 8
+    },
+    "auto_accept_enabled": false,
+    "relationship_gate_unchanged": true
+  },
+  {
+    "image": "6.jpeg",
+    "analysis_status": "REVIEW_REQUIRED",
+    "activity_reviews": 3,
+    "duration_reviews": 3,
+    "dependency_reviews": 0,
+    "ambiguities": 1,
+    "tier_counts": {
+      "HIGH_PRIORITY_REVIEW": 1,
+      "BLOCKING_REVIEW": 5
+    },
+    "auto_accept_enabled": false,
+    "relationship_gate_unchanged": true
+  },
+  {
+    "image": "11.jpeg",
+    "analysis_status": "REVIEW_REQUIRED",
+    "activity_reviews": 7,
+    "duration_reviews": 4,
+    "dependency_reviews": 14,
+    "ambiguities": 39,
+    "tier_counts": {
+      "BLOCKING_REVIEW": 8,
+      "HIGH_PRIORITY_REVIEW": 1,
+      "LOW_RISK_REVIEW": 1,
+      "STANDARD_REVIEW": 13,
+      "HIGH_RISK_REVIEW": 1,
+      "STRONG_EVIDENCE_REVIEW": 1
+    },
+    "auto_accept_enabled": false,
+    "relationship_gate_unchanged": true
+  }
+]
