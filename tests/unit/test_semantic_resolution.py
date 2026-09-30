@@ -67,6 +67,18 @@ class TestZToCContextualResolution:
         assert cr.source == ResolutionSource.OCR_HIGH_CONFIDENCE
         assert cr.status == ResolutionStatus.CONFIRMED
 
+    def test_lowercase_alternative_is_normalized(self):
+        resolver = SemanticResolver()
+        nr = _make_nr(
+            activity_id="Z",
+            confidence=0.55,
+            alternatives=[("c", 0.45)],
+        )
+        result = resolver.resolve_all([nr])
+        cr = result.id_resolutions["node_1"]
+        assert cr.resolved_id == "C"
+        assert cr.raw_id == "Z"
+
 
 class TestLToIDuplicateResolution:
     """Test 2: L → I duplicate-ID resolution."""
@@ -236,6 +248,30 @@ class TestDurationRegionPriority:
         assert any(
             any("from_duration_sub_crop" in f for f in e.supporting_factors)
             for e in dr.evidence
+        )
+
+    def test_normalized_duration_keeps_value_but_records_penalty(self):
+        resolver = SemanticResolver()
+        nr = _make_nr(
+            activity_id="A",
+            numeric=(5.0, "5,O0", 0.8),
+            numeric_candidates=[(5.0, "5,O0", 0.8)],
+        )
+        from pert_analyzer.cv.ocr_models import OCRTextRegion
+        region = OCRTextRegion(text="5,O0", confidence=0.8)
+        region.parsed_value = 5.0
+        region.metadata["numeric_normalization"] = {
+            "normalized_text": "5.00",
+            "warnings": ["Mapped OCR 'O' to '0' in numeric context"],
+        }
+        nr.duration_sub_crop_regions = [region]
+        result = resolver.resolve_all([nr])
+        dr = result.duration_resolutions["node_1"]
+        assert dr.resolved_value == 5.0
+        assert any(
+            "numeric_ocr_normalized(-0.04)" in factor
+            for evidence in dr.evidence
+            for factor in evidence.supporting_factors
         )
 
 
