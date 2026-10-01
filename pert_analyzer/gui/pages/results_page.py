@@ -12,6 +12,7 @@ never recomputes ES/EF/LS/LF, floats, paths, or duration.
 
 from __future__ import annotations
 
+from collections import Counter
 from typing import Any
 
 from PySide6.QtCore import Qt, Signal
@@ -253,6 +254,13 @@ class ResultsPage(QWidget):
             self._preliminary_values[key] = (value, cap)
 
         inner.addLayout(kpi_row)
+
+        self._priority_label = QLabel("")
+        self._priority_label.setWordWrap(True)
+        self._priority_label.setAlignment(Qt.AlignmentFlag.AlignCenter)
+        self._priority_label.setFont(QFont(*MUTED_FONT))
+        self._priority_label.setStyleSheet(f"color: {TEXT_SECONDARY};")
+        inner.addWidget(self._priority_label)
         return card
 
     def _build_dashboard(self) -> QWidget:
@@ -445,8 +453,69 @@ class ResultsPage(QWidget):
             }
         for key, value in values.items():
             value_label, _ = self._preliminary_values[key]
-            value_label.setText(str(value) if value not in (None, "") else "\u2014")
+            value_label.setText(str(value) if value not in (None, "") else "—")
+        self._priority_label.setText(self._review_priority_text(session))
         self._preliminary_card.show()
+
+    @staticmethod
+    def _review_priority_text(session: Any) -> str:
+        """Render pending review tiers from existing calibration evidence.
+
+        This is presentation-only: it does not infer acceptance, alter
+        confidence, or change the readiness gate. When calibration metadata
+        is unavailable, the UI says so instead of inventing a tier.
+        """
+        review_session = getattr(session, "review_session", None)
+        if review_session is None:
+            return "Review priority: unavailable"
+
+        counts: Counter[str] = Counter()
+        metadata = getattr(review_session, "metadata", {}) or {}
+        for collection_name in ("activities", "dependencies", "durations"):
+            for item in getattr(review_session, collection_name, []) or []:
+                status = getattr(getattr(item, "status", None), "value", "")
+                if status and status != "PENDING":
+                    continue
+                tier = None
+                for evidence in getattr(item, "evidence", []) or []:
+                    calibration = (getattr(evidence, "metadata", {}) or {}).get(
+                        "review_calibration", {}
+                    )
+                    tier = calibration.get("tier")
+                    if tier:
+                        break
+                if tier:
+                    counts[tier] += 1
+
+        if not counts:
+            configured = metadata.get("review_calibration", {}).get("tier_counts", {})
+            if configured:
+                counts.update(configured)
+        if not counts:
+            return "Review priority: calibration data unavailable"
+
+        order = (
+            "BLOCKING_REVIEW",
+            "HIGH_PRIORITY_REVIEW",
+            "HIGH_RISK_REVIEW",
+            "STANDARD_REVIEW",
+            "LOW_RISK_REVIEW",
+            "STRONG_EVIDENCE_REVIEW",
+        )
+        labels = {
+            "BLOCKING_REVIEW": "Blocking",
+            "HIGH_PRIORITY_REVIEW": "High priority",
+            "HIGH_RISK_REVIEW": "High risk",
+            "STANDARD_REVIEW": "Standard",
+            "LOW_RISK_REVIEW": "Low risk",
+            "STRONG_EVIDENCE_REVIEW": "Strong evidence",
+        }
+        parts = [
+            f"{labels[tier]}: {counts[tier]}"
+            for tier in order
+            if counts.get(tier, 0)
+        ]
+        return "Review priority — " + " · ".join(parts)
 
     def _update_progress(self, session: Any) -> None:
         total = session.review_item_total() if session is not None else 0
