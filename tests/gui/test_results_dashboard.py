@@ -199,6 +199,11 @@ def test_provenance_and_review_trace_are_explicit() -> None:
     assert ResultsPage._review_trace_text(session) == (
         "Review trace — 2 total · 1 pending · 1 resolved · 1 corrected"
     )
+    assert ResultsPage._review_breakdown_text(session) == (
+        "Review breakdown — Activities: 1 total · 1 pending · 0 accepted · 0 corrected"
+        "  |  Dependencies: 1 total · 0 pending · 0 accepted · 1 corrected"
+        "  |  Durations: 0 total · 0 pending · 0 accepted · 0 corrected"
+    )
 
 
 def test_ready_switches_to_dashboard(page: ResultsPage) -> None:
