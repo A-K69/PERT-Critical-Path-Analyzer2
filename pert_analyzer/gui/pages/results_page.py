@@ -13,6 +13,7 @@ never recomputes ES/EF/LS/LF, floats, paths, or duration.
 from __future__ import annotations
 
 from collections import Counter
+from pathlib import Path
 from typing import Any
 
 from PySide6.QtCore import Qt, Signal
@@ -149,6 +150,25 @@ class ResultsPage(QWidget):
         self._not_ready_heading.setStyleSheet(f"color: {WARNING};")
         layout.addWidget(self._not_ready_heading)
 
+        self._empty_status_banner = QFrame()
+        status_layout = QHBoxLayout(self._empty_status_banner)
+        status_layout.setContentsMargins(16, 10, 16, 10)
+        status_layout.setSpacing(10)
+        self._empty_status_icon = QLabel("!")
+        self._empty_status_icon.setFont(QFont(*TITLE_FONT))
+        status_layout.addWidget(self._empty_status_icon)
+        status_text = QVBoxLayout()
+        status_text.setSpacing(2)
+        self._empty_status_label = QLabel("")
+        self._empty_status_label.setFont(QFont(*STATUS_FONT))
+        status_text.addWidget(self._empty_status_label)
+        self._empty_status_hint = QLabel("")
+        self._empty_status_hint.setWordWrap(True)
+        self._empty_status_hint.setFont(QFont(*MUTED_FONT))
+        status_text.addWidget(self._empty_status_hint)
+        status_layout.addLayout(status_text, stretch=1)
+        layout.addWidget(self._empty_status_banner)
+
         self._empty_label = QLabel("")
         self._empty_label.setWordWrap(True)
         self._empty_label.setAlignment(Qt.AlignmentFlag.AlignCenter)
@@ -261,6 +281,20 @@ class ResultsPage(QWidget):
         self._priority_label.setFont(QFont(*MUTED_FONT))
         self._priority_label.setStyleSheet(f"color: {TEXT_SECONDARY};")
         inner.addWidget(self._priority_label)
+
+        self._provenance_card_label = QLabel("")
+        self._provenance_card_label.setWordWrap(True)
+        self._provenance_card_label.setAlignment(Qt.AlignmentFlag.AlignCenter)
+        self._provenance_card_label.setFont(QFont(*MUTED_FONT))
+        self._provenance_card_label.setStyleSheet(f"color: {TEXT_MUTED};")
+        inner.addWidget(self._provenance_card_label)
+
+        self._review_trace_label = QLabel("")
+        self._review_trace_label.setWordWrap(True)
+        self._review_trace_label.setAlignment(Qt.AlignmentFlag.AlignCenter)
+        self._review_trace_label.setFont(QFont(*MUTED_FONT))
+        self._review_trace_label.setStyleSheet(f"color: {TEXT_SECONDARY};")
+        inner.addWidget(self._review_trace_label)
         return card
 
     def _build_dashboard(self) -> QWidget:
@@ -412,6 +446,7 @@ class ResultsPage(QWidget):
             }[reason]
         self._empty_label.setText(message)
         self._empty_label.show()
+        self._set_empty_status(reason)
         self._provenance_label.hide()
         self._set_calculate_visible(reason == RESULT_UNAVAILABLE)
         self._calculate_btn.setEnabled(reason == RESULT_UNAVAILABLE and not self._busy)
@@ -455,7 +490,89 @@ class ResultsPage(QWidget):
             value_label, _ = self._preliminary_values[key]
             value_label.setText(str(value) if value not in (None, "") else "—")
         self._priority_label.setText(self._review_priority_text(session))
+        self._provenance_card_label.setText(self._provenance_text(session))
+        self._review_trace_label.setText(self._review_trace_text(session))
         self._preliminary_card.show()
+
+    @staticmethod
+    def _provenance_text(session: Any) -> str:
+        """Describe the source and graph type without claiming authority."""
+        review_session = getattr(session, "review_session", None)
+        source = getattr(review_session, "source_image_id", None)
+        if not source:
+            image_path = getattr(session, "current_image_path", None)
+            source = Path(image_path).name if image_path else ""
+        source = source or "unknown image"
+
+        summary = getattr(session, "review_summary", None) or {}
+        diagram_type = summary.get("diagram_type")
+        candidate = getattr(session, "current_candidate", None)
+        graph = getattr(candidate, "graph", None) if candidate is not None else None
+        if not diagram_type:
+            diagram_type = getattr(graph, "diagram_type", None)
+        diagram_type = getattr(diagram_type, "value", diagram_type) or "UNKNOWN"
+        return f"Source image: {source}  ·  Diagram type: {diagram_type}"
+
+    @staticmethod
+    def _review_trace_text(session: Any) -> str:
+        """Show review totals from the session, not reconstructed UI math."""
+        total = session.review_item_total() if session is not None else 0
+        pending = session.pending_review_total() if session is not None else 0
+        corrected = 0
+        review_session = getattr(session, "review_session", None)
+        for collection_name in ("activities", "dependencies", "durations"):
+            for item in getattr(review_session, collection_name, []) or []:
+                status = getattr(getattr(item, "status", None), "value", "")
+                if status == "CORRECTED":
+                    corrected += 1
+        resolved = max(0, total - pending)
+        return (
+            f"Review trace — {total} total · {pending} pending · "
+            f"{resolved} resolved · {corrected} corrected"
+        )
+
+    def _set_empty_status(self, reason: str) -> None:
+        """Set a concise trust state for every non-authoritative outcome."""
+        states = {
+            REVIEW_REQUIRED: (
+                "REVIEW REQUIRED", WARNING,
+                "CPM remains blocked until required review decisions are applied.",
+            ),
+            GRAPH_INVALID: (
+                "GRAPH INVALID", DANGER,
+                "The reviewed graph is not authoritative until validation issues are resolved.",
+            ),
+            CPM_BLOCKED: (
+                "CPM BLOCKED", WARNING,
+                "The graph cannot produce an authoritative CPM result in its current state.",
+            ),
+            RESULT_UNAVAILABLE: (
+                "READY TO CALCULATE", SUCCESS,
+                "The reviewed graph is valid; run CPM to create the authoritative result.",
+            ),
+            NO_ANALYSIS: (
+                "NO ANALYSIS", TEXT_MUTED,
+                "No detected or reviewed graph is available yet.",
+            ),
+        }
+        title, color, hint = states[reason]
+        if widget_language(self) == UiLanguage.ARABIC:
+            title = {
+                REVIEW_REQUIRED: "المراجعة مطلوبة",
+                GRAPH_INVALID: "الرسم غير صحيح",
+                CPM_BLOCKED: "تم حظر CPM",
+                RESULT_UNAVAILABLE: "جاهز للحساب",
+                NO_ANALYSIS: "لا يوجد تحليل",
+            }[reason]
+        self._empty_status_icon.setStyleSheet(f"color: {color};")
+        self._empty_status_label.setStyleSheet(f"color: {color}; font-weight: 600;")
+        self._empty_status_label.setText(title)
+        self._empty_status_hint.setText(hint)
+        self._empty_status_banner.setStyleSheet(
+            f"QFrame {{ background-color: {_rgba(color, 20)};"
+            f" border: 1px solid {color}44; border-radius: 8px; }}"
+        )
+        self._empty_status_banner.show()
 
     @staticmethod
     def _review_priority_text(session: Any) -> str:

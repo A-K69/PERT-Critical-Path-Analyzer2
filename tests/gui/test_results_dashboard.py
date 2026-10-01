@@ -110,6 +110,7 @@ def test_not_ready_review_required_without_candidate(page: ResultsPage) -> None:
     page.refresh(session)
     assert "Results not ready" in page._empty_label.text()
     assert "Review required" in page._empty_label.text()
+    assert page._empty_status_label.text() == "REVIEW REQUIRED"
 
 
 def test_not_ready_graph_invalid(page: ResultsPage) -> None:
@@ -117,6 +118,7 @@ def test_not_ready_graph_invalid(page: ResultsPage) -> None:
     page.refresh(make_session(candidate))
     assert page.stack_index() == page._EMPTY
     assert "invalid" in page._empty_label.text()
+    assert page._empty_status_label.text() == "GRAPH INVALID"
 
 
 def test_not_ready_cpm_blocked(page: ResultsPage) -> None:
@@ -137,6 +139,7 @@ def test_not_ready_result_unavailable_shows_calculate(page: ResultsPage) -> None
     page.refresh(make_session(candidate))
     assert page.stack_index() == page._EMPTY
     assert "no CPM result" in page._empty_label.text()
+    assert page._empty_status_label.text() == "READY TO CALCULATE"
     assert page._calculate_btn.isVisible()
     assert page._calculate_btn.isEnabled()
     page.hide()
@@ -169,6 +172,33 @@ def test_review_priority_summary_uses_pending_calibration_evidence() -> None:
     text = ResultsPage._review_priority_text(session)
 
     assert text == "Review priority — Blocking: 1 · High priority: 1"
+
+
+def test_provenance_and_review_trace_are_explicit() -> None:
+    pending = SimpleNamespace(value="PENDING")
+    corrected = SimpleNamespace(value="CORRECTED")
+    review_session = SimpleNamespace(
+        source_image_id="7.jpeg",
+        activities=[SimpleNamespace(status=pending, evidence=[])],
+        dependencies=[SimpleNamespace(status=corrected, evidence=[])],
+        durations=[],
+        metadata={},
+    )
+    session = SimpleNamespace(
+        review_session=review_session,
+        current_image_path="/tmp/7.jpeg",
+        review_summary={"diagram_type": "AON"},
+        current_candidate=None,
+        review_item_total=lambda: 2,
+        pending_review_total=lambda: 1,
+    )
+
+    assert ResultsPage._provenance_text(session) == (
+        "Source image: 7.jpeg  ·  Diagram type: AON"
+    )
+    assert ResultsPage._review_trace_text(session) == (
+        "Review trace — 2 total · 1 pending · 1 resolved · 1 corrected"
+    )
 
 
 def test_ready_switches_to_dashboard(page: ResultsPage) -> None:
