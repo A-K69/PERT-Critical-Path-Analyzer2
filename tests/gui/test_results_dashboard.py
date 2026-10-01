@@ -10,6 +10,7 @@ worker flow, and the reference fixture (22 activities / 28 dependencies /
 from __future__ import annotations
 
 import time
+from types import SimpleNamespace
 
 import pytest
 from PySide6.QtCore import Qt
@@ -139,6 +140,35 @@ def test_not_ready_result_unavailable_shows_calculate(page: ResultsPage) -> None
     assert page._calculate_btn.isVisible()
     assert page._calculate_btn.isEnabled()
     page.hide()
+
+
+def test_review_priority_summary_uses_pending_calibration_evidence() -> None:
+    pending = SimpleNamespace(value="PENDING")
+
+    def evidence(tier: str) -> SimpleNamespace:
+        return SimpleNamespace(metadata={"review_calibration": {"tier": tier}})
+
+    review_session = SimpleNamespace(
+        activities=[
+            SimpleNamespace(
+                status=pending,
+                evidence=[evidence("BLOCKING_REVIEW")],
+            )
+        ],
+        dependencies=[
+            SimpleNamespace(
+                status=pending,
+                evidence=[evidence("HIGH_PRIORITY_REVIEW")],
+            )
+        ],
+        durations=[],
+        metadata={},
+    )
+    session = SimpleNamespace(review_session=review_session)
+
+    text = ResultsPage._review_priority_text(session)
+
+    assert text == "Review priority — Blocking: 1 · High priority: 1"
 
 
 def test_ready_switches_to_dashboard(page: ResultsPage) -> None:
