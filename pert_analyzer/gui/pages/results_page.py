@@ -295,6 +295,13 @@ class ResultsPage(QWidget):
         self._review_trace_label.setFont(QFont(*MUTED_FONT))
         self._review_trace_label.setStyleSheet(f"color: {TEXT_SECONDARY};")
         inner.addWidget(self._review_trace_label)
+
+        self._review_breakdown_label = QLabel("")
+        self._review_breakdown_label.setWordWrap(True)
+        self._review_breakdown_label.setAlignment(Qt.AlignmentFlag.AlignCenter)
+        self._review_breakdown_label.setFont(QFont(*MUTED_FONT))
+        self._review_breakdown_label.setStyleSheet(f"color: {TEXT_SECONDARY};")
+        inner.addWidget(self._review_breakdown_label)
         return card
 
     def _build_dashboard(self) -> QWidget:
@@ -492,6 +499,7 @@ class ResultsPage(QWidget):
         self._priority_label.setText(self._review_priority_text(session))
         self._provenance_card_label.setText(self._provenance_text(session))
         self._review_trace_label.setText(self._review_trace_text(session))
+        self._review_breakdown_label.setText(self._review_breakdown_text(session))
         self._preliminary_card.show()
 
     @staticmethod
@@ -530,6 +538,33 @@ class ResultsPage(QWidget):
             f"Review trace — {total} total · {pending} pending · "
             f"{resolved} resolved · {corrected} corrected"
         )
+
+    @staticmethod
+    def _review_breakdown_text(session: Any) -> str:
+        """Show auditable totals by review category and final decision."""
+        review_session = getattr(session, "review_session", None)
+        if review_session is None:
+            return "Review breakdown: unavailable"
+
+        labels = (
+            ("activities", "Activities"),
+            ("dependencies", "Dependencies"),
+            ("durations", "Durations"),
+        )
+        parts = []
+        for collection_name, label in labels:
+            items = list(getattr(review_session, collection_name, []) or [])
+            counts = Counter(
+                getattr(getattr(item, "status", None), "value", "PENDING")
+                for item in items
+            )
+            total = len(items)
+            parts.append(
+                f"{label}: {total} total · {counts.get('PENDING', 0)} pending · "
+                f"{counts.get('ACCEPTED', 0)} accepted · "
+                f"{counts.get('CORRECTED', 0)} corrected"
+            )
+        return "Review breakdown — " + "  |  ".join(parts)
 
     def _set_empty_status(self, reason: str) -> None:
         """Set a concise trust state for every non-authoritative outcome."""
