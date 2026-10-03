@@ -47,6 +47,7 @@ from pert_analyzer.gui.results.formatting import format_duration
 from pert_analyzer.gui.results.network import NetworkTab
 from pert_analyzer.gui.results.overview import OverviewTab
 from pert_analyzer.gui.results.pert import PertTab
+from pert_analyzer.gui.results.preview import DetectedPreviewTab
 from pert_analyzer.gui.themes.palette import (
     ACCENT,
     BORDER,
@@ -213,6 +214,9 @@ class ResultsPage(QWidget):
 
         self._preliminary_card = self._build_preliminary_card()
         layout.addWidget(self._preliminary_card)
+
+        self._detected_preview = DetectedPreviewTab()
+        layout.addWidget(self._detected_preview, stretch=1)
 
         self._readiness_label = QLabel("")
         self._readiness_label.setWordWrap(True)
@@ -556,10 +560,12 @@ class ResultsPage(QWidget):
         """Fill the PRELIMINARY detected-metrics card when an analysis exists."""
         if session is None:
             self._preliminary_card.hide()
+            self._detected_preview.clear_preview()
             return
         candidate = session.current_candidate
         if session.workflow is None and candidate is None:
             self._preliminary_card.hide()
+            self._detected_preview.clear_preview()
             return
         workflow = getattr(session, "workflow", None)
         if workflow is not None:
@@ -591,6 +597,12 @@ class ResultsPage(QWidget):
         self._review_trace_label.setText(self._review_trace_text(session))
         self._review_breakdown_label.setText(self._review_breakdown_text(session))
         self._preliminary_card.show()
+        if self._entry_mode(session) == "IMAGE_ANALYSIS":
+            self._detected_preview.set_review_session(
+                getattr(session, "review_session", None)
+            )
+        else:
+            self._detected_preview.clear_preview()
 
     @staticmethod
     def _provenance_text(session: Any) -> str:
@@ -852,6 +864,7 @@ class ResultsPage(QWidget):
         self._empty_label.hide()
         self._not_ready_heading.hide()
         self._preliminary_card.hide()
+        self._detected_preview.clear_preview()
         self._progress_label.hide()
         self._export_btn.setEnabled(True)
         self._report_btn.setEnabled(True)

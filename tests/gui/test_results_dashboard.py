@@ -239,6 +239,48 @@ def test_image_review_and_network_builder_use_one_context_shell(page: ResultsPag
     assert page._context_trust_label.text() == "TRUST: AUTHORITATIVE"
 
 
+def test_image_mode_renders_safe_detected_preview_without_cpm() -> None:
+    activity_a = SimpleNamespace(
+        geometric_node_id="geo-a", activity_id="A", duration=3.0,
+        confidence=0.9, position=(120.0, 100.0),
+    )
+    activity_b = SimpleNamespace(
+        geometric_node_id="geo-b", activity_id="B", duration=4.0,
+        confidence=0.35, position=(340.0, 100.0),
+    )
+    dependency = SimpleNamespace(
+        source_id="geo-a", target_id="geo-b", source_arrow_id="arrow-1",
+        confidence=0.3,
+    )
+    reconstruction = SimpleNamespace(
+        diagram_type="AON", activities=[activity_a, activity_b],
+        dependencies=[dependency], events=[],
+    )
+    review_session = SimpleNamespace(
+        source_image_id="diagram.png", reconstruction=reconstruction,
+        activities=[], dependencies=[], durations=[], metadata={},
+    )
+    workflow = SimpleNamespace(
+        review_session=review_session,
+        _candidate=None,
+        pipeline_result=SimpleNamespace(review_required=True),
+        summary=lambda: {"total_activities": 2, "total_dependencies": 1},
+    )
+    session = GuiSession(
+        entry_mode="IMAGE_ANALYSIS",
+        current_image_path="/tmp/diagram.png",
+        workflow=workflow,
+    )
+    page = ResultsPage()
+    page.refresh(session)
+
+    assert page.stack_index() == page._EMPTY
+    assert not page._detected_preview.isHidden()
+    assert set(page._detected_preview.node_items()) == {"geo-a", "geo-b"}
+    assert page.data is None
+    assert page._context_trust_label.text() == "TRUST: PRELIMINARY"
+
+
 def test_dashboard_tabs_labels(page: ResultsPage) -> None:
     page.refresh(make_session(two_activity_candidate()))
     labels = [page.tabs().tabText(i) for i in range(page.tabs().count())]
