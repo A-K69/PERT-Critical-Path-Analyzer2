@@ -208,11 +208,35 @@ def test_provenance_and_review_trace_are_explicit() -> None:
 
 def test_ready_switches_to_dashboard(page: ResultsPage) -> None:
     page.show()
-    page.refresh(make_session(two_activity_candidate()))
+    session = make_session(two_activity_candidate())
+    session.entry_mode = "NETWORK_BUILDER"
+    page.refresh(session)
     assert page.stack_index() == page._DASHBOARD
     assert page._empty_label.isHidden()
     assert "Project duration: 14 days" in page._summary_label.text()
+    assert page._context_mode_label.text() == "ENTRY: NETWORK BUILDER"
+    assert page._context_trust_label.text() == "TRUST: AUTHORITATIVE"
     page.hide()
+
+
+def test_image_review_and_network_builder_use_one_context_shell(page: ResultsPage) -> None:
+    image_session = GuiSession()
+    image_session.entry_mode = "IMAGE_ANALYSIS"
+    image_session.current_image_path = "/tmp/diagram-7.jpeg"
+    image_session.workflow = FakeWorkflow()
+    page.refresh(image_session)
+    assert page.stack_index() == page._EMPTY
+    assert page._context_mode_label.text() == "ENTRY: IMAGE ANALYSIS"
+    assert page._context_source_label.text() == "Source: diagram-7.jpeg"
+    assert page._context_trust_label.text() == "TRUST: PRELIMINARY"
+
+    builder_session = make_session(two_activity_candidate())
+    builder_session.entry_mode = "NETWORK_BUILDER"
+    page.refresh(builder_session)
+    assert page.stack_index() == page._DASHBOARD
+    assert page._context_mode_label.text() == "ENTRY: NETWORK BUILDER"
+    assert page._context_source_label.text() == "Source: Manual Network Builder"
+    assert page._context_trust_label.text() == "TRUST: AUTHORITATIVE"
 
 
 def test_dashboard_tabs_labels(page: ResultsPage) -> None:

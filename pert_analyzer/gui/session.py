@@ -52,6 +52,7 @@ class GuiSession:
     """Owns all state for a single analysis session."""
 
     state: AppState = AppState.NO_PROJECT
+    entry_mode: str = "NONE"
     current_image_path: Optional[str] = None
     image_size: Optional[Tuple[int, int]] = None
     workflow: Any = None
@@ -98,6 +99,7 @@ class GuiSession:
             logger.warning("Unsupported image type: %s", ext)
             return False
         self.current_image_path = path
+        self.entry_mode = "IMAGE_ANALYSIS"
         self._reset_review_state()
         self.error_message = ""
         self.state = AppState.IMAGE_SELECTED
@@ -107,6 +109,7 @@ class GuiSession:
     def clear_image(self) -> None:
         """Clear the current image and reset state."""
         self.current_image_path = None
+        self.entry_mode = "NONE"
         self.image_size = None
         self._reset_review_state()
         self.error_message = ""
