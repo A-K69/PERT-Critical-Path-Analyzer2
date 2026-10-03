@@ -862,6 +862,7 @@ class MainWindow(QMainWindow):
         _log.info("[SESSION] State=%s, candidate assigned, has_applied=%s",
                   self._session.state.value, self._session.has_applied_reviews)
 
+        self._session.entry_mode = "NETWORK_BUILDER"
         self._network_builder_page.mark_results_ready()
 
         self._refresh_pages()

@@ -125,6 +125,8 @@ class ResultsPage(QWidget):
         subtitle.setStyleSheet(f"color: {TEXT_SECONDARY};")
         root.addWidget(subtitle)
 
+        root.addWidget(self._build_context_header())
+
         self._stack = QStackedWidget()
         root.addWidget(self._stack, stretch=1)
 
@@ -136,6 +138,39 @@ class ResultsPage(QWidget):
     # ------------------------------------------------------------------
     # UI construction
     # ------------------------------------------------------------------
+
+    def _build_context_header(self) -> QWidget:
+        """Build the shared context surface for every Results entry mode."""
+        frame = QFrame()
+        frame.setObjectName("resultsContextHeader")
+        frame.setStyleSheet(
+            f"QFrame#resultsContextHeader {{ background-color: {SURFACE_LIGHT};"
+            f" border: 1px solid {BORDER}; border-radius: {RADIUS_SM}px; }}"
+        )
+        layout = QHBoxLayout(frame)
+        layout.setContentsMargins(14, 8, 14, 8)
+        layout.setSpacing(14)
+
+        self._context_mode_label = QLabel("ENTRY: —")
+        self._context_mode_label.setFont(QFont(*STATUS_FONT))
+        self._context_mode_label.setStyleSheet(f"color: {ACCENT}; font-weight: 600;")
+        layout.addWidget(self._context_mode_label)
+
+        self._context_source_label = QLabel("Source: —")
+        self._context_source_label.setFont(QFont(*MUTED_FONT))
+        self._context_source_label.setStyleSheet(f"color: {TEXT_SECONDARY};")
+        layout.addWidget(self._context_source_label, stretch=1)
+
+        self._context_trust_label = QLabel("TRUST: NOT READY")
+        self._context_trust_label.setFont(QFont(*STATUS_FONT))
+        self._context_trust_label.setStyleSheet(f"color: {WARNING}; font-weight: 600;")
+        layout.addWidget(self._context_trust_label)
+
+        self._context_review_label = QLabel("Review: —")
+        self._context_review_label.setFont(QFont(*MUTED_FONT))
+        self._context_review_label.setStyleSheet(f"color: {TEXT_SECONDARY};")
+        layout.addWidget(self._context_review_label)
+        return frame
 
     def _build_empty_state(self) -> QWidget:
         widget = QWidget()
@@ -413,11 +448,66 @@ class ResultsPage(QWidget):
     def refresh(self, session: Any) -> None:
         self._session = session
         ready, reason = describe_ready(session)
+        self._update_context_header(session, ready, reason)
         self._pert.refresh(session)
         if not ready:
             self._show_not_ready(reason)
             return
         self._show_dashboard(session)
+
+    @staticmethod
+    def _entry_mode(session: Any) -> str:
+        mode = getattr(session, "entry_mode", None)
+        if mode in ("IMAGE_ANALYSIS", "NETWORK_BUILDER"):
+            return mode
+        if getattr(session, "current_image_path", None):
+            return "IMAGE_ANALYSIS"
+        if getattr(session, "workflow", None) is None and getattr(
+            session, "current_candidate", None
+        ) is not None:
+            return "NETWORK_BUILDER"
+        return "NONE"
+
+    def _update_context_header(self, session: Any, ready: bool, reason: str) -> None:
+        """Keep both Results modes inside one stable, explainable shell."""
+        mode = self._entry_mode(session)
+        mode_label = {
+            "IMAGE_ANALYSIS": "ENTRY: IMAGE ANALYSIS",
+            "NETWORK_BUILDER": "ENTRY: NETWORK BUILDER",
+            "NONE": "ENTRY: NOT STARTED",
+        }[mode]
+        self._context_mode_label.setText(mode_label)
+
+        source = self._provenance_text(session).split("  ·  ", 1)[0]
+        if ": " in source:
+            source = "Source: " + source.split(": ", 1)[1]
+        if mode == "NETWORK_BUILDER":
+            source = "Source: Manual Network Builder"
+        self._context_source_label.setText(source)
+
+        trust = "AUTHORITATIVE" if ready else {
+            REVIEW_REQUIRED: "PRELIMINARY",
+            GRAPH_INVALID: "NOT AUTHORITATIVE",
+            CPM_BLOCKED: "NOT AUTHORITATIVE",
+            RESULT_UNAVAILABLE: "REVIEWED / CPM PENDING",
+            NO_ANALYSIS: "NOT READY",
+        }.get(reason, "NOT READY")
+        trust_color = SUCCESS if ready else (
+            WARNING if reason in (REVIEW_REQUIRED, RESULT_UNAVAILABLE, NO_ANALYSIS)
+            else DANGER
+        )
+        self._context_trust_label.setText(f"TRUST: {trust}")
+        self._context_trust_label.setStyleSheet(
+            f"color: {trust_color}; font-weight: 600;"
+        )
+
+        total = session.review_item_total() if session is not None else 0
+        pending = session.pending_review_total() if session is not None else 0
+        self._context_review_label.setText(
+            f"Review: {max(0, total - pending)}/{total} resolved"
+            if total
+            else "Review: not required"
+        )
 
     def _show_not_ready(self, reason: str) -> None:
         session = self._session
