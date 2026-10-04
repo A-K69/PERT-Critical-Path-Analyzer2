@@ -424,16 +424,19 @@ class ResultsPage(QWidget):
         self._tabs.addTab(self._pert, "PERT")
         layout.addWidget(self._tabs, stretch=1)
 
-        self._overview.path_list().path_selected.connect(self._on_path_selected)
         self._critical_paths.path_selected.connect(self._on_path_selected)
         self._activities.activity_selected.connect(self._on_activity_selected)
         self._network.node_selected.connect(self._on_network_node_selected)
-        self._overview.embedded_network().node_selected.connect(
-            self._on_overview_network_node_selected
+        self._overview.open_network_requested.connect(
+            lambda: self._tabs.setCurrentWidget(self._network)
         )
-        self._overview.embedded_activities().activity_selected.connect(
-            self._on_embedded_activity_selected
+        self._overview.open_activities_requested.connect(
+            lambda: self._tabs.setCurrentWidget(self._activities)
         )
+        self._overview.open_paths_requested.connect(
+            lambda: self._tabs.setCurrentWidget(self._critical_paths)
+        )
+        self._overview.open_validation_requested.connect(self.go_validation)
         self._pert.pert_run_requested.connect(self._on_pert_run_clicked)
         return widget
 
@@ -852,14 +855,11 @@ class ResultsPage(QWidget):
                 f"Critical activities: {data.critical_activity_count}"
             )
         )
-        self._overview.set_data(data)
+        self._overview.set_data(data, session)
         self._activities.set_data(data.activities)
         self._critical_paths.set_data(data)
         self._network.set_data(data)
         self._network.set_pert_data(extract_pert(session))
-        row = self._overview.path_list().selected_row()
-        if row >= 0:
-            self._overview.path_list().reselect_current()
         self._set_calculate_visible(False)
         self._empty_label.hide()
         self._not_ready_heading.hide()
@@ -914,23 +914,13 @@ class ResultsPage(QWidget):
 
     def _on_path_selected(self, path_ids: list[str]) -> None:
         self._network.highlight_path(list(path_ids))
-        self._overview.embedded_network().highlight_path(list(path_ids))
 
     def _on_activity_selected(self, activity_id: str) -> None:
         self._network.set_selected_activity(activity_id)
-        self._overview.embedded_network().set_selected_activity(activity_id)
 
     def _on_network_node_selected(self, activity_id: str) -> None:
-        self._overview.embedded_network().set_selected_activity(activity_id)
         self._tabs.setCurrentWidget(self._activities)
         self._activities.select_activity(activity_id)
-
-    def _on_overview_network_node_selected(self, activity_id: str) -> None:
-        self._network.set_selected_activity(activity_id)
-        self._tabs.setCurrentWidget(self._network)
-
-    def _on_embedded_activity_selected(self, activity_id: str) -> None:
-        self._network.set_selected_activity(activity_id)
 
     # ------------------------------------------------------------------
     # State helpers
