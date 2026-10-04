@@ -357,55 +357,44 @@ def _ready_page() -> tuple[ResultsPage, GuiSession]:
     return page, session
 
 
-def test_results_overview_embeds_network_and_activities(qapp: QApplication) -> None:
+def test_results_overview_is_summary_only(qapp: QApplication) -> None:
     page, _session = _ready_page()
-    embedded_network = page.overview().embedded_network()
-    assert len(embedded_network.node_items()) == 2
-    embedded_activities = page.overview().embedded_activities()
-    assert embedded_activities.table().rowCount() == 2
-    assert page.overview()._cards_row.count() == 5
+    overview = page.overview()
+    assert overview._cards_row.count() == 6
+    assert not hasattr(overview, "_embedded_network")
+    assert not hasattr(overview, "_embedded_activities")
+    assert "reviewed activities" in overview._composition.text()
     page.deleteLater()
 
 
-def test_results_overview_network_summary_includes_non_critical(
+def test_results_overview_has_health_and_confidence_summary(
     qapp: QApplication,
 ) -> None:
     page, _session = _ready_page()
-    text = page.overview()._network_summary.text()
-    assert "non-critical activities" in text
-    assert "critical path(s)" in text
+    overview = page.overview()
+    assert overview._health_status.text() == "Authoritative"
+    assert "Backend CPM" in overview._confidence.text()
+    assert "critical route" in overview._next_action.text()
     page.deleteLater()
 
 
-def test_results_overview_path_selection_highlights_both_networks(
+def test_results_overview_actions_open_detail_tabs(
     qapp: QApplication,
 ) -> None:
     page, _session = _ready_page()
-    page.overview().path_list().select_path(0)
-    assert page.network().current_path() == ["A0", "A1"]
-    assert page.overview().embedded_network().current_path() == ["A0", "A1"]
-    assert page.network().node_items()["A0"]._path_highlight
-    page.deleteLater()
-
-
-def test_results_overview_embedded_node_click_switches_to_network_tab(
-    qapp: QApplication,
-) -> None:
-    page, _session = _ready_page()
-    embedded = page.overview().embedded_network()
-    embedded.node_items()["A0"].clicked.emit("A0")
+    overview = page.overview()
+    overview._open_network_btn.click()
     assert page.tabs().currentWidget() is page.network()
-    assert page.network().selected_activity == "A0"
+    overview._paths_button.click()
+    assert page.tabs().currentWidget() is page.critical_paths()
     page.deleteLater()
 
 
-def test_results_activity_selection_highlights_embedded_network(
+def test_results_overview_activity_action_switches_to_activities_tab(
     qapp: QApplication,
 ) -> None:
     page, _session = _ready_page()
-    page.activities().select_activity("A1")
-    assert page.overview().embedded_network().selected_activity == "A1"
-    assert (
-        page.overview().embedded_network().node_items()["A1"]._selected
-    )
+    overview = page.overview()
+    overview.open_activities_requested.emit()
+    assert page.tabs().currentWidget() is page.activities()
     page.deleteLater()

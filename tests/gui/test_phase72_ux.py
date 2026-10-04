@@ -421,10 +421,11 @@ def test_overview_kpi_reflow_single_row(qapp: QApplication) -> None:
         "duration",
         "critical_activities",
         "critical_paths",
+        "review_state",
     }
-    assert overview._cards_row.count() == 5  # one KPI row with five cards
-    assert "activities" in overview._network_summary.text()
-    assert "critical path(s)" in overview._network_summary.text()
+    assert overview._cards_row.count() == 6  # one KPI row with six cards
+    assert "reviewed activities" in overview._composition.text()
+    assert "Backend CPM" in overview._confidence.text()
     page.deleteLater()
 
 

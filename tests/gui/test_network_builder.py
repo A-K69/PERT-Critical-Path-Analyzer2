@@ -684,8 +684,8 @@ class TestResultsWidgetsPopulatedFromAnalyzeButton:
         assert len(net._edge_items) == 4
 
         assert results_page.critical_paths()._path_list._list.count() == 2
-        assert results_page.overview().path_list()._list.count() == 2
-        assert results_page.overview().embedded_activities()._table.rowCount() == 4
+        assert "2 critical path(s)" in results_page.overview()._paths_summary.text()
+        assert "4 reviewed activities" in results_page.overview()._composition.text()
 
 
 class TestBuilderStateBadgeAndGraph:
