@@ -23,6 +23,7 @@ from PySide6.QtWidgets import (
     QHBoxLayout,
     QLabel,
     QPushButton,
+    QScrollArea,
     QStackedWidget,
     QTabWidget,
     QVBoxLayout,
@@ -113,15 +114,15 @@ class ResultsPage(QWidget):
         self._data: Any = None
 
         root = QVBoxLayout(self)
-        root.setContentsMargins(24, 24, 24, 24)
-        root.setSpacing(8)
+        root.setContentsMargins(18, 16, 12, 8)
+        root.setSpacing(7)
 
-        title = QLabel("Results Dashboard")
+        title = QLabel("Results")
         title.setFont(QFont(*TITLE_FONT))
         title.setStyleSheet(f"color: {TEXT};")
         root.addWidget(title)
 
-        subtitle = QLabel("Critical path analysis of the reviewed graph.")
+        subtitle = QLabel("Verified schedule intelligence from the reviewed graph.")
         subtitle.setFont(QFont(*SUBTITLE_FONT))
         subtitle.setStyleSheet(f"color: {TEXT_SECONDARY};")
         root.addWidget(subtitle)
@@ -344,10 +345,11 @@ class ResultsPage(QWidget):
         return card
 
     def _build_dashboard(self) -> QWidget:
-        widget = QWidget()
-        layout = QVBoxLayout(widget)
-        layout.setContentsMargins(0, 8, 0, 0)
-        layout.setSpacing(8)
+        content = QWidget()
+        content.setMinimumWidth(0)
+        layout = QVBoxLayout(content)
+        layout.setContentsMargins(0, 8, 8, 18)
+        layout.setSpacing(9)
 
         # Status banner
         self._status_banner = QFrame()
@@ -404,13 +406,20 @@ class ResultsPage(QWidget):
         layout.addLayout(top)
 
         self._tabs = QTabWidget()
+        self._tabs.setMinimumWidth(0)
+        self._tabs.setDocumentMode(True)
+        self._tabs.setUsesScrollButtons(False)
         self._tabs.setStyleSheet(
             f"QTabWidget::pane {{ border: 1px solid {BORDER};"
-            f" border-radius: {RADIUS_SM}px; top: -1px; }}"
-            f"QTabBar::tab {{ padding: 7px 16px; color: {TEXT_MUTED};"
-            " border: none; background: transparent; }"
-            f"QTabBar::tab:selected {{ color: {TEXT};"
-            f" border-bottom: 2px solid {ACCENT}; }}"
+            f" border-radius: {RADIUS_SM}px; top: -1px; background: transparent; }}"
+            f"QTabBar {{ background: transparent; }}"
+            f"QTabBar::tab {{ padding: 9px 18px; margin-right: 4px;"
+            f" min-height: 28px; color: {TEXT_MUTED}; border: 1px solid transparent;"
+            f" border-radius: {RADIUS_SM}px; background: transparent; }}"
+            f"QTabBar::tab:selected {{ color: {TEXT}; background: {SURFACE_LIGHT};"
+            f" border-color: {ACCENT}; font-weight: 700; }}"
+            f"QTabBar::tab:hover:!selected {{ color: {TEXT};"
+            f" background: {SURFACE_LIGHT}; }}"
         )
         self._overview = OverviewTab()
         self._network = NetworkTab()
@@ -438,7 +447,13 @@ class ResultsPage(QWidget):
         )
         self._overview.open_validation_requested.connect(self.go_validation)
         self._pert.pert_run_requested.connect(self._on_pert_run_clicked)
-        return widget
+        scroll = QScrollArea()
+        scroll.setObjectName("resultsDashboardScroll")
+        scroll.setWidgetResizable(True)
+        scroll.setFrameShape(QFrame.Shape.NoFrame)
+        scroll.setHorizontalScrollBarPolicy(Qt.ScrollBarPolicy.ScrollBarAlwaysOff)
+        scroll.setWidget(content)
+        return scroll
 
     # ------------------------------------------------------------------
     # Readiness gate
