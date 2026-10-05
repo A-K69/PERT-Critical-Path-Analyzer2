@@ -17,7 +17,9 @@ from PySide6.QtWidgets import (
     QGridLayout,
     QHBoxLayout,
     QLabel,
+    QProgressBar,
     QPushButton,
+    QSizePolicy,
     QVBoxLayout,
     QWidget,
 )
@@ -46,38 +48,85 @@ from pert_analyzer.gui.themes.typography import (
 )
 
 
-class KpiCard(QFrame):
-    """A compact KPI card used by the executive Overview surface."""
+def _rgba(hex_color: str, alpha: int) -> str:
+    value = hex_color.lstrip("#")
+    return (
+        f"rgba({int(value[0:2], 16)}, {int(value[2:4], 16)}, "
+        f"{int(value[4:6], 16)}, {alpha})"
+    )
 
-    def __init__(self, title: str, parent: QWidget | None = None):
+
+class KpiCard(QFrame):
+    """A high-signal KPI card with accent, icon, value, and status cue."""
+
+    def __init__(
+        self,
+        title: str,
+        icon: str = "•",
+        accent: str = ACCENT,
+        parent: QWidget | None = None,
+    ):
         super().__init__(parent)
         self.setObjectName("overviewKpiCard")
+        self.setMinimumWidth(0)
+        self.setSizePolicy(QSizePolicy.Policy.Ignored, QSizePolicy.Policy.Preferred)
         self.setStyleSheet(
             f"QFrame#overviewKpiCard {{ background-color: {SURFACE};"
             f" border: 1px solid {BORDER}; border-radius: {RADIUS_LG}px; }}"
-            f"QFrame#overviewKpiCard:hover {{ border-color: {ACCENT}; }}"
+            f"QFrame#overviewKpiCard:hover {{ border-color: {accent};"
+            f" background-color: {SURFACE_LIGHT}; }}"
         )
         layout = QVBoxLayout(self)
-        layout.setContentsMargins(12, 10, 12, 10)
-        layout.setSpacing(4)
-        self._title_label = QLabel(title)
+        layout.setContentsMargins(14, 12, 14, 11)
+        layout.setSpacing(3)
+        top = QHBoxLayout()
+        top.setSpacing(7)
+        self._icon_label = QLabel(icon)
+        self._icon_label.setAlignment(Qt.AlignmentFlag.AlignCenter)
+        self._icon_label.setFixedSize(28, 28)
+        self._icon_label.setFont(QFont(*STATUS_FONT))
+        self._icon_label.setStyleSheet(
+            f"color: {accent}; background-color: {_rgba(accent, 28)};"
+            f" border-radius: {RADIUS_SM}px;"
+        )
+        top.addWidget(self._icon_label)
+        self._title_label = QLabel(title.upper())
+        self._title_label.setWordWrap(True)
+        self._title_label.setMinimumWidth(0)
+        self._title_label.setSizePolicy(QSizePolicy.Policy.Ignored, QSizePolicy.Policy.Preferred)
         self._title_label.setFont(QFont(*MUTED_FONT))
         self._title_label.setStyleSheet(
             f"color: {TEXT_MUTED}; border: none; background: transparent;"
         )
-        layout.addWidget(self._title_label)
+        top.addWidget(self._title_label, stretch=1)
+        layout.addLayout(top)
         self._value_label = QLabel("Unavailable")
         self._value_label.setFont(QFont(*KPI_FONT))
         self._value_label.setStyleSheet(
-            f"color: {TEXT}; border: none; background: transparent;"
+            f"color: {accent}; border: none; background: transparent;"
         )
         layout.addWidget(self._value_label)
+        bottom = QHBoxLayout()
+        bottom.setSpacing(4)
         self._note_label = QLabel("")
+        self._note_label.setMinimumWidth(0)
+        self._note_label.setWordWrap(True)
+        self._note_label.setSizePolicy(QSizePolicy.Policy.Ignored, QSizePolicy.Policy.Preferred)
         self._note_label.setFont(QFont(*MUTED_FONT))
         self._note_label.setStyleSheet(
             f"color: {TEXT_MUTED}; border: none; background: transparent;"
         )
-        layout.addWidget(self._note_label)
+        bottom.addWidget(self._note_label, stretch=1)
+        self._trend_label = QLabel("")
+        self._trend_label.setMinimumWidth(0)
+        self._trend_label.setWordWrap(True)
+        self._trend_label.setSizePolicy(QSizePolicy.Policy.Ignored, QSizePolicy.Policy.Preferred)
+        self._trend_label.setFont(QFont(*MUTED_FONT))
+        self._trend_label.setStyleSheet(
+            f"color: {accent}; border: none; background: transparent;"
+        )
+        bottom.addWidget(self._trend_label)
+        layout.addLayout(bottom)
 
     def set_value(self, text: str, color: str = TEXT) -> None:
         self._value_label.setText(text)
@@ -87,6 +136,9 @@ class KpiCard(QFrame):
 
     def set_note(self, text: str) -> None:
         self._note_label.setText(text)
+
+    def set_trend(self, text: str) -> None:
+        self._trend_label.setText(text)
 
     def title(self) -> str:
         return self._title_label.text()
@@ -147,15 +199,15 @@ class OverviewTab(QWidget):
 
         self._cards_row = QHBoxLayout()
         self._cards_row.setSpacing(10)
-        for key, title in (
-            ("duration", "Project duration"),
-            ("activities", "Activities"),
-            ("dependencies", "Dependencies"),
-            ("critical_paths", "Critical paths"),
-            ("critical_activities", "Critical activities"),
-            ("review_state", "Review state"),
+        for key, title, icon, accent in (
+            ("duration", "Project duration", "◷", ACCENT),
+            ("activities", "Activities", "▦", ACCENT),
+            ("dependencies", "Dependencies", "↗", ELEVATED),
+            ("critical_paths", "Critical paths", "⚑", WARNING),
+            ("critical_activities", "Critical activities", "◎", WARNING),
+            ("review_state", "Review state", "✓", SUCCESS),
         ):
-            card = KpiCard(title)
+            card = KpiCard(title, icon, accent)
             self._kpi_cards[key] = card
             self._cards_row.addWidget(card, stretch=1)
         root.addLayout(self._cards_row)
@@ -222,7 +274,10 @@ class OverviewTab(QWidget):
         self._health_checks = QLabel("")
         self._health_checks.setWordWrap(True)
         self._health_checks.setFont(QFont(*MUTED_FONT))
-        self._health_checks.setStyleSheet(f"color: {TEXT_SECONDARY};")
+        self._health_checks.setStyleSheet(
+            f"color: {TEXT_SECONDARY}; background-color: {SURFACE_LIGHT};"
+            f" border-radius: {RADIUS_SM}px; padding: 8px;"
+        )
         layout.addWidget(self._health_checks)
         return panel
 
@@ -241,8 +296,16 @@ class OverviewTab(QWidget):
         self._paths_summary.setStyleSheet(f"color: {TEXT_SECONDARY};")
         layout.addWidget(self._paths_summary)
         self._path_rows = QVBoxLayout()
-        self._path_rows.setSpacing(6)
+        self._path_rows.setSpacing(0)
         layout.addLayout(self._path_rows)
+        self._more_paths = QLabel("")
+        self._more_paths.setAlignment(Qt.AlignmentFlag.AlignCenter)
+        self._more_paths.setFont(QFont(*MUTED_FONT))
+        self._more_paths.setStyleSheet(
+            f"color: {ACCENT}; background-color: {SURFACE_LIGHT};"
+            f" border-radius: {RADIUS_SM}px; padding: 7px;"
+        )
+        layout.addWidget(self._more_paths)
         return panel
 
     def _build_composition_panel(self) -> QFrame:
@@ -269,6 +332,16 @@ class OverviewTab(QWidget):
         self._confidence.setFont(QFont(*MUTED_FONT))
         self._confidence.setStyleSheet(f"color: {TEXT_SECONDARY};")
         layout.addWidget(self._confidence)
+        self._confidence_bar = QProgressBar()
+        self._confidence_bar.setRange(0, 3)
+        self._confidence_bar.setValue(0)
+        self._confidence_bar.setTextVisible(False)
+        self._confidence_bar.setToolTip("Verified readiness checks")
+        layout.addWidget(self._confidence_bar)
+        self._confidence_caption = QLabel("Verified readiness checks: 0 / 3")
+        self._confidence_caption.setFont(QFont(*MUTED_FONT))
+        self._confidence_caption.setStyleSheet(f"color: {TEXT_MUTED};")
+        layout.addWidget(self._confidence_caption)
         return panel
 
     def _build_action_panel(self) -> QFrame:
@@ -290,26 +363,35 @@ class OverviewTab(QWidget):
         self._session = session
         path_count = data.critical_path_count or 0
         self._kpi_cards["duration"].set_value(format_duration(data.project_duration), ACCENT)
-        self._kpi_cards["duration"].set_note("CPM verified")
+        self._kpi_cards["duration"].set_note("days · CPM verified")
+        self._kpi_cards["duration"].set_trend("● verified")
         self._kpi_cards["activities"].set_value(str(data.activity_count), TEXT)
         self._kpi_cards["activities"].set_note("reviewed activities")
+        self._kpi_cards["activities"].set_trend("100% reviewed")
         self._kpi_cards["dependencies"].set_value(str(data.dependency_count), TEXT)
         self._kpi_cards["dependencies"].set_note("unique relationships")
+        self._kpi_cards["dependencies"].set_trend("graph linked")
         self._kpi_cards["critical_paths"].set_value(str(path_count), WARNING)
         self._kpi_cards["critical_paths"].set_note("zero-float routes")
+        self._kpi_cards["critical_paths"].set_trend("compare →")
         self._kpi_cards["critical_activities"].set_value(
             str(data.critical_activity_count), WARNING
         )
         self._kpi_cards["critical_activities"].set_note("on critical structure")
+        self._kpi_cards["critical_activities"].set_trend(
+            f"{(data.critical_activity_count / data.activity_count * 100):.1f}% of graph"
+            if data.activity_count else "—"
+        )
         self._kpi_cards["review_state"].set_value("Complete", SUCCESS)
         self._kpi_cards["review_state"].set_note("graph validated")
+        self._kpi_cards["review_state"].set_trend("authoritative")
 
         self._health_status.setText("Authoritative")
         self._health_status.setStyleSheet(f"color: {SUCCESS};")
         self._health_checks.setText(
             "✓ Reviewed graph applied    ·    ✓ Validation passed    ·    "
             "✓ CPM result available    ·    ⚠ "
-            f"{path_count} critical routes require attention"
+            f"{path_count} critical routes to compare"
         )
         non_critical = max(0, data.activity_count - data.critical_activity_count)
         self._composition.setText(
@@ -323,6 +405,8 @@ class OverviewTab(QWidget):
             "Result authority: Authoritative\n\n"
             "Values shown in Results are read from the reviewed graph and backend analysis."
         )
+        self._confidence_bar.setValue(3)
+        self._confidence_caption.setText("Verified readiness checks: 3 / 3 passed")
         self._next_action.setText(
             f"There are {path_count} equal-duration critical route(s). "
             "Compare their branches, then inspect any activity in Network."
@@ -342,6 +426,40 @@ class OverviewTab(QWidget):
             if paths
             else "No critical paths available."
         )
+        self._more_paths.setText(
+            f"+ {max(0, len(paths) - 3)} more equal-duration paths · Open Critical Paths →"
+            if len(paths) > 3 else ""
+        )
+        for index, path in enumerate(paths[:3], start=1):
+            route = " → ".join(path[:3]) if len(path) > 3 else " → ".join(path)
+            if len(path) > 3:
+                route += " → … → " + path[-1]
+            row = QFrame()
+            row.setStyleSheet(
+                f"QFrame {{ border-top: 1px solid {BORDER}; padding: 6px 0; }}"
+            )
+            row_layout = QHBoxLayout(row)
+            row_layout.setContentsMargins(0, 5, 0, 5)
+            rank = QLabel(f"{index:02d}")
+            rank.setAlignment(Qt.AlignmentFlag.AlignCenter)
+            rank.setFixedSize(28, 28)
+            rank.setFont(QFont(*MUTED_FONT))
+            rank.setStyleSheet(
+                f"color: {WARNING}; background-color: {_rgba(WARNING, 35)};"
+                f" border-radius: {RADIUS_SM}px;"
+            )
+            row_layout.addWidget(rank)
+            info = QLabel(
+                f"{route}\n{len(path)} activities · zero float · representative route"
+            )
+            info.setFont(QFont(*MUTED_FONT))
+            info.setStyleSheet(f"color: {TEXT_SECONDARY};")
+            row_layout.addWidget(info, stretch=1)
+            duration = QLabel(format_duration(data.project_duration))
+            duration.setFont(QFont(*STATUS_FONT))
+            duration.setStyleSheet(f"color: {WARNING};")
+            row_layout.addWidget(duration)
+            self._path_rows.addWidget(row)
 
     def kpi_cards(self) -> dict[str, KpiCard]:
         return dict(self._kpi_cards)

@@ -334,6 +334,18 @@ def test_kpi_cards_populated(page: ResultsPage) -> None:
     assert cards["critical_paths"].value() == "1"
 
 
+def test_overview_snapshot_and_results_scroll_contract(qapp: QApplication) -> None:
+    del qapp
+    page = ResultsPage()
+    page.refresh(make_session(reference_fixture_candidate()))
+    overview = page.overview()
+
+    assert overview._path_rows.count() == 3
+    assert overview._more_paths.text().startswith("+ 13 more")
+    assert overview._confidence_bar.value() == 3
+    assert page._stack.widget(page._DASHBOARD).__class__.__name__ == "QScrollArea"
+
+
 def test_activities_table_rows(page: ResultsPage) -> None:
     page.refresh(make_session(two_activity_candidate()))
     table = page.activities().table()
