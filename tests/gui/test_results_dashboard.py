@@ -14,7 +14,7 @@ from types import SimpleNamespace
 
 import pytest
 from PySide6.QtCore import Qt
-from PySide6.QtWidgets import QApplication
+from PySide6.QtWidgets import QApplication, QLabel
 
 from pert_analyzer.gui.main_window import MainWindow
 from pert_analyzer.gui.navigation import NavDestination
@@ -343,6 +343,10 @@ def test_overview_snapshot_and_results_scroll_contract(qapp: QApplication) -> No
     assert overview._path_rows.count() == 3
     assert overview._more_paths.text().startswith("+ 13 more")
     assert overview._confidence_bar.value() == 3
+    first_path_row = overview._path_rows.itemAt(0).widget()
+    first_path_text = " ".join(label.text() for label in first_path_row.findChildren(QLabel))
+    assert "A0" in first_path_text and "A21" in first_path_text
+    assert "…" not in first_path_text
     assert page._stack.widget(page._DASHBOARD).__class__.__name__ == "QScrollArea"
 
 
