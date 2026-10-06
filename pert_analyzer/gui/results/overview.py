@@ -30,6 +30,7 @@ from pert_analyzer.gui.themes.palette import (
     BORDER,
     DANGER,
     ELEVATED,
+    INFO,
     SUCCESS,
     SURFACE,
     SURFACE_LIGHT,
@@ -69,6 +70,7 @@ class KpiCard(QFrame):
         super().__init__(parent)
         self.setObjectName("overviewKpiCard")
         self.setMinimumWidth(0)
+        self.setMinimumHeight(118)
         self.setSizePolicy(QSizePolicy.Policy.Ignored, QSizePolicy.Policy.Preferred)
         self.setStyleSheet(
             f"QFrame#overviewKpiCard {{ background-color: {SURFACE};"
@@ -101,7 +103,7 @@ class KpiCard(QFrame):
         top.addWidget(self._title_label, stretch=1)
         layout.addLayout(top)
         self._value_label = QLabel("Unavailable")
-        self._value_label.setFont(QFont(*KPI_FONT))
+        self._value_label.setFont(QFont(KPI_FONT[0], 34, QFont.Weight.Bold))
         self._value_label.setStyleSheet(
             f"color: {accent}; border: none; background: transparent;"
         )
@@ -259,6 +261,14 @@ class OverviewTab(QWidget):
         self._health_status.setFont(QFont(*TITLE_FONT))
         self._health_status.setStyleSheet(f"color: {SUCCESS};")
         header.addWidget(self._health_status)
+        self._health_score = QLabel("100%")
+        self._health_score.setFont(QFont(KPI_FONT[0], 32, QFont.Weight.Bold))
+        self._health_score.setStyleSheet(f"color: {SUCCESS};")
+        header.addWidget(self._health_score)
+        self._health_score_caption = QLabel("All checks passed")
+        self._health_score_caption.setFont(QFont(*MUTED_FONT))
+        self._health_score_caption.setStyleSheet(f"color: {SUCCESS};")
+        header.addWidget(self._health_score_caption)
         header.addStretch()
         self._health_button = self._action_button("View validation")
         self._health_button.clicked.connect(self.open_validation_requested)
@@ -314,7 +324,10 @@ class OverviewTab(QWidget):
         self._composition = QLabel("")
         self._composition.setWordWrap(True)
         self._composition.setFont(QFont(*MUTED_FONT))
-        self._composition.setStyleSheet(f"color: {TEXT_SECONDARY};")
+        self._composition.setStyleSheet(
+            f"color: {TEXT_SECONDARY}; background-color: {SURFACE_LIGHT};"
+            f" border-radius: {RADIUS_SM}px; padding: 10px;"
+        )
         layout.addWidget(self._composition)
         button_row = QHBoxLayout()
         button_row.addStretch()
@@ -330,7 +343,10 @@ class OverviewTab(QWidget):
         self._confidence = QLabel("")
         self._confidence.setWordWrap(True)
         self._confidence.setFont(QFont(*MUTED_FONT))
-        self._confidence.setStyleSheet(f"color: {TEXT_SECONDARY};")
+        self._confidence.setStyleSheet(
+            f"color: {TEXT_SECONDARY}; background-color: {SURFACE_LIGHT};"
+            f" border-radius: {RADIUS_SM}px; padding: 10px;"
+        )
         layout.addWidget(self._confidence)
         self._confidence_bar = QProgressBar()
         self._confidence_bar.setRange(0, 3)
@@ -350,7 +366,10 @@ class OverviewTab(QWidget):
         self._next_action = QLabel("")
         self._next_action.setWordWrap(True)
         self._next_action.setFont(QFont(*MUTED_FONT))
-        self._next_action.setStyleSheet(f"color: {TEXT_SECONDARY};")
+        self._next_action.setStyleSheet(
+            f"color: {TEXT_SECONDARY}; background-color: {_rgba(WARNING, 24)};"
+            f" border-left: 3px solid {WARNING}; border-radius: {RADIUS_SM}px; padding: 10px;"
+        )
         layout.addWidget(self._next_action)
         button = self._action_button("Go to Critical Paths")
         button.clicked.connect(self.open_paths_requested)
@@ -365,10 +384,10 @@ class OverviewTab(QWidget):
         self._kpi_cards["duration"].set_value(format_duration(data.project_duration), ACCENT)
         self._kpi_cards["duration"].set_note("days · CPM verified")
         self._kpi_cards["duration"].set_trend("● verified")
-        self._kpi_cards["activities"].set_value(str(data.activity_count), TEXT)
+        self._kpi_cards["activities"].set_value(str(data.activity_count), ACCENT)
         self._kpi_cards["activities"].set_note("reviewed activities")
         self._kpi_cards["activities"].set_trend("100% reviewed")
-        self._kpi_cards["dependencies"].set_value(str(data.dependency_count), TEXT)
+        self._kpi_cards["dependencies"].set_value(str(data.dependency_count), INFO)
         self._kpi_cards["dependencies"].set_note("unique relationships")
         self._kpi_cards["dependencies"].set_trend("graph linked")
         self._kpi_cards["critical_paths"].set_value(str(path_count), WARNING)
@@ -389,21 +408,25 @@ class OverviewTab(QWidget):
         self._health_status.setText("Authoritative")
         self._health_status.setStyleSheet(f"color: {SUCCESS};")
         self._health_checks.setText(
-            "✓ Reviewed graph applied    ·    ✓ Validation passed    ·    "
-            "✓ CPM result available    ·    ⚠ "
-            f"{path_count} critical routes to compare"
+            "<b>✓ Reviewed graph applied</b>&nbsp;&nbsp;&nbsp;"
+            "<b>✓ Validation passed</b><br>"
+            "<b>✓ CPM result available</b>&nbsp;&nbsp;&nbsp;"
+            f"<font color='{WARNING}'>⚠ {path_count} critical routes to compare</font>"
         )
         non_critical = max(0, data.activity_count - data.critical_activity_count)
         self._composition.setText(
-            f"{data.activity_count} reviewed activities · {data.dependency_count} "
-            f"unique dependencies · {data.critical_activity_count} activities on "
-            f"critical structure · {non_critical} non-critical activities."
+            f"<b>{data.activity_count} reviewed activities</b><br>"
+            "<b>unique dependencies</b>&nbsp;&nbsp;&nbsp;"
+            f"<font color='{TEXT}'><b>{data.dependency_count}</b></font><br>"
+            "<b>activities with zero float</b>&nbsp;&nbsp;&nbsp;"
+            f"<font color='{WARNING}'><b>{data.critical_activity_count}</b></font><br>"
+            "<b>non-critical activities</b>&nbsp;&nbsp;&nbsp;"
+            f"<font color='{TEXT}'><b>{non_critical}</b></font>"
         )
         self._confidence.setText(
-            "Calculation source: Backend CPM\n"
-            "Graph state: Valid\n"
-            "Result authority: Authoritative\n\n"
-            "Values shown in Results are read from the reviewed graph and backend analysis."
+            "<b>Calculation source</b>&nbsp;&nbsp; Backend CPM<br>"
+            f"<b>Graph state</b>&nbsp;&nbsp; <font color='{SUCCESS}'>Valid</font><br>"
+            f"<b>Result authority</b>&nbsp;&nbsp; <font color='{SUCCESS}'>Authoritative</font>"
         )
         self._confidence_bar.setValue(3)
         self._confidence_caption.setText("Verified readiness checks: 3 / 3 passed")
@@ -431,9 +454,7 @@ class OverviewTab(QWidget):
             if len(paths) > 3 else ""
         )
         for index, path in enumerate(paths[:3], start=1):
-            route = " → ".join(path[:3]) if len(path) > 3 else " → ".join(path)
-            if len(path) > 3:
-                route += " → … → " + path[-1]
+            route = " → ".join(path)
             row = QFrame()
             row.setStyleSheet(
                 f"QFrame {{ border-top: 1px solid {BORDER}; padding: 6px 0; }}"
@@ -452,6 +473,7 @@ class OverviewTab(QWidget):
             info = QLabel(
                 f"{route}\n{len(path)} activities · zero float · representative route"
             )
+            info.setWordWrap(True)
             info.setFont(QFont(*MUTED_FONT))
             info.setStyleSheet(f"color: {TEXT_SECONDARY};")
             row_layout.addWidget(info, stretch=1)
