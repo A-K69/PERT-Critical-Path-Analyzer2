@@ -112,6 +112,8 @@ class ResultsPage(QWidget):
         self._session: Any = None
         self._busy: bool = False
         self._data: Any = None
+        self._refreshing_navigation: bool = False
+        self._syncing_navigation: bool = False
 
         root = QVBoxLayout(self)
         root.setContentsMargins(18, 16, 12, 8)
@@ -475,7 +477,11 @@ class ResultsPage(QWidget):
         if not ready:
             self._show_not_ready(reason)
             return
-        self._show_dashboard(session)
+        self._refreshing_navigation = True
+        try:
+            self._show_dashboard(session)
+        finally:
+            self._refreshing_navigation = False
 
     @staticmethod
     def _entry_mode(session: Any) -> str:
@@ -929,13 +935,23 @@ class ResultsPage(QWidget):
 
     def _on_path_selected(self, path_ids: list[str]) -> None:
         self._network.highlight_path(list(path_ids))
+        if not self._refreshing_navigation and not self._syncing_navigation:
+            self._tabs.setCurrentWidget(self._network)
 
     def _on_activity_selected(self, activity_id: str) -> None:
         self._network.set_selected_activity(activity_id)
+        if not self._refreshing_navigation and not self._syncing_navigation:
+            self._tabs.setCurrentWidget(self._network)
 
     def _on_network_node_selected(self, activity_id: str) -> None:
-        self._tabs.setCurrentWidget(self._activities)
-        self._activities.select_activity(activity_id)
+        if self._refreshing_navigation or self._syncing_navigation:
+            return
+        self._syncing_navigation = True
+        try:
+            self._tabs.setCurrentWidget(self._activities)
+            self._activities.select_activity(activity_id)
+        finally:
+            self._syncing_navigation = False
 
     # ------------------------------------------------------------------
     # State helpers
