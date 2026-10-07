@@ -9,6 +9,7 @@ signals, empty state, and rendering to an offscreen image.
 from __future__ import annotations
 
 import pytest
+from PySide6.QtCore import QRectF
 from PySide6.QtGui import QColor, QImage, QPainter
 from PySide6.QtWidgets import QApplication
 
@@ -249,6 +250,59 @@ def test_network_inspector_updates_on_selection(tab: NetworkTab) -> None:
     assert tab._inspector_id.text() == "A1"
     assert "A1" in tab._inspector_name.text()
     assert "Successors" in tab._inspector_relations.text()
+
+
+def test_network_hover_preview_shows_values_and_stays_inside_tab(tab: NetworkTab) -> None:
+    tab.resize(900, 700)
+    tab.show()
+    sized(tab).set_data(sample_data())
+    QApplication.processEvents()
+
+    tab._on_node_hovered("A1", True)
+    QApplication.processEvents()
+
+    geometry = tab._hover_card.geometry()
+    assert tab._hover_card.isVisible()
+    assert "Early Start" in tab._hover_card.text()
+    assert "Late Finish" in tab._hover_card.text()
+    assert geometry.left() >= 0
+    assert geometry.top() >= 0
+    assert geometry.right() < tab.width()
+    assert geometry.bottom() < tab.height()
+
+
+def test_network_hover_ignores_stale_leave_and_click_pins_inspector(tab: NetworkTab) -> None:
+    tab.resize(900, 700)
+    tab.show()
+    sized(tab).set_data(sample_data())
+    QApplication.processEvents()
+
+    tab._on_node_hovered("A1", True)
+    tab._on_node_hovered("A2", True)
+    tab._on_node_hovered("A1", False)
+    assert tab._hovered_id == "A2"
+    assert tab._hover_card.isVisible()
+
+    tab._on_node_clicked("A2")
+    assert tab._hover_card.isVisible() is False
+    assert tab.selected_activity == "A2"
+    assert tab._inspector_id.text() == "A2"
+
+
+def test_network_hover_preview_clamps_extreme_node_position(tab: NetworkTab) -> None:
+    tab.resize(900, 700)
+    tab.show()
+    sized(tab).set_data(sample_data())
+    QApplication.processEvents()
+
+    tab._hover_card.setText("Boundary preview")
+    tab._hover_card.adjustSize()
+    tab._position_hover_card(QRectF(100000, -100000, 132, 68))
+    geometry = tab._hover_card.geometry()
+    assert geometry.left() >= 0
+    assert geometry.top() >= 0
+    assert geometry.right() < tab.width()
+    assert geometry.bottom() < tab.height()
 
 
 def test_network_selection_unknown_id_is_safe(tab: NetworkTab) -> None:

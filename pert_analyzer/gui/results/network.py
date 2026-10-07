@@ -11,7 +11,7 @@ from __future__ import annotations
 import math
 from typing import Any, Dict, List, Optional, Tuple
 
-from PySide6.QtCore import QPoint, QPointF, QRectF, Qt, Signal
+from PySide6.QtCore import QPointF, QRectF, Qt, Signal
 from PySide6.QtGui import (
     QBrush,
     QColor,
@@ -299,6 +299,7 @@ class NetworkTab(QWidget):
         self._pert_rows: Dict[str, Any] = {}
         self._pert_paths: List[List[str]] = []
         self._activity_details: Dict[str, Dict[str, Any]] = {}
+        self._hovered_id: Optional[str] = None
 
         root = QVBoxLayout(self)
         root.setContentsMargins(0, 0, 0, 0)
@@ -553,6 +554,7 @@ class NetworkTab(QWidget):
         self._current_path = []
         self._selected_id = None
         self._activity_details.clear()
+        self._hovered_id = None
         self._hover_card.hide()
         self._scene.clear()
         self._view.resetTransform()
@@ -582,31 +584,56 @@ class NetworkTab(QWidget):
 
     def _on_node_clicked(self, activity_id: str) -> None:
         self.set_selected_activity(activity_id)
+        self._hovered_id = None
         self._hover_card.hide()
         self._update_inspector(activity_id)
         self.node_selected.emit(activity_id)
 
     def _on_node_hovered(self, activity_id: str, entered: bool) -> None:
         if not entered:
-            self._hover_card.hide()
+            if self._hovered_id == activity_id:
+                self._hovered_id = None
+                self._hover_card.hide()
             return
         item = self._node_items.get(activity_id)
         details = self._activity_details.get(activity_id, {})
         if item is None:
             return
+        self._hovered_id = activity_id
         self._hover_card.setText(
             f"<b style='color:#45e0d0'>HOVER PREVIEW · {activity_id}</b><br>"
-            f"Early Start: <b>{_display(details.get('early_start'))}</b> · "
+            f"Early Start: <b>{_display(details.get('early_start'))}</b><br>"
             f"Early Finish: <b>{_display(details.get('early_finish'))}</b><br>"
-            f"Late Start: <b>{_display(details.get('late_start'))}</b> · "
+            f"Late Start: <b>{_display(details.get('late_start'))}</b><br>"
             f"Late Finish: <b>{_display(details.get('late_finish'))}</b><br>"
             f"Float: <b style='color:#f4ba48'>{_display(item.total_float)}</b> · "
             f"{'Critical' if item.is_critical else 'Non-critical'}"
         )
-        point = self._view.mapFromScene(item.sceneBoundingRect().topLeft())
-        self._hover_card.move(self._view.pos() + point + QPoint(8, -self._hover_card.sizeHint().height() - 8))
         self._hover_card.adjustSize()
+        self._position_hover_card(item.sceneBoundingRect())
         self._hover_card.show()
+
+    def _position_hover_card(self, node_rect: QRectF) -> None:
+        """Place the preview beside a node while keeping it inside the tab."""
+        scene_top_left = self._view.mapFromScene(node_rect.topLeft())
+        scene_bottom_right = self._view.mapFromScene(node_rect.bottomRight())
+        top_left = self._view.mapTo(self, scene_top_left)
+        bottom_right = self._view.mapTo(self, scene_bottom_right)
+        card_size = self._hover_card.sizeHint()
+        margin = 10
+        offset = 8
+        bounds = self.rect().adjusted(margin, margin, -margin, -margin)
+
+        x = bottom_right.x() + offset
+        y = top_left.y() - card_size.height() - offset
+        if y < bounds.top():
+            y = bottom_right.y() + offset
+        if x + card_size.width() > bounds.right():
+            x = top_left.x() - card_size.width() - offset
+
+        x = max(bounds.left(), min(x, bounds.right() - card_size.width() + 1))
+        y = max(bounds.top(), min(y, bounds.bottom() - card_size.height() + 1))
+        self._hover_card.move(x, y)
 
     def _update_inspector(self, activity_id: str) -> None:
         item = self._node_items.get(activity_id)
