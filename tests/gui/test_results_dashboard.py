@@ -387,6 +387,7 @@ def test_critical_paths_list(page: ResultsPage) -> None:
 def test_activity_selection_highlights_network_node(page: ResultsPage) -> None:
     page.refresh(make_session(two_activity_candidate()))
     page.activities().select_activity("A1")
+    assert page.tabs().currentWidget() is page.network()
     assert page.network().selected_activity == "A1"
     assert page.network().node_items()["A1"]._selected
 
@@ -403,9 +404,25 @@ def test_path_selection_highlights_network(page: ResultsPage) -> None:
     path_list = page.critical_paths().path_list()
     path_list._list.setCurrentRow(-1)
     path_list.select_path(0)
+    assert page.tabs().currentWidget() is page.network()
     assert page.network().current_path() == ["A0", "A1"]
     assert page.network().node_items()["A0"]._path_highlight
     assert page.network().node_items()["A1"]._path_highlight
+
+
+def test_results_refresh_does_not_hijack_active_tab(page: ResultsPage) -> None:
+    page.refresh(make_session(two_activity_candidate()))
+    page.tabs().setCurrentWidget(page.critical_paths())
+    page.refresh(make_session(two_activity_candidate()))
+    assert page.tabs().currentWidget() is page.critical_paths()
+
+
+def test_network_click_syncs_activity_without_bouncing_back(page: ResultsPage) -> None:
+    page.refresh(make_session(two_activity_candidate()))
+    page.network().node_items()["A0"].clicked.emit("A0")
+    assert page.tabs().currentWidget() is page.activities()
+    assert page.activities().selected_activity_id() == "A0"
+    assert page.network().selected_activity == "A0"
 
 
 # ---------------------------------------------------------------------------

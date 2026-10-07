@@ -23,12 +23,14 @@ from PySide6.QtGui import (
 )
 from PySide6.QtWidgets import (
     QComboBox,
+    QFrame,
     QGraphicsItem,
     QGraphicsObject,
     QGraphicsScene,
     QGraphicsView,
     QHBoxLayout,
     QLabel,
+    QGridLayout,
     QPushButton,
     QVBoxLayout,
     QWidget,
@@ -51,6 +53,7 @@ class ActivityNodeItem(QGraphicsObject):
     """A rendered activity node (Activity ID, Duration, Float)."""
 
     clicked = Signal(str)
+    hovered = Signal(str, bool)
 
     def __init__(
         self,
@@ -61,6 +64,7 @@ class ActivityNodeItem(QGraphicsObject):
         rect: Tuple[float, float, float, float],
         name: str = "",
         metric_label: str = "Duration",
+        details: Optional[Dict[str, Any]] = None,
         parent: Any = None,
     ):
         super().__init__(parent)
@@ -70,6 +74,7 @@ class ActivityNodeItem(QGraphicsObject):
         self.is_critical = bool(is_critical)
         self.name = name
         self.metric_label = metric_label
+        self.details = details or {}
         self._rect = QRectF(*rect)
         self._path_highlight = False
         self._selected = False
@@ -79,10 +84,17 @@ class ActivityNodeItem(QGraphicsObject):
         )
         self.setAcceptHoverEvents(True)
         self.setZValue(10)
-        self.setToolTip(
-            f"{activity_id} - {name}\n"
-            f"{metric_label}: {self._display(duration)}\n"
-            f"Float: {self._display(total_float)}"
+        self.setToolTip(self._tooltip_text())
+
+    def _tooltip_text(self) -> str:
+        return (
+            f"{self.activity_id} - {self.name}\n"
+            f"{self.metric_label}: {self._display(self.duration)}\n"
+            f"Float: {self._display(self.total_float)}\n"
+            f"Early: {self._display(self.details.get('early_start'))} → "
+            f"{self._display(self.details.get('early_finish'))}\n"
+            f"Late: {self._display(self.details.get('late_start'))} → "
+            f"{self._display(self.details.get('late_finish'))}"
         )
 
     @staticmethod
@@ -111,6 +123,14 @@ class ActivityNodeItem(QGraphicsObject):
     def mousePressEvent(self, event) -> None:  # noqa: N802
         self.clicked.emit(self.activity_id)
         super().mousePressEvent(event)
+
+    def hoverEnterEvent(self, event) -> None:  # noqa: N802
+        self.hovered.emit(self.activity_id, True)
+        super().hoverEnterEvent(event)
+
+    def hoverLeaveEvent(self, event) -> None:  # noqa: N802
+        self.hovered.emit(self.activity_id, False)
+        super().hoverLeaveEvent(event)
 
     def paint(self, painter: QPainter, option, widget=None) -> None:  # noqa: N802
         del option, widget
@@ -219,7 +239,12 @@ class DependencyEdgeItem(QGraphicsObject):
         painter.setPen(pen)
         x1, y1 = self._start
         x2, y2 = self._end
-        painter.drawLine(x1, y1, x2, y2)
+        mid_x = x1 + (x2 - x1) * 0.5
+        path = QPainterPath(QPointF(x1, y1))
+        path.lineTo(mid_x, y1)
+        path.lineTo(mid_x, y2)
+        path.lineTo(x2, y2)
+        painter.drawPath(path)
         _draw_arrowhead(painter, x1, y1, x2, y2, color)
 
 
@@ -273,6 +298,8 @@ class NetworkTab(QWidget):
         self._metric_mode: str = "CPM"
         self._pert_rows: Dict[str, Any] = {}
         self._pert_paths: List[List[str]] = []
+        self._activity_details: Dict[str, Dict[str, Any]] = {}
+        self._hovered_id: Optional[str] = None
 
         root = QVBoxLayout(self)
         root.setContentsMargins(0, 0, 0, 0)
@@ -324,7 +351,51 @@ class NetworkTab(QWidget):
         )
         self._view.setResizeAnchor(QGraphicsView.ViewportAnchor.AnchorViewCenter)
         self._view.setBackgroundBrush(_color("canvas"))
-        root.addWidget(self._view, stretch=1)
+
+        content = QHBoxLayout()
+        content.setSpacing(10)
+        content.addWidget(self._view, stretch=1)
+
+        self._inspector = QFrame()
+        self._inspector.setObjectName("networkInspector")
+        self._inspector.setMinimumWidth(250)
+        self._inspector.setMaximumWidth(320)
+        inspector_layout = QVBoxLayout(self._inspector)
+        inspector_layout.setContentsMargins(14, 14, 14, 14)
+        inspector_layout.setSpacing(8)
+        self._inspector_title = QLabel("SELECTED ACTIVITY")
+        self._inspector_title.setStyleSheet("color: #45e0d0; font-weight: 700; letter-spacing: 1px;")
+        inspector_layout.addWidget(self._inspector_title)
+        self._inspector_id = QLabel("—")
+        self._inspector_id.setStyleSheet("color: #f4ba48; font-size: 26px; font-weight: 800;")
+        inspector_layout.addWidget(self._inspector_id)
+        self._inspector_name = QLabel("Select a node to inspect its CPM values.")
+        self._inspector_name.setWordWrap(True)
+        self._inspector_name.setStyleSheet("color: #91a5bc;")
+        inspector_layout.addWidget(self._inspector_name)
+        self._inspector_grid = QGridLayout()
+        self._inspector_grid.setSpacing(6)
+        inspector_layout.addLayout(self._inspector_grid)
+        self._inspector_relations = QLabel("")
+        self._inspector_relations.setWordWrap(True)
+        self._inspector_relations.setStyleSheet("color: #c7d8e8;")
+        inspector_layout.addWidget(self._inspector_relations)
+        self._inspector_hint = QLabel("Hover a node for a quick preview. Click to pin its details and highlight its neighbors.")
+        self._inspector_hint.setWordWrap(True)
+        self._inspector_hint.setStyleSheet("color: #91a5bc; background: #192c32; border-left: 3px solid #45e0d0; padding: 8px;")
+        inspector_layout.addWidget(self._inspector_hint)
+        inspector_layout.addStretch()
+        self._inspector.setStyleSheet("QFrame#networkInspector { background: #111c2b; border: 1px solid #304862; border-radius: 10px; }")
+        content.addWidget(self._inspector)
+        root.addLayout(content, stretch=1)
+
+        self._hover_card = QLabel(self)
+        self._hover_card.setObjectName("networkHoverCard")
+        self._hover_card.setWordWrap(True)
+        self._hover_card.setFixedWidth(220)
+        self._hover_card.setStyleSheet("QLabel#networkHoverCard { background: #153044; color: #eef5ff; border: 1px solid #45e0d0; border-radius: 9px; padding: 9px; }")
+        self._hover_card.setAttribute(Qt.WidgetAttribute.WA_TransparentForMouseEvents)
+        self._hover_card.hide()
 
     # ------------------------------------------------------------------
     # Data
@@ -393,9 +464,14 @@ class NetworkTab(QWidget):
         cpm_analyses = getattr(
             getattr(data, "cpm", None), "activity_analyses", None
         ) or {}
-        positions = network_layout.build_layout(
+        positions = network_layout.build_layered_layout(
             ids, getattr(graphics, "dependencies", None) or []
         )
+
+        rows = {
+            getattr(row, "activity_id", ""): row
+            for row in getattr(data, "activities", None) or []
+        }
 
         critical_edges = self._critical_edges_for()
         use_pert = (
@@ -414,6 +490,17 @@ class NetworkTab(QWidget):
                 total_float = _safe_num(getattr(analysis, "total_float", None))
                 is_critical = bool(getattr(analysis, "is_critical", False))
                 metric_label = "Duration"
+            row = rows.get(aid)
+            details = {
+                "early_start": _safe_num(getattr(row, "early_start", None)),
+                "early_finish": _safe_num(getattr(row, "early_finish", None)),
+                "late_start": _safe_num(getattr(row, "late_start", None)),
+                "late_finish": _safe_num(getattr(row, "late_finish", None)),
+                "free_float": _safe_num(getattr(row, "free_float", None)),
+                "predecessors": tuple(getattr(row, "predecessors", ()) or ()),
+                "successors": tuple(getattr(row, "successors", ()) or ()),
+            }
+            self._activity_details[aid] = details
             item = ActivityNodeItem(
                 activity_id=aid,
                 duration=duration,
@@ -422,8 +509,10 @@ class NetworkTab(QWidget):
                 rect=(x, y, w, h),
                 name=getattr(calls.get(aid), "name", "") or "",
                 metric_label=metric_label,
+                details=details,
             )
             item.clicked.connect(self._on_node_clicked)
+            item.hovered.connect(self._on_node_hovered)
             self._scene.addItem(item)
             self._node_items[aid] = item
 
@@ -448,7 +537,7 @@ class NetworkTab(QWidget):
         self._scene.setSceneRect(
             self._scene.itemsBoundingRect().adjusted(-40, -40, 60, 60)
         )
-        self.fit_to_view()
+        self._set_initial_view()
 
     def _critical_edges_for(self) -> set:
         if self._metric_mode == "PERT" and self._pert_paths:
@@ -464,6 +553,9 @@ class NetworkTab(QWidget):
         self._edge_items.clear()
         self._current_path = []
         self._selected_id = None
+        self._activity_details.clear()
+        self._hovered_id = None
+        self._hover_card.hide()
         self._scene.clear()
         self._view.resetTransform()
 
@@ -492,7 +584,88 @@ class NetworkTab(QWidget):
 
     def _on_node_clicked(self, activity_id: str) -> None:
         self.set_selected_activity(activity_id)
+        self._hovered_id = None
+        self._hover_card.hide()
+        self._update_inspector(activity_id)
         self.node_selected.emit(activity_id)
+
+    def _on_node_hovered(self, activity_id: str, entered: bool) -> None:
+        if not entered:
+            if self._hovered_id == activity_id:
+                self._hovered_id = None
+                self._hover_card.hide()
+            return
+        item = self._node_items.get(activity_id)
+        details = self._activity_details.get(activity_id, {})
+        if item is None:
+            return
+        self._hovered_id = activity_id
+        self._hover_card.setText(
+            f"<b style='color:#45e0d0'>HOVER PREVIEW · {activity_id}</b><br>"
+            f"Early Start: <b>{_display(details.get('early_start'))}</b><br>"
+            f"Early Finish: <b>{_display(details.get('early_finish'))}</b><br>"
+            f"Late Start: <b>{_display(details.get('late_start'))}</b><br>"
+            f"Late Finish: <b>{_display(details.get('late_finish'))}</b><br>"
+            f"Float: <b style='color:#f4ba48'>{_display(item.total_float)}</b> · "
+            f"{'Critical' if item.is_critical else 'Non-critical'}"
+        )
+        self._hover_card.adjustSize()
+        self._position_hover_card(item.sceneBoundingRect())
+        self._hover_card.show()
+
+    def _position_hover_card(self, node_rect: QRectF) -> None:
+        """Place the preview beside a node while keeping it inside the tab."""
+        scene_top_left = self._view.mapFromScene(node_rect.topLeft())
+        scene_bottom_right = self._view.mapFromScene(node_rect.bottomRight())
+        top_left = self._view.mapTo(self, scene_top_left)
+        bottom_right = self._view.mapTo(self, scene_bottom_right)
+        card_size = self._hover_card.sizeHint()
+        margin = 10
+        offset = 8
+        bounds = self.rect().adjusted(margin, margin, -margin, -margin)
+
+        x = bottom_right.x() + offset
+        y = top_left.y() - card_size.height() - offset
+        if y < bounds.top():
+            y = bottom_right.y() + offset
+        if x + card_size.width() > bounds.right():
+            x = top_left.x() - card_size.width() - offset
+
+        x = max(bounds.left(), min(x, bounds.right() - card_size.width() + 1))
+        y = max(bounds.top(), min(y, bounds.bottom() - card_size.height() + 1))
+        self._hover_card.move(x, y)
+
+    def _update_inspector(self, activity_id: str) -> None:
+        item = self._node_items.get(activity_id)
+        if item is None:
+            return
+        details = self._activity_details.get(activity_id, {})
+        self._inspector_id.setText(activity_id)
+        self._inspector_name.setText(item.name or "Unnamed activity")
+        while self._inspector_grid.count():
+            child = self._inspector_grid.takeAt(0)
+            if child.widget() is not None:
+                child.widget().deleteLater()
+        metrics = [
+            ("Duration", _display(item.duration)),
+            ("Total float", _display(item.total_float)),
+            ("Early start", _display(details.get("early_start"))),
+            ("Early finish", _display(details.get("early_finish"))),
+            ("Late start", _display(details.get("late_start"))),
+            ("Late finish", _display(details.get("late_finish"))),
+        ]
+        for index, (label, value) in enumerate(metrics):
+            cell = QLabel(f"<small>{label.upper()}</small><br><b>{value}</b>")
+            cell.setStyleSheet("background:#172940; border-radius:5px; padding:6px; color:#eef5ff;")
+            self._inspector_grid.addWidget(cell, index // 2, index % 2)
+        predecessors = ", ".join(details.get("predecessors", ())) or "Start node"
+        successors = ", ".join(details.get("successors", ())) or "End node"
+        critical = "Critical · zero float" if item.is_critical else "Non-critical"
+        self._inspector_relations.setText(
+            f"<b>Predecessors</b>: {predecessors}<br>"
+            f"<b>Successors</b>: {successors}<br>"
+            f"<b>State</b>: {critical}"
+        )
 
     def set_selected_activity(self, activity_id: Optional[str]) -> None:
         if self._selected_id is not None:
@@ -579,6 +752,21 @@ class NetworkTab(QWidget):
             Qt.AspectRatioMode.KeepAspectRatio,
         )
 
+    def _set_initial_view(self) -> None:
+        """Center a readable first frame without hiding a long DAG in miniatures.
+
+        A full ``fitInView`` is intentionally kept on the toolbar, but a large
+        project can span many logical levels and would otherwise render every
+        node at an unreadable scale on first open. The initial frame keeps a
+        0.55x minimum while retaining normal pan/zoom behavior.
+        """
+        bounds = self._scene.itemsBoundingRect()
+        if bounds.isNull():
+            return
+        self._view.resetTransform()
+        self._view.centerOn(bounds.center())
+        self._view.scale(0.55, 0.55)
+
     def reset_zoom(self) -> None:
         self._view.resetTransform()
         center = self._scene.sceneRect().center()
@@ -596,3 +784,13 @@ def _safe_num(value: Any) -> Optional[float]:
         return float(value)
     except (TypeError, ValueError):
         return None
+
+
+def _display(value: Any) -> str:
+    """Format optional backend values without inventing missing data."""
+    if value is None:
+        return "Unavailable"
+    try:
+        return f"{float(value):g} days"
+    except (TypeError, ValueError):
+        return str(value)
