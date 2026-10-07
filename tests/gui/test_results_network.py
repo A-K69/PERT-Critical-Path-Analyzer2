@@ -12,7 +12,12 @@ import pytest
 from PySide6.QtGui import QColor, QImage, QPainter
 from PySide6.QtWidgets import QApplication
 
-from pert_analyzer.gui.results.layout import NODE_HEIGHT, NODE_WIDTH, build_layout
+from pert_analyzer.gui.results.layout import (
+    NODE_HEIGHT,
+    NODE_WIDTH,
+    build_layered_layout,
+    build_layout,
+)
 from pert_analyzer.gui.results.network import (
     MAX_ZOOM,
     MIN_ZOOM,
@@ -108,6 +113,17 @@ def test_build_layout_disconnected_nodes_appended() -> None:
 def test_build_layout_tolerates_bad_deps() -> None:
     positions = build_layout(["A0", "A1"], [None, ("A0", "MISSING"), 42])
     assert set(positions) == {"A0", "A1"}
+
+
+def test_build_layered_layout_fans_out_siblings() -> None:
+    positions = build_layered_layout(
+        ["A0", "A1", "A2", "A3"],
+        [("A0", "A1"), ("A0", "A2"), ("A1", "A3"), ("A2", "A3")],
+    )
+    assert positions["A0"][0] < positions["A1"][0]
+    assert positions["A1"][0] == positions["A2"][0]
+    assert positions["A1"][1] != positions["A2"][1]
+    assert positions["A1"][1] < positions["A3"][1]
 
 
 # ---------------------------------------------------------------------------
@@ -224,6 +240,15 @@ def test_network_set_selected_activity(tab: NetworkTab) -> None:
     assert tab.selected_activity == "A2"
     assert tab.node_items()["A2"]._selected
     assert tab.node_items()["A0"]._selected is False
+
+
+def test_network_inspector_updates_on_selection(tab: NetworkTab) -> None:
+    sized(tab).set_data(sample_data())
+    tab.set_selected_activity("A1")
+    tab._update_inspector("A1")
+    assert tab._inspector_id.text() == "A1"
+    assert "A1" in tab._inspector_name.text()
+    assert "Successors" in tab._inspector_relations.text()
 
 
 def test_network_selection_unknown_id_is_safe(tab: NetworkTab) -> None:
